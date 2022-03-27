@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/PaginaCalendarAdmin.css">
+    <link rel="stylesheet" href="./css/PaginaCalendar.css">
     <script src="https://kit.fontawesome.com/9ab9988c3d.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png" />
     <title>CyMaT</title>
@@ -33,27 +33,56 @@
             </li>
 
             <li>
-                <a class="header_button" href="./PaginaFilesPatient.html">
-                    <span class="header_icon"> <i class="fas fa-check-square"></i> </span>
-                    <span class="header_text">Raspunsuri</span>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-plus"></i> </span>
+                    <span class="header_text">Adauga</span>
                 </a>
-            </li>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                            <span class="header_icon"> <i class="fas fa-comments"></i></i> </span>
+                            <span class="header_text">Raspuns</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-screwdriver"></i> </span>
+                            <span class="header_text">Reparatie</span>
+                        </a>
+                    </li>
+                
+                </ul>
 
+            </li>
 
             <li>
-                <a class="header_button" href="./PaginaChatPatientV2.html">
-                    <span class="header_icon"> <i class="fas fa-comments"></i> </span>
-                    <span class="header_text">Stoc</span>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-cubes"></i> </span>
+                    <span class="header_text">Administrare</span>
                 </a>
-            </li>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                            <span class="header_icon"> <i class="fas fa-cubes"></i></i> </span>
+                            <span class="header_text">Stoc</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-dolly"></i> </span>
+                            <span class="header_text">Comanda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-download"></i> </span>
+                            <span class="header_text">Date</span>
+                        </a>
+                    </li>
+                
+                </ul>
 
-            <li>
-                <a class="header_button" href="./PaginaChatPatientV2.html">
-                    <span class="header_icon"> <i class="fas fa-comments"></i> </span>
-                    <span class="header_text">Comenzi</span>
-                </a>
             </li>
-
             <li>
                 <a class="header_button">
                     <span class="header_icon"> <i class="fas fa-user"></i> </span>
@@ -382,11 +411,11 @@
                 <button type="button" class="schedule__calendar__right_month_btn" id="month_rightBtn">&#9658;</button>
             </div>
 
-            <!-- <div class="schedul__btn">
-                <button type="submit" class="schedul__btn__btn1">Book</button>
-                <button type="submit" class="schedul__btn__btn2">Cancel</button>
-                <button type="submit" class="schedul__btn__btn3">Move</button>
-            </div> -->
+            <div class="schedul__btn">
+                <button type="submit" class="schedul__btn__btn1">Raspuns</button>
+                <button type="submit" class="schedul__btn__btn2">Terminat</button>
+                <!-- <button type="submit" class="schedul__btn__btn3">Move</button> -->
+            </div>
             <script src="./js/calendar.js"></script>
         </div>
     </main>
