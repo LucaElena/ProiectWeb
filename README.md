@@ -8,7 +8,10 @@ Creați un sistem online de management al programărilor și stocurilor unui ope
 
 Done till now:
 
--Pagina calendar generala html/css/javascript -> trebuie adaptat specific pe client si admin
+-Pagina calendar generala pentru client si admin cu html/css/javascript complet. Mai trebuie retusata si legata la sfarsit de celelalte pagini. 
 
 -SQL baza de date si populat un pic tabelele pentru partea a doua
+
+To do:
+...
 
