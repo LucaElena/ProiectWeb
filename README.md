@@ -12,7 +12,7 @@ Done till now:
 
 -SQL baza de date si populat un pic tabelele pentru partea a doua
 
-To do:
+To do pentru partea 1:
 
 -Pagina acasa client/admin
 
