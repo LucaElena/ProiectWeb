@@ -34,3 +34,6 @@ To do pentru partea 1:
 
 -Legat paginile intre ele-> terminat partea 1
 
+To do pentru partea 2:
+
+-functionalitate in php si javascrip + baza de date terminata in sql.
