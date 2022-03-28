@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/PaginaCalendar.css">
+    <script src="https://kit.fontawesome.com/9ab9988c3d.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png" />
+    <title>CyMaT</title>
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li>
+                <a class="logo" href="./PaginaGeneralaPatientV2.html">
+
+                    <span class="header_icon_logo"> <i class="fas fa-motorcycle"></i> </span>
+                    <img class="logo" src="./images/favicon.png" alt="CyMaT">
+                    <!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
+                        <span class="header_text">Logo</span> -->
+                </a>
+            </li>
+
+
+            <li>
+                <a class="header_button" href="./PaginaSchedulePatientV2.html">
+                    <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
+                    <span class="header_text">Program</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="header_button" href="./PaginaFilesPatient.html">
+                    <span class="header_icon"> <i class="fas fa-check-square"></i> </span>
+                    <span class="header_text">Formular</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a class="header_button" href="./PaginaChatPatientV2.html">
+                    <span class="header_icon"> <i class="fas fa-comments"></i> </span>
+                    <span class="header_text">Istoric</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-user"></i> </span>
+                    <span class="header_text">User</span>
+                </a>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                            <span class="header_icon"> <i class="fas fa-key"></i> </span>
+                            <span class="header_text">Reset password</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-sign-out-alt"></i> </span>
+                            <span class="header_text">Log out</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+
+        </ul>
+    </header>
+
+
+
+    <main>
+
+        <div class="formular_programare">
+            <!-- TO DO:  -->
+            <div class="formular_programare__data">
+                <a class="formular_programare__data__mesaj">Ora programarii</a>
+                    <input type="datetime-local" id="formular_programare__data__valoare"
+                            class="formular_programare__data__valoare" value="2022-05-18T09:00">
+            </div>
+
+            <div class="formular_programare__status">
+                 <!-- Editare problema->In astepare raspuns->Programata*/ -->
+                <a class="formular_programare__status__mesaj">In asteptare</a>
+            </div>
+
+            <div class="formular_programare__mesaj_client">
+                <input type="new-message" class="formular_programare__mesaj_client__txt" placeholder="Descrieti problema motocicletei dumneavoastra" required>
+                <input type="file" accept="video" class="formular_programare__mesaj_client__video" placeholder="Incarcati un video cu problema">
+            </div>
+
+            <div class="formular_programare__mesaj_administator">
+                <input type="new-message" class="formular_programare__mesaj_client__txt" placeholder="Descrieti problema motocicletei dumneavoastra" required>
+                <input type="file" accept="video" class="formular_programare__mesaj_client__video" placeholder="Incarcati un video cu problema">
+            </div>
+
+        </div>
+    </main>
+
+
+
+    <footer>
+        <p>Cycling Maintenance Web Tool</p>
+    </footer>
+
+
+</body>
+
+</html>
