@@ -1,12 +1,12 @@
 # ProiectWeb
 
-CyMaT (Cycling Maintenance Web Tool)
+**CyMaT (Cycling Maintenance Web Tool)**
 
-Cerinta :
+**Cerinta :**
 
 Creați un sistem online de management al programărilor și stocurilor unui operatii de service de motociclete, biciclete, trotinete (electrice sau nu). Fiecare client va consulta calendarul service-ului, iar apoi va completa un formular cu data și ora dorită, plus detalii despre problemă, putând adăuga inclusiv fișiere multimedia (imagini și filme). Administratorul afacerii va putea respinge programarea adăugând un mesaj explicativ: "Ne pare rău, dar nu avem în stoc piesele necesare pentru reparație, reveniți în S săptămâni" sau o va putea aproba, oferind și un preț estimativ, plus alte detalii de interes. De asemenea, aplicația îi va permite acestuia să țină evidența stocurilor existente, cât și a comenzilor date către furnizori. Sistemul va putea importa date în format CSV și JSON. Pentru exportul datelor, se va recurge la oricare dintre formatele CSV, JSON, PDF. Bonus: simularea activitatii service-ului pe o perioada de timp: luni/ani.
 
-Done till now:
+**Done till now:**
 
 -Pagina calendar generala pentru client si admin cu html/css/javascript complet. Mai trebuie retusata si legata la sfarsit de celelalte pagini. 
 
@@ -18,7 +18,7 @@ To do pentru partea 1:
 
 -Pagina de login/signup/reset pass user(acesleasi pt client/admin)
 
--Pagina de formular client(cu mesaj txt/video pentru admin , buton de editare/stergere/trimite) + loc pentru raspuns admin(text cu accept + pret/ fara acept + info )
+-**Pagina de formular client(cu mesaj txt/video pentru admin , buton de editare/stergere/trimite) + loc pentru raspuns admin(text cu accept + pret/ fara acept + info ) Inceputa Elena**
 
 -Pagina istoric reparatii client(un tabel cu link-uri catre toate formularele clientului curent)
 
@@ -34,6 +34,6 @@ To do pentru partea 1:
 
 -Legat paginile intre ele-> terminat partea 1
 
-To do pentru partea 2:
+**To do pentru partea 2:**
 
 -functionalitate in php si javascrip + baza de date terminata in sql.
