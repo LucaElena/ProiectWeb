@@ -32,7 +32,11 @@ Creați un sistem online de management al programărilor și stocurilor unui ope
 
 -Pagina admin export diferite date ca CSV, JSON sau PDF(niste selectori + butoane de export)
 
--Legat paginile intre ele-> terminat partea 1
+-Testat paginile daca sunt responsive
+
+-Legat paginile intre ele
+
+-Testat paginile daca sunt corecte
 
 **TO DO tasks pentru partea 2:**
 
