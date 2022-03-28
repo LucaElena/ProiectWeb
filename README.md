@@ -20,15 +20,15 @@ Trello : https://trello.com/b/1l9q8Kse/project
 
 -Pagina de login/signup/reset pass user(acesleasi pt client/admin)
 
--**Pagina de formular client(cu mesaj txt/video pentru admin , buton de editare/stergere/trimite) + loc pentru raspuns admin(text cu accept + pret/ fara acept + info ) Inceputa Elena**
+-**Pagina de formular client(cu mesaj txt/video pentru admin , buton de editare/stergere/trimite) + loc pentru raspuns admin(text cu accept + pret/ fara acept + info ) etc Inceputa Elena**
 
 -Pagina istoric reparatii client(un tabel cu link-uri catre toate formularele clientului curent)
 
--Pagina de formular admin(vede mesaj txt/video de la client) +vloc de editare un raspuns, 1-2 selector de adauga/stergere piese necesare reparatie intr-un tabel si mesaj + buton de editare/stergere/trimite raspuns formular). Va bloca piesele ca programate.
+**-Pagina de formular admin(vede mesaj txt/video de la client) + loc de editare un raspuns, 1-2 selector de adauga/stergere piese necesare reparatie intr-un tabel si mesaj + buton de editare/stergere/trimite raspuns formular) etc. Va bloca piesele ca programate. Inceputa Elena**
 
--Pagina admin de terminare a unei reparatii(efectiv tot un view de formular + raspuns si editare piese utilizate) . Va muta piesele programate in utilizate.
+**-Pagina admin de terminare a unei reparatii(efectiv tot un view de formular + raspuns si editare piese utilizate) . Va muta piesele programate in utilizate. Inceputa Elena**
 
--Pagina admin de administrare stoc(un tabel cu toate piesele din stoc pe mai multe pagini(cate 10/25/50 ...) + buton de adauga/sterge un numar de piese curente + selectori de filtrare deasupra tabelului(drop))
+-Pagina admin de administrare stoc(un tabel cu toate piesele din stoc pe mai multe pagini(cate 10/25/50 ...) + buton de adauga/sterge un numar de piese curente + selectori de filtrare deasupra tabelului(drop)) 
 
 -Pagina admin de administrare comenzi(un tabel cu toate comenzile curente + buton de primire comanda + selector de piese pentru a comnda un numar de piese)
 
