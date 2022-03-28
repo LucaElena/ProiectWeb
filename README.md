@@ -12,7 +12,7 @@ Creați un sistem online de management al programărilor și stocurilor unui ope
 
 -SQL baza de date si populat un pic tabelele pentru partea a doua
 
-**To do pentru partea 1:**
+**TO DO tasks pentru partea 1:**
 
 -Pagina acasa client/admin
 
@@ -34,6 +34,6 @@ Creați un sistem online de management al programărilor și stocurilor unui ope
 
 -Legat paginile intre ele-> terminat partea 1
 
-**To do pentru partea 2:**
+**TO DO tasks pentru partea 2:**
 
 -functionalitate in php si javascrip + baza de date terminata in sql.
