@@ -77,28 +77,140 @@
     <main>
 
         <div class="formular_programare">
-            <!-- TO DO:  -->
+            <!-- TO DO: css-->
+
+            <div class="formular_programare__status">
+                <!-- Editare problema->In astepare raspuns->Programata*/ -->
+                <a class="formular_programare__status__text">Status formular:</a>
+               <a class="formular_programare__status__valoare">In asteptare</a>
+           </div>
+
             <div class="formular_programare__data">
                 <a class="formular_programare__data__mesaj">Ora programarii</a>
                     <input type="datetime-local" id="formular_programare__data__valoare"
                             class="formular_programare__data__valoare" value="2022-05-18T09:00">
             </div>
 
-            <div class="formular_programare__status">
-                 <!-- Editare problema->In astepare raspuns->Programata*/ -->
-                <a class="formular_programare__status__mesaj">In asteptare</a>
-            </div>
+            
 
             <div class="formular_programare__mesaj_client">
                 <input type="new-message" class="formular_programare__mesaj_client__txt" placeholder="Descrieti problema motocicletei dumneavoastra" required>
                 <input type="file" accept="video" class="formular_programare__mesaj_client__video" placeholder="Incarcati un video cu problema">
             </div>
 
-            <div class="formular_programare__mesaj_administator">
-                <input type="new-message" class="formular_programare__mesaj_client__txt" placeholder="Descrieti problema motocicletei dumneavoastra" required>
-                <input type="file" accept="video" class="formular_programare__mesaj_client__video" placeholder="Incarcati un video cu problema">
+            <div class="formular_programare__mesaj_admin">
+                <input type="new-message" class="formular_programare__mesaj_admin__txt" placeholder="Scrieti raspuns pentru client" required>
             </div>
-
+            <div class="formular_programare__piese_necesare"></div>
+                <select class=" formular_programare__piese_necesare__brand">
+                    <option value="Default"> Brand</option>
+                    <option value="APRILIA">APRILIA</option>
+                    <option value="BETA">BETA</option>
+                    <option value="BMW">BMW</option>
+                    <option value="GENERAL">GENERAL</option>
+                    <option value="HONDA">HONDA</option>
+                    <option value="HUSABERG">HUSABERG</option>
+                    <option value="HUSQVARNA">HUSQVARNA</option>
+                    <option value="KAWASAKI">KAWASAKI</option>
+                    <option value="SUZUKI">SUZUKI</option>
+                    <option value="YAMAHA">YAMAHA</option>
+                </select>
+                <select class=" formular_programare__piese_necesare__cateorie">
+                    <option value="Default"> Categorie</option>
+                    <option value="Electrice">Electrice</option>
+                    <option value="Evacuari">Evacuari</option>
+                    <option value="Filtre">Filtre</option>
+                    <option value="Frane">Frane</option>
+                    <option value="Huse Moto">Huse Moto</option>
+                    <option value="KTM Power Parts">KTM Power Parts</option>
+                    <option value="Manete si Comenzi">Manete si Comenzi</option>
+                    <option value="Plastice si Aptibilduri">Plastice si Aptibilduri</option>
+                    <option value="Protectii si Scuturi">Protectii si Scuturi</option>
+                    <option value="Radiatoare">Radiatoare</option>
+                    <option value="Suspensii Moto">Suspensii Moto</option>
+                    <option value="Transmisie">Transmisie</option>
+                    <option value="Uleiuri si Lubrifianti">Uleiuri si Lubrifianti</option> 
+                </select>
+                <select class=" formular_programare__piese_necesare__piesa">
+                    <option value="Default"> Piessa</option>
+                    <option value="Acumulator">Acumulator</option>
+                    <option value="Anvelopa Fata">Anvelopa Fata</option>
+                    <option value="Anvelopa Spate">Anvelopa Spate</option>
+                    <option value="Becuri">Becuri</option>
+                    <option value="Bujii">Bujii</option>
+                    <option value="Cablu antifurt">Cablu antifurt</option>
+                    <option value="Claxon 12V Negru">Claxon 12V Negru</option>
+                    <option value="Discuri Frana">Discuri Frana</option>
+                    <option value="Evacuare moto">Evacuare moto</option>
+                    <option value="Filtru Benzina">Filtru Benzina</option>
+                    <option value="Filtru de aer">Filtru de aer</option>
+                    <option value="Filtru ulei">Filtru ulei</option>
+                    <option value="Garnitura">Garnitura</option>
+                    <option value="Ghidoan">Ghidoan</option>
+                    <option value="Husa">Husa</option>
+                    <option value="Kit Lant Moto">Kit Lant Moto</option>
+                    <option value="Kit piston">Kit piston</option>
+                    <option value="Kit Reparatie Bascula">Kit Reparatie Bascula</option>
+                    <option value="Kit Reparatie Bucsa">Kit Reparatie Bucsa</option>
+                    <option value="Kit Reparatie Frana">Kit Reparatie Frana</option>
+                    <option value="Kit Upgrade Frana">Kit Upgrade Frana</option>
+                    <option value="KTM Sistem Racire">KTM Sistem Racire</option>
+                    <option value="Maneta Ambreiaj">Maneta Ambreiaj</option>
+                    <option value="Maneta Frana">Maneta Frana</option>
+                    <option value="Protectie schimbator viteze">Protectie schimbator viteze</option>
+                    <option value="Rulmenti de Jug">Rulmenti de Jug</option>
+                    <option value="Supapa">Supapa</option>
+                </select>
+                    <input class=" formular_programare__piese_necesare__cantitate" type="number" id="formular_programare__piese_necesare__cantitate" name="cantitate" min="1" max="10">
+            </div>
+            <div class="formular_programare__piese_selectate">
+                <table>
+                    <tr>
+                        <th>No</th>
+                        <th>Brand</th>
+                        <th>Cateorie</th>
+                        <th>Nume</th>
+                        <th>Cantitate</th>
+                        <th>Pret(RON)</th>
+                        <th>Sterge</th>
+                    <tr>
+                        <td>1</td>
+                        <td>HONDA</td>
+                        <td>Electrice</td>
+                        <td>Acumulator</td>
+                        <td>1</td>
+                        <td>250</td>
+                        <td><i class="fas fa-trash-alt"></i></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>HONDA</td>
+                        <td>Electrice</td>
+                        <td>Becuri</td>
+                        <td>1</td>
+                        <td>50</td>
+                        <td><i class="fas fa-trash-alt"></i></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>HONDA</td>
+                        <td>Frane</td>
+                        <td>Kit Reparatie Frana</td>
+                        <td>1</td>
+                        <td>250</td>
+                        <td><i class="fas fa-trash-alt"></i></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>HONDA</td>
+                        <td>Electrice</td>
+                        <td>Bujii</td>
+                        <td>2</td>
+                        <td>100</td>
+                        <td><i class="fas fa-trash-alt"></i></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </main>
 
