@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/PaginaCalendar.css">
+    <link rel="stylesheet" href="./css/PaginaFormularTest.css">
     <script src="https://kit.fontawesome.com/9ab9988c3d.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png" />
     <title>CyMaT</title>
@@ -82,26 +82,29 @@
             <div class="formular_programare__status">
                 <!-- Editare problema->In astepare raspuns->Programata*/ -->
                 <a class="formular_programare__status__text">Status formular:</a>
-               <a class="formular_programare__status__valoare">In asteptare</a>
+                <a class="formular_programare__status__valoare">In asteptare</a>
            </div>
 
             <div class="formular_programare__data">
                 <a class="formular_programare__data__mesaj">Ora programarii</a>
-                    <input type="datetime-local" id="formular_programare__data__valoare"
-                            class="formular_programare__data__valoare" value="2022-05-18T09:00">
+                <input type="datetime-local" id="formular_programare__data__valoare" value="2022-05-18T09:00">
             </div>
 
             
 
             <div class="formular_programare__mesaj_client">
                 <input type="new-message" class="formular_programare__mesaj_client__txt" placeholder="Descrieti problema motocicletei dumneavoastra" required>
+                <button type=button" class="formular_programare__mesaj_client__send_button"> <i class="fas fa-paper-plane"></i> </button>
                 <input type="file" accept="video" class="formular_programare__mesaj_client__video" placeholder="Incarcati un video cu problema">
+               
             </div>
 
             <div class="formular_programare__mesaj_admin">
+                <button type=button" class="formular_programare__mesaj_admin__send_button"> <i class="fas fa-paper-plane"></i> </button>
                 <input type="new-message" class="formular_programare__mesaj_admin__txt" placeholder="Scrieti raspuns pentru client" required>
             </div>
-            <div class="formular_programare__piese_necesare"></div>
+            
+            <div class="formular_programare__piese_necesare">
                 <select class=" formular_programare__piese_necesare__brand">
                     <option value="Default"> Brand</option>
                     <option value="APRILIA">APRILIA</option>
@@ -163,64 +166,60 @@
                 </select>
                 <input class=" formular_programare__piese_necesare__cantitate" type="number" id="formular_programare__piese_necesare__cantitate" name="cantitate" value=1 min="1" max="10">
                 
-                <a class="formular_programare__data__mesaj"><i class="fas fa-plus"></i>Add</a>
-            </div>
-            <div class="formular_programare__piese_selectate">
-                <table>
-                    <tr>
-                        <th>No</th>
-                        <th>Brand</th>
-                        <th>Cateorie</th>
-                        <th>Nume</th>
-                        <th>Cantitate</th>
-                        <th>Pret(RON)</th>
-                        <th>Sterge</th>
-                    <tr>
-                        <td>1</td>
-                        <td>HONDA</td>
-                        <td>Electrice</td>
-                        <td>Acumulator</td>
-                        <td>1</td>
-                        <td>250</td>
-                        <td><i class="fas fa-trash-alt"></i></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>HONDA</td>
-                        <td>Electrice</td>
-                        <td>Becuri</td>
-                        <td>1</td>
-                        <td>50</td>
-                        <td><i class="fas fa-trash-alt"></i></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>HONDA</td>
-                        <td>Frane</td>
-                        <td>Kit Reparatie Frana</td>
-                        <td>1</td>
-                        <td>250</td>
-                        <td><i class="fas fa-trash-alt"></i></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>HONDA</td>
-                        <td>Electrice</td>
-                        <td>Bujii</td>
-                        <td>2</td>
-                        <td>100</td>
-                        <td><i class="fas fa-trash-alt"></i></td>
-                    </tr>
-                </table>
+                <a class="formular_programare__piese_necesare__adauga"><i class="fas fa-plus"></i>Add</a>
+            
+                <div class="formular_programare__piese_selectate">
+                    <table>
+                        <tr>
+                            <th>No</th>
+                            <th>Brand</th>
+                            <th>Cateorie</th>
+                            <th>Nume</th>
+                            <th>Cantitate</th>
+                            <th>Pret(RON)</th>
+                            <th>Sterge</th>
+                        <tr>
+                            <td>1</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Acumulator</td>
+                            <td>1</td>
+                            <td>250</td>
+                            <td><i class="fas fa-trash-alt"></i></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Becuri</td>
+                            <td>1</td>
+                            <td>50</td>
+                            <td><i class="fas fa-trash-alt"></i></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>HONDA</td>
+                            <td>Frane</td>
+                            <td>Kit Reparatie Frana</td>
+                            <td>1</td>
+                            <td>250</td>
+                            <td><i class="fas fa-trash-alt"></i></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Bujii</td>
+                            <td>2</td>
+                            <td>100</td>
+                            <td><i class="fas fa-trash-alt"></i></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </main>
 
-
-
-    <footer>
-        <p>Cycling Maintenance Web Tool</p>
-    </footer>
 
 
 </body>
