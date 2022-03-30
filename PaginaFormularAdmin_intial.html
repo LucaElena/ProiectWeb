@@ -33,20 +33,56 @@
             </li>
 
             <li>
-                <a class="header_button" href="./PaginaFilesPatient.html">
-                    <span class="header_icon"> <i class="fas fa-check-square"></i> </span>
-                    <span class="header_text">Formular</span>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-plus"></i> </span>
+                    <span class="header_text">Adauga</span>
                 </a>
-            </li>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                            <span class="header_icon"> <i class="fas fa-comments"></i></i> </span>
+                            <span class="header_text">Raspuns</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-screwdriver"></i> </span>
+                            <span class="header_text">Reparatie</span>
+                        </a>
+                    </li>
+                
+                </ul>
 
+            </li>
 
             <li>
-                <a class="header_button" href="./PaginaChatPatientV2.html">
-                    <span class="header_icon"> <i class="fas fa-comments"></i> </span>
-                    <span class="header_text">Istoric</span>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-cubes"></i> </span>
+                    <span class="header_text">Administrare</span>
                 </a>
-            </li>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                            <span class="header_icon"> <i class="fas fa-cubes"></i></i> </span>
+                            <span class="header_text">Stoc</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-dolly"></i> </span>
+                            <span class="header_text">Comanda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-download"></i> </span>
+                            <span class="header_text">Date</span>
+                        </a>
+                    </li>
+                
+                </ul>
 
+            </li>
             <li>
                 <a class="header_button">
                     <span class="header_icon"> <i class="fas fa-user"></i> </span>
@@ -77,12 +113,12 @@
     <main>
 
         <div class="formular_programare">
-            <!-- TO DO: css-->
+
 
             <div class="formular_programare__status">
                 <!-- Editare problema->In astepare raspuns->Programata*/ -->
                 <a class="formular_programare__status__text">Status formular:</a>
-                <a class="formular_programare__status__valoare">Descrieti problema dumneavoastra</a>
+                <a class="formular_programare__status__valoare">Cerere primita</a>
            </div>
 
             <div class="formular_programare__data">
@@ -91,19 +127,22 @@
                 <!-- <a class="formular_programare__data__valoare">2022-05-20 09:00</a> -->
             </div>
 
-            
-
             <div class="formular_programare__mesaj_client">
                 <!-- <input type="new-message" class="formular_programare__mesaj_client__txt" placeholder="Descrieti problema motocicletei dumneavoastra " required> -->
  
                 <textarea name="new-messag-client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3">Mesaj client cu descrierea problemei</textarea>
-                <input type="file" accept="video" class="formular_programare__mesaj_client__video" placeholder="Incarcati un video cu problema">
-                <button type=button" class="formular_programare__mesaj_client__send_button"> <i class="fas fa-paper-plane"></i> </button>
+                <!-- <input type="file" accept="video" class="formular_programare__mesaj_client__video" placeholder="Incarcati un video cu problema"> -->
+                <video class="formular_programare__mesaj_client__video" controls>
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                </video>
+                  
+                <!-- <button type=button" class="formular_programare__mesaj_client__send_button"> <i class="fas fa-paper-plane"></i> </button> -->
                 
                
             </div>
 
-            <!-- <div class="formular_programare__mesaj_admin">
+            <div class="formular_programare__mesaj_admin">
                 <button type=button" class="formular_programare__mesaj_admin__send_button"> <i class="fas fa-paper-plane"></i> </button>
                 <textarea name="new-messag-admin" class="formular_programare__mesaj_admin__txt"  cols="10" rows="3">Scrieti raspuns pentru client</textarea>
             </div>
@@ -228,8 +267,13 @@
                             <td></td>
                         </tr>
                     </table>
-                </div> -->
+                </div>
             </div>
+
+            <div class="formular_programare__acceptat_respins">
+                <button type=button" class="formular_programare__acceptat_respins__accepta_button">Accepta</button>
+                <button type=button" class="formular_programare__acceptat_respins__respinge_button">Respinge</button>
+           </div>
         </div>
     </main>
 

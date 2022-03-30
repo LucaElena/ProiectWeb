@@ -67,7 +67,7 @@ header ul li a {
 
 header ul li a:hover {
     opacity: 0.8;
-    color: rgb(20, 54, 28);
+    /* color: rgb(20, 54, 28); */
     color: #a8dadc;
     transition: .5s ease;
     transform: scale(1.2);

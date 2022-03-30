@@ -236,7 +236,8 @@ footer {
     text-align: center;
     float: left;
 }
-.formular_programare__piese_necesare .formular_programare__piese_necesare__adauga{
+.formular_programare__piese_necesare .formular_programare__piese_necesare__adauga
+{
     width: 10%;
     background-color: #E63946;
     border-radius: 5px;
@@ -289,9 +290,42 @@ footer {
     background-color: #F1FAEE;
 }
 
+.formular_programare__acceptat_respins 
+{
+    grid-column-start: 1;
+    grid-column-end: 8;
+}
+.formular_programare__acceptat_respins__accepta_button
+{
+    background-color: #caffbf;
+}
+.formular_programare__acceptat_respins__respinge_button
+{
+    background-color: #E63946;
+}
+
+.formular_programare__acceptat_respins .formular_programare__acceptat_respins__accepta_button,
+.formular_programare__acceptat_respins .formular_programare__acceptat_respins__respinge_button 
+{
+    width: 10%;
+    border-radius: 5px;
+    transition: .3s ease;
+    font-family: Arial;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.5em;
+}
 
 
-
+.formular_programare__acceptat_respins .formular_programare__acceptat_respins__accepta_button:hover,
+.formular_programare__acceptat_respins .formular_programare__acceptat_respins__respinge_button:hover{
+    opacity: 0.8;
+    color: #a8dadc;
+    transition: .5s ease;
+    transform: scale(1.1);
+    
+}
 
 
 
@@ -335,6 +369,11 @@ footer {
         margin: 0em;
     }
     .formular_programare__piese_necesare table
+    {
+        padding: 0em;
+    }
+    .formular_programare__acceptat_respins .formular_programare__acceptat_respins__accepta_button,
+    .formular_programare__acceptat_respins .formular_programare__acceptat_respins__respinge_button 
     {
         padding: 0em;
     }
