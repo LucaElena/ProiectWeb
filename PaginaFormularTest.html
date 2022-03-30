@@ -93,15 +93,19 @@
             
 
             <div class="formular_programare__mesaj_client">
-                <input type="new-message" class="formular_programare__mesaj_client__txt" placeholder="Descrieti problema motocicletei dumneavoastra" required>
-                <button type=button" class="formular_programare__mesaj_client__send_button"> <i class="fas fa-paper-plane"></i> </button>
+                <!-- <input type="new-message" class="formular_programare__mesaj_client__txt" placeholder="Descrieti problema motocicletei dumneavoastra " required> -->
+ 
+                <textarea name="new-messag-client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3">Mesaj client cu descrierea problemei</textarea>
                 <input type="file" accept="video" class="formular_programare__mesaj_client__video" placeholder="Incarcati un video cu problema">
+                <button type=button" class="formular_programare__mesaj_client__send_button"> <i class="fas fa-paper-plane"></i> </button>
+                
                
             </div>
 
             <div class="formular_programare__mesaj_admin">
                 <button type=button" class="formular_programare__mesaj_admin__send_button"> <i class="fas fa-paper-plane"></i> </button>
-                <input type="new-message" class="formular_programare__mesaj_admin__txt" placeholder="Scrieti raspuns pentru client" required>
+                <!-- <input type="new-message" class="formular_programare__mesaj_admin__txt" placeholder="Scrieti raspuns pentru client" required> -->
+                <textarea name="new-messag-admin" class="formular_programare__mesaj_admin__txt"  cols="10" rows="3">Scrieti raspuns pentru client</textarea>
             </div>
             
             <div class="formular_programare__piese_necesare">
@@ -135,7 +139,7 @@
                     <option value="Uleiuri si Lubrifianti">Uleiuri si Lubrifianti</option> 
                 </select>
                 <select class=" formular_programare__piese_necesare__piesa">
-                    <option value="Default"> Piessa</option>
+                    <option value="Default"> Piesa</option>
                     <option value="Acumulator">Acumulator</option>
                     <option value="Anvelopa Fata">Anvelopa Fata</option>
                     <option value="Anvelopa Spate">Anvelopa Spate</option>
@@ -213,6 +217,15 @@
                             <td>2</td>
                             <td>100</td>
                             <td><i class="fas fa-trash-alt"></i></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Total:</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>650</td>
+                            <td></td>
                         </tr>
                     </table>
                 </div>
