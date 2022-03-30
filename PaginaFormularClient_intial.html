@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/PaginaFormularTest.css">
+    <script src="https://kit.fontawesome.com/9ab9988c3d.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png" />
+    <title>CyMaT</title>
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li>
+                <a class="logo" href="./PaginaGeneralaPatientV2.html">
+
+                    <span class="header_icon_logo"> <i class="fas fa-motorcycle"></i> </span>
+                    <img class="logo" src="./images/favicon.png" alt="CyMaT">
+                    <!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
+                        <span class="header_text">Logo</span> -->
+                </a>
+            </li>
+
+
+            <li>
+                <a class="header_button" href="./PaginaSchedulePatientV2.html">
+                    <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
+                    <span class="header_text">Program</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="header_button" href="./PaginaFilesPatient.html">
+                    <span class="header_icon"> <i class="fas fa-check-square"></i> </span>
+                    <span class="header_text">Formular</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a class="header_button" href="./PaginaChatPatientV2.html">
+                    <span class="header_icon"> <i class="fas fa-comments"></i> </span>
+                    <span class="header_text">Istoric</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-user"></i> </span>
+                    <span class="header_text">User</span>
+                </a>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                            <span class="header_icon"> <i class="fas fa-key"></i> </span>
+                            <span class="header_text">Reset password</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-sign-out-alt"></i> </span>
+                            <span class="header_text">Log out</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+
+        </ul>
+    </header>
+
+
+
+    <main>
+
+        <div class="formular_programare">
+            <!-- TO DO: css-->
+
+            <div class="formular_programare__status">
+                <!-- Editare problema->In astepare raspuns->Programata*/ -->
+                <a class="formular_programare__status__text">Status formular:</a>
+                <a class="formular_programare__status__valoare">Descrieti problema dumneavoastra</a>
+           </div>
+
+            <div class="formular_programare__data">
+                <a class="formular_programare__data__mesaj">Ora programarii</a>
+                <!-- <input type="datetime-local" id="formular_programare__data__valoare" value="2022-05-18T09:00"> -->
+                <a class="formular_programare__data__valoare">2022-05-20 09:00</a>
+            </div>
+
+            
+
+            <div class="formular_programare__mesaj_client">
+                <!-- <input type="new-message" class="formular_programare__mesaj_client__txt" placeholder="Descrieti problema motocicletei dumneavoastra " required> -->
+ 
+                <textarea name="new-messag-client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3">Mesaj client cu descrierea problemei</textarea>
+                <input type="file" accept="video" class="formular_programare__mesaj_client__video" placeholder="Incarcati un video cu problema">
+                <button type=button" class="formular_programare__mesaj_client__send_button"> <i class="fas fa-paper-plane"></i> </button>
+                
+               
+            </div>
+
+            <!-- <div class="formular_programare__mesaj_admin">
+                <button type=button" class="formular_programare__mesaj_admin__send_button"> <i class="fas fa-paper-plane"></i> </button>
+                <textarea name="new-messag-admin" class="formular_programare__mesaj_admin__txt"  cols="10" rows="3">Scrieti raspuns pentru client</textarea>
+            </div>
+            
+            <div class="formular_programare__piese_necesare">
+                <select class=" formular_programare__piese_necesare__brand">
+                    <option value="Default"> Brand</option>
+                    <option value="APRILIA">APRILIA</option>
+                    <option value="BETA">BETA</option>
+                    <option value="BMW">BMW</option>
+                    <option value="GENERAL">GENERAL</option>
+                    <option value="HONDA">HONDA</option>
+                    <option value="HUSABERG">HUSABERG</option>
+                    <option value="HUSQVARNA">HUSQVARNA</option>
+                    <option value="KAWASAKI">KAWASAKI</option>
+                    <option value="SUZUKI">SUZUKI</option>
+                    <option value="YAMAHA">YAMAHA</option>
+                </select>
+                <select class=" formular_programare__piese_necesare__cateorie">
+                    <option value="Default"> Categorie</option>
+                    <option value="Electrice">Electrice</option>
+                    <option value="Evacuari">Evacuari</option>
+                    <option value="Filtre">Filtre</option>
+                    <option value="Frane">Frane</option>
+                    <option value="Huse Moto">Huse Moto</option>
+                    <option value="KTM Power Parts">KTM Power Parts</option>
+                    <option value="Manete si Comenzi">Manete si Comenzi</option>
+                    <option value="Plastice si Aptibilduri">Plastice si Aptibilduri</option>
+                    <option value="Protectii si Scuturi">Protectii si Scuturi</option>
+                    <option value="Radiatoare">Radiatoare</option>
+                    <option value="Suspensii Moto">Suspensii Moto</option>
+                    <option value="Transmisie">Transmisie</option>
+                    <option value="Uleiuri si Lubrifianti">Uleiuri si Lubrifianti</option> 
+                </select>
+                <select class=" formular_programare__piese_necesare__piesa">
+                    <option value="Default"> Piesa</option>
+                    <option value="Acumulator">Acumulator</option>
+                    <option value="Anvelopa Fata">Anvelopa Fata</option>
+                    <option value="Anvelopa Spate">Anvelopa Spate</option>
+                    <option value="Becuri">Becuri</option>
+                    <option value="Bujii">Bujii</option>
+                    <option value="Cablu antifurt">Cablu antifurt</option>
+                    <option value="Claxon 12V Negru">Claxon 12V Negru</option>
+                    <option value="Discuri Frana">Discuri Frana</option>
+                    <option value="Evacuare moto">Evacuare moto</option>
+                    <option value="Filtru Benzina">Filtru Benzina</option>
+                    <option value="Filtru de aer">Filtru de aer</option>
+                    <option value="Filtru ulei">Filtru ulei</option>
+                    <option value="Garnitura">Garnitura</option>
+                    <option value="Ghidoan">Ghidoan</option>
+                    <option value="Husa">Husa</option>
+                    <option value="Kit Lant Moto">Kit Lant Moto</option>
+                    <option value="Kit piston">Kit piston</option>
+                    <option value="Kit Reparatie Bascula">Kit Reparatie Bascula</option>
+                    <option value="Kit Reparatie Bucsa">Kit Reparatie Bucsa</option>
+                    <option value="Kit Reparatie Frana">Kit Reparatie Frana</option>
+                    <option value="Kit Upgrade Frana">Kit Upgrade Frana</option>
+                    <option value="KTM Sistem Racire">KTM Sistem Racire</option>
+                    <option value="Maneta Ambreiaj">Maneta Ambreiaj</option>
+                    <option value="Maneta Frana">Maneta Frana</option>
+                    <option value="Protectie schimbator viteze">Protectie schimbator viteze</option>
+                    <option value="Rulmenti de Jug">Rulmenti de Jug</option>
+                    <option value="Supapa">Supapa</option>
+                </select>
+                <input class=" formular_programare__piese_necesare__cantitate" type="number" id="formular_programare__piese_necesare__cantitate" name="cantitate" value=1 min="1" max="10">
+                
+                <a class="formular_programare__piese_necesare__adauga"><i class="fas fa-plus"></i>Add</a>
+            
+                <div class="formular_programare__piese_selectate">
+                    <table>
+                        <tr>
+                            <th>No</th>
+                            <th>Brand</th>
+                            <th>Cateorie</th>
+                            <th>Nume</th>
+                            <th>Cantitate</th>
+                            <th>Pret(RON)</th>
+                            <th>Sterge</th>
+                        <tr>
+                            <td>1</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Acumulator</td>
+                            <td>1</td>
+                            <td>250</td>
+                            <td><i class="fas fa-trash-alt"></i></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Becuri</td>
+                            <td>1</td>
+                            <td>50</td>
+                            <td><i class="fas fa-trash-alt"></i></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>HONDA</td>
+                            <td>Frane</td>
+                            <td>Kit Reparatie Frana</td>
+                            <td>1</td>
+                            <td>250</td>
+                            <td><i class="fas fa-trash-alt"></i></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Bujii</td>
+                            <td>2</td>
+                            <td>100</td>
+                            <td><i class="fas fa-trash-alt"></i></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Total:</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>650</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div> -->
+            </div>
+        </div>
+    </main>
+
+
+
+</body>
+
+</html>
