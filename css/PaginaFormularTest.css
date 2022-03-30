@@ -290,22 +290,26 @@ footer {
     background-color: #F1FAEE;
 }
 
-.formular_programare__acceptat_respins 
+.formular_programare__actiune 
 {
     grid-column-start: 1;
     grid-column-end: 8;
 }
-.formular_programare__acceptat_respins__accepta_button
+.formular_programare__actiune__accepta_button,
+.formular_programare__actiune__terminat_button
 {
     background-color: #caffbf;
 }
-.formular_programare__acceptat_respins__respinge_button
+.formular_programare__actiune__respinge_button,
+.formular_programare__actiune__sterge_button
 {
     background-color: #E63946;
 }
 
-.formular_programare__acceptat_respins .formular_programare__acceptat_respins__accepta_button,
-.formular_programare__acceptat_respins .formular_programare__acceptat_respins__respinge_button 
+.formular_programare__actiune .formular_programare__actiune__accepta_button,
+.formular_programare__actiune .formular_programare__actiune__respinge_button,
+.formular_programare__actiune .formular_programare__actiune__terminat_button,
+.formular_programare__actiune .formular_programare__actiune__sterge_button
 {
     width: 10%;
     border-radius: 5px;
@@ -318,8 +322,11 @@ footer {
 }
 
 
-.formular_programare__acceptat_respins .formular_programare__acceptat_respins__accepta_button:hover,
-.formular_programare__acceptat_respins .formular_programare__acceptat_respins__respinge_button:hover{
+.formular_programare__actiune .formular_programare__actiune__accepta_button:hover,
+.formular_programare__actiune .formular_programare__actiune__respinge_button:hover,
+.formular_programare__actiune .formular_programare__actiune__terminat_button:hover,
+.formular_programare__actiune .formular_programare__actiune__sterge_button:hover
+{
     opacity: 0.8;
     color: #a8dadc;
     transition: .5s ease;
@@ -372,8 +379,8 @@ footer {
     {
         padding: 0em;
     }
-    .formular_programare__acceptat_respins .formular_programare__acceptat_respins__accepta_button,
-    .formular_programare__acceptat_respins .formular_programare__acceptat_respins__respinge_button 
+    .formular_programare__actiune .formular_programare__actiune__accepta_button,
+    .formular_programare__actiune .formular_programare__actiune__respinge_button 
     {
         padding: 0em;
     }
