@@ -17,17 +17,17 @@ Culori : https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557
 
 -SQL baza de date si populat un pic tabelele pentru partea a doua
 
+-Pagina de formular client(cu mesaj txt/video pentru admin , buton de editare/stergere/trimite) + loc pentru raspuns admin(text cu accept + pret/ fara acept + info ) etc 
+
+-Pagina de formular admin(vede mesaj txt/video de la client) + loc de editare un raspuns, 1-2 selector de adauga/stergere piese necesare reparatie intr-un tabel si mesaj + buton de editare/stergere/trimite raspuns formular) etc. Va bloca piesele ca programate.
+
 **TO DO tasks pentru partea 1:**
 
 -Pagina acasa client/admin
 
 -Pagina de login/signup/reset pass user(acesleasi pt client/admin)
 
--**Pagina de formular client(cu mesaj txt/video pentru admin , buton de editare/stergere/trimite) + loc pentru raspuns admin(text cu accept + pret/ fara acept + info ) etc Inceputa Elena**
-
 -Pagina istoric reparatii client(un tabel cu link-uri catre toate formularele clientului curent)
-
-**-Pagina de formular admin(vede mesaj txt/video de la client) + loc de editare un raspuns, 1-2 selector de adauga/stergere piese necesare reparatie intr-un tabel si mesaj + buton de editare/stergere/trimite raspuns formular) etc. Va bloca piesele ca programate. Inceputa Elena**
 
 **-Pagina admin de terminare a unei reparatii(efectiv tot un view de formular + raspuns si editare piese utilizate) . Va muta piesele programate in utilizate. Inceputa Elena**
 
