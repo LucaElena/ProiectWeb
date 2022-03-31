@@ -23,13 +23,13 @@ Culori : https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557
 
 -Pagina admin de terminare a unei reparatii(efectiv tot un view de formular + raspuns si editare piese utilizate) . Va muta piesele programate in utilizate.  Mai trebuie retusata si legata la sfarsit de celelalte pagini.
 
+**-Pagina istoric reparatii client(un tabel cu link-uri catre toate formularele clientului curent) Elena**
+
 **TO DO tasks pentru partea 1:**
 
 -Pagina acasa client/admin
 
 -Pagina de login/signup/reset pass user(acesleasi pt client/admin)
-
-**-Pagina istoric reparatii client(un tabel cu link-uri catre toate formularele clientului curent) Elena**
 
 -Pagina admin de administrare stoc(un tabel cu toate piesele din stoc pe mai multe pagini(cate 10/25/50 ...) + buton de adauga/sterge un numar de piese curente + selectori de filtrare deasupra tabelului(drop)) 
 
