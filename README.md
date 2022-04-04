@@ -23,7 +23,7 @@ Culori : https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557
 
 -Pagina admin de terminare a unei reparatii(efectiv tot un view de formular + raspuns si editare piese utilizate) . Va muta piesele programate in utilizate.  Mai trebuie retusata si legata la sfarsit de celelalte pagini.
 
-**-Pagina istoric reparatii client(un tabel cu link-uri catre toate formularele clientului curent) Elena**
+-Pagina istoric reparatii client(un tabel cu link-uri catre toate formularele clientului curent) 
 
 **TO DO tasks pentru partea 1:**
 
@@ -35,7 +35,7 @@ Culori : https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557
 
 -Pagina admin de administrare comenzi(un tabel cu toate comenzile curente + buton de primire comanda + selector de piese pentru a comnda un numar de piese)
 
--Pagina admin export diferite date ca CSV, JSON sau PDF(niste selectori + butoane de export)
+**-Pagina admin export diferite date ca CSV, JSON sau PDF(niste selectori + butoane de export)Elena**
 
 -Testat paginile daca sunt responsive
 
