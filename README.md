@@ -1,4 +1,4 @@
-# ProiectWeb
+# ProiectWeb https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html
 
 **CyMaT (Cycling Maintenance Web Tool)**
 
@@ -41,7 +41,7 @@ Culori : https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557
 
 -Legat paginile intre ele
 
--Testat paginile daca sunt corecte
+-Testat paginile daca sunt corecte (https://validator.w3.org/ & https://jigsaw.w3.org/css-validator/)
 
 **TO DO tasks pentru partea 2:**
 
