@@ -93,7 +93,8 @@ footer {
     width: 100%;
     height: 50px;
 }
-.hover-value {
+.hover-value
+{
     /* visibility: collapse; */
     -webkit-transition: width 2s ease-in-out;
     transition: width 3s;
@@ -104,13 +105,13 @@ footer {
     font-size: small;
 }
 
-
-.istoric_programari
+.admin-date
 {
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
     column-gap: 1em;
-    row-gap: 1em;
+    row-gap: 1em; */
     background-color: #1d3557;
     padding: 1em;
     margin: 1em;
@@ -121,75 +122,78 @@ footer {
     transform: translate( 0%, 5%);
     opacity: 0.95;
     font-size: medium;
-}
-
-.istoric_programari .istoric_programari__lista__text
-{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
     color: #a8dadc;
-    padding: 1em;
-    text-align: left;
+}
+.admin-date__export
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.admin-date__import
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+/* .admin-date__import__txt a, */
+.admin-date__import__txt,
+.admin-date__export__txt
+{ 
+    margin-top: 1em;
 }
 
 
-.istoric_programari .istoric_programari__lista table
-{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+/* .admin-date__import__categorie , */
+.admin-date__import__categorie select,
+.admin-date__export__categorie select,
+.admin-date__import__format select,
+.admin-date__export__format select
+{ 
+    margin-top: 1em;
     padding: 1em;
+    border-radius: 5px;
+    width: 100%;
     background-color: #F1FAEE;
 }
 
-.istoric_programari .istoric_programari__lista td, th
+.admin-date__import__file
 { 
-    border: 1px solid #F1FAEE;
-    text-align: left;
-    padding: 0.5em;
-}
+    margin-top: 1em;
+    padding: 1em;
+    width: 100%;
+} 
 
-
-.istoric_programari .istoric_programari__lista tr:nth-child(even) 
-{
-    background-color: #a8dadc;
-}
-.istoric_programari__lista__actiune
-{
-    color: #E63946;
-    width: 10%;
+.admin-date__import__button button,
+.admin-date__export__button button
+{ 
+    width: 20%;
     border-radius: 5px;
     transition: .3s ease;
-    font-family: Arial;
     border: none;
     cursor: pointer;
     text-decoration: none;
-}
-.istoric_programari__lista__actiune:hover
-{
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #F1FAEE;
+} 
+
+.admin-date__import__button button:hover,
+.admin-date__export__button button:hover
+{ 
     opacity: 0.8;
-    color: #E63946;
+    color: #a8dadc;
     transition: .5s ease;
     transform: scale(1.1);
-}
+} 
 
 
 
-/* @media (min-width :1000px) {
 
-    
-    .header_text {
-        font-size: xx-large;
-    }
-    .istoric_programari {
-        font-size: xx-large;
-    }
-} */
+
 
 
 @media (max-width :600px) {
@@ -201,16 +205,23 @@ footer {
         top: 0.1em;
         font-size: x-small;
     }
-    .istoric_programari {
+    .admin-date {
         font-size: small;
-    }
-    .istoric_programari__lista table
-    {
         padding: 0.5em;
     }
-    .istoric_programari__lista td, th
+    .admin-date__import__txt,
+    .admin-date__export__txt,
+    .admin-date__import__categorie select,
+    .admin-date__export__categorie select,
+    .admin-date__import__format select,
+    .admin-date__export__format select,
+    .admin-date__import__button button,
+    .admin-date__export__button button,
+    .admin-date__import__file
+
     {
-        padding: 0em;
+        padding: 0.5em;
+        margin-top: 0.5em;
     }
 }
 
@@ -224,94 +235,22 @@ footer {
     .logo img {
         display: none;
     }
-
-    .istoric_programari__lista {
-        font-size: xx-small;
-        gap: 0em;
+    .admin-date {
+        font-size: x-small;
         padding: 0em;
-        margin: 0em;
     }
-    .istoric_programari__lista table
+    .admin-date__import__txt,
+    .admin-date__export__txt,
+    .admin-date__import__categorie select,
+    .admin-date__export__categorie select,
+    .admin-date__import__format select,
+    .admin-date__export__format select,
+    .admin-date__import__button button,
+    .admin-date__export__button button,
+    .admin-date__import__file
     {
         padding: 0em;
-    }
-    .istoric_programari__lista .istoric_programari__lista__text,
-    .istoric_programari__lista .istoric_programari__lista__text 
-    {
-        padding: 0em;
+        margin-top: 0em;
     }
     
-}
-
-/* 
-
-@media (max-height :600px) {
-    .formular_programaree__calendar__inside {
-        gap: 0em;
-        padding: 0em;
-    }
-    .formular_programaree__calendar__inside__hours_btn button[id$='_col7'],
-    button[id$='_col8'],
-    button[id$='_col9'],
-    button[id$='_col10'],
-    button[id$='_col11'],
-    button[id$='_col12'] {
-        display: none;
-    }
-
-    
-    .formular_programaree__calendar__inside__down_btn,
-    .formular_programaree__calendar__inside__up_btn {
-        display: block;
-    }
-    footer {
-        display: none;
-    }
-    .formular_programare {
-        font-size: x-small;
-    }
-    .formular_programaree__calendar__month {
-        font-size: x-small;
-    }
-    .hover-value {
-        top: 0em;
-        font-size: xx-small;
-    }
-    .formular_programaree__calendar__inside__head {
-        background-color: #457b9d ;
-        font-weight: bold;
-    }
-}
-
-@media (max-height: 400px) {
-    .formular_programaree__calendar {
-        letter-spacing: 0em;
-    }
-    .formular_programare {
-        column-gap: 0em;
-        row-gap: 0em;
-        padding: 0em;
-        margin: 0em;
-        border-radius: 0em;
-    }
-    .formular_programare__btn .formular_programare__btn__btn1,
-    .formular_programare__btn__btn2,
-    .formular_programare__btn__btn3 {
-        padding: 0em;
-        margin: 0em;
-        width: 25%;
-    }
-    .formular_programaree__calendar__inside__hours_btn {
-        padding: 0em;
-        margin: 0em;
-        font-size: xx-small;
-    }
-    .formular_programaree__calendar__inside__head {
-        padding: 0em;
-        font-size: x-small;
-        background-color: #457b9d ;
-    }
-    .formular_programaree__calendar__month {
-        font-size: x-small;
-    }
-} */
+} 

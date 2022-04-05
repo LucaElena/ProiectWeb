@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/PaginaExportDateAdmin.css">
+    <link rel="stylesheet" href="./css/PaginaExportImportDateAdmin.css">
     <script src="https://kit.fontawesome.com/9ab9988c3d.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png" />
     <title>CyMaT</title>
@@ -40,7 +40,7 @@
                 <ul class="header_button__login">
                     <li>
                         <a class="header_button" href="./PaginaResetPassPatient.html">
-                            <span class="header_icon"> <i class="fas fa-comments"></i></i> </span>
+                            <span class="header_icon"> <i class="fas fa-comments"></i> </span>
                             <span class="header_text">Raspuns</span>
                         </a>
                     </li>
@@ -63,7 +63,7 @@
                 <ul class="header_button__login">
                     <li>
                         <a class="header_button" href="./PaginaResetPassPatient.html">
-                            <span class="header_icon"> <i class="fas fa-cubes"></i></i> </span>
+                            <span class="header_icon"> <i class="fas fa-cubes"></i> </span>
                             <span class="header_text">Stoc</span>
                         </a>
                     </li>
@@ -111,15 +111,65 @@
 
 
     <main>
-        <div class="export-date">
+        <div class="admin-date">
+            
+            <div class="admin-date__export">
+                <div class="admin-date__export__txt">
+                    <a>Export date:</a>
+                </div>
+                
+                <div class="admin-date__export__categorie">
+                    <select id="admin-date__export__categorie">
+                        <option value="Default">Categorie</option>
+                        <option value="General">General</option>
+                        <option value="Programari">Programari</option>
+                        <option value="Stoc">Stoc</option>
+                        <option value="Comenzi">Comenzi</option>
+                    </select>
+                </div>
 
+                <div class="admin-date__export__format">
+                    <select id="admin-date__export__format">
+                        <option value="Default">Format</option>
+                        <option value="JSON">JSON</option>
+                        <option value="CSV">CSV</option>
+                        <option value="PDF">PDF</option>
+                    </select>
+                </div>
+                <div class="admin-date__export__button">
+                    <button type=button" id="admin-date__import__button">Exporta</button>
+               </div>
+            </div>
 
-            <select class="export-date">
-                <option value="Default">Format</option>
-                <option value="PDF">PDF</option>
-                <option value="JSON">JSON</option>
-                <option value="">CSV</option>
-            </select>
+            <div class="admin-date__import">
+                <div class="admin-date__import__txt">
+                    <a>Import date:</a>
+                </div>
+                
+                <div class="admin-date__import__categorie">
+                    <select id="admin-date__import__categorie">
+                        <option value="Default">Categorie</option>
+                        <option value="General">General</option>
+                        <option value="Programari">Programari</option>
+                        <option value="Stoc">Stoc</option>
+                        <option value="Comenzi">Comenzi</option>
+                    </select>
+                </div>
+                <div class="admin-date__import__format">
+                    <select id="admin-date__import__format">
+                        <option value="Default">Format</option>
+                        <option value="JSON">JSON</option>
+                        <option value="CSV">CSV</option>
+                    </select>
+                </div>
+                <div class="admin-date__import__file">
+                    <input type="file" accept=".csv, .json" id="admin-date__import__file">
+                </div>
+                <div class="admin-date__import__button">
+                    <button type=button" id="admin-date__import__button">Importa</button>
+               </div>
+
+            </div>
         </div>
        
     </main>
