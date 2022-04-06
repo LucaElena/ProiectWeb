@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/PaginaStocAdmin.css">
+    <script src="https://kit.fontawesome.com/9ab9988c3d.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png" />
+    <title>CyMaT</title>
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li>
+                <a class="logo" href="./PaginaGeneralaPatientV2.html">
+
+                    <span class="header_icon_logo"> <i class="fas fa-motorcycle"></i> </span>
+                    <img class="logo" src="./images/favicon.png" alt="CyMaT">
+                    <!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
+                        <span class="header_text">Logo</span> -->
+                </a>
+            </li>
+
+
+            <li>
+                <a class="header_button" href="./PaginaSchedulePatientV2.html">
+                    <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
+                    <span class="header_text">Program</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-plus"></i> </span>
+                    <span class="header_text">Adauga</span>
+                </a>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                            <span class="header_icon"> <i class="fas fa-comments"></i> </span>
+                            <span class="header_text">Raspuns</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-screwdriver"></i> </span>
+                            <span class="header_text">Reparatie</span>
+                        </a>
+                    </li>
+                
+                </ul>
+
+            </li>
+
+            <li>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-cubes"></i> </span>
+                    <span class="header_text">Administrare</span>
+                </a>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                            <span class="header_icon"> <i class="fas fa-cubes"></i> </span>
+                            <span class="header_text">Stoc</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-dolly"></i> </span>
+                            <span class="header_text">Comanda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-download"></i> </span>
+                            <span class="header_text">Date</span>
+                        </a>
+                    </li>
+                
+                </ul>
+
+            </li>
+            <li>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-user"></i> </span>
+                    <span class="header_text">User</span>
+                </a>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                            <span class="header_icon"> <i class="fas fa-key"></i> </span>
+                            <span class="header_text">Reset password</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-sign-out-alt"></i> </span>
+                            <span class="header_text">Log out</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+
+        </ul>
+    </header>
+
+
+
+    <main>
+        <div class="admin-stoc">
+            <div class="admin-stoc__filtrare">
+                <div class="admin-stoc__filtrare__brand">
+                    <select id="admin-stoc__filtrare__brand">
+                        <option value="Default"> Brand</option>
+                        <option value="APRILIA">APRILIA</option>
+                        <option value="BETA">BETA</option>
+                        <option value="BMW">BMW</option>
+                        <option value="GENERAL">GENERAL</option>
+                        <option value="HONDA">HONDA</option>
+                        <option value="HUSABERG">HUSABERG</option>
+                        <option value="HUSQVARNA">HUSQVARNA</option>
+                        <option value="KAWASAKI">KAWASAKI</option>
+                        <option value="SUZUKI">SUZUKI</option>
+                        <option value="YAMAHA">YAMAHA</option>
+                    </select>
+                </div>
+                <div class="admin-stoc__filtrare__categorie">
+                    <select id="admin-stoc__filtrare__categorie">
+                        <option value="Default"> Categorie</option>
+                        <option value="Electrice">Electrice</option>
+                        <option value="Evacuari">Evacuari</option>
+                        <option value="Filtre">Filtre</option>
+                        <option value="Frane">Frane</option>
+                        <option value="Huse Moto">Huse Moto</option>
+                        <option value="KTM Power Parts">KTM Power Parts</option>
+                        <option value="Manete si Comenzi">Manete si Comenzi</option>
+                        <option value="Plastice si Aptibilduri">Plastice si Aptibilduri</option>
+                        <option value="Protectii si Scuturi">Protectii si Scuturi</option>
+                        <option value="Radiatoare">Radiatoare</option>
+                        <option value="Suspensii Moto">Suspensii Moto</option>
+                        <option value="Transmisie">Transmisie</option>
+                        <option value="Uleiuri si Lubrifianti">Uleiuri si Lubrifianti</option> 
+                    </select>
+                </div>
+                <div class="admin-stoc__filtrare__piesa">
+                    <select id="admin-stoc__filtrare__piesa">
+                        <option value="Default"> Piesa</option>
+                        <option value="Acumulator">Acumulator</option>
+                        <option value="Anvelopa Fata">Anvelopa Fata</option>
+                        <option value="Anvelopa Spate">Anvelopa Spate</option>
+                        <option value="Becuri">Becuri</option>
+                        <option value="Bujii">Bujii</option>
+                        <option value="Cablu antifurt">Cablu antifurt</option>
+                        <option value="Claxon 12V Negru">Claxon 12V Negru</option>
+                        <option value="Discuri Frana">Discuri Frana</option>
+                        <option value="Evacuare moto">Evacuare moto</option>
+                        <option value="Filtru Benzina">Filtru Benzina</option>
+                        <option value="Filtru de aer">Filtru de aer</option>
+                        <option value="Filtru ulei">Filtru ulei</option>
+                        <option value="Garnitura">Garnitura</option>
+                        <option value="Ghidoan">Ghidoan</option>
+                        <option value="Husa">Husa</option>
+                        <option value="Kit Lant Moto">Kit Lant Moto</option>
+                        <option value="Kit piston">Kit piston</option>
+                        <option value="Kit Reparatie Bascula">Kit Reparatie Bascula</option>
+                        <option value="Kit Reparatie Bucsa">Kit Reparatie Bucsa</option>
+                        <option value="Kit Reparatie Frana">Kit Reparatie Frana</option>
+                        <option value="Kit Upgrade Frana">Kit Upgrade Frana</option>
+                        <option value="KTM Sistem Racire">KTM Sistem Racire</option>
+                        <option value="Maneta Ambreiaj">Maneta Ambreiaj</option>
+                        <option value="Maneta Frana">Maneta Frana</option>
+                        <option value="Protectie schimbator viteze">Protectie schimbator viteze</option>
+                        <option value="Rulmenti de Jug">Rulmenti de Jug</option>
+                        <option value="Supapa">Supapa</option>
+                    </select>
+                </div>
+            </div>
+            <div class="admin-stoc__tabel">
+                <table>
+                    <tr>
+                        <th>No</th>
+                        <th>Brand</th>
+                        <th>Categorie</th>
+                        <th>Nume</th>
+                        <th>Stoc</th>
+                        <th>Rezervate</th>
+                        <th>Pret(RON)</th>
+                        <th>Actiune stoc</th>
+                        <th>Actiune rezervate</th>
+                    <tr>
+                        <td>1</td>
+                        <td>HONDA</td>
+                        <td>Electrice</td>
+                        <td>Acumulator</td>
+                        <td>10</td>
+                        <td>2</td>
+                        <td>250</td>
+                        <td class="admin-stoc__tabel__stoc-actiune">
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                        <td class="admin-stoc__tabel__rezervat-actiune">
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>HONDA</td>
+                        <td>Electrice</td>
+                        <td>Becuri</td>
+                        <td>40</td>
+                        <td>2</td>
+                        <td>50</td>
+                        <td class="admin-stoc__tabel__stoc-actiune">
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                        <td class="admin-stoc__tabel__rezervat-actiune">
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>HONDA</td>
+                        <td>Frane</td>
+                        <td>Kit Reparatie Frana</td>
+                        <td>10</td>
+                        <td>3</td>
+                        <td>250</td>
+                        <td class="admin-stoc__tabel__stoc-actiune">
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                        <td class="admin-stoc__tabel__rezervat-actiune">
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>HONDA</td>
+                        <td>Electrice</td>
+                        <td>Bujii</td>
+                        <td>30</td>
+                        <td>10</td>
+                        <td>100</td>
+                        <td class="admin-stoc__tabel__stoc-actiune">
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                        <td class="admin-stoc__tabel__rezervat-actiune">
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>HONDA</td>
+                        <td>Electrice</td>
+                        <td>Acumulator</td>
+                        <td>10</td>
+                        <td>2</td>
+                        <td>250</td>
+                        <td class="admin-stoc__tabel__stoc-actiune">
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                        <td class="admin-stoc__tabel__rezervat-actiune">
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>HONDA</td>
+                        <td>Electrice</td>
+                        <td>Becuri</td>
+                        <td>40</td>
+                        <td>2</td>
+                        <td>50</td>
+                        <td class="admin-stoc__tabel__stoc-actiune">
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                        <td class="admin-stoc__tabel__rezervat-actiune">
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>HONDA</td>
+                        <td>Frane</td>
+                        <td>Kit Reparatie Frana</td>
+                        <td>10</td>
+                        <td>3</td>
+                        <td>250</td>
+                        <td class="admin-stoc__tabel__stoc-actiune">
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                        <td class="admin-stoc__tabel__rezervat-actiune">
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>HONDA</td>
+                        <td>Electrice</td>
+                        <td>Bujii</td>
+                        <td>30</td>
+                        <td>10</td>
+                        <td>100</td>
+                        <td class="admin-stoc__tabel__stoc-actiune">
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                        <td class="admin-stoc__tabel__rezervat-actiune">
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+       
+    </main>
+
+
+
+</body>
+
+</html>
