@@ -112,38 +112,9 @@
 
     <main>
         <div class="admin-date">
-            
-            <div class="admin-date__export">
-                <div class="admin-date__export__txt">
-                    <a>Export date:</a>
-                </div>
-                
-                <div class="admin-date__export__categorie">
-                    <select id="admin-date__export__categorie">
-                        <option value="Default">Categorie</option>
-                        <option value="General">General</option>
-                        <option value="Programari">Programari</option>
-                        <option value="Stoc">Stoc</option>
-                        <option value="Comenzi">Comenzi</option>
-                    </select>
-                </div>
-
-                <div class="admin-date__export__format">
-                    <select id="admin-date__export__format">
-                        <option value="Default">Format</option>
-                        <option value="JSON">JSON</option>
-                        <option value="CSV">CSV</option>
-                        <option value="PDF">PDF</option>
-                    </select>
-                </div>
-                <div class="admin-date__export__button">
-                    <button type=button" id="admin-date__import__button">Exporta</button>
-               </div>
-            </div>
-
             <div class="admin-date__import">
                 <div class="admin-date__import__txt">
-                    <a>Import date:</a>
+                    <h1>Importa date</h1>
                 </div>
                 
                 <div class="admin-date__import__categorie">
@@ -166,10 +137,40 @@
                     <input type="file" accept=".csv, .json" id="admin-date__import__file">
                 </div>
                 <div class="admin-date__import__button">
-                    <button type=button" id="admin-date__import__button">Importa</button>
+                    <button type="button" id="admin-date__import__button">Importa</button>
                </div>
 
             </div>
+            
+            <div class="admin-date__export">
+                <div class="admin-date__export__txt">
+                    <h1>Exporta date </h1>
+                </div>
+                
+                <div class="admin-date__export__categorie">
+                    <select id="admin-date__export__categorie">
+                        <option value="Default">Categorie</option>
+                        <option value="General">General</option>
+                        <option value="Programari">Programari</option>
+                        <option value="Stoc">Stoc</option>
+                        <option value="Comenzi">Comenzi</option>
+                    </select>
+                </div>
+
+                <div class="admin-date__export__format">
+                    <select id="admin-date__export__format">
+                        <option value="Default">Format</option>
+                        <option value="JSON">JSON</option>
+                        <option value="CSV">CSV</option>
+                        <option value="PDF">PDF</option>
+                    </select>
+                </div>
+                <div class="admin-date__export__button">
+                    <button type="button" id="admin-date__export__button">Exporta</button>
+               </div>
+            </div>
+
+            
         </div>
        
     </main>
