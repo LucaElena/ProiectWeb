@@ -50,7 +50,7 @@
                             <span class="header_text">Reparatie</span>
                         </a>
                     </li>
-                
+
                 </ul>
 
             </li>
@@ -79,7 +79,7 @@
                             <span class="header_text">Date</span>
                         </a>
                     </li>
-                
+
                 </ul>
 
             </li>
@@ -115,7 +115,7 @@
             <div class="admin-stoc__filtrare">
                 <div class="admin-stoc__filtrare__brand">
                     <select id="admin-stoc__filtrare__brand">
-                        <option value="Default"> Brand</option>
+                        <option value="Default" selected> Brand</option>
                         <option value="APRILIA">APRILIA</option>
                         <option value="BETA">BETA</option>
                         <option value="BMW">BMW</option>
@@ -130,7 +130,7 @@
                 </div>
                 <div class="admin-stoc__filtrare__categorie">
                     <select id="admin-stoc__filtrare__categorie">
-                        <option value="Default"> Categorie</option>
+                        <option value="Default" selected> Categorie</option>
                         <option value="Electrice">Electrice</option>
                         <option value="Evacuari">Evacuari</option>
                         <option value="Filtre">Filtre</option>
@@ -143,12 +143,12 @@
                         <option value="Radiatoare">Radiatoare</option>
                         <option value="Suspensii Moto">Suspensii Moto</option>
                         <option value="Transmisie">Transmisie</option>
-                        <option value="Uleiuri si Lubrifianti">Uleiuri si Lubrifianti</option> 
+                        <option value="Uleiuri si Lubrifianti">Uleiuri si Lubrifianti</option>
                     </select>
                 </div>
                 <div class="admin-stoc__filtrare__piesa">
                     <select id="admin-stoc__filtrare__piesa">
-                        <option value="Default"> Piesa</option>
+                        <option value="Default" selected> Piesa</option>
                         <option value="Acumulator">Acumulator</option>
                         <option value="Anvelopa Fata">Anvelopa Fata</option>
                         <option value="Anvelopa Spate">Anvelopa Spate</option>
@@ -181,17 +181,21 @@
             </div>
             <div class="admin-stoc__tabel">
                 <table>
-                    <tr>
-                        <th>No</th>
-                        <th>Brand</th>
-                        <th>Categorie</th>
-                        <th>Nume</th>
-                        <th>Stoc</th>
-                        <th>Rezervate</th>
-                        <th>Pret(RON)</th>
-                        <th>Actiune stoc</th>
-                        <th>Actiune rezervate</th>
-                    <tr>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Brand</th>
+                            <th>Categorie</th>
+                            <th>Nume</th>
+                            <th>Stoc</th>
+                            <th>Rezervate</th>
+                            <th>Pret(RON)</th>
+                            <th>Actiune stoc</th>
+                            <th>Actiune rezervate</th>
+
+                        <tr>
+                    </thead>
+                    <tbody>
                         <td>1</td>
                         <td>HONDA</td>
                         <td>Electrice</td>
@@ -200,138 +204,175 @@
                         <td>2</td>
                         <td>250</td>
                         <td class="admin-stoc__tabel__stoc-actiune">
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i
+                                    class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i
+                                    class="fas fa-minus"></i></button>
+
+                            <!-- <label for="tentacles">Number of tentacles (10-100):</label> -->
+                            <!-- <input type="number" id="tentacles" name="tentacles" min="10" max="100"> -->
+
                         </td>
                         <td class="admin-stoc__tabel__rezervat-actiune">
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i
+                                    class="fas fa-plus"></i></button>
+                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i
+                                    class="fas fa-minus"></i></button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>HONDA</td>
-                        <td>Electrice</td>
-                        <td>Becuri</td>
-                        <td>40</td>
-                        <td>2</td>
-                        <td>50</td>
-                        <td class="admin-stoc__tabel__stoc-actiune">
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                        <td class="admin-stoc__tabel__rezervat-actiune">
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>HONDA</td>
-                        <td>Frane</td>
-                        <td>Kit Reparatie Frana</td>
-                        <td>10</td>
-                        <td>3</td>
-                        <td>250</td>
-                        <td class="admin-stoc__tabel__stoc-actiune">
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                        <td class="admin-stoc__tabel__rezervat-actiune">
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>HONDA</td>
-                        <td>Electrice</td>
-                        <td>Bujii</td>
-                        <td>30</td>
-                        <td>10</td>
-                        <td>100</td>
-                        <td class="admin-stoc__tabel__stoc-actiune">
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                        <td class="admin-stoc__tabel__rezervat-actiune">
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>HONDA</td>
-                        <td>Electrice</td>
-                        <td>Acumulator</td>
-                        <td>10</td>
-                        <td>2</td>
-                        <td>250</td>
-                        <td class="admin-stoc__tabel__stoc-actiune">
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                        <td class="admin-stoc__tabel__rezervat-actiune">
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>HONDA</td>
-                        <td>Electrice</td>
-                        <td>Becuri</td>
-                        <td>40</td>
-                        <td>2</td>
-                        <td>50</td>
-                        <td class="admin-stoc__tabel__stoc-actiune">
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                        <td class="admin-stoc__tabel__rezervat-actiune">
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>HONDA</td>
-                        <td>Frane</td>
-                        <td>Kit Reparatie Frana</td>
-                        <td>10</td>
-                        <td>3</td>
-                        <td>250</td>
-                        <td class="admin-stoc__tabel__stoc-actiune">
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                        <td class="admin-stoc__tabel__rezervat-actiune">
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>HONDA</td>
-                        <td>Electrice</td>
-                        <td>Bujii</td>
-                        <td>30</td>
-                        <td>10</td>
-                        <td>100</td>
-                        <td class="admin-stoc__tabel__stoc-actiune">
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                        <td class="admin-stoc__tabel__rezervat-actiune">
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i class="fas fa-plus"></i></button>
-                            <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i class="fas fa-minus"></i></button> 
-                        </td>
-                    </tr>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Becuri</td>
+                            <td>40</td>
+                            <td>2</td>
+                            <td>50</td>
+                            <td class="admin-stoc__tabel__stoc-actiune">
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                            <td class="admin-stoc__tabel__rezervat-actiune">
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>HONDA</td>
+                            <td>Frane</td>
+                            <td>Kit Reparatie Frana</td>
+                            <td>10</td>
+                            <td>3</td>
+                            <td>250</td>
+                            <td class="admin-stoc__tabel__stoc-actiune">
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                            <td class="admin-stoc__tabel__rezervat-actiune">
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Bujii</td>
+                            <td>30</td>
+                            <td>10</td>
+                            <td>100</td>
+                            <td class="admin-stoc__tabel__stoc-actiune">
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                            <td class="admin-stoc__tabel__rezervat-actiune">
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Acumulator</td>
+                            <td>10</td>
+                            <td>2</td>
+                            <td>250</td>
+                            <td class="admin-stoc__tabel__stoc-actiune">
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                            <td class="admin-stoc__tabel__rezervat-actiune">
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Becuri</td>
+                            <td>40</td>
+                            <td>2</td>
+                            <td>50</td>
+                            <td class="admin-stoc__tabel__stoc-actiune">
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                            <td class="admin-stoc__tabel__rezervat-actiune">
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>HONDA</td>
+                            <td>Frane</td>
+                            <td>Kit Reparatie Frana</td>
+                            <td>10</td>
+                            <td>3</td>
+                            <td>250</td>
+                            <td class="admin-stoc__tabel__stoc-actiune">
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                            <td class="admin-stoc__tabel__rezervat-actiune">
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Bujii</td>
+                            <td>30</td>
+                            <td>10</td>
+                            <td>100</td>
+                            <td class="admin-stoc__tabel__stoc-actiune">
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__stoc-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                            <td class="admin-stoc__tabel__rezervat-actiune">
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__aduna"><i
+                                        class="fas fa-plus"></i></button>
+                                <button type=button" class="admin-stoc__tabel__rezervat-actiune__scade"><i
+                                        class="fas fa-minus"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
 
-       
+
     </main>
 
 

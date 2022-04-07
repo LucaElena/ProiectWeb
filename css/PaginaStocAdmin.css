@@ -112,8 +112,8 @@ footer {
     margin: 1em;
     margin-top:3em ;
     border-radius:1em;
-    top: 50%;
-    left: 50%;
+    /* top: 50%;
+    left: 50%; */
     transform: translate( 0%, 5%);
     opacity: 0.95;
     font-size: medium;
@@ -121,8 +121,8 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    column-gap: 1em;
-    row-gap: 1em;
+    /* column-gap: 1em;
+    row-gap: 1em; */
 }
 .admin-stoc__filtrare
 {
@@ -164,10 +164,12 @@ footer {
     padding: 1em;
     background-color: #F1FAEE;
 }
-
+.admin-stoc__tabel thead{
+    background-color: #a8dadc;
+}
 .admin-stoc__tabel td, th
 { 
-    border: 1px solid #F1FAEE;
+    border: 1px solid #E63946;
     text-align: left;
     padding: 0.5em;
 }
@@ -195,6 +197,11 @@ footer {
     cursor: pointer;
     text-decoration: none;
     padding: 0.5em;
+    margin-left: 30%;
+}
+.admin-stoc__tabel__stoc-actiune__scade,
+.admin-stoc__tabel__rezervat-actiune__scade{
+    margin-left: 0;
 }
 
 .admin-stoc__tabel__stoc-actiune__aduna:hover,
