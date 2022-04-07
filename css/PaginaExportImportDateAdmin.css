@@ -132,6 +132,7 @@ footer {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(5, 1fr);
 }
+
 .admin-date__import
 {
 
@@ -147,6 +148,12 @@ footer {
     margin-top: 1em;
     grid-row-start: 1;
     grid-row-end: 2;
+}
+.admin-date__import__txt,
+.admin-date__export__txt h1{
+    font-size: large;
+    text-align: center;
+    color: #a8dadc;
 }
 
 .admin-date__import__categorie,
