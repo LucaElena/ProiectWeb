@@ -118,24 +118,24 @@ footer {
     opacity: 0.95;
     font-size: medium;
     /* color: #a8dadc; */
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr); */
     /* column-gap: 1em;
     row-gap: 1em; */
 }
 .admin-stoc__filtrare
 {
-    grid-area: 1 / 1 / 2 / 4;
+    /* grid-area: 1 / 1 / 2 / 4; */
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
 }
-.admin-stoc__tabel
+/* .admin-stoc__tabel
 {
     grid-area: 2 / 1 / 6 / 4;
-}
+} */
 
 /* .admin-stoc__filtrare__brand,
 .admin-stoc__filtrare__categorie,
@@ -147,7 +147,9 @@ footer {
 
 .admin-stoc__filtrare__brand select,
 .admin-stoc__filtrare__categorie select,
-.admin-stoc__filtrare__piesa select
+.admin-stoc__filtrare__piesa select,
+.admin-stoc__filtrare__numar-randuri select,
+.admin-stoc__filtrare__cauta input
 {
     padding: 1em;
     background-color: #A8DADC;
@@ -163,6 +165,7 @@ footer {
     width: 100%;
     padding: 1em;
     background-color: #F1FAEE;
+    margin: 0;
 }
 .admin-stoc__tabel thead{
     background-color: #a8dadc;
@@ -172,6 +175,7 @@ footer {
     border: 1px solid #E63946;
     text-align: left;
     padding: 0.5em;
+    margin: 0em;
 }
 
 
@@ -188,7 +192,9 @@ footer {
 .admin-stoc__tabel__stoc-actiune__aduna,
 .admin-stoc__tabel__stoc-actiune__scade,
 .admin-stoc__tabel__rezervat-actiune__aduna,
-.admin-stoc__tabel__rezervat-actiune__scade
+.admin-stoc__tabel__rezervat-actiune__scade,
+.admin-stoc__tabel-button__stanga,
+.admin-stoc__tabel-button__dreapta
 {
     border-radius: 5px;
     transition: .3s ease;
@@ -197,8 +203,24 @@ footer {
     cursor: pointer;
     text-decoration: none;
     padding: 0.5em;
-    margin-left: 30%;
+    margin-left: 2em;
 }
+
+.admin-stoc__tabel-button
+{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+.admin-stoc__tabel-button__stanga,
+.admin-stoc__tabel-button__dreapta
+{
+    width: 30%;
+}
+
+
 .admin-stoc__tabel__stoc-actiune__scade,
 .admin-stoc__tabel__rezervat-actiune__scade{
     margin-left: 0;
@@ -207,7 +229,9 @@ footer {
 .admin-stoc__tabel__stoc-actiune__aduna:hover,
 .admin-stoc__tabel__stoc-actiune__scade:hover,
 .admin-stoc__tabel__rezervat-actiune__aduna:hover,
-.admin-stoc__tabel__rezervat-actiune__scade:hover
+.admin-stoc__tabel__rezervat-actiune__scade:hover,
+.admin-stoc__tabel-button__stanga:hover,
+.admin-stoc__tabel-button__dreapta:hover
 {
     opacity: 0.8;
     color: #1D3557;
@@ -216,7 +240,7 @@ footer {
 }
 
 
-.dmin-stoc__tabel__stoc-actiune__aduna,
+.admin-stoc__tabel__stoc-actiune__aduna,
 .admin-stoc__tabel__rezervat-actiune__aduna
 {
     background-color: #A8DADC;
