@@ -43,6 +43,8 @@ Culori : https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557
 
 -Testat paginile daca sunt corecte (https://validator.w3.org/ & https://jigsaw.w3.org/css-validator/)
 
+-Documentatie
+
 **TO DO tasks pentru partea 2:**
 
 -functionalitate in php si javascrip + baza de date terminata in sql.
