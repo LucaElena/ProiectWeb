@@ -11,6 +11,9 @@ Trello : https://trello.com/b/1l9q8Kse/project
 
 Culori : https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557
 
+
+Simboluri: https://unicode-table.com/en/ sau https://fontawesome.com/
+
 **Done till now:**
 
 -Pagina calendar generala pentru client si admin cu html/css/javascript complet. Mai trebuie retusata si legata la sfarsit de celelalte pagini. 
@@ -42,6 +45,8 @@ Culori : https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557
 -Legat paginile intre ele
 
 -Testat paginile daca sunt corecte (https://validator.w3.org/ & https://jigsaw.w3.org/css-validator/)
+
+-Documentatie
 
 **TO DO tasks pentru partea 2:**
 
