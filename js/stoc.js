@@ -1,12 +1,35 @@
-var defaultNoRanduriTabel = 5;
-var startRand = 1;
-var filtruMemorie = "";// stocam in el cuvantul cautat -> daca se modifica ar trebui sa resetam si startul
 
+var defaultNoRanduriTabel = 10;
+var startRand = 1;
+// var sfarsitRand = startRan
+var filtruMemorieCauta = "";// stocam in el cuvantul cautat -> daca se modifica ar trebui sa resetam si startul
+var filtruMemorieBrand = "";// stocam in el cuvantul cautat -> daca se modifica ar trebui sa resetam si startul
+var filtruMemorieCategorie = "";// stocam in el cuvantul cautat -> daca se modifica ar trebui sa resetam si startul
+var filtruMemoriePiesa = "";// stocam in el cuvantul cautat -> daca se modifica ar trebui sa resetam si startul
+
+
+const brandSelectat = document.getElementById("admin-stoc__filtrare__brand");
+const categorieSelectat = document.getElementById("admin-stoc__filtrare__categorie");
+const piesaSelectat = document.getElementById("admin-stoc__filtrare__piesa");
 const NoRanduriTabel = document.getElementById("admin-stoc__filtrare__numar-randuri");
 const cautaPiesaFiltru = document.getElementById("admin-stoc__filtrare__cauta__piesa");
+const resetFiltru = document.getElementById("admin-stoc__filtrare__reset__button");
 
 const tabelStoc = document.getElementById("admin-stoc__tabel");
 var tr = tabelStoc.getElementsByTagName("tr");
+
+if (brandSelectat) 
+{
+    brandSelectat.addEventListener("input", function () { filtreaza_randuri_tabel() });
+}
+if (categorieSelectat) 
+{
+    categorieSelectat.addEventListener("input", function () { filtreaza_randuri_tabel() });
+}
+if (piesaSelectat) 
+{
+    piesaSelectat.addEventListener("input", function () { filtreaza_randuri_tabel() });
+}
 
 if (cautaPiesaFiltru) 
 {
@@ -16,6 +39,11 @@ if (cautaPiesaFiltru)
 if (NoRanduriTabel) 
 {
     NoRanduriTabel.addEventListener("input", function () { filtreaza_randuri_tabel() });
+}
+
+if (resetFiltru) 
+{
+    resetFiltru.addEventListener("click", function () { reseteaza_filtru() });
 }
 
 const stangaTabelBtn = document.getElementById("admin-stoc__tabel-button__stanga");
@@ -36,6 +64,8 @@ function schimba_randuri_tabel(direction)
     var numarRanduri = NoRanduriTabel.value;
     var newStartRand = startRand + direction * numarRanduri;
     console.log("Schimba start rand:  initial = " + startRand + " new = " + newStartRand);
+
+    //TO DO: newStartRand < tr.length da un bug cand avem un selector 
     if (newStartRand >= 1 && newStartRand < tr.length)
     {
         startRand = newStartRand;
@@ -43,18 +73,29 @@ function schimba_randuri_tabel(direction)
     
     filtreaza_randuri_tabel();
 }
-// function schimba_randuri_tabel(direction) {
-//     var numarRanduri = NoRanduriTabel.value;
-//     var filtruPiesa = cautaPiesaFiltru.value.toUpperCase();
-//     console.log("Schimba randuri tabel direction = " + direction + " numar randuri = " + numarRanduri + " filtru = " + filtruPiesa);
+function reseteaza_filtru() {
+    
+    console.log("Functie reset filtru");
+    console.log(brandSelectat);
+    brandSelectat.value = "Default";
+    categorieSelectat.value = "Default";
+    piesaSelectat.value = "Default";
+    NoRanduriTabel.value = "10";
+    cautaPiesaFiltru.value = "";
+    startRand = 1;
+    //  = document.getElementById("admin-stoc__filtrare__brand");
+    // categorieSelectat = document.getElementById("admin-stoc__filtrare__categorie");
+    // piesaSelectat = document.getElementById("admin-stoc__filtrare__piesa");
+    filtreaza_randuri_tabel();
 
-// }
+}
 
 //Functie cautat dupa nume piesa in tabelul de stoc
 function filtreaza_randuri_tabel(numarRanduriSetat)
 {
     var numarRanduri = NoRanduriTabel.value;
 
+    
     //Daca deja avem ca parametru un numar de randuri -> il folosim pe acesta
     if (numarRanduriSetat)
     {
@@ -65,17 +106,36 @@ function filtreaza_randuri_tabel(numarRanduriSetat)
     {
         startRand = startRand - (startRand % numarRanduri) + 1;
     }
+
+    var valBrand = brandSelectat.value.toUpperCase();
+    var valCategorie = categorieSelectat.value.toUpperCase();
+    var valPiesa =  piesaSelectat.value.toUpperCase();
+   
     
-    var filtruPiesa = cautaPiesaFiltru.value.toUpperCase();
+    if(valBrand === "DEFAULT")
+    {
+        valBrand = "";
+    }
+    if(valCategorie === "DEFAULT" )
+    {
+        valCategorie = "";
+    }
+    if(valPiesa === "DEFAULT")
+    {
+        valPiesa = "";
+    }
+    console.log("Valoare brand = " + valBrand + " cateorie= " + valCategorie + " piesa = " + valPiesa)
+
+    var filtruCautaPiesa = cautaPiesaFiltru.value.toUpperCase();
 
     //resetam startul in caz de filtru nou
-    if (filtruMemorie != filtruPiesa)
+    if (filtruMemorieCauta != filtruCautaPiesa)
     {
         startRand = 1;
-        filtruMemorie = filtruPiesa;//actualizam memoria
+        filtruMemorieCauta = filtruCautaPiesa;//actualizam memoria
     }
 
-    console.log("Filtreaza continut tabel cu start rand = " + startRand + " numar randuri = " + numarRanduri + " numarar randuri setat = "+ numarRanduriSetat  + " filtru = " + filtruPiesa);
+    console.log("Filtreaza continut tabel cu start rand = " + startRand + " numar randuri = " + numarRanduri + " numarar randuri setat = "+ numarRanduriSetat  + " filtru = " + filtruCautaPiesa);
     
 
     var k = 1; //numaram cu el doar randurile vizibile
@@ -97,8 +157,8 @@ function filtreaza_randuri_tabel(numarRanduriSetat)
             {
                 
                 // console.log("Mai avem inca randuri de afisat");
-                // console.log("Cautam " + filtruPiesa + " in " + numeBrandCategoriePiesa.toUpperCase());
-                if (numeBrandCategoriePiesa.toUpperCase().indexOf(filtruPiesa) > -1) 
+                // console.log("Cautam " + filtruCautaPiesa + " in " + numeBrandCategoriePiesa.toUpperCase());
+                if (numeBrand.toUpperCase().indexOf(valBrand) > -1 && numeCategorie.toUpperCase().indexOf(valCategorie) > -1 && numePiesa.toUpperCase().indexOf(valPiesa) > -1 && numeBrandCategoriePiesa.toUpperCase().indexOf(filtruCautaPiesa) > -1) 
                 {
                     //numele piesei contine sirul de filtru -> scoatem filtru de invisibilitate in caz ca este pus
                     tr[i].style.display = "";

@@ -93,6 +93,7 @@ footer {
     width: 100%;
     height: 50px;
 }
+
 .hover-value
 {
     /* visibility: collapse; */
@@ -112,11 +113,9 @@ footer {
     margin: 1em;
     margin-top:3em ;
     border-radius:1em;
-    /* top: 50%;
-    left: 50%; */
     transform: translate( 0%, 5%);
     opacity: 0.95;
-    font-size: medium;
+    font-size: small;
     /* color: #a8dadc; */
     /* display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -124,36 +123,45 @@ footer {
     /* column-gap: 1em;
     row-gap: 1em; */
 }
-.admin-stoc__filtrare
+.admin-stoc__filtrare 
 {
     /* grid-area: 1 / 1 / 2 / 4; */
     display: flex;
     flex-direction: row;
-    justify-content: start;
-    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1em;
 }
 /* .admin-stoc__tabel
 {
     grid-area: 2 / 1 / 6 / 4;
 } */
 
-/* .admin-stoc__filtrare__brand,
-.admin-stoc__filtrare__categorie,
-.admin-stoc__filtrare__piesa
-{
-    padding: 1em;
-    width: auto;
-} */
+
 
 .admin-stoc__filtrare__brand select,
 .admin-stoc__filtrare__categorie select,
 .admin-stoc__filtrare__piesa select,
 .admin-stoc__filtrare__numar-randuri select,
-.admin-stoc__filtrare__cauta input
+.admin-stoc__filtrare__cauta input,
+.admin-stoc__filtrare__reset__button
 {
-    padding: 1em;
+
+    height: 2em;
     background-color: #A8DADC;
 }
+
+.admin-stoc__filtrare__cauta input
+{
+    width: 8em;
+    border: none;
+}
+
+.admin-stoc__filtrare__reset,
+.admin-stoc__filtrare__reset__button
+{
+    width: 100%;
+}
+
 
 .admin-stoc__tabel table
 {
@@ -184,10 +192,19 @@ footer {
     background-color: #a8dadc;
 }
 
-.admin-stoc__tabel tr td
+.admin-stoc__tabel table tr td,
+.admin-stoc__tabel thead
 {
     align-items: center;
+    font-size: small;
 }
+
+.admin-stoc__tabel__stoc-actiune,
+.admin-stoc__tabel__rezervat-actiune
+{
+    width: 100%;
+}
+
 
 .admin-stoc__tabel__stoc-actiune__aduna,
 .admin-stoc__tabel__stoc-actiune__scade,
@@ -217,7 +234,7 @@ footer {
 .admin-stoc__tabel-button__stanga,
 .admin-stoc__tabel-button__dreapta
 {
-    width: 30%;
+    width: 20%;
 }
 
 
@@ -229,14 +246,28 @@ footer {
 .admin-stoc__tabel__stoc-actiune__aduna:hover,
 .admin-stoc__tabel__stoc-actiune__scade:hover,
 .admin-stoc__tabel__rezervat-actiune__aduna:hover,
-.admin-stoc__tabel__rezervat-actiune__scade:hover,
+.admin-stoc__tabel__rezervat-actiune__scade:hover
+{
+    opacity: 0.8;
+    color: #1D3557;
+    transition: .5s ease;
+    transform: scale(1.1);
+}
+
+
+.admin-stoc__filtrare__brand select:hover,
+.admin-stoc__filtrare__categorie select:hover,
+.admin-stoc__filtrare__piesa select:hover,
+.admin-stoc__filtrare__numar-randuri select:hover,
+.admin-stoc__filtrare__cauta input:hover,
+.admin-stoc__filtrare__reset__button:hover,
 .admin-stoc__tabel-button__stanga:hover,
 .admin-stoc__tabel-button__dreapta:hover
 {
     opacity: 0.8;
     color: #1D3557;
     transition: .5s ease;
-    transform: scale(1.1);
+    /* transform: scale(1.02); */
 }
 
 
@@ -252,81 +283,23 @@ footer {
 }
 
 
+@media (max-width :900px) {
 
-/*
-.stoc__filtrare__export
-{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-}
-.stoc__filtrare__import
-{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+    .admin-stoc__filtrare  {
+        font-size: small;
+    }
+
+    .admin-stoc__tabel table tr td,
+    .admin-stoc__tabel thead
+    {
+        align-items: center;
+        font-size: small;
+    }
+
 }
 
 
-.stoc__filtrare__import__txt,
-.stoc__filtrare__export__txt
-{ 
-    margin-top: 1em;
-}
-
-
-
-.stoc__filtrare__import__categorie select,
-.stoc__filtrare__export__categorie select,
-.stoc__filtrare__import__format select,
-.stoc__filtrare__export__format select
-{ 
-    margin-top: 1em;
-    padding: 1em;
-    border-radius: 5px;
-    width: 100%;
-    background-color: #F1FAEE;
-}
-
-.stoc__filtrare__import__file
-{ 
-    margin-top: 1em;
-    padding: 1em;
-    width: 100%;
-} 
-
-.stoc__filtrare__import__button button,
-.stoc__filtrare__export__button button
-{ 
-    width: 20%;
-    border-radius: 5px;
-    transition: .3s ease;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    margin-top: 1em;
-    padding: 1em;
-    background-color: #F1FAEE;
-} 
-
-.stoc__filtrare__import__button button:hover,
-.stoc__filtrare__export__button button:hover
-{ 
-    opacity: 0.8;
-    color: #a8dadc;
-    transition: .5s ease;
-    transform: scale(1.1);
-} 
-
-
-
-
-
-
-
-@media (max-width :600px) {
+@media (max-width :700px) {
     .header_text {
         display: none;
     }
@@ -335,52 +308,68 @@ footer {
         top: 0.1em;
         font-size: x-small;
     }
-    .stoc__filtrare {
-        font-size: small;
-        padding: 0.5em;
+    
+    .admin-stoc__filtrare  {
+        font-size: x-small;
     }
-    .stoc__filtrare__import__txt,
-    .stoc__filtrare__export__txt,
-    .stoc__filtrare__import__categorie select,
-    .stoc__filtrare__export__categorie select,
-    .stoc__filtrare__import__format select,
-    .stoc__filtrare__export__format select,
-    .stoc__filtrare__import__button button,
-    .stoc__filtrare__export__button button,
-    .stoc__filtrare__import__file
 
+    .admin-stoc__tabel table tr td,
+    .admin-stoc__tabel thead 
     {
-        padding: 0.5em;
-        margin-top: 0.5em;
+        align-items: center;
+        font-size: x-small;
+    }
+
+
+
+    .admin-stoc__filtrare__brand select,
+    .admin-stoc__filtrare__categorie select,
+    .admin-stoc__filtrare__piesa select,
+    .admin-stoc__filtrare__numar-randuri select,
+    .admin-stoc__filtrare__cauta,
+    .admin-stoc__filtrare__cauta input,
+    .admin-stoc__filtrare__reset__button 
+    {
+        /* padding: 0em; */
+        /* margin-top: 0em; */
+        height: 1.5em;
+        font-size: x-small;
     }
 }
 
 
 
 
-@media (max-width :400px) {
+@media (max-width :600px) {
     .header_icon_logo {
         display: inline;
     }
     .logo img {
         display: none;
     }
-    .stoc__filtrare {
-        font-size: x-small;
-        padding: 0em;
+
+    .admin-stoc__filtrare  {
+        font-size: xx-small;
     }
-    .stoc__filtrare__import__txt,
-    .stoc__filtrare__export__txt,
-    .stoc__filtrare__import__categorie select,
-    .stoc__filtrare__export__categorie select,
-    .stoc__filtrare__import__format select,
-    .stoc__filtrare__export__format select,
-    .stoc__filtrare__import__button button,
-    .stoc__filtrare__export__button button,
-    .stoc__filtrare__import__file
+
+    .admin-stoc__tabel table tr td,
+    .admin-stoc__tabel thead 
     {
-        padding: 0em;
-        margin-top: 0em;
+        font-size: xx-small;
+    }
+
+
+
+    .admin-stoc__filtrare__brand select,
+    .admin-stoc__filtrare__categorie select,
+    .admin-stoc__filtrare__piesa select,
+    .admin-stoc__filtrare__numar-randuri select,
+    .admin-stoc__filtrare__cauta,
+    .admin-stoc__filtrare__cauta input,
+    .admin-stoc__filtrare__reset__button 
+    {
+        height: 1.5em;
+        font-size: xx-small;
     }
     
-}  */
+} 
