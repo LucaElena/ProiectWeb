@@ -132,7 +132,7 @@ footer {
     border-radius: 0.5em;
     font-size: medium;
 }
-.admin-add-comanda__filtrare 
+.admin-add-comanda__select 
 {
     grid-area: 2 / 1 / 3 / 16;
     display: grid;
@@ -146,37 +146,32 @@ footer {
     
 }
 
-.admin-add-comanda__filtrare__brand
+.admin-add-comanda__select__brand
 {
     grid-area: 2 / 1 / 3 / 3;
 }
-.admin-add-comanda__filtrare__categorie
+.admin-add-comanda__select__categorie
 {
     grid-area: 2 / 3 / 3 / 6;
 }
-.admin-add-comanda__filtrare__piesa
+.admin-add-comanda__select__piesa
 {
     grid-area: 2 / 6 / 3 / 9;
 }
-.admin-add-comanda__filtrare__numar-randuri
+.admin-add-comanda__select__cantitate
 {
     grid-area: 2 / 9 / 3 / 10;
 }
-.admin-add-comanda__filtrare__cauta__piesa
-{
-    grid-area: 2 / 10 / 3 / 12;
-}
-.admin-add-comanda__filtrare__reset__button
+.admin-add-comanda__select__add_button
 {
     grid-area: 2 / 14 / 3 / 16;
 }
 
-.admin-add-comanda__filtrare__brand ,
-.admin-add-comanda__filtrare__categorie ,
-.admin-add-comanda__filtrare__piesa ,
-.admin-add-comanda__filtrare__numar-randuri ,
-.admin-add-comanda__filtrare__cauta__piesa,
-.admin-add-comanda__filtrare__reset__button
+.admin-add-comanda__select__brand ,
+.admin-add-comanda__select__categorie ,
+.admin-add-comanda__select__piesa ,
+.admin-add-comanda__select__cantitate,
+.admin-add-comanda__select__add_button
 {
     background-color: #A8DADC;
     border-radius: 0.2em;
@@ -184,7 +179,7 @@ footer {
     padding: 1em;
 }
 
-.admin-add-comanda__filtrare__reset__button
+.admin-add-comanda__select__add_button
 {
     border-radius: 0.2em;
     justify-content: end;
@@ -269,12 +264,12 @@ footer {
     width: 20%;
 }
 
-.admin-add-comanda__filtrare__brand:hover,
-.admin-add-comanda__filtrare__categorie:hover,
-.admin-add-comanda__filtrare__piesa:hover,
-.admin-add-comanda__filtrare__numar-randuri:hover,
-.admin-add-comanda__filtrare__cauta__piesa:hover,
-.admin-add-comanda__filtrare__reset__button:hover,
+.admin-add-comanda__select__brand:hover,
+.admin-add-comanda__select__categorie:hover,
+.admin-add-comanda__select__piesa:hover,
+.admin-add-comanda__select__numar-randuri:hover,
+.admin-add-comanda__select__cauta__piesa:hover,
+.admin-add-comanda__select__add_button:hover,
 .admin-add-comanda__tabel-button__stanga:hover,
 .admin-add-comanda__tabel-button__dreapta:hover
 {
@@ -308,7 +303,7 @@ footer {
         font-size: small;
     }
 
-    .admin-add-comanda__filtrare  {
+    .admin-add-comanda__select  {
         font-size: x-small;
     }
 
@@ -319,12 +314,11 @@ footer {
         font-size: x-small;
     }
 
-    .admin-add-comanda__filtrare__brand ,
-    .admin-add-comanda__filtrare__categorie ,
-    .admin-add-comanda__filtrare__piesa ,
-    .admin-add-comanda__filtrare__numar-randuri ,
-    .admin-add-comanda__filtrare__cauta__piesa,
-    .admin-add-comanda__filtrare__reset__button 
+    .admin-add-comanda__select__brand ,
+    .admin-add-comanda__select__categorie ,
+    .admin-add-comanda__select__piesa ,
+    .admin-add-comanda__select__cantitate,
+    .admin-add-comanda__select__add_button
     {
         padding: 0em;
         margin: 0em;
@@ -355,19 +349,18 @@ footer {
     }
 
 
-    .admin-add-comanda__filtrare  {
+    .admin-add-comanda__select  {
         font-size: xx-small;
         /* stergem gridul */
         display: block;
     }
   
 
-    .admin-add-comanda__filtrare__brand ,
-    .admin-add-comanda__filtrare__categorie ,
-    .admin-add-comanda__filtrare__piesa ,
-    .admin-add-comanda__filtrare__numar-randuri ,
-    .admin-add-comanda__filtrare__cauta__piesa,
-    .admin-add-comanda__filtrare__reset__button 
+    .admin-add-comanda__select__brand ,
+    .admin-add-comanda__select__categorie ,
+    .admin-add-comanda__select__piesa ,
+    .admin-add-comanda__select__cantitate,
+    .admin-add-comanda__select__add_button
     {
 
         font-size: xx-small;
@@ -435,10 +428,10 @@ footer {
     td:nth-of-type(1):before { content: "No"; }
 	td:nth-of-type(2):before { content: "Brand"; }
 	td:nth-of-type(3):before { content: "Categorie"; }
-	td:nth-of-type(4):before { content: "Nume"; }
-	td:nth-of-type(5):before { content: "Stoc"; }
-	td:nth-of-type(6):before { content: "Rezervate"; }
-	td:nth-of-type(7):before { content: "Pret"; }
+	td:nth-of-type(4):before { content: "Piesa"; }
+	td:nth-of-type(5):before { content: "Cantitate"; }
+	td:nth-of-type(6):before { content: "Data"; }
+	td:nth-of-type(7):before { content: "Status"; }
 
 }
 
