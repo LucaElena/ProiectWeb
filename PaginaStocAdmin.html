@@ -113,85 +113,82 @@
     <main>
         <div class="admin-stoc">
             <div class="admin-stoc__filtrare">
-                <div class="admin-stoc__filtrare__brand">
-                    <select id="admin-stoc__filtrare__brand">
-                        <option value="Default" selected> Brand</option>
-                        <option value="APRILIA">APRILIA</option>
-                        <option value="BETA">BETA</option>
-                        <option value="BMW">BMW</option>
-                        <option value="GENERAL">GENERAL</option>
-                        <option value="HONDA">HONDA</option>
-                        <option value="HUSABERG">HUSABERG</option>
-                        <option value="HUSQVARNA">HUSQVARNA</option>
-                        <option value="KAWASAKI">KAWASAKI</option>
-                        <option value="SUZUKI">SUZUKI</option>
-                        <option value="YAMAHA">YAMAHA</option>
-                    </select>
-                </div>
-                <div class="admin-stoc__filtrare__categorie">
-                    <select id="admin-stoc__filtrare__categorie">
-                        <option value="Default" selected> Categorie</option>
-                        <option value="Electrice">Electrice</option>
-                        <option value="Evacuari">Evacuari</option>
-                        <option value="Filtre">Filtre</option>
-                        <option value="Frane">Frane</option>
-                        <option value="Huse Moto">Huse Moto</option>
-                        <option value="KTM Power Parts">KTM Power Parts</option>
-                        <option value="Manete si Comenzi">Manete si Comenzi</option>
-                        <option value="Plastice si Aptibilduri">Plastice si Aptibilduri</option>
-                        <option value="Protectii si Scuturi">Protectii si Scuturi</option>
-                        <option value="Radiatoare">Radiatoare</option>
-                        <option value="Suspensii Moto">Suspensii Moto</option>
-                        <option value="Transmisie">Transmisie</option>
-                        <option value="Uleiuri si Lubrifianti">Uleiuri si Lubrifianti</option>
-                    </select>
-                </div>
-                <div class="admin-stoc__filtrare__piesa">
-                    <select id="admin-stoc__filtrare__piesa">
-                        <option value="Default" selected> Piesa</option>
-                        <option value="Acumulator">Acumulator</option>
-                        <option value="Anvelopa Fata">Anvelopa Fata</option>
-                        <option value="Anvelopa Spate">Anvelopa Spate</option>
-                        <option value="Becuri">Becuri</option>
-                        <option value="Bujii">Bujii</option>
-                        <option value="Cablu antifurt">Cablu antifurt</option>
-                        <option value="Claxon 12V Negru">Claxon 12V Negru</option>
-                        <option value="Discuri Frana">Discuri Frana</option>
-                        <option value="Evacuare moto">Evacuare moto</option>
-                        <option value="Filtru Benzina">Filtru Benzina</option>
-                        <option value="Filtru de aer">Filtru de aer</option>
-                        <option value="Filtru ulei">Filtru ulei</option>
-                        <option value="Garnitura">Garnitura</option>
-                        <option value="Ghidoan">Ghidoan</option>
-                        <option value="Husa">Husa</option>
-                        <option value="Kit Lant Moto">Kit Lant Moto</option>
-                        <option value="Kit piston">Kit piston</option>
-                        <option value="Kit Reparatie Bascula">Kit Reparatie Bascula</option>
-                        <option value="Kit Reparatie Bucsa">Kit Reparatie Bucsa</option>
-                        <option value="Kit Reparatie Frana">Kit Reparatie Frana</option>
-                        <option value="Kit Upgrade Frana">Kit Upgrade Frana</option>
-                        <option value="KTM Sistem Racire">KTM Sistem Racire</option>
-                        <option value="Maneta Ambreiaj">Maneta Ambreiaj</option>
-                        <option value="Maneta Frana">Maneta Frana</option>
-                        <option value="Protectie schimbator viteze">Protectie schimbator viteze</option>
-                        <option value="Rulmenti de Jug">Rulmenti de Jug</option>
-                        <option value="Supapa">Supapa</option>
-                    </select>
-                </div>
-                <div class="admin-stoc__filtrare__numar-randuri">
-                    <select id="admin-stoc__filtrare__numar-randuri">
-                        <option value="5"> 5</option>
-                        <option value="10" selected> 10</option>
-                        <option value="15"> 15</option>
-                        <option value="20"> 20</option>
-                    </select>
-                </div>
-                <div class="admin-stoc__filtrare__cauta">
-                    <input type="search" class="admin-stoc__filtrare__cauta__piesa" id="admin-stoc__filtrare__cauta__piesa" " placeholder="Cauta piesa...">
-                </div>
-                <div class="admin-stoc__filtrare__reset">
-                    <button type="button" class="admin-stoc__filtrare__reset__button" id="admin-stoc__filtrare__reset__button">Reset</button>
-                </div>
+
+                <select class="admin-stoc__filtrare__brand" id="admin-stoc__filtrare__brand">
+                    <option value="Default" selected> Brand</option>
+                    <option value="APRILIA">APRILIA</option>
+                    <option value="BETA">BETA</option>
+                    <option value="BMW">BMW</option>
+                    <option value="GENERAL">GENERAL</option>
+                    <option value="HONDA">HONDA</option>
+                    <option value="HUSABERG">HUSABERG</option>
+                    <option value="HUSQVARNA">HUSQVARNA</option>
+                    <option value="KAWASAKI">KAWASAKI</option>
+                    <option value="SUZUKI">SUZUKI</option>
+                    <option value="YAMAHA">YAMAHA</option>
+                </select>
+
+                <select class="admin-stoc__filtrare__categorie" id="admin-stoc__filtrare__categorie">
+                    <option value="Default" selected> Categorie</option>
+                    <option value="Electrice">Electrice</option>
+                    <option value="Evacuari">Evacuari</option>
+                    <option value="Filtre">Filtre</option>
+                    <option value="Frane">Frane</option>
+                    <option value="Huse Moto">Huse Moto</option>
+                    <option value="KTM Power Parts">KTM Power Parts</option>
+                    <option value="Manete si Comenzi">Manete si Comenzi</option>
+                    <option value="Plastice si Aptibilduri">Plastice si Aptibilduri</option>
+                    <option value="Protectii si Scuturi">Protectii si Scuturi</option>
+                    <option value="Radiatoare">Radiatoare</option>
+                    <option value="Suspensii Moto">Suspensii Moto</option>
+                    <option value="Transmisie">Transmisie</option>
+                    <option value="Uleiuri si Lubrifianti">Uleiuri si Lubrifianti</option>
+                </select>
+
+
+                <select class="admin-stoc__filtrare__piesa" id="admin-stoc__filtrare__piesa">
+                    <option value="Default" selected> Piesa</option>
+                    <option value="Acumulator">Acumulator</option>
+                    <option value="Anvelopa Fata">Anvelopa Fata</option>
+                    <option value="Anvelopa Spate">Anvelopa Spate</option>
+                    <option value="Becuri">Becuri</option>
+                    <option value="Bujii">Bujii</option>
+                    <option value="Cablu antifurt">Cablu antifurt</option>
+                    <option value="Claxon 12V Negru">Claxon 12V Negru</option>
+                    <option value="Discuri Frana">Discuri Frana</option>
+                    <option value="Evacuare moto">Evacuare moto</option>
+                    <option value="Filtru Benzina">Filtru Benzina</option>
+                    <option value="Filtru de aer">Filtru de aer</option>
+                    <option value="Filtru ulei">Filtru ulei</option>
+                    <option value="Garnitura">Garnitura</option>
+                    <option value="Ghidoan">Ghidoan</option>
+                    <option value="Husa">Husa</option>
+                    <option value="Kit Lant Moto">Kit Lant Moto</option>
+                    <option value="Kit piston">Kit piston</option>
+                    <option value="Kit Reparatie Bascula">Kit Reparatie Bascula</option>
+                    <option value="Kit Reparatie Bucsa">Kit Reparatie Bucsa</option>
+                    <option value="Kit Reparatie Frana">Kit Reparatie Frana</option>
+                    <option value="Kit Upgrade Frana">Kit Upgrade Frana</option>
+                    <option value="KTM Sistem Racire">KTM Sistem Racire</option>
+                    <option value="Maneta Ambreiaj">Maneta Ambreiaj</option>
+                    <option value="Maneta Frana">Maneta Frana</option>
+                    <option value="Protectie schimbator viteze">Protectie schimbator viteze</option>
+                    <option value="Rulmenti de Jug">Rulmenti de Jug</option>
+                    <option value="Supapa">Supapa</option>
+                </select>
+
+ 
+                <select class="admin-stoc__filtrare__numar-randuri" id="admin-stoc__filtrare__numar-randuri">
+                    <option value="5"> 5</option>
+                    <option value="10" selected> 10</option>
+                    <option value="15"> 15</option>
+                    <option value="20"> 20</option>
+                </select>
+
+                <input type="search" class="admin-stoc__filtrare__cauta__piesa" id="admin-stoc__filtrare__cauta__piesa" " placeholder="Cauta piesa...">
+                <!-- <div class="admin-stoc__filtrare__reset"> -->
+                <button type="button" class="admin-stoc__filtrare__reset__button" id="admin-stoc__filtrare__reset__button">Reset</button>
+                <!-- </div> -->
             </div>
             <div class="admin-stoc__tabel">
                 <table id="admin-stoc__tabel">
