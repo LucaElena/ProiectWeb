@@ -106,7 +106,7 @@ footer {
     font-size: small;
 }
 
-.admin-stoc
+.admin-add-comanda
 {
     background-color: #1d3557;
     padding: 1em;
@@ -123,7 +123,7 @@ footer {
     grid-row-gap: 0px;
 
 }
-.admin-stoc__titlu
+.admin-add-comanda__titlu
 {
     grid-area: 1 / 1 / 2 / 16;
     margin-bottom: 1em;
@@ -132,7 +132,7 @@ footer {
     border-radius: 0.5em;
     font-size: medium;
 }
-.admin-stoc__filtrare 
+.admin-add-comanda__filtrare 
 {
     grid-area: 2 / 1 / 3 / 16;
     display: grid;
@@ -146,37 +146,37 @@ footer {
     
 }
 
-.admin-stoc__filtrare__brand
+.admin-add-comanda__filtrare__brand
 {
     grid-area: 2 / 1 / 3 / 3;
 }
-.admin-stoc__filtrare__categorie
+.admin-add-comanda__filtrare__categorie
 {
-    grid-area: 2 / 3 / 2 / 6;
+    grid-area: 2 / 3 / 3 / 6;
 }
-.admin-stoc__filtrare__piesa
+.admin-add-comanda__filtrare__piesa
 {
     grid-area: 2 / 6 / 3 / 9;
 }
-.admin-stoc__filtrare__numar-randuri
+.admin-add-comanda__filtrare__numar-randuri
 {
     grid-area: 2 / 9 / 3 / 10;
 }
-.admin-stoc__filtrare__cauta__piesa
+.admin-add-comanda__filtrare__cauta__piesa
 {
     grid-area: 2 / 10 / 3 / 12;
 }
-.admin-stoc__filtrare__reset__button
+.admin-add-comanda__filtrare__reset__button
 {
     grid-area: 2 / 14 / 3 / 16;
 }
 
-.admin-stoc__filtrare__brand ,
-.admin-stoc__filtrare__categorie ,
-.admin-stoc__filtrare__piesa ,
-.admin-stoc__filtrare__numar-randuri ,
-.admin-stoc__filtrare__cauta__piesa,
-.admin-stoc__filtrare__reset__button
+.admin-add-comanda__filtrare__brand ,
+.admin-add-comanda__filtrare__categorie ,
+.admin-add-comanda__filtrare__piesa ,
+.admin-add-comanda__filtrare__numar-randuri ,
+.admin-add-comanda__filtrare__cauta__piesa,
+.admin-add-comanda__filtrare__reset__button
 {
     background-color: #A8DADC;
     border-radius: 0.2em;
@@ -184,19 +184,19 @@ footer {
     padding: 1em;
 }
 
-.admin-stoc__filtrare__reset__button
+.admin-add-comanda__filtrare__reset__button
 {
     border-radius: 0.2em;
     justify-content: end;
     background-color:#E63946;
 }
 
-.admin-stoc__tabel 
+.admin-add-comanda__tabel 
 {
     grid-area: 3 / 1 / 7 / 16;
 }
 
-.admin-stoc__tabel table
+.admin-add-comanda__tabel table
 {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -205,10 +205,11 @@ footer {
     background-color: #F1FAEE;
     margin: 0;
 }
-.admin-stoc__tabel thead{
+.admin-add-comanda__tabel thead
+{
     background-color: #a8dadc;
 }
-.admin-stoc__tabel td, th
+.admin-add-comanda__tabel td, th
 { 
     border: 1px solid #E63946;
     text-align: left;
@@ -217,32 +218,32 @@ footer {
 }
 
 
-.admin-stoc__tabel tr:nth-child(even) 
+.admin-add-comanda__tabel tr:nth-child(even) 
 {
     background-color: #a8dadc;
 }
 
-.admin-stoc__tabel table tr td,
-.admin-stoc__tabel thead
+.admin-add-comanda__tabel table tr td,
+.admin-add-comanda__tabel thead
 {
     align-items: center;
     font-size: small;
 }
 
-.admin-stoc__tabel__stoc-actiune,
-.admin-stoc__tabel__rezervat-actiune
+.admin-add-comanda__tabel__stoc-actiune,
+.admin-add-comanda__tabel__rezervat-actiune
 {
     width: 100%;
 }
 
-.admin-stoc__tabel-button
+.admin-add-comanda__tabel-button
 {
     grid-area: 7 / 1 / 8 / 16;
 }
 
 
-.admin-stoc__tabel-button__stanga,
-.admin-stoc__tabel-button__dreapta
+.admin-add-comanda__tabel-button__stanga,
+.admin-add-comanda__tabel-button__dreapta
 {
     border-radius: 5px;
     transition: .3s ease;
@@ -254,7 +255,7 @@ footer {
     margin-left: 2em;
 }
 
-.admin-stoc__tabel-button
+.admin-add-comanda__tabel-button
 {
     display: flex;
     flex-direction: row;
@@ -262,20 +263,20 @@ footer {
     justify-content: center;
     width: 100%;
 }
-.admin-stoc__tabel-button__stanga,
-.admin-stoc__tabel-button__dreapta
+.admin-add-comanda__tabel-button__stanga,
+.admin-add-comanda__tabel-button__dreapta
 {
     width: 20%;
 }
 
-.admin-stoc__filtrare__brand:hover,
-.admin-stoc__filtrare__categorie:hover,
-.admin-stoc__filtrare__piesa:hover,
-.admin-stoc__filtrare__numar-randuri:hover,
-.admin-stoc__filtrare__cauta__piesa:hover,
-.admin-stoc__filtrare__reset__button:hover,
-.admin-stoc__tabel-button__stanga:hover,
-.admin-stoc__tabel-button__dreapta:hover
+.admin-add-comanda__filtrare__brand:hover,
+.admin-add-comanda__filtrare__categorie:hover,
+.admin-add-comanda__filtrare__piesa:hover,
+.admin-add-comanda__filtrare__numar-randuri:hover,
+.admin-add-comanda__filtrare__cauta__piesa:hover,
+.admin-add-comanda__filtrare__reset__button:hover,
+.admin-add-comanda__tabel-button__stanga:hover,
+.admin-add-comanda__tabel-button__dreapta:hover
 {
     opacity: 0.8;
     color: #1D3557;
@@ -285,20 +286,7 @@ footer {
 
 
 
-/* @media (max-width :900px) {
 
-    .admin-stoc__filtrare  {
-        font-size: small;
-    }
-
-    .admin-stoc__tabel table tr td,
-    .admin-stoc__tabel thead
-    {
-        align-items: center;
-        font-size: small;
-    }
-
-} */
 
 
 @media (max-width :600px) {
@@ -312,29 +300,31 @@ footer {
         top: 0.1em;
         font-size: x-small;
     }
-    .admin-stoc__titlu
+    
+    .admin-add-comanda__titlu
     {
         margin-bottom: 0.5em;
         padding: 0.5em;
         font-size: small;
     }
-    .admin-stoc__filtrare  {
+
+    .admin-add-comanda__filtrare  {
         font-size: x-small;
     }
 
-    .admin-stoc__tabel table tr td,
-    .admin-stoc__tabel thead 
+    .admin-add-comanda__tabel table tr td,
+    .admin-add-comanda__tabel thead 
     {
         align-items: center;
         font-size: x-small;
     }
 
-    .admin-stoc__filtrare__brand ,
-    .admin-stoc__filtrare__categorie ,
-    .admin-stoc__filtrare__piesa ,
-    .admin-stoc__filtrare__numar-randuri ,
-    .admin-stoc__filtrare__cauta__piesa,
-    .admin-stoc__filtrare__reset__button 
+    .admin-add-comanda__filtrare__brand ,
+    .admin-add-comanda__filtrare__categorie ,
+    .admin-add-comanda__filtrare__piesa ,
+    .admin-add-comanda__filtrare__numar-randuri ,
+    .admin-add-comanda__filtrare__cauta__piesa,
+    .admin-add-comanda__filtrare__reset__button 
     {
         padding: 0em;
         margin: 0em;
@@ -350,63 +340,54 @@ footer {
     .hover-value {
         font-size: xx-small;
     }
-    .admin-stoc
-    {
-       transform: none;
-    }
-
-    .admin-stoc__titlu
+    
+    .admin-add-comanda__titlu
     {
 
         padding: 0.5em;
         font-size: x-small;
+        
+    }
+    
+    .admin-add-comanda
+    {
+       transform: none;
     }
 
-    .admin-stoc__filtrare  {
-        font-size: xx-small;
-    }
 
-    .admin-stoc__filtrare  {
+    .admin-add-comanda__filtrare  {
         font-size: xx-small;
+        /* stergem gridul */
         display: block;
     }
+  
 
-    /* .admin-stoc__tabel table tr td,
-    .admin-stoc__tabel thead 
-    {
-        font-size: xx-small;
-        margin: 0;
-        padding: 0;
-    } */
-
-    .admin-stoc__filtrare__brand ,
-    .admin-stoc__filtrare__categorie ,
-    .admin-stoc__filtrare__piesa ,
-    .admin-stoc__filtrare__numar-randuri ,
-    .admin-stoc__filtrare__cauta__piesa,
-    .admin-stoc__filtrare__reset__button 
+    .admin-add-comanda__filtrare__brand ,
+    .admin-add-comanda__filtrare__categorie ,
+    .admin-add-comanda__filtrare__piesa ,
+    .admin-add-comanda__filtrare__numar-randuri ,
+    .admin-add-comanda__filtrare__cauta__piesa,
+    .admin-add-comanda__filtrare__reset__button 
     {
 
         font-size: xx-small;
         width: 100%;
     }
 
-    .admin-stoc
+    .admin-add-comanda
     {
         margin: 0.4em;
         padding: 0.4em;
+
     }
 
-    .admin-stoc__tabel-button__stanga,
-    .admin-stoc__tabel-button__dreapta
+    .admin-add-comanda__tabel-button__stanga,
+    .admin-add-comanda__tabel-button__dreapta
     {
         padding: 0;
         margin-left: 1em;
     }
-    
-    
 
-    
     body {
         background-image: none; 
         background-color: #A8DADC;
@@ -447,7 +428,7 @@ footer {
 		padding-right: 10px; 
 		white-space: nowrap;
 	}
-    .admin-stoc__tabel td, th
+    .admin-add-comanda__tabel td, th
     { 
         text-align: right;
     }
@@ -458,6 +439,7 @@ footer {
 	td:nth-of-type(5):before { content: "Stoc"; }
 	td:nth-of-type(6):before { content: "Rezervate"; }
 	td:nth-of-type(7):before { content: "Pret"; }
+
 }
 
 

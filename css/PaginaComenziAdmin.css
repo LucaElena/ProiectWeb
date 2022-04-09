@@ -128,7 +128,7 @@ footer {
     grid-area: 1 / 1 / 2 / 16;
     margin-bottom: 1em;
     padding: 1em;
-    background-color: #A8DADC;
+    background-color: #457B9D;
     border-radius: 0.5em;
     font-size: medium;
 }
@@ -205,7 +205,8 @@ footer {
     background-color: #F1FAEE;
     margin: 0;
 }
-.admin-comenzi__tabel thead{
+.admin-comenzi__tabel thead
+{
     background-color: #a8dadc;
 }
 .admin-comenzi__tabel td, th
@@ -292,7 +293,9 @@ footer {
     .header_text {
         display: none;
     }
-    
+    /* .logo img {
+        display: none;
+    } */
     .hover-value {
         top: 0.1em;
         font-size: x-small;
@@ -343,19 +346,21 @@ footer {
 
         padding: 0.5em;
         font-size: x-small;
+        
     }
+    
+    .admin-comenzi
+    {
+       transform: none;
+    }
+
 
     .admin-comenzi__filtrare  {
         font-size: xx-small;
+        /* stergem gridul */
+        display: block;
     }
-
-    .admin-comenzi__tabel table tr td,
-    .admin-comenzi__tabel thead 
-    {
-        font-size: xx-small;
-        margin: 0;
-        padding: 0;
-    }
+  
 
     .admin-comenzi__filtrare__brand ,
     .admin-comenzi__filtrare__categorie ,
@@ -366,23 +371,75 @@ footer {
     {
 
         font-size: xx-small;
+        width: 100%;
     }
 
     .admin-comenzi
     {
         margin: 0.4em;
         padding: 0.4em;
+
     }
-    /* .admin-comenzi__tabel-button
-    {
-        padding: ;
-    } */
+
     .admin-comenzi__tabel-button__stanga,
     .admin-comenzi__tabel-button__dreapta
     {
         padding: 0;
         margin-left: 1em;
     }
+
+    body {
+        background-image: none; 
+        background-color: #A8DADC;
+    }
+
+	table, thead, tbody, th, td, tr 
+    { 
+		display: block; 
+	}
+	
+	thead tr 
+    { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr
+    { 
+        border: 1px solid #ccc;
+        text-align: right;
+    }
+	
+	td
+    { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before
+    { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 30%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+    .admin-comenzi__tabel td, th
+    { 
+        text-align: right;
+    }
+    td:nth-of-type(1):before { content: "No"; }
+	td:nth-of-type(2):before { content: "Brand"; }
+	td:nth-of-type(3):before { content: "Categorie"; }
+	td:nth-of-type(4):before { content: "Nume"; }
+	td:nth-of-type(5):before { content: "Stoc"; }
+	td:nth-of-type(6):before { content: "Rezervate"; }
+	td:nth-of-type(7):before { content: "Pret"; }
+
 }
 
 

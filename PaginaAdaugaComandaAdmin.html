@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/PaginaComenziAdmin.css">
+    <link rel="stylesheet" href="./css/PaginaAdaugaComandaAdmin.css">
     <script src="https://kit.fontawesome.com/9ab9988c3d.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png" />
     <title>CyMaT</title>
@@ -112,13 +112,13 @@
 
     <main>
         
-        <div class="admin-comenzi">
-            <div class="admin-comenzi__titlu">
-                <p>Pagina administrare comenzi :</p>
+        <div class="admin-add-comanda">
+            <div class="admin-add-comanda__titlu">
+                <p>Pagina de adaugare comanda :</p>
             </div>
-            <div class="admin-comenzi__filtrare">
+            <div class="admin-add-comanda__filtrare">
 
-                <select class="admin-comenzi__filtrare__brand" id="admin-comenzi__filtrare__brand">
+                <select class="admin-add-comanda__filtrare__brand" id="admin-add-comanda__filtrare__brand">
                     <option value="Default" selected> Brand</option>
                     <option value="APRILIA">APRILIA</option>
                     <option value="BETA">BETA</option>
@@ -132,7 +132,7 @@
                     <option value="YAMAHA">YAMAHA</option>
                 </select>
 
-                <select class="admin-comenzi__filtrare__categorie" id="admin-comenzi__filtrare__categorie">
+                <select class="admin-add-comanda__filtrare__categorie" id="admin-add-comanda__filtrare__categorie">
                     <option value="Default" selected> Categorie</option>
                     <option value="Electrice">Electrice</option>
                     <option value="Evacuari">Evacuari</option>
@@ -150,7 +150,7 @@
                 </select>
 
 
-                <select class="admin-comenzi__filtrare__piesa" id="admin-comenzi__filtrare__piesa">
+                <select class="admin-add-comanda__filtrare__piesa" id="admin-add-comanda__filtrare__piesa">
                     <option value="Default" selected> Piesa</option>
                     <option value="Acumulator">Acumulator</option>
                     <option value="Anvelopa Fata">Anvelopa Fata</option>
@@ -182,20 +182,20 @@
                 </select>
 
  
-                <select class="admin-comenzi__filtrare__numar-randuri" id="admin-comenzi__filtrare__numar-randuri">
+                <!-- <select class="admin-add-comanda__filtrare__numar-randuri" id="admin-add-comanda__filtrare__numar-randuri">
                     <option value="5"> 5</option>
                     <option value="10" selected> 10</option>
                     <option value="15"> 15</option>
                     <option value="20"> 20</option>
-                </select>
+                </select> -->
 
-                <input type="search" class="admin-comenzi__filtrare__cauta__piesa" id="admin-comenzi__filtrare__cauta__piesa" " placeholder="Cauta piesa...">
-                <!-- <div class="admin-comenzi__filtrare__reset"> -->
-                <button type="button" class="admin-comenzi__filtrare__reset__button" id="admin-comenzi__filtrare__reset__button">Reset</button>
+                <!-- <input type="search" class="admin-add-comanda__filtrare__cauta__piesa" id="admin-add-comanda__filtrare__cauta__piesa" " placeholder="Cauta piesa..."> -->
+                <!-- <div class="admin-add-comanda__filtrare__reset"> -->
+                <button type="button" class="admin-add-comanda__filtrare__reset__button" id="admin-add-comanda__filtrare__reset__button">Trimite</button>
                 <!-- </div> -->
             </div>
-            <div class="admin-comenzi__tabel">
-                <table id="admin-comenzi__tabel">
+  <!--            <div class="admin-add-comanda__tabel">
+                <table id="admin-add-comanda__tabel">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -217,7 +217,7 @@
                             <td>2</td>
 							<td>2022-04-08</td>
 							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+							<td><button type="button" class="admin-add-comanda__tabel__actiune__primit">Primit</button></td>
                         </tr>
                         <tr>
                             <td>2</td>
@@ -227,7 +227,7 @@
                             <td>10</td>
                             <td>2022-04-07</td>
 							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+							<td><button type="button" class="admin-add-comanda__tabel__actiune__primit">Primit</button></td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -237,7 +237,7 @@
                             <td>1</td>
                             <td>2022-04-07</td>
 							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+							<td><button type="button" class="admin-add-comanda__tabel__actiune__primit">Primit</button></td>
 
                         </tr>
                         <tr>
@@ -248,7 +248,7 @@
                             <td>10</td>
                             <td>2022-04-07</td>
 							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+							<td><button type="button" class="admin-add-comanda__tabel__actiune__primit">Primit</button></td>
                         </tr>
                         <tr>
                             <td>5</td>
@@ -258,7 +258,7 @@
                             <td>1</td>
                             <td>2022-04-07</td>
 							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+							<td><button type="button" class="admin-add-comanda__tabel__actiune__primit">Primit</button></td>
                         </tr>
                         <tr>
                             <td>6</td>
@@ -268,7 +268,7 @@
                             <td>10</td>
                             <td>2022-04-06</td>
 							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+							<td><button type="button" class="admin-add-comanda__tabel__actiune__primit">Primit</button></td>
                            
                         </tr>
                         <tr>
@@ -279,15 +279,8 @@
                             <td>3</td>
                             <td>2022-04-09</td>
 							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
-                            <!-- <td class="admin-comenzi__tabel__stoc-actiune">
-                                
-                                <button type="button" class="admin-comenzi__tabel__stoc-actiune__scade">-</button>
-                            </td>
-                            <td class="admin-comenzi__tabel__rezervat-actiune">
-                                <button type="button" class="admin-comenzi__tabel__rezervat-actiune__aduna">+</button>
-                                <button type="button" class="admin-comenzi__tabel__rezervat-actiune__scade">-</button>
-                            </td> -->
+							<td><button type="button" class="admin-add-comanda__tabel__actiune__primit">Primit</button></td>
+                         
                         </tr>
                         <tr>
                             <td>8</td>
@@ -367,14 +360,15 @@
 
 						
                     </tbody>
-                </table>
-				<div>
+                </table> 
+				
+                <div>
 				</div>
-            </div>
-            <div class="admin-comenzi__tabel-button">
-                <button type="button" class="admin-comenzi__tabel-button__stanga" id="admin-comenzi__tabel-button__stanga"> &#10094; </button>
-                <button type="button" class="admin-comenzi__tabel-button__dreapta" id="admin-comenzi__tabel-button__dreapta"> &#10095; </button>
-            </div>
+            </div> -->
+            <!-- <div class="admin-add-comanda__tabel-button">
+                <button type="button" class="admin-add-comanda__tabel-button__stanga" id="admin-add-comanda__tabel-button__stanga"> &#10094; </button>
+                <button type="button" class="admin-add-comanda__tabel-button__dreapta" id="admin-add-comanda__tabel-button__dreapta"> &#10095; </button>
+            </div> -->
             <script src="./js/comenzi.js"></script>
         </div>
 
