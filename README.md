@@ -32,14 +32,14 @@ Simboluri: https://unicode-table.com/en/ sau https://fontawesome.com/
 
 -Pagina admin de administrare stoc(un tabel cu toate piesele din stoc pe mai multe pagini(cate 10/25/50 ...) + buton de adauga/sterge un numar de piese curente + selectori de filtrare deasupra tabelului(drop))
 
+-Pagina admin de administrare comenzi(un tabel cu toate comenzile curente + buton de primire comanda + selector de piese pentru a comnda un numar de piese)
+
 **TO DO tasks pentru partea 1:**
 
 -Pagina acasa client/admin
 
 -Pagina de login/signup/reset pass user(acesleasi pt client/admin)
 
-
-**-Pagina admin de administrare comenzi(un tabel cu toate comenzile curente + buton de primire comanda + selector de piese pentru a comnda un numar de piese)**
 
 -Testat paginile daca sunt responsive
 
