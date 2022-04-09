@@ -45,7 +45,7 @@ Simboluri: https://unicode-table.com/en/ sau https://fontawesome.com/
 
 -Legat paginile intre ele
 
--Testat paginile daca sunt corecte (https://validator.w3.org/ & https://jigsaw.w3.org/css-validator/ & https://stylelint.io/)
+-Testat paginile daca sunt corecte (https://validator.w3.org/ & https://jigsaw.w3.org/css-validator/ & https://stylelint.io/) + filtre min/max ... p buttoane  + add get/post in pagini + chestii de securitate
 
 -Documentatie
 
