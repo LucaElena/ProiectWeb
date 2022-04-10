@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/PaginaFormular.css">
     <script src="https://kit.fontawesome.com/9ab9988c3d.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png" />
     <title>CyMaT</title>
-    <link rel="stylesheet" href="./css/PaginaClientIndex.css">
 </head>
 
 <body>
@@ -42,6 +42,7 @@
                 </a>
             </li>
 
+
             <li>
                 <a class="header_button" href="./PaginaIstoric.html">
                     <span class="header_icon"> <i class="fas fa-comments"></i> </span>
@@ -57,19 +58,17 @@
                 </a>
                 <ul class="header_button__login">
                     <li>
-                        <a class="header_button" href="./PaginaSignupClient.html">
+                        <a class="header_button" href="./PaginaResetPass.html">
                             <!-- <span class="header_icon"> <i class="fas fa-key"></i> </span> -->
                             <span class="header_icon"> &#9919; </span>
-
-                            <span class="header_text">Sign up</span>
+                            <span class="header_text">Reset password</span>
                         </a>
                     </li>
                     <li>
-                        <a class="header_button" href="./PaginaLoginClient.html">
+                        <a class="header_button" href="./index_client.html">
                             <!-- <span class="header_icon"> <i class="fas fa-sign-out-alt"></i> </span>	 -->
                             <span class="header_icon"> &#9094; </span>
-
-                            <span class="header_text">Log in</span>
+                            <span class="header_text">Log out</span>
                         </a>
                     </li>
                 </ul>
@@ -80,24 +79,30 @@
     </header>
 
 
+
     <main>
 
-        <!-- TO DO : adauga un mesaj de primire. si un link catre login -->
-        <div class="client-welcome">
-            <div class="client-welcome__titlu">
-                <p>Bine ati venit pe site-ul nostru de reparatii motociclete CyMaT</p>
+        <div class="formular_programare">
+
+            <div class="formular_programare__status">
+                <!-- Editare problema->In astepare raspuns->Programata*/ -->
+                <p class="formular_programare__status__text">Status formular:</p>
+                <p class="formular_programare__status__valoare">Asteptare</p>
+           </div>
+
+            <div class="formular_programare__data">
+                <p class="formular_programare__data__mesaj">Ora programarii</p>
+                <!-- <input type="datetime-local" class="formular_programare__data__valoare" id="formular_programare__data__valoare" value="2022-05-18T09:00"> -->
+                <p class="formular_programare__data__valoare">2022-05-20 09:00</p>
             </div>
-            <div class="client-welcome__mesaj">
-                <p>Puteti sa faceti direct o programare <a href="./PaginaCalendarClient.html">aici</a> </p>
-                <p>Sau sa va creati intai un cont <a href="./PaginaSignupClient.html">aici</a> sau sa va autentificati
-                    <a href="./PaginaLoginClient.html">aici</a>
-                </p>
-            </div>
-            <div class="client-welcome__sfarsit">
+
+            <div class="formular_programare__mesaj_dupa">
+                <p>Va multumim pentru programare</p>
+                <p>Vom studia problema dumneavoastra si vom reveni cu o oferta de pret daca va putem ajuta</p>
                 <p>Va multumim de alegere,<br>Echipa CyMaT</p>
             </div>
-        </div>
 
+        </div>
     </main>
 
 
