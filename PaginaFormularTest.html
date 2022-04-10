@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/PaginaFormularTest.css">
+    <link rel="stylesheet" href="./css/PaginaFormular.css">
     <script src="https://kit.fontawesome.com/9ab9988c3d.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png" />
     <title>CyMaT</title>
@@ -80,13 +80,17 @@
 
             <div class="formular_programare__status">
                 <!-- Editare problema->In astepare raspuns->Programata*/ -->
-                <a class="formular_programare__status__text">Status formular:</a>
-                <a class="formular_programare__status__valoare">In asteptare</a>
+                <p class="formular_programare__status__text">Status formular:</p>
+                <p class="formular_programare__status__valoare">In asteptare</p>
            </div>
 
             <div class="formular_programare__data">
-                <a class="formular_programare__data__mesaj">Ora programarii</a>
-                <input type="datetime-local" id="formular_programare__data__valoare" value="2022-05-18T09:00">
+                <p class="formular_programare__data__mesaj">Ora programarii</p>
+                <input type="datetime-local" class="formular_programare__data__valoare" value="2022-05-18T09:00"
+                    id="formular_programare__data__valoare" value="2022-05-18T09:00"
+                    min="2022-05-18T09:00"
+                    max="2023-05-18T19:00"
+                    step="3600">
             </div>
 
             <div class="formular_programare__mesaj_client">
@@ -168,17 +172,21 @@
                 <input class=" formular_programare__piese_necesare__cantitate" type="number" id="formular_programare__piese_necesare__cantitate" name="cantitate" value=1 min="1" max="10">
                 
                 <a class="formular_programare__piese_necesare__adauga"><i class="fas fa-plus"></i>Add</a>
-            
-                <div class="formular_programare__piese_selectate">
-                    <table>
+            </div>
+            <div class="formular_programare__piese_selectate">
+                <table>
+                    <thead>
                         <tr>
                             <th>No</th>
                             <th>Brand</th>
                             <th>Cateorie</th>
                             <th>Nume</th>
                             <th>Cantitate</th>
-                            <th>Pret(RON)</th>
+                            <th>Pret</th>
                             <th>Sterge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td>1</td>
                             <td>HONDA</td>
@@ -216,7 +224,7 @@
                             <td><i class="fas fa-trash-alt"></i></td>
                         </tr>
                         <tr>
-                            <td>5</td>
+                            <td></td>
                             <td>Total:</td>
                             <td></td>
                             <td></td>
@@ -224,12 +232,17 @@
                             <td>650</td>
                             <td></td>
                         </tr>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
-            <div class="formular_programare__acceptat_respins">
-                 <button type=button" class="formular_programare__acceptat_respins__accepta_button">Accepta</button>
-                 <button type=button" class="formular_programare__acceptat_respins__respinge_button">Respinge</button>
+            <div class="formular_programare__actiune">
+                 <button type=button" class="formular_programare__actiune__accepta_button">Accepta</button>
+                 <button type=button" class="formular_programare__actiune__respinge_button">Respinge</button>
+            </div>
+            <div class="formular_programare__mesaj_dupa">
+                <p>Va multumim pentru programare</p>
+                <p>Vom studia problema dumneavoastra si vom reveni cu o oferta de pret daca va putem ajuta</p>
+                <p>Va multumim de alegere,<br>Echipa CyMaT</p>
             </div>
         </div>
     </main>

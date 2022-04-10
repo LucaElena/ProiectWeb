@@ -229,7 +229,7 @@ footer {
 .formular_programare__mesaj_admin__send_button
 {
     background-color: #E63946;
-    width: 5%;
+    width: 10%;
     height: 100%;
     border-radius: 5px;
 }
@@ -267,6 +267,15 @@ footer {
     grid-row-start: 7;
     padding: 1em;
     background-color: rgba(255, 255, 255, 0.5);  
+}
+.formular_programare__piese_selectate
+{
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 8;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.5);  
+
 }
 
 
@@ -322,7 +331,7 @@ footer {
     padding: 0.5em;
 }
 
-.formular_programare__piese_necesare table
+.formular_programare__piese_selectate table
 {
 
     font-family: arial, sans-serif;
@@ -332,19 +341,25 @@ footer {
     grid-column-end: 8;
     grid-row-start: 8;
     padding: 1em;
+    background-color: #F1FAEE;
 }
 
-.formular_programare__piese_necesare td, th
+.formular_programare__piese_selectate thead{
+    background-color: #a8dadc;
+}
+
+
+.formular_programare__piese_selectate td, th
 {
     border: 1px solid #F1FAEE;
     text-align: left;
     padding: 0.5em;
 }
-
-.formular_programare__piese_necesare tr:nth-child(even) 
+.formular_programare__piese_selectate tr:nth-child(even) 
 {
-    background-color: #F1FAEE;
+    background-color: #a8dadc;
 }
+
 
 .formular_programare__actiune 
 {
@@ -396,7 +411,7 @@ footer {
     
     grid-column-start: 1;
     grid-column-end: 8;
-    grid-row-start: 8;
+    grid-row-start: 10;
     background-color: #a8dadc;
     text-align: left;
 }
@@ -447,11 +462,11 @@ footer {
         padding-left: 0.5em;
         padding: 0.2em;
     }
-    .formular_programare__piese_necesare table
+    .formular_programare__piese_selectate table
     {
         padding: 0.5em;
     }
-    .formular_programare__piese_necesare td, th
+    .formular_programare__piese_selectate td, th
     {
         padding: 0em;
     }
@@ -491,7 +506,8 @@ footer {
         flex-direction: column;
     }
     
-    .formular_programare__mesaj_client
+    .formular_programare__mesaj_client,
+    .formular_programare__mesaj_admin
     {
         display: block;
     }
@@ -512,10 +528,11 @@ footer {
         flex-direction: column;
         justify-content: start;
     }
-    .formular_programare__piese_necesare table
+
+    /* .formular_programare__piese_selectate table
     {
         padding: 0em;
-    }
+    } */
     .formular_programare__actiune .formular_programare__actiune__accepta_button,
     .formular_programare__actiune .formular_programare__actiune__respinge_button 
     {
@@ -536,11 +553,11 @@ footer {
         height: 1em;
     }
 
-    .formular_programare__piese_necesare__brand ,
-    .formular_programare__piese_necesare__cateorie,
-    .formular_programare__piese_necesare__piesa,
-    .formular_programare__piese_necesare__cantitate ,
-    .formular_programare__piese_necesare__adauga
+    .formular_programare__piese_necesare .formular_programare__piese_necesare__brand, 
+    .formular_programare__piese_necesare .formular_programare__piese_necesare__cateorie,
+    .formular_programare__piese_necesare .formular_programare__piese_necesare__piesa,
+    .formular_programare__piese_necesare .formular_programare__piese_necesare__cantitate,
+    .formular_programare__piese_necesare .formular_programare__piese_necesare__adauga
     {
 
         font-size: xx-small;
@@ -579,8 +596,8 @@ footer {
 	td:before
     { 
 		position: absolute;
-		top: 6px;
-		left: 6px;
+		/* top: 6px; */
+		/* left: 6px; */
 		width: 30%; 
 		padding-right: 10px; 
 		white-space: nowrap;
@@ -589,85 +606,13 @@ footer {
     { 
         text-align: right;
     }
-    td:nth-of-type(1):before { content: "No"; }
+
+    /* td:nth-of-type(1):before { content: "No"; }
 	td:nth-of-type(2):before { content: "Brand"; }
 	td:nth-of-type(3):before { content: "Categorie"; }
 	td:nth-of-type(4):before { content: "Piesa"; }
 	td:nth-of-type(5):before { content: "Cantitate"; }
 	td:nth-of-type(6):before { content: "Pret"; }
-	td:nth-of-type(7):before { content: "Actiune"; }
+	td:nth-of-type(7):before { content: "Actiune"; } */
     
 }
-
-/* 
-
-@media (max-height :600px) {
-    .formular_programaree__calendar__inside {
-        gap: 0em;
-        padding: 0em;
-    }
-    .formular_programaree__calendar__inside__hours_btn button[id$='_col7'],
-    button[id$='_col8'],
-    button[id$='_col9'],
-    button[id$='_col10'],
-    button[id$='_col11'],
-    button[id$='_col12'] {
-        display: none;
-    }
-
-    
-    .formular_programaree__calendar__inside__down_btn,
-    .formular_programaree__calendar__inside__up_btn {
-        display: block;
-    }
-    footer {
-        display: none;
-    }
-    .formular_programare {
-        font-size: x-small;
-    }
-    .formular_programaree__calendar__month {
-        font-size: x-small;
-    }
-    .hover-value {
-        top: 0em;
-        font-size: xx-small;
-    }
-    .formular_programaree__calendar__inside__head {
-        background-color: #457b9d ;
-        font-weight: bold;
-    }
-}
-
-@media (max-height: 400px) {
-    .formular_programaree__calendar {
-        letter-spacing: 0em;
-    }
-    .formular_programare {
-        column-gap: 0em;
-        row-gap: 0em;
-        padding: 0em;
-        margin: 0em;
-        border-radius: 0em;
-    }
-    .formular_programare__btn .formular_programare__btn__btn1,
-    .formular_programare__btn__btn2,
-    .formular_programare__btn__btn3 {
-        padding: 0em;
-        margin: 0em;
-        width: 25%;
-    }
-    .formular_programaree__calendar__inside__hours_btn {
-        padding: 0em;
-        margin: 0em;
-        font-size: xx-small;
-    }
-    .formular_programaree__calendar__inside__head {
-        padding: 0em;
-        font-size: x-small;
-        background-color: #457b9d ;
-    }
-    .formular_programaree__calendar__month {
-        font-size: x-small;
-    }
-} */
