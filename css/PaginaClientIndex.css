@@ -11,7 +11,7 @@
 /* curatam intai elementele de decoratiuni default */
 
 body {
-    background-image: url("../images/back.jpg"); 
+    background-image: url("../images/back.jpg");
     background-size: 100% 100%;
     min-height: 100vh;
     background-repeat: no-repeat;
@@ -47,9 +47,12 @@ a {
 }
 
 header ul li {
-    /* width: calc(16% - 2px); */ /*6 butoane */
-    /*width: calc(19% - 2px);*/ /*5 butoane */
-    width: calc(23% - 2px); /*4 butoane */
+    /* width: calc(16% - 2px); */
+    /*6 butoane */
+    /*width: calc(19% - 2px);*/
+    /*5 butoane */
+    width: calc(23% - 2px);
+    /*4 butoane */
     float: left;
     height: 2em;
     text-align: center;
@@ -95,8 +98,7 @@ footer {
     height: 50px;
 }
 
-.hover-value
-{
+.hover-value {
     /* visibility: collapse; */
     -webkit-transition: width 2s ease-in-out;
     transition: width 3s;
@@ -109,14 +111,13 @@ footer {
 
 
 
-.client-welcome
-{
+.client-welcome {
     background-color: #1d3557;
     padding: 1em;
     margin: 1em;
-    margin-top:3em ;
-    border-radius:1em;
-    transform: translate( 0%, 5%);
+    margin-top: 3em;
+    border-radius: 1em;
+    transform: translate(0%, 5%);
     opacity: 0.95;
     font-size: large;
     display: flex;
@@ -126,31 +127,30 @@ footer {
     align-items: center;
     align-content: center;
 }
+
 .client-welcome__titlu,
 .client-welcome__mesaj,
-.client-welcome__sfarsit
-{
+.client-welcome__sfarsit {
     margin-bottom: 1em;
     padding: 1em;
     background-color: #457B9D;
     border-radius: 0.5em;
     font-size: large;
 }
-.client-welcome__titlu
-{
-    align-self: flex-start;
-}
-.client-welcome__mesaj
-{
-    align-self: center;
-}
-.client-welcome__sfarsit
-{
+
+.client-welcome__titlu {
     align-self: flex-start;
 }
 
-.client-welcome a
-{
+.client-welcome__mesaj {
+    align-self: center;
+}
+
+.client-welcome__sfarsit {
+    align-self: flex-start;
+}
+
+.client-welcome a {
     color: #E63946;
 }
 
@@ -162,20 +162,23 @@ footer {
     .header_text {
         display: none;
     }
+
     .logo img {
         display: none;
     }
+
     .header_icon_logo {
         display: block;
     }
+
     .hover-value {
         top: 0.1em;
         font-size: x-small;
     }
-    .client-welcome__titlu ,
-    .client-welcome__mesaj ,
-    .client-welcome__sfarsit 
-    {
+
+    .client-welcome__titlu,
+    .client-welcome__mesaj,
+    .client-welcome__sfarsit {
         font-size: medium;
         padding: 0.5em;
         margin: 0.5em;
@@ -187,16 +190,15 @@ footer {
 
 @media (max-width :400px) {
 
-    
+
     .hover-value {
         font-size: xx-small;
     }
 
-    
-    .client-welcome__titlu ,
-    .client-welcome__mesaj ,
-    .client-welcome__sfarsit 
-    {
+
+    .client-welcome__titlu,
+    .client-welcome__mesaj,
+    .client-welcome__sfarsit {
         font-size: small;
         padding: 0.2em;
         margin: 0.2em;
@@ -206,27 +208,24 @@ footer {
 
 
 /* Daca e prea ingust/lat scoatem imaginea de fundal */
-@media (max-aspect-ratio: 2/3)
-{
-    .client-welcome
-    {
-       transform: none;
+@media (max-aspect-ratio: 2/3) {
+    .client-welcome {
+        transform: none;
     }
+
     body {
-        background-image: none; 
-        background-color: #A8DADC;
-    }
-}
-@media (min-aspect-ratio: 5/2)
-{
-    .client-welcome
-    {
-       transform: none;
-    }
-    body {
-        background-image: none; 
+        background-image: none;
         background-color: #A8DADC;
     }
 }
 
+@media (min-aspect-ratio: 5/2) {
+    .client-welcome {
+        transform: none;
+    }
 
+    body {
+        background-image: none;
+        background-color: #A8DADC;
+    }
+}

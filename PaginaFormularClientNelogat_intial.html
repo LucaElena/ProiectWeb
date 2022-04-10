@@ -15,7 +15,7 @@
     <header>
         <ul>
             <li>
-                <a class="logo" href="./PaginaGeneralaClient.html">
+                <a class="logo" href="./index_client.html">
 
                     <!-- <span class="header_icon_logo"> <i class="fas fa-clinic-medical"></i> </span> -->
                     <span class="header_icon_logo"> &#127949; </span>
@@ -27,7 +27,7 @@
 
 
             <li>
-                <a class="header_button" href="./PaginaCalendarClientLogat.html">
+                <a class="header_button" href="./PaginaCalendarClientNelogat.html">
                     <!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span> -->
                     <span class="header_icon"> &#128197; </span>
                     <span class="header_text">Program</span>
@@ -35,7 +35,7 @@
             </li>
 
             <li>
-                <a class="header_button" href="./PaginaFormularClient_intialLogat.html">
+                <a class="header_button" href="./PaginaFormularClient_intialNelogat.html">
                     <!-- <span class="header_icon"> <i class="fa fa-check-square"></i> </span>	 -->
                     <span class="header_icon"> &#128462; </span>
                     <span class="header_text">Formular</span>
@@ -44,9 +44,9 @@
 
 
             <li>
-                <a class="header_button" href="./PaginaChatPatientV2.html">
-                    <span class="header_icon"> <i class="fas fa-comments"></i> </span>
-                    <span class="header_text">Istoric</span>
+                <a class="header_button">
+                    <!-- <span class="header_icon"> <i class="fas fa-comments"></i> </span>
+                    <span class="header_text">Istoric</span> -->
                 </a>
             </li>
 
@@ -58,17 +58,19 @@
                 </a>
                 <ul class="header_button__login">
                     <li>
-                        <a class="header_button" href="./PaginaResetPass.html">
+                        <a class="header_button" href="./PaginaSignupClient.html">
                             <!-- <span class="header_icon"> <i class="fas fa-key"></i> </span> -->
                             <span class="header_icon"> &#9919; </span>
-                            <span class="header_text">Reset password</span>
+
+                            <span class="header_text">Sign up</span>
                         </a>
                     </li>
                     <li>
-                        <a class="header_button" href="./index_client.html">
+                        <a class="header_button" href="./PaginaLoginClient.html">
                             <!-- <span class="header_icon"> <i class="fas fa-sign-out-alt"></i> </span>	 -->
                             <span class="header_icon"> &#9094; </span>
-                            <span class="header_text">Log out</span>
+
+                            <span class="header_text">Log in</span>
                         </a>
                     </li>
                 </ul>
@@ -83,12 +85,11 @@
     <main>
 
         <div class="formular_programare">
-            <!-- TO DO: css-->
 
             <div class="formular_programare__status">
                 <!-- Editare problema->In astepare raspuns->Programata*/ -->
-                <p class="formular_programare__status__text">Status formular: </p>
-                <p class="formular_programare__status__valoare"> Editare</p>
+                <p class="formular_programare__status__text">Status formular:</p>
+                <p class="formular_programare__status__valoare">Editare</p>
            </div>
 
             <div class="formular_programare__data">
@@ -98,7 +99,14 @@
                     min="2022-05-18T09:00"
                     max="2023-05-18T19:00"
                     step="3600">
-                <!-- <p class="formular_programare__data__valoare">2022-05-20 09:00</p> -->
+                <!-- <a class="formular_programare__data__valoare">2022-05-20 09:00</a> -->
+            </div>
+
+            <div class="formular_programare__date_client">
+                <input class="formular_programare__date_client__f_name" id="formular_programare__date_client__f_name"  type="Text" placeholder="First Name" required>
+                <input class="formular_programare__date_client__l_name" id="formular_programare__date_client__l_name" type="Text" placeholder="Last Name" required>
+                <input class="formular_programare__date_client__email" id="formular_programare__date_client__email" type="email" placeholder="Email" required>
+                <input class="formular_programare__date_client__pass" id="formular_programare__date_client__pass" type="password" placeholder="Alege parola" required>
             </div>
 
             
@@ -108,7 +116,7 @@
  
                 <textarea name="new-messag-client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3" placeholder="Mesaj client cu descrierea problemei"></textarea>
                 <input type="file" accept="video" class="formular_programare__mesaj_client__video" placeholder="Incarcati un video cu problema">
-                <button type=button" class="formular_programare__mesaj_client__send_button">  <a href="./PaginaFormularLogatMesaj.html"><i class="fas fa-paper-plane"></i></a> </button>
+                <button type=button" class="formular_programare__mesaj_client__send_button">  <a href="./PaginaFormularNelogatMesaj.html"><i class="fas fa-paper-plane"></i></a> </button>
                 
                
             </div>
@@ -239,6 +247,8 @@
                         </tr>
                     </table>
                 </div> -->
+                <div class="formular_programare__mesaj_dupa">
+                </div>
             </div>
         </div>
     </main>
