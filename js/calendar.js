@@ -173,7 +173,7 @@ function print_schedule(firstDay) {
                 }
             }
 
-            //current_button.setAttribute("class" , "schedule__calendar__inside__hours_btn__bussy");
+            //current_button.setAttribute("class" , "programari__calendar__inside__hours_btn__bussy");
         }
     }
 }

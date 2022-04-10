@@ -175,7 +175,7 @@ footer {
     background-color: orange;
 }
 
-.schedule__calendar {
+.programari__calendar {
     grid-column-start: 1;
     grid-column-end: 3;
     display: grid;
@@ -184,7 +184,7 @@ footer {
     letter-spacing: 0.1em;
 }
 
-.schedule__calendar__month {
+.programari__calendar__month {
     grid-column-start: 2;
     grid-column-end: 16;
     grid-row-start: 1;
@@ -194,7 +194,7 @@ footer {
     text-align: center;
 }
 
-.schedule__calendar__left_day_btn 
+.programari__calendar__left_day_btn 
 {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -207,7 +207,7 @@ footer {
     border: none;
 }
 
-.schedule__calendar__left_week_btn
+.programari__calendar__left_week_btn
 {
 
     grid-column-start: 1;
@@ -221,8 +221,8 @@ footer {
     border: none;
 }
 
-/* .schedule__calendar__right_day_btn { */
-.schedule__calendar__right_day_btn 
+/* .programari__calendar__right_day_btn { */
+.programari__calendar__right_day_btn 
 {
     grid-column-start: 16;
     grid-column-end: 17;
@@ -235,7 +235,7 @@ footer {
     border: none;
 }
 
-.schedule__calendar__right_week_btn {
+.programari__calendar__right_week_btn {
     grid-column-start: 16;
     grid-column-end: 17;
     grid-row-start: 2;
@@ -247,7 +247,7 @@ footer {
     border: none;
 }
 
-.schedule__calendar__left_month_btn {
+.programari__calendar__left_month_btn {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
@@ -260,7 +260,7 @@ footer {
     border: none;
 }
 
-.schedule__calendar__right_month_btn {
+.programari__calendar__right_month_btn {
     grid-column-start: 16;
     grid-column-end: 17;
     grid-row-start: 1;
@@ -273,7 +273,7 @@ footer {
     border: none;
 }
 
-.schedule__calendar__inside {
+.programari__calendar__inside {
     display: grid;
     grid-column: 2/ span 14;
     grid-row-start: 2;
@@ -283,7 +283,7 @@ footer {
     background-color: rgba(255, 255, 255, 0);
 }
 
-.schedule__calendar__inside__head {
+.programari__calendar__inside__head {
     grid-column: auto / span 2;
     background-color: #457b9d ;
     padding: 0.2em;
@@ -292,7 +292,7 @@ footer {
     text-align: center;
 }
 
-.schedule__calendar__inside__hours_btn {
+.programari__calendar__inside__hours_btn {
     grid-column: auto / span 2;
     background-color: rgba(255, 255, 255, 0.8);
     /* padding: 0.2em; */
@@ -301,7 +301,7 @@ footer {
     border: none;
 }
 
-.schedule__calendar__inside__down_btn {
+.programari__calendar__inside__down_btn {
     grid-column-start: 1;
     grid-column-end: 8;
     grid-row-start: 14;
@@ -314,7 +314,7 @@ footer {
     display: none;
 }
 
-.schedule__calendar__inside__up_btn {
+.programari__calendar__inside__up_btn {
     grid-column-start: 8;
     grid-column-end: 15;
     grid-row-start: 14;
@@ -327,12 +327,7 @@ footer {
     display: none;
 }
 
-.schedule__calendar__inside__hours_btn__open {
-    background-color: green;
-    color: white;
-    cursor: pointer;
-    justify-self: stretch;
-}
+
 
 .hover-value {
     /* visibility: collapse; */
@@ -345,7 +340,7 @@ footer {
     font-size: small;
 }
 
-.schedule__calendar__inside__hours_btn__closed {
+.programari__calendar__inside__hours_btn__closed {
     /* border-radius: 0.2em; */
     background-color: grey;
     color: white;
@@ -356,7 +351,7 @@ footer {
     width: 100%;
 }
 
-.schedule__calendar__inside__hours_btn__open {
+.programari__calendar__inside__hours_btn__open {
     /* border-radius: 0.2em; */
     background-color: green;
     color: white;
@@ -366,13 +361,22 @@ footer {
     cursor: pointer;
     width: 100%;
 }
+.programari__calendar__inside__hours_btn__selected {
+    background-color: #A8DADC;
+    padding: 0.2em 0.2em;
+    margin-top: 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
 
-.schedule__calendar__inside__hours_btn__bussy:hover .hover-value {
+
+.programari__calendar__inside__hours_btn__bussy:hover .hover-value {
     visibility: visible;
     display: block;
 }
 
-.schedule__calendar__inside__hours_btn__bussy {
+.programari__calendar__inside__hours_btn__bussy {
     /* border-radius: 0.2em; */
     background-color: red;
     color: white;
@@ -397,11 +401,11 @@ footer {
     .header_text {
         display: none;
     }
-    .schedule__calendar__inside {
+    .programari__calendar__inside {
         gap: 0em;
         padding: 0em;
     }
-    .schedule__calendar__inside__hours_btn button[id^='calendar_row2'],
+    .programari__calendar__inside__hours_btn button[id^='calendar_row2'],
     button[id^='calendar_row3'],
     button[id^='calendar_row4'],
     button[id^='calendar_row5'],
@@ -409,7 +413,7 @@ footer {
     button[id^='calendar_row7'] {
         display: none;
     }
-    .schedule__calendar__inside__head div[id^='day_1'],
+    .programari__calendar__inside__head div[id^='day_1'],
     div[id^='day_2'],
     div[id^='day_3'],
     div[id^='day_4'],
@@ -417,30 +421,30 @@ footer {
     div[id^='day_6'] {
         display: none;
     }
-    .schedule__calendar__inside__head {
+    .programari__calendar__inside__head {
         grid-column-start: 1;
         grid-column-end: 15;
         grid-row: 1/2;
         background-color: #457b9d ;
         font-weight: bold;
     }
-    .schedule__calendar__inside__hours_btn {
+    .programari__calendar__inside__hours_btn {
         grid-column-start: 1;
         grid-column-end: 15;
     }
-    .schedule__calendar__inside__down_btn {
+    .programari__calendar__inside__down_btn {
         grid-column-start: 1;
         grid-column-end: 8;
         grid-row-start: 41;
         grid-row-end: 42;
     }
-    .schedule__calendar__inside__up_btn {
+    .programari__calendar__inside__up_btn {
         grid-column-start: 8;
         grid-column-end: 15;
         grid-row-start: 41;
         grid-row-end: 42;
     }
-    .schedule__calendar {
+    .programari__calendar {
         letter-spacing: 0em;
     }
     .schedul__btn .schedul__btn__btn1,
@@ -469,11 +473,11 @@ footer {
 }
 
 @media (max-height :600px) {
-    .schedule__calendar__inside {
+    .programari__calendar__inside {
         gap: 0em;
         padding: 0em;
     }
-    .schedule__calendar__inside__hours_btn button[id$='_col7'],
+    .programari__calendar__inside__hours_btn button[id$='_col7'],
     button[id$='_col8'],
     button[id$='_col9'],
     button[id$='_col10'],
@@ -483,8 +487,8 @@ footer {
     }
 
     
-    .schedule__calendar__inside__down_btn,
-    .schedule__calendar__inside__up_btn {
+    .programari__calendar__inside__down_btn,
+    .programari__calendar__inside__up_btn {
         display: block;
     }
     footer {
@@ -493,21 +497,21 @@ footer {
     .schedul {
         font-size: x-small;
     }
-    .schedule__calendar__month {
+    .programari__calendar__month {
         font-size: x-small;
     }
     .hover-value {
         top: 0em;
         font-size: xx-small;
     }
-    .schedule__calendar__inside__head {
+    .programari__calendar__inside__head {
         background-color: #457b9d ;
         font-weight: bold;
     }
 }
 
 @media (max-height: 400px) {
-    .schedule__calendar {
+    .programari__calendar {
         letter-spacing: 0em;
     }
     .schedul {
@@ -524,17 +528,17 @@ footer {
         margin: 0em;
         width: 25%;
     }
-    .schedule__calendar__inside__hours_btn {
+    .programari__calendar__inside__hours_btn {
         padding: 0em;
         margin: 0em;
         font-size: xx-small;
     }
-    .schedule__calendar__inside__head {
+    .programari__calendar__inside__head {
         padding: 0em;
         font-size: x-small;
         background-color: #457b9d ;
     }
-    .schedule__calendar__month {
+    .programari__calendar__month {
         font-size: x-small;
     }
 }
