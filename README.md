@@ -36,14 +36,14 @@ Simboluri: https://unicode-table.com/en/ sau https://fontawesome.com/
 
 **TO DO tasks pentru partea 1:**
 
--Pagina acasa client/admin
+**-Pagina acasa client/admin
 
 -Pagina de login/signup/reset pass user(acesleasi pt client/admin)
 
 
 -Testat paginile daca sunt responsive
 
--Legat paginile intre ele
+-Legat paginile intre ele**
 
 -Testat paginile daca sunt corecte (https://validator.w3.org/ & https://jigsaw.w3.org/css-validator/ & https://stylelint.io/) + filtre min/max ... p buttoane  + add get/post in pagini + chestii de securitate
 
