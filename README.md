@@ -34,16 +34,16 @@ Simboluri: https://unicode-table.com/en/ sau https://fontawesome.com/
 
 -Pagina admin de administrare comenzi(un tabel cu toate comenzile curente + buton de primire comanda + selector de piese pentru a comnda un numar de piese)
 
+**-Pagina acasa client/admin**
+
+**-Pagina de login/signup/reset pass user(acesleasi pt client/admin)**
+
+**-Legat paginile intre ele**
+
 **TO DO tasks pentru partea 1:**
-
--Pagina acasa client/admin
-
--Pagina de login/signup/reset pass user(acesleasi pt client/admin)
 
 
 -Testat paginile daca sunt responsive
-
--Legat paginile intre ele
 
 -Testat paginile daca sunt corecte (https://validator.w3.org/ & https://jigsaw.w3.org/css-validator/ & https://stylelint.io/) + filtre min/max ... p buttoane  + add get/post in pagini + chestii de securitate
 
