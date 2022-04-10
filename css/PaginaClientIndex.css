@@ -49,9 +49,9 @@ a {
 header ul li {
     /* width: calc(16% - 2px); */
     /*6 butoane */
-    /*width: calc(19% - 2px);*/
-    /*5 butoane */
-    width: calc(23% - 2px);
+    width: calc(19% - 2px);
+    /*5 butoane*/
+    /* width: calc(23% - 2px); */
     /*4 butoane */
     float: left;
     height: 2em;

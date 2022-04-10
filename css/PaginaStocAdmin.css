@@ -210,7 +210,7 @@ footer {
 }
 .admin-stoc__tabel td, th
 { 
-    border: 1px solid #E63946;
+    /* border: 1px solid #E63946; */
     text-align: left;
     padding: 0.5em;
     margin: 0em;
