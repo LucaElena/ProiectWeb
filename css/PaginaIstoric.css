@@ -109,21 +109,19 @@ footer {
 {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    column-gap: 1em;
-    row-gap: 1em;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
     background-color: #1d3557;
     padding: 1em;
     margin: 1em;
     margin-top:3em ;
     border-radius:1em;
-    top: 50%;
-    left: 50%;
     transform: translate( 0%, 5%);
     opacity: 0.95;
     font-size: medium;
 }
 
-.istoric_programari .istoric_programari__lista__text
+.istoric_programari__lista__text
 {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -133,13 +131,22 @@ footer {
     padding: 1em;
     text-align: left;
 }
-
-
-.istoric_programari .istoric_programari__lista table
+.istoric_programari__fitru_status
 {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
+    grid-row-end: 3;
+    padding: 1em;
+    font-size: small;
+    background-color: #a8dadc;
+}
+
+.istoric_programari__lista table
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -147,7 +154,7 @@ footer {
     background-color: #F1FAEE;
 }
 
-.istoric_programari .istoric_programari__lista td, th
+.istoric_programari__lista td, th
 { 
     border: 1px solid #F1FAEE;
     text-align: left;
@@ -155,7 +162,7 @@ footer {
 }
 
 
-.istoric_programari .istoric_programari__lista tr:nth-child(even) 
+.istoric_programari__lista tr:nth-child(even) 
 {
     background-color: #a8dadc;
 }
@@ -204,6 +211,11 @@ footer {
     .istoric_programari {
         font-size: small;
     }
+    .istoric_programari__fitru_status
+    {
+        padding: 0.5em;
+        font-size: small;
+    }
     .istoric_programari__lista table
     {
         padding: 0.5em;
@@ -212,6 +224,8 @@ footer {
     {
         padding: 0em;
     }
+
+
 }
 
 
@@ -225,93 +239,81 @@ footer {
         display: none;
     }
 
-    .istoric_programari__lista {
+    .istoric_programari
+    {
+       transform: none;
+    }
+
+    .istoric_programari__lista,
+    .istoric_programari__lista table,
+    .istoric_programari__fitru_status,
+    .istoric_programari__lista__text,
+    .istoric_programari__lista__actiune
+    {
         font-size: xx-small;
-        gap: 0em;
-        padding: 0em;
-        margin: 0em;
-    }
-    .istoric_programari__lista table
-    {
-        padding: 0em;
-    }
-    .istoric_programari__lista .istoric_programari__lista__text,
-    .istoric_programari__lista .istoric_programari__lista__text 
-    {
-        padding: 0em;
+        gap: 0;
+        padding: 0;
+        margin: 0;
     }
     
-}
-
-/* 
-
-@media (max-height :600px) {
-    .formular_programaree__calendar__inside {
-        gap: 0em;
-        padding: 0em;
+    .istoric_programari__lista table .istoric_programari__lista__actiune
+    {
+        width: 95%;
+        text-align: center;
     }
-    .formular_programaree__calendar__inside__hours_btn button[id$='_col7'],
-    button[id$='_col8'],
-    button[id$='_col9'],
-    button[id$='_col10'],
-    button[id$='_col11'],
-    button[id$='_col12'] {
-        display: none;
+    
+
+    body {
+        background-image: none; 
+        background-color: #A8DADC;
     }
+
+	table, thead, tbody, th, td, tr 
+    { 
+		display: block; 
+	}
+	
+	thead tr 
+    { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr
+    { 
+        border: 1px solid #ccc;
+        text-align: right;
+    }
+	
+	td
+    { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before
+    { 
+		position: absolute;
+		left: 4px;
+		width: 30%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+    .istoric_programari__lista td, th
+    { 
+        text-align: right;
+    }
+    
+    td:nth-of-type(1):before { content: "No"; }
+	td:nth-of-type(2):before { content: "Data"; }
+	td:nth-of-type(3):before { content: "Ora"; }
+	td:nth-of-type(4):before { content: "Status"; }
+	td:nth-of-type(5):before { content: "Pret"; }
+	/* td:nth-of-type(6):before { content: "Actiune"; } */
+    
 
     
-    .formular_programaree__calendar__inside__down_btn,
-    .formular_programaree__calendar__inside__up_btn {
-        display: block;
-    }
-    footer {
-        display: none;
-    }
-    .formular_programare {
-        font-size: x-small;
-    }
-    .formular_programaree__calendar__month {
-        font-size: x-small;
-    }
-    .hover-value {
-        top: 0em;
-        font-size: xx-small;
-    }
-    .formular_programaree__calendar__inside__head {
-        background-color: #457b9d ;
-        font-weight: bold;
-    }
 }
-
-@media (max-height: 400px) {
-    .formular_programaree__calendar {
-        letter-spacing: 0em;
-    }
-    .formular_programare {
-        column-gap: 0em;
-        row-gap: 0em;
-        padding: 0em;
-        margin: 0em;
-        border-radius: 0em;
-    }
-    .formular_programare__btn .formular_programare__btn__btn1,
-    .formular_programare__btn__btn2,
-    .formular_programare__btn__btn3 {
-        padding: 0em;
-        margin: 0em;
-        width: 25%;
-    }
-    .formular_programaree__calendar__inside__hours_btn {
-        padding: 0em;
-        margin: 0em;
-        font-size: xx-small;
-    }
-    .formular_programaree__calendar__inside__head {
-        padding: 0em;
-        font-size: x-small;
-        background-color: #457b9d ;
-    }
-    .formular_programaree__calendar__month {
-        font-size: x-small;
-    }
-} */

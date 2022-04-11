@@ -15,59 +15,100 @@
     <header>
         <ul>
             <li>
-                <a class="logo" href="./PaginaGeneralaClient.html">
+                <a class="logo" href="./PaginaGeneralaPatientV2.html">
 
-                    <!-- <span class="header_icon_logo"> <i class="fas fa-clinic-medical"></i> </span> -->
-                    <span class="header_icon_logo"> &#127949; </span>
+                    <span class="header_icon_logo"> <i class="fas fa-motorcycle"></i> </span>
                     <img class="logo" src="./images/favicon.png" alt="CyMaT">
                     <!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
-                        <span class="header_text">Logo</span> -->
+                <span class="header_text">Logo</span> -->
                 </a>
             </li>
 
 
             <li>
-                <a class="header_button" href="./PaginaCalendarClientLogat.html">
-                    <!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span> -->
-                    <span class="header_icon"> &#128197; </span>
+                <a class="header_button" href="./PaginaSchedulePatientV2.html">
+                    <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
                     <span class="header_text">Program</span>
                 </a>
             </li>
 
             <li>
-                <a class="header_button" href="./PaginaFormularClient_intial.html">
-                    <!-- <span class="header_icon"> <i class="fa fa-check-square"></i> </span>	 -->
-                    <span class="header_icon"> &#128462; </span>
-                    <span class="header_text">Formular</span>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-plus"></i> </span>
+                    <span class="header_text">Adauga</span>
                 </a>
-            </li>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                            <span class="header_icon"> <i class="fas fa-comments"></i>
+                            </span>
+                            <span class="header_text">Raspuns</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-screwdriver"></i>
+                            </span>
+                            <span class="header_text">Comanda</span>
+                        </a>
+                    </li>
 
+                </ul>
 
-            <li>
-                <a class="header_button" href="./PaginaIstoric.html">
-                    <span class="header_icon"> <i class="fas fa-comments"></i> </span>
-                    <span class="header_text">Istoric</span>
-                </a>
             </li>
 
             <li>
                 <a class="header_button">
-                    <!-- <span class="header_icon"> <i class="fas fa-user"></i> </span> -->
+                    <span class="header_icon"> <i class="fas fa-cubes"></i> </span>
+                    <span class="header_text">Administrare</span>
+                </a>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaIstoricAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-screwdriver"></i>
+                            </span>
+                            <span class="header_text">Programari</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./PaginaStocAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-cubes"></i> </span>
+                            <span class="header_text">Stoc</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./PaginaComenziAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-dolly"></i> </span>
+                            <span class="header_text">Comenzi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./PaginaExportImportDateAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-download"></i>
+                            </span>
+                            <span class="header_text">Date</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li>
+                <a class="header_button">
                     <span class="header_icon"> &#128100; </span>
                     <span class="header_text">User</span>
                 </a>
                 <ul class="header_button__login">
                     <li>
-                        <a class="header_button" href="./PaginaResetPass.html">
-                            <!-- <span class="header_icon"> <i class="fas fa-key"></i> </span> -->
-                            <span class="header_icon"> &#9919; </span>
+                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                            <span class="header_icon"> <i class="fas fa-key"></i> </span>
                             <span class="header_text">Reset password</span>
                         </a>
                     </li>
                     <li>
-                        <a class="header_button" href="./index_client.html">
-                            <!-- <span class="header_icon"> <i class="fas fa-sign-out-alt"></i> </span>	 -->
-                            <span class="header_icon"> &#9094; </span>
+                        <a class="header_button" href="./index_patient.html">
+                            <span class="header_icon"> <i class="fas fa-sign-out-alt"></i>
+                            </span>
                             <span class="header_text">Log out</span>
                         </a>
                     </li>
@@ -83,7 +124,8 @@
     <main>
 
         <div class="istoric_programari">
-            <p class="istoric_programari__lista__text">Istoricul programarilor dumneavoastra:</p>
+            <p class="istoric_programari__lista__text">Istoricul programarilor CyMaT:</p>
+
             <select class="istoric_programari__fitru_status" id="istoric_programari__fitru_status">
                 <option value="Default" selected> Status</option>
                 <option value="In asteptare">In asteptare</option>
@@ -91,9 +133,8 @@
                 <option value="Terminata">Terminata</option>
                 <option value="Refuzata">Refuzata</option>
             </select>
-            <div class="istoric_programari__lista">
 
-                
+            <div class="istoric_programari__lista">
                 <table>
                     <thead>
                         <tr>
@@ -112,7 +153,9 @@
                             <td>09:00</td>
                             <td>In asteptare</td>
                             <td>In asteptare</td>
-                            <td class="istoric_programari__lista__actiune"><a href="./PaginaFormularClient_intial.html">Editare</a></td>
+                            <td class="istoric_programari__lista__actiune"><a
+                                    href="./PaginaFormularClient_intial.html">Editare</a></td>
+
                         </tr>
                         <tr>
                             <td>2</td>
@@ -120,7 +163,8 @@
                             <td>14:00</td>
                             <td>Programata</td>
                             <td>450</td>
-                            <td class="istoric_programari__lista__actiune"><a href="./PaginaFormularClient_programat.html">Editare</a></td>
+                            <td class="istoric_programari__lista__actiune"><a
+                                    href="./PaginaFormularClient_programat.html">Editare</a></td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -181,8 +225,8 @@
                     </tbody>
                 </table>
 
-           </div>
-            
+            </div>
+
         </div>
     </main>
 
