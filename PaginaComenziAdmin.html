@@ -15,19 +15,17 @@
     <header>
         <ul>
             <li>
-                <a class="logo" href="./PaginaGeneralaPatientV2.html">
+                <a class="logo" href="./PaginaGeneralaAdmin.html">
 
-                    <span class="header_icon_logo"> <i class="fas fa-motorcycle"></i> </span>
+                    <span class="header_icon_logo"> &#128757; </span>
                     <img class="logo" src="./images/favicon.png" alt="CyMaT">
-                    <!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
-                        <span class="header_text">Logo</span> -->
                 </a>
             </li>
 
 
             <li>
-                <a class="header_button" href="./PaginaSchedulePatientV2.html">
-                    <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
+                <a class="header_button" href="./PaginaCalendarAdmin.html">
+                    <span class="header_icon"> &#128197; </span>
                     <span class="header_text">Program</span>
                 </a>
             </li>
@@ -39,15 +37,9 @@
                 </a>
                 <ul class="header_button__login">
                     <li>
-                        <a class="header_button" href="./PaginaResetPassPatient.html">
-                            <span class="header_icon"> <i class="fas fa-comments"></i> </span>
-                            <span class="header_text">Raspuns</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="header_button" href="./index_patient.html">
-                            <span class="header_icon"> <i class="fas fa-screwdriver"></i> </span>
-                            <span class="header_text">Reparatie</span>
+                        <a class="header_button" href="./PaginaAdaugaComandaAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-dolly"></i> </span>
+                            <span class="header_text">Comanda</span>
                         </a>
                     </li>
 
@@ -62,20 +54,28 @@
                 </a>
                 <ul class="header_button__login">
                     <li>
-                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                        <a class="header_button" href="./PaginaIstoricAdmin.html">
+                            <span class="header_icon"> &#8987;</span>
+
+                            <span class="header_text">Programari</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./PaginaStocAdmin.html">
                             <span class="header_icon"> <i class="fas fa-cubes"></i> </span>
                             <span class="header_text">Stoc</span>
                         </a>
                     </li>
                     <li>
-                        <a class="header_button" href="./index_patient.html">
+                        <a class="header_button" href="./PaginaComenziAdmin.html">
                             <span class="header_icon"> <i class="fas fa-dolly"></i> </span>
-                            <span class="header_text">Comanda</span>
+                            <span class="header_text">Comenzi</span>
                         </a>
                     </li>
                     <li>
-                        <a class="header_button" href="./index_patient.html">
-                            <span class="header_icon"> <i class="fas fa-download"></i> </span>
+                        <a class="header_button" href="./PaginaExportImportDateAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-download"></i>
+                            </span>
                             <span class="header_text">Date</span>
                         </a>
                     </li>
@@ -90,14 +90,15 @@
                 </a>
                 <ul class="header_button__login">
                     <li>
-                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                        <a class="header_button" href="./PaginaAdminResetPass.html">
                             <span class="header_icon"> <i class="fas fa-key"></i> </span>
                             <span class="header_text">Reset password</span>
                         </a>
                     </li>
                     <li>
-                        <a class="header_button" href="./index_patient.html">
-                            <span class="header_icon"> <i class="fas fa-sign-out-alt"></i> </span>
+                        <a class="header_button" href="./index_admin.html">
+                            <span class="header_icon"> <i class="fas fa-sign-out-alt"></i>
+                            </span>
                             <span class="header_text">Log out</span>
                         </a>
                     </li>
@@ -111,7 +112,7 @@
 
 
     <main>
-        
+
         <div class="admin-comenzi">
             <div class="admin-comenzi__titlu">
                 <p>Pagina administrare comenzi :</p>
@@ -181,7 +182,7 @@
                     <option value="Supapa">Supapa</option>
                 </select>
 
- 
+
                 <select class="admin-comenzi__filtrare__numar-randuri" id="admin-comenzi__filtrare__numar-randuri">
                     <option value="5"> 5</option>
                     <option value="10" selected> 10</option>
@@ -189,9 +190,11 @@
                     <option value="20"> 20</option>
                 </select>
 
-                <input type="search" class="admin-comenzi__filtrare__cauta__piesa" id="admin-comenzi__filtrare__cauta__piesa" " placeholder="Cauta piesa...">
+                <input type="search" class="admin-comenzi__filtrare__cauta__piesa"
+                    id="admin-comenzi__filtrare__cauta__piesa" " placeholder=" Cauta piesa...">
                 <!-- <div class="admin-comenzi__filtrare__reset"> -->
-                <button type="button" class="admin-comenzi__filtrare__reset__button" id="admin-comenzi__filtrare__reset__button">Reset</button>
+                <button type="button" class="admin-comenzi__filtrare__reset__button"
+                    id="admin-comenzi__filtrare__reset__button">Reset</button>
                 <!-- </div> -->
             </div>
             <div class="admin-comenzi__tabel">
@@ -209,15 +212,15 @@
                         </tr>
                     </thead>
                     <tbody>
-						<tr>
-							<td>1</td>
-							<td>HONDA</td>
-							<td>Electrice</td>
-							<td>Acumulator</td>
+                        <tr>
+                            <td>1</td>
+                            <td>HONDA</td>
+                            <td>Electrice</td>
+                            <td>Acumulator</td>
                             <td>2</td>
-							<td>2022-04-08</td>
-							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+                            <td>2022-04-08</td>
+                            <td>In asteptare</td>
+                            <td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
                         </tr>
                         <tr>
                             <td>2</td>
@@ -226,8 +229,8 @@
                             <td>Becuri</td>
                             <td>10</td>
                             <td>2022-04-07</td>
-							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+                            <td>In asteptare</td>
+                            <td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -236,8 +239,8 @@
                             <td>Kit Reparatie Frana</td>
                             <td>1</td>
                             <td>2022-04-07</td>
-							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+                            <td>In asteptare</td>
+                            <td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
 
                         </tr>
                         <tr>
@@ -247,8 +250,8 @@
                             <td>Bujii</td>
                             <td>10</td>
                             <td>2022-04-07</td>
-							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+                            <td>In asteptare</td>
+                            <td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
                         </tr>
                         <tr>
                             <td>5</td>
@@ -257,8 +260,8 @@
                             <td>Acumulator</td>
                             <td>1</td>
                             <td>2022-04-07</td>
-							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+                            <td>In asteptare</td>
+                            <td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
                         </tr>
                         <tr>
                             <td>6</td>
@@ -267,9 +270,9 @@
                             <td>Becuri</td>
                             <td>10</td>
                             <td>2022-04-06</td>
-							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
-                           
+                            <td>In asteptare</td>
+                            <td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+
                         </tr>
                         <tr>
                             <td>7</td>
@@ -278,8 +281,8 @@
                             <td>Kit Reparatie Frana</td>
                             <td>3</td>
                             <td>2022-04-09</td>
-							<td>In asteptare</td>
-							<td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
+                            <td>In asteptare</td>
+                            <td><button type="button" class="admin-comenzi__tabel__actiune__primit">Primit</button></td>
                             <!-- <td class="admin-comenzi__tabel__stoc-actiune">
                                 
                                 <button type="button" class="admin-comenzi__tabel__stoc-actiune__scade">-</button>
@@ -296,84 +299,92 @@
                             <td>Bujii</td>
                             <td>10</td>
                             <td>2022-04-09</td>
-							<td>Primit</td>
-							<td></td>
+                            <td>Primit</td>
+                            <td></td>
                         </tr>
-						<tr>
+                        <tr>
                             <td>8</td>
                             <td>HONDA</td>
                             <td>Electrice</td>
                             <td>Bujii</td>
                             <td>10</td>
                             <td>2022-04-09</td>
-							<td>Primit</td>
-							<td></td>
-                        </tr><tr>
+                            <td>Primit</td>
+                            <td></td>
+                        </tr>
+                        <tr>
                             <td>8</td>
                             <td>SUZUKI</td>
                             <td>Electrice</td>
                             <td>Bujii</td>
                             <td>10</td>
                             <td>2022-04-09</td>
-							<td>Primit</td>
-							<td></td>
-                        </tr><tr>
+                            <td>Primit</td>
+                            <td></td>
+                        </tr>
+                        <tr>
                             <td>8</td>
                             <td>HONDA</td>
                             <td>Electrice</td>
                             <td>Bujii</td>
                             <td>10</td>
                             <td>2022-04-09</td>
-							<td>Primit</td>
-							<td></td>
-                        </tr><tr>
+                            <td>Primit</td>
+                            <td></td>
+                        </tr>
+                        <tr>
                             <td>8</td>
                             <td>HONDA</td>
                             <td>Electrice</td>
                             <td>Bujii</td>
                             <td>10</td>
                             <td>2022-04-09</td>
-							<td>Primit</td>
-							<td></td>
-                        </tr><tr>
+                            <td>Primit</td>
+                            <td></td>
+                        </tr>
+                        <tr>
                             <td>8</td>
                             <td>HONDA</td>
                             <td>Electrice</td>
                             <td>Bujii</td>
                             <td>10</td>
                             <td>2022-04-09</td>
-							<td>Primit</td>
-							<td></td>
-   
-                        </tr><tr>
+                            <td>Primit</td>
+                            <td></td>
+
+                        </tr>
+                        <tr>
                             <td>8</td>
                             <td>HONDA</td>
                             <td>Electrice</td>
                             <td>Bujii</td>
                             <td>10</td>
                             <td>2022-04-09</td>
-							<td>Primit</td>
-							<td></td>
-                        </tr><tr>
+                            <td>Primit</td>
+                            <td></td>
+                        </tr>
+                        <tr>
                             <td>8</td>
                             <td>HONDA</td>
                             <td>Electrice</td>
                             <td>Bujii</td>
                             <td>10</td>
                             <td>2022-04-09</td>
-							<td>Primit</td>
-							<td></td>
+                            <td>Primit</td>
+                            <td></td>
                         </tr>
 
-						
+
                     </tbody>
                 </table>
-				<div>
-				</div>
+                <div>
+                </div>
             </div>
             <div class="admin-comenzi__tabel-button">
-                <button type="button" class="admin-comenzi__tabel-button__stanga" id="admin-comenzi__tabel-button__stanga"> &#10094; </button>
-                <button type="button" class="admin-comenzi__tabel-button__dreapta" id="admin-comenzi__tabel-button__dreapta"> &#10095; </button>
+                <button type="button" class="admin-comenzi__tabel-button__stanga"
+                    id="admin-comenzi__tabel-button__stanga"> &#10094; </button>
+                <button type="button" class="admin-comenzi__tabel-button__dreapta"
+                    id="admin-comenzi__tabel-button__dreapta"> &#10095; </button>
             </div>
             <script src="./js/comenzi.js"></script>
         </div>

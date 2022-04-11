@@ -15,19 +15,17 @@
     <header>
         <ul>
             <li>
-                <a class="logo" href="./PaginaGeneralaPatientV2.html">
+                <a class="logo" href="./PaginaGeneralaAdmin.html">
 
-                    <span class="header_icon_logo"> <i class="fas fa-motorcycle"></i> </span>
+                    <span class="header_icon_logo"> &#128757; </span>
                     <img class="logo" src="./images/favicon.png" alt="CyMaT">
-                    <!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
-                        <span class="header_text">Logo</span> -->
                 </a>
             </li>
 
 
             <li>
-                <a class="header_button" href="./PaginaSchedulePatientV2.html">
-                    <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
+                <a class="header_button" href="./PaginaCalendarAdmin.html">
+                    <span class="header_icon"> &#128197; </span>
                     <span class="header_text">Program</span>
                 </a>
             </li>
@@ -39,18 +37,12 @@
                 </a>
                 <ul class="header_button__login">
                     <li>
-                        <a class="header_button" href="./PaginaResetPassPatient.html">
-                            <span class="header_icon"> <i class="fas fa-comments"></i></i> </span>
-                            <span class="header_text">Raspuns</span>
+                        <a class="header_button" href="./PaginaAdaugaComandaAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-dolly"></i> </span>
+                            <span class="header_text">Comanda</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="header_button" href="./index_patient.html">
-                            <span class="header_icon"> <i class="fas fa-screwdriver"></i> </span>
-                            <span class="header_text">Reparatie</span>
-                        </a>
-                    </li>
-                
+
                 </ul>
 
             </li>
@@ -62,42 +54,51 @@
                 </a>
                 <ul class="header_button__login">
                     <li>
-                        <a class="header_button" href="./PaginaResetPassPatient.html">
-                            <span class="header_icon"> <i class="fas fa-cubes"></i></i> </span>
+                        <a class="header_button" href="./PaginaIstoricAdmin.html">
+                            <span class="header_icon"> &#8987;</span>
+
+                            <span class="header_text">Programari</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./PaginaStocAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-cubes"></i> </span>
                             <span class="header_text">Stoc</span>
                         </a>
                     </li>
                     <li>
-                        <a class="header_button" href="./index_patient.html">
+                        <a class="header_button" href="./PaginaComenziAdmin.html">
                             <span class="header_icon"> <i class="fas fa-dolly"></i> </span>
-                            <span class="header_text">Comanda</span>
+                            <span class="header_text">Comenzi</span>
                         </a>
                     </li>
                     <li>
-                        <a class="header_button" href="./index_patient.html">
-                            <span class="header_icon"> <i class="fas fa-download"></i> </span>
+                        <a class="header_button" href="./PaginaExportImportDateAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-download"></i>
+                            </span>
                             <span class="header_text">Date</span>
                         </a>
                     </li>
-                
+
                 </ul>
 
             </li>
             <li>
                 <a class="header_button">
-                    <span class="header_icon"> <i class="fas fa-user"></i> </span>
+                    <span class="header_icon"> &#128100; </span>
                     <span class="header_text">User</span>
                 </a>
                 <ul class="header_button__login">
                     <li>
-                        <a class="header_button" href="./PaginaResetPassPatient.html">
+                        <a class="header_button" href="./PaginaAdminResetPass.html">
                             <span class="header_icon"> <i class="fas fa-key"></i> </span>
                             <span class="header_text">Reset password</span>
                         </a>
                     </li>
                     <li>
-                        <a class="header_button" href="./index_patient.html">
-                            <span class="header_icon"> <i class="fas fa-sign-out-alt"></i> </span>
+                        <a class="header_button" href="./index_admin.html">
+                            <span class="header_icon"> <i class="fas fa-sign-out-alt"></i>
+                            </span>
                             <span class="header_text">Log out</span>
                         </a>
                     </li>
@@ -119,39 +120,40 @@
                 <!-- Editare problema->In astepare raspuns->Programata*/ -->
                 <p class="formular_programare__status__text">Status formular:</p>
                 <p class="formular_programare__status__valoare">Cerere primita</p>
-           </div>
+            </div>
 
             <div class="formular_programare__data">
                 <p class="formular_programare__data__mesaj">Ora programarii</p>
                 <input type="datetime-local" class="formular_programare__data__valoare"
-                    id="formular_programare__data__valoare" value="2022-05-18T09:00"
-                    min="2022-05-18T09:00"
-                    max="2023-05-18T19:00"
-                    step="3600">
+                    id="formular_programare__data__valoare" value="2022-05-18T09:00" min="2022-05-18T09:00"
+                    max="2023-05-18T19:00" step="3600">
                 <!-- <p class="formular_programare__data__valoare">2022-05-20 09:00</p> -->
             </div>
 
             <div class="formular_programare__mesaj_client">
                 <!-- <input type="new-message" class="formular_programare__mesaj_client__txt" placeholder="Descrieti problema motocicletei dumneavoastra " required> -->
- 
-                <textarea name="new-messag-client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3" readonly>Mesaj client cu descrierea problemei</textarea>
+
+                <textarea name="new-messag-client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                    readonly>Mesaj client cu descrierea problemei</textarea>
                 <!-- <input type="file" accept="video" class="formular_programare__mesaj_client__video" placeholder="Incarcati un video cu problema"> -->
                 <video class="formular_programare__mesaj_client__video" controls>
                     <source src="movie.mp4" type="video/mp4">
                     <source src="movie.ogg" type="video/ogg">
                 </video>
-                <img src="./images/motoStricata1.jpg" alt="foto_motocicletaStricata"class="formular_programare__mesaj_client_imagine">
-                  
+                <img src="./images/motoStricata1.jpg" alt="foto_motocicletaStricata"
+                    class="formular_programare__mesaj_client_imagine">
+
                 <!-- <button type=button" class="formular_programare__mesaj_client__send_button"> <i class="fas fa-paper-plane"></i> </button> -->
-                
-               
+
+
             </div>
 
             <div class="formular_programare__mesaj_admin">
                 <!-- <button type=button" class="formular_programare__mesaj_admin__send_button"> <i class="fas fa-paper-plane"></i> </button> -->
-                <textarea name="new-messag-admin" class="formular_programare__mesaj_admin__txt"  cols="10" rows="3" placeholder="Mesaj raspuns pentru client"></textarea>
+                <textarea name="new-messag-admin" class="formular_programare__mesaj_admin__txt" cols="10" rows="3"
+                    placeholder="Mesaj raspuns pentru client"></textarea>
             </div>
-            
+
             <div class="formular_programare__piese_necesare">
                 <select class=" formular_programare__piese_necesare__brand">
                     <option value="Default"> Brand</option>
@@ -180,7 +182,7 @@
                     <option value="Radiatoare">Radiatoare</option>
                     <option value="Suspensii Moto">Suspensii Moto</option>
                     <option value="Transmisie">Transmisie</option>
-                    <option value="Uleiuri si Lubrifianti">Uleiuri si Lubrifianti</option> 
+                    <option value="Uleiuri si Lubrifianti">Uleiuri si Lubrifianti</option>
                 </select>
                 <select class=" formular_programare__piese_necesare__piesa">
                     <option value="Default"> Piesa</option>
@@ -212,8 +214,9 @@
                     <option value="Rulmenti de Jug">Rulmenti de Jug</option>
                     <option value="Supapa">Supapa</option>
                 </select>
-                <input class=" formular_programare__piese_necesare__cantitate" type="number" id="formular_programare__piese_necesare__cantitate" name="cantitate" value=1 min="1" max="10">
-                
+                <input class=" formular_programare__piese_necesare__cantitate" type="number"
+                    id="formular_programare__piese_necesare__cantitate" name="cantitate" value=1 min="1" max="10">
+
                 <a class="formular_programare__piese_necesare__adauga"><i class="fas fa-plus"></i>Add</a>
             </div>
             <div class="formular_programare__piese_selectate">
@@ -283,7 +286,7 @@
             <div class="formular_programare__actiune">
                 <button type=button" class="formular_programare__actiune__terminat_button">Terminat</button>
                 <button type=button" class="formular_programare__actiune__sterge_button">Sterge</button>
-           </div>
+            </div>
         </div>
     </main>
 
