@@ -34,13 +34,13 @@ Simboluri: https://unicode-table.com/en/ sau https://fontawesome.com/
 
 -Pagina admin de administrare comenzi(un tabel cu toate comenzile curente + buton de primire comanda + selector de piese pentru a comnda un numar de piese)
 
+-Pagina acasa client/admin
+
+-Pagina de login/signup/reset pass user(acesleasi pt client/admin) 
+
+-Legat paginile intre ele 
+
 **TO DO tasks pentru partea 1:**
-
-**-Pagina acasa client/admin**
-
-**-Pagina de login/signup/reset pass user(acesleasi pt client/admin)**
-
-**-Legat paginile intre ele**
 
 -Testat paginile daca sunt responsive
 
