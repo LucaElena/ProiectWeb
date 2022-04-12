@@ -1,21 +1,12 @@
 <!DOCTYPE html>
-<html wtx-context="FB25638C-679E-4E58-9CD6-619EE19D7D7E">
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Documentatie Scholarly HTML Proiect TW : CyMaT (Cycling Maintenance Web Tool)</title>
-  <link rel="stylesheet" href="./scholarly.min.css">
-  <script src="./scholarly.min.js.download"></script>
+
 </head>
 
 <body prefix="schema: http://schema.org">
   <header>
-    <div class="banner">
-      <img src="./scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
-      <div class="status">Community Draft</div>
-    </div>
     <h1>Documentatie Scholarly HTML Proiect TW : CyMaT (Cycling Maintenance Web Tool)</h1>
   </header>
 
