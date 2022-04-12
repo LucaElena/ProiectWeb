@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/PaginaLogin.css">
+    <script src="https://kit.fontawesome.com/9ab9988c3d.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/jpg" href="./images/favicon.png" />
+    <title>CyMaT</title>
+
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li>
+                <a class="logo" href="./PaginaGeneralaAdmin.html">
+
+                    <span class="header_icon_logo"> &#128757; </span>
+                    <img class="logo" src="./images/favicon.png" alt="CyMaT">
+                </a>
+            </li>
+
+
+            <li>
+                <a class="header_button" href="./PaginaCalendarAdmin.html">
+                    <span class="header_icon"> &#128197; </span>
+                    <span class="header_text">Program</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-plus"></i> </span>
+                    <span class="header_text">Adauga</span>
+                </a>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaAdaugaComandaAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-dolly"></i> </span>
+                            <span class="header_text">Comanda</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <li>
+                <a class="header_button">
+                    <span class="header_icon"> <i class="fas fa-cubes"></i> </span>
+                    <span class="header_text">Administrare</span>
+                </a>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaIstoricAdmin.html">
+                            <span class="header_icon"> &#8987;</span>
+
+                            <span class="header_text">Programari</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./PaginaStocAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-cubes"></i> </span>
+                            <span class="header_text">Stoc</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./PaginaComenziAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-dolly"></i> </span>
+                            <span class="header_text">Comenzi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./PaginaExportImportDateAdmin.html">
+                            <span class="header_icon"> <i class="fas fa-download"></i>
+                            </span>
+                            <span class="header_text">Date</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li>
+                <a class="header_button">
+                    <span class="header_icon"> &#128100; </span>
+                    <span class="header_text">User</span>
+                </a>
+                <ul class="header_button__login">
+                    <li>
+                        <a class="header_button" href="./PaginaAdminResetPass.html">
+                            <span class="header_icon"> <i class="fas fa-key"></i> </span>
+                            <span class="header_text">Reset password</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="header_button" href="./index_admin.html">
+                            <span class="header_icon"> <i class="fas fa-sign-out-alt"></i>
+                            </span>
+                            <span class="header_text">Log out</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+
+        </ul>
+    </header>
+
+
+    <div class="login">
+        <div class="login__content">
+
+
+            <div class="login__forms">
+                <form action="" class="login__registre none" id="login-in">
+                    <h1 class="title">Sign In</h1>
+
+                    <div class="input-group">
+                        <input type="text" placeholder="Username" minlength="5" maxlength="20" class="login-input">
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" placeholder="Password" minlength="5" maxlength="20" class="login-input">
+                    </div>
+
+                    <div>
+                        <span class="login__account">Forgot password?</span>
+                        <span class="login__signin" id="change-pass">Change Password</span>
+                    </div>
+
+                    <a href="./PaginaGeneralaAdmin.html" class="login__button">Sign In</a>
+
+                    <div>
+                        <span class="login__account">Don't have an Account ?</span>
+                        <span class="login__signin" id="sign-up">Sign Up</span>
+                    </div>
+                </form>
+
+                <form action="" class="login__create none" id="login-up">
+                    <h1 class="title">Create Account</h1>
+
+                    <div class="input-group">
+
+                        <input type="text" class="login-input" minlength="5" maxlength="20" placeholder="Username">
+                    </div>
+
+                    <div class="input-group">
+
+                        <input type="text" class="login-input" minlength="10" maxlength="30" placeholder="Email">
+                    </div>
+
+                    <div class="input-group">
+
+                        <input type="password" class="login-input" minlength="5" maxlength="20" placeholder="Password">
+                    </div>
+
+                    <a href="./PaginaGeneralaAdmin.html" class="login__button">Sign Up</a>
+
+                    <div>
+                        <span class="login__account">Already have an Account ?</span>
+                        <span class="login__signup" id="sign-in">Sign In</span>
+                    </div>
+
+
+                </form>
+
+                <form action="" class="login__change__pass" id="login-forgot">
+                    <h1 class="title">Change Password</h1>
+
+                    <div class="input-group">
+
+                        <input type="text" class="login-input" minlength="10" maxlength="30" placeholder="Email">
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <input type="password" class="login-input" minlength="5" maxlength="20"
+                            placeholder="New_Password">
+                    </div>
+
+                    <a href="./PaginaGeneralaAdmin.html" class="login__button">Save</a>
+
+                    <div>
+                        <span class="login__account">You want to give up ?</span>
+                        <span class="login__pass" id="sign-in1">Sign In</span>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script src="./js/login.js"></script>
+</body>
+
+</html>
