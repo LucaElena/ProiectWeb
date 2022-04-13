@@ -197,10 +197,6 @@
 
   <section id="references" role="references">
     <h3><span>1.5 </span>References</h3>
-    <p>
-      Referintele acestui proiect sunt:
-    </p>
-
     <dl>
       <dt id="ref-TW">Tehnologie Web</dt>
       <dd property="schema:citation" typeof="schema:WebPage"
@@ -336,7 +332,7 @@
       </ul>
       <li>
         <p>
-          pagina de gestiune a datelor. 
+          gestiune datelor pentru administrator
         </p>
       </li>
       <ul>
@@ -354,7 +350,54 @@
     </ul>
   </section>
 
-  <!-- 
+  <section id="characteristics" role="characteristics">
+    <h3><span>2.3 </span>User Classes and Characteristics</h3>
+    <p>
+      Vom folosi un model MVC si anticipam sa folosim umatoare clasele:
+    </p>
+    <ul>
+      <li>
+        <p>core:</p>
+      </li>
+      <ul>
+        <li>
+          <p>App si Controller</p>
+        </li>
+      </ul>
+      <li>controllers:</li>
+      <ul>
+        <li>
+          <p> Api, Programare, Formular, Piesa, Login , Reset, Signup, Comanda, Stoc ...</p>
+        </li>
+      </ul>
+      <li>
+        <p>models:</p>
+      </li>
+      <ul>
+        <li>
+          <p>User, Formular, Comanda , Piesa, Date ...</p>
+        </li>
+      </ul>
+      <li>
+        <p>views:</p>
+      </li>
+      <ul>
+        <li>
+          <p>PaginaPrincipala, Formular, Calendar, Istoric, Stoc, Comenzi, Api ...</p>
+        </li>
+      </ul>
+  </section>
+
+  <section id="environment" role="environment">
+    <h3><span>2.4 </span>Operating Environment</h3>
+    <p>
+      Folosim pagini web compatibile HTML5 cu CSS si JavaScript pentru interactiuni locale cu utilizatorul.
+      Pentru partea de backend ne propunem sa folosim PHP ce va fi procesat in xamp intr-un server de Apache.
+      De asemenea pentru stocarea datelor aplicatiei vom folosi MySql de asemenea procesat in xamp.
+    </p>
+  </section>
+
+
 
   <section id="Root">
 
@@ -1626,7 +1669,7 @@ XXX this example has issues
             Language</a></cite>.
       </dd>
     </dl>
-  </section> -->
+  </section>
 </body>
 
 </html>
