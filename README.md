@@ -21,7 +21,7 @@
           <li><a href="#document-conventions"><span>1.2 </span>Document Conventions</a></li>
           <li><a href="#audience"><span>1.3 </span>Intended Audience and Reading Suggestions</a></li>
           <li><a href="#scope"><span>1.4 </span>Product Scope</a></li>
-          <li><a href="#introduction-references"><span>1.5 </span>References</a></li>
+          <li><a href="#references"><span>1.5 </span>References</a></li>
         </ol>
       </li>
       <li><a href="#overall-description"><span>2. </span>Overall Description</a>
@@ -71,10 +71,6 @@
         Elena Calmis
         &amp;
         Liliana Gavrilas
-      </dd>
-      <dt>Bugs &amp; Feedback</dt>
-      <dd>
-        <a href="https://github.com/LucaElena/ProiectWeb">Issues and PRs welcome!</a>
       </dd>
       <dt>License</dt>
       <dd>
@@ -138,7 +134,7 @@
       <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">Pagina Tehnologie Web</a>
     </p>
   </section>
-  <!-- <li><a href="#document-conventions"><span>1.2 </span>Document Conventions</a></li> -->
+
   <section id="document-conventions">
     <h3><span>1.2 </span>Document Conventions</h3>
     <p>
@@ -152,17 +148,27 @@
       </li>
       <li>
         <p>
-          conform celor precizate în macheta <a href="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">IEEE System Requirements Specification Template</a>
+          conform celor precizate în macheta <a
+            href="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">IEEE System Requirements
+            Specification Template</a>
         </p>
       </li>
       <li>
         <p>
-          nume clase HTML/CSS respectand reguli de denumire de la parinte spre copii. Ex: "parinte" -> "parinte__copil-1" "parinte__copil-2"
+          nume clase HTML/CSS respectand reguli de denumire de la parinte spre copii. Ex: "parinte" ->
+          "parinte__copil-1" "parinte__copil-2"
         </p>
       </li>
       <li>
         <p>
-          o <a href="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">tema cromatica</a> similara in toate paginile 
+          o <a href="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">tema cromatica</a> similara in toate
+          paginile
+        </p>
+      </li>
+      <li>
+        <p>
+          paginile au icons de pe <a href="https://fontawesome.com/">fontawesome</a> alternat
+          cu <a href="https://unicode-table.com/en/ ">tabelul unicode</a>
         </p>
       </li>
       <li>
@@ -172,139 +178,316 @@
       </li>
     </ul>
   </section>
-  <!--    <section id="Root">
 
-      <h3><span>3.1 </span>The root and <code>head</code></h3>
-      <p>
-        The document must be encoded in UTF-8 and transmitted with a media type of
-        <code>text/html</code>.
-      </p>
-      <p>
-        The <code>head</code> must contain <code>&lt;meta charset="utf-8"&gt;</code> element and a
-        <code>title</code> element.
-      </p>
-    </section>
-    <section id="article">
+  <section id="audience" role="audience">
+    <h3><span>1.3 </span>Intended Audience and Reading Suggestions</h3>
+    <p>
+      Audienta acestui proiect este profesorul evaluator.
+      Si recomandam citirea documentatiei incepand cu sectiunea generala de introducere.
+    </p>
+  </section>
 
-      <h3><span>3.2 </span>The <code>article</code></h3>
-      <p>
-        The first child of <code>article</code> must be <code>header</code>. The header should
-        contain an <code>h1</code> with the title of the document. The following element must be a
-        <code>div</code> with the role of <code>contentinfo</code> containing author and
-        affiliation information. See <a href="#contentinfo-semantics">The
-          <code>contentinfo</code>
-          Region Semantics</a> for information about the semantic decoration of this element.
-      </p>
-      <p>
-        Any number of <code>section</code> elements may be listed within the article at arbitrary
-        depths, but each <code>section</code> must begin with an <code>hx</code> element,
-        indicating a numbered section in the article. If the sections require headings that exceed
-        <code>h6</code>, <code>aria-level</code> must be included to indicate depth.
-      </p>
-      <figure typeof="schema:SoftwareSourceCode" role="doc-example" id="arialevelexample">
-        <pre><code>
+  <section id="scope" role="scope">
+    <h3><span>1.4 </span>Product Scope</h3>
+    <p>
+      Audienta acestui proiect este profesorul evaluator.
+      Si recomandam citirea documentatiei incepand cu sectiunea generala de introducere.
+    </p>
+  </section>
+
+  <section id="references" role="references">
+    <h3><span>1.5 </span>References</h3>
+    <p>
+      Referintele acestui proiect sunt:
+    </p>
+
+    <dl>
+      <dt id="ref-TW">Tehnologie Web</dt>
+      <dd property="schema:citation" typeof="schema:WebPage"
+        resource="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">
+        <cite property="schema:name"><a
+            href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">Pagina obiectului Tehnologie
+            Web</a></cite>.
+      </dd>
+      <dt id="ref-GithubTW">Github Proiect TW</dt>
+      <dd property="schema:citation" typeof="schema:WebPage" resource="https://github.com/LucaElena/ProiectWeb">
+        <cite property="schema:name"><a href="https://github.com/LucaElena/ProiectWeb">Pagina github a proiectului la
+            TW</a></cite>.
+      </dd>
+      <dt id="ref-ScholarlyHTML">Scholarly HTML</dt>
+      <dd property="schema:citation" typeof="schema:WebPage" resource="https://w3c.github.io/scholarly-html/">
+        <cite property="schema:name"><a href="https://w3c.github.io/scholarly-html/">Scholarly HTML format</a></cite>.
+      </dd>
+      <dt id="ref-IEEE-SRST">IEEE System Requirements Specification Template</dt>
+      <dd property="schema:citation" typeof="schema:WebPage"
+        resource="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">
+        <cite property="schema:name"><a href="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">IEEE
+            System Requirements Specification Template</a></cite>.
+      </dd>
+      <dt id="ref-Palette">Coolors palette</dt>
+      <dd property="schema:citation" typeof="schema:WebPage"
+        resource="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">
+        <cite property="schema:name"><a href="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">Coolors
+            palette used</a></cite>.
+      </dd>
+      <dt id="ref-Font-Awesome">Font Awesome</dt>
+      <dd property="schema:citation" typeof="schema:WebPage" resource="https://fontawesome.com/">
+        <cite property="schema:name"><a href="https://fontawesome.com/">Pagina cu icons folosita: Font
+            Awesome</a></cite>.
+      </dd>
+      <dt id="ref-Unicode-Table">Unicode table</dt>
+      <dd property="schema:citation" typeof="schema:WebPage" resource="https://unicode-table.com/en/ ">
+        <cite property="schema:name"><a href="https://unicode-table.com/en/ ">Pagina cu tabelul unicode folosit ca
+            icons</a></cite>.
+      </dd>
+      <dt id="ref-HTML">HTML</dt>
+      <dd property="schema:citation" typeof="schema:WebPage" resource="http://www.w3.org/TR/html5/">
+        <cite property="schema:name"><a href="http://www.w3.org/TR/html5/">One of the HTML Specifications</a></cite>.
+      </dd>
+    </dl>
+  </section>
+
+  <section id="overall-description" role="Overall Description">
+    <h2><span>2. </span>Introduction</h2>
+  </section>
+
+  <section id="perspective" role="perspective">
+    <h3><span>2.1 </span>Product Perspective</h3>
+    <p>
+      Acest sitem este o aplicatie web noua de gestiune al programărilor și stocurilor unui operatii de service de
+      motociclete
+      TO DO: de adaugat si un grafic simplu cu componentele majore ale sistemului
+    </p>
+  </section>
+
+  <section id="functions" role="functions">
+    <h3><span>2.2 </span>Product Functions</h3>
+    <p>
+      Lista de functii ale aplicatiei web:
+    </p>
+    <ul>
+      <li>
+        <p>
+          gestiune programarilor service-ul de motociclete din punctul de vedere al clientilor si administratorului
+        </p>
+      </li>
+      <ul>
+        <li>
+          <p>
+            calendar pentru alegerea unei date si ore disponibile pentru client
+          </p>
+        </li>
+        <li>
+          <p>
+            formular pentru client de completarea a unei programari cu descrierea problemei prin text si fisiere
+            video/imagini
+          </p>
+        </li>
+        <li>
+          <p>
+            administratorul poate raspunde unui formular printr-un mesaj text si o propunere de pret cu piese necesare.
+          </p>
+        </li>
+        <li>
+          <p>
+            administratorul poate respinge un formular cu un mesaj explicativ
+          </p>
+        </li>
+        <li>
+          <p>
+            apoi clientul poate accepta/respinge oferta de pret a administratorului
+          </p>
+        </li>
+      </ul>
+      <li>
+        <p>
+          clientul isi poate vedea istoricul programarilor
+        </p>
+      </li>
+      <li>
+        <p>
+          gestiune stocurilor service-ul de motociclete din punctul de vedere al administratorului
+        </p>
+      </li>
+      <ul>
+        <li>
+          <p>
+            pagina ce permite edditare numarului de piese aflate in stoc (totale cat si a celor rezervate pentru
+            programari)
+          </p>
+        </li>
+      </ul>
+      <li>
+        <p>
+          gestiune comenzilor service-ul de motociclete din punctul de vedere al administratorului
+        </p>
+      </li>
+      <ul>
+        <li>
+          <p>
+            pagina ce permite trimiterea unei comenzi de piese catre furnizorii
+          </p>
+        </li>
+        <li>
+          <p>
+            pagina ce permite gestiunea comenzilor date (mutarea din lista de asteptare in stoc)
+          </p>
+        </li>
+      </ul>
+      <li>
+        <p>
+          pagina de gestiune a datelor. 
+        </p>
+      </li>
+      <ul>
+        <li>
+          <p>
+            export diferite parti din datele aplicatiei in format CSV/JSON/PDF
+          </p>
+        </li>
+        <li>
+          <p>
+            import diferite parti din datele aplicatiei in format CSV/JSON
+          </p>
+        </li>
+      </ul>
+    </ul>
+  </section>
+
+  <!-- 
+
+  <section id="Root">
+
+    <h3><span>3.1 </span>The root and <code>head</code></h3>
+    <p>
+      The document must be encoded in UTF-8 and transmitted with a media type of
+      <code>text/html</code>.
+    </p>
+    <p>
+      The <code>head</code> must contain <code>&lt;meta charset="utf-8"&gt;</code> element and a
+      <code>title</code> element.
+    </p>
+  </section>
+  <section id="article">
+
+    <h3><span>3.2 </span>The <code>article</code></h3>
+    <p>
+      The first child of <code>article</code> must be <code>header</code>. The header should
+      contain an <code>h1</code> with the title of the document. The following element must be a
+      <code>div</code> with the role of <code>contentinfo</code> containing author and
+      affiliation information. See <a href="#contentinfo-semantics">The
+        <code>contentinfo</code>
+        Region Semantics</a> for information about the semantic decoration of this element.
+    </p>
+    <p>
+      Any number of <code>section</code> elements may be listed within the article at arbitrary
+      depths, but each <code>section</code> must begin with an <code>hx</code> element,
+      indicating a numbered section in the article. If the sections require headings that exceed
+      <code>h6</code>, <code>aria-level</code> must be included to indicate depth.
+    </p>
+    <figure typeof="schema:SoftwareSourceCode" role="doc-example" id="arialevelexample">
+      <pre><code>
     &lt;section&gt;      
       &lt;h6&gt;Granular Details about Zoology&lt;/h6&gt;
         &lt;p&gt;…&lt;/p&gt;
       &lt;section&gt;    
         &lt;h6 aria-level="7"&gt;Even More Information!&lt;/h6&gt;
           </code></pre>
-        <figcaption>Example of a level 7 heading, using <code>aria-level</code></figcaption>
-      </figure>
-      <p>
-        Each section may contain zero or more <a href="#hunk">Hunk Elements</a> and
-        <code>section</code> elements.
-      </p>
-    </section>
-    <section id="hunk">
-      <h3><span>3.3 </span>Hunk Elements</h3>
-      <p>
-        Hunk elements are the meaningful blocks from which sections are built. They contain text
-        and <a href="#inline">inline elements</a>. There are several types of hunk
-        elements. All
-        content, ranging from long paragraphs to note references and footnotes can be captured
-        using this specified set of elements. The method for distinguishing one from another in a
-        machine-readable manner is specified in <a href="#semantics">Semantics
-          Overlay</a>.
-      </p>
-      <p>
-        The most common hunk element is
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-p-element"><code>p</code></a>.
-      </p>
+      <figcaption>Example of a level 7 heading, using <code>aria-level</code></figcaption>
+    </figure>
+    <p>
+      Each section may contain zero or more <a href="#hunk">Hunk Elements</a> and
+      <code>section</code> elements.
+    </p>
+  </section>
+  <section id="hunk">
+    <h3><span>3.3 </span>Hunk Elements</h3>
+    <p>
+      Hunk elements are the meaningful blocks from which sections are built. They contain text
+      and <a href="#inline">inline elements</a>. There are several types of hunk
+      elements. All
+      content, ranging from long paragraphs to note references and footnotes can be captured
+      using this specified set of elements. The method for distinguishing one from another in a
+      machine-readable manner is specified in <a href="#semantics">Semantics
+        Overlay</a>.
+    </p>
+    <p>
+      The most common hunk element is
+      <a href="https://www.w3.org/TR/html51/semantics.html#the-p-element"><code>p</code></a>.
+    </p>
+    <p>
+      The
+      <a href="https://www.w3.org/TR/html51/semantics.html#the-blockquote-element"><code>blockquote</code></a>,
+      <a href="https://www.w3.org/TR/html51/semantics.html#the-ul-element"><code>ul</code></a>,
+      <a href="https://www.w3.org/TR/html51/semantics.html#the-ol-element" <code="">ol</a>,
+      and
+      <a href="https://www.w3.org/TR/html51/semantics.html#the-dl-element"><code>dl</code></a>
+      elements can be used as they typically would and require no special treatment.
+    </p>
+    <p>
+      The
+      <a href="https://www.w3.org/TR/html51/semantics.html#the-dl-element" <code="">aside</a>
+      hunk element is used to capture portions of content that stand apart from the main flow of
+      content. These can be separated from the article without having impact on the reader’s
+      understanding of the article. A common use is text boxes in print. If the
+      <code>aside</code> contains an <code>header</code> heading element, that heading must be
+      the first element child and its numeric part must reflect its depth, making use of
+      <code>aria-level</code> according to the same rules that apply for <code>section</code>.
+      The other children of asid<code>aside</code>e must all be hunk elements. For example, if
+      an <code>aside</code> follows a <code>section</code> with a level 3 heading, the top-level
+      heading in the <code>aside</code> should be <code>h4</code>.
+    </p>
+    <section id="figures">
+      <h4><span>3.3.1 </span>Figures</h4>
       <p>
         The
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-blockquote-element"><code>blockquote</code></a>,
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-ul-element"><code>ul</code></a>,
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-ol-element" <code="">ol</a>,
-        and
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-dl-element"><code>dl</code></a>
-        elements can be used as they typically would and require no special treatment.
+        <a href="https://www.w3.org/TR/html51/semantics.html#the-figure-element"><code>figure</code></a>
+        element is a general container for self-contained content units that are embedded inside
+        the main body of the text. It can come in several flavors that are dictated by its
+        <code>typeof</code> attribute. Common uses for <code>figure</code> are as a container
+        for images, tables, equations, and computer code.
       </p>
       <p>
-        The
-        <a href="https://www.w3.org/TR/html51/semantics.html#the-dl-element" <code="">aside</a>
-        hunk element is used to capture portions of content that stand apart from the main flow of
-        content. These can be separated from the article without having impact on the reader’s
-        understanding of the article. A common use is text boxes in print. If the
-        <code>aside</code> contains an <code>header</code> heading element, that heading must be
-        the first element child and its numeric part must reflect its depth, making use of
-        <code>aria-level</code> according to the same rules that apply for <code>section</code>.
-        The other children of asid<code>aside</code>e must all be hunk elements. For example, if
-        an <code>aside</code> follows a <code>section</code> with a level 3 heading, the top-level
-        heading in the <code>aside</code> should be <code>h4</code>.
+        If <code>figure</code> is <code>typeof="sa:image"</code>, it is an image container. It
+        must contain an <code>img</code> child element and should contain a <code>figcaption</code>
+        labeling that image.
       </p>
-      <section id="figures">
-        <h4><span>3.3.1 </span>Figures</h4>
-        <p>
-          The
-          <a href="https://www.w3.org/TR/html51/semantics.html#the-figure-element"><code>figure</code></a>
-          element is a general container for self-contained content units that are embedded inside
-          the main body of the text. It can come in several flavors that are dictated by its
-          <code>typeof</code> attribute. Common uses for <code>figure</code> are as a container
-          for images, tables, equations, and computer code.
-        </p>
-        <p>
-          If <code>figure</code> is <code>typeof="sa:image"</code>, it is an image container. It
-          must contain an <code>img</code> child element and should contain a <code>figcaption</code>
-          labeling that image.
-        </p>
-        <p>
-          If <code>figure</code> is a <code>typeof="sa:table"</code>table, it is a table
-          container. It must contain a <code>table</code> element. If there is a table caption, it
-          should be included using the <code>caption</code> child element of the table, and not
-          the <code>figcaption</code> child of the <code>figure</code>. Table notes may also be
-          included as <code>ol</code> with <code>li</code> elements with the role of
-          <code>doc-footnote</code>.
-        </p>
-        <p>
-          If <code>figure</code> is a <code>typeof="sa:formula"</code>, it is a formula container.
-          It must contain a <code>math</code> element and, optionally, a <code>figcaption</code>
-          describing the formula. The <code>math</code> element must be valid MathML 3.
-          Additionally, given the dismal state of support for MathML in Web browsers the math
-          element must contain an annotation descendant with the TeX equivalent of the formula.
-        </p>
-        <p>
-          If <code>figure</code> is a <code>typeof="schema:SoftwareSourceCode"</code>, it is a
-          code container. It must contain a <code>pre</code> element and, optionally, a
-          <code>figcaption</code>. The <code>pre</code> element must contain a <code>code</code>
-          element as its only child.
-        </p>
-      </section>
+      <p>
+        If <code>figure</code> is a <code>typeof="sa:table"</code>table, it is a table
+        container. It must contain a <code>table</code> element. If there is a table caption, it
+        should be included using the <code>caption</code> child element of the table, and not
+        the <code>figcaption</code> child of the <code>figure</code>. Table notes may also be
+        included as <code>ol</code> with <code>li</code> elements with the role of
+        <code>doc-footnote</code>.
+      </p>
+      <p>
+        If <code>figure</code> is a <code>typeof="sa:formula"</code>, it is a formula container.
+        It must contain a <code>math</code> element and, optionally, a <code>figcaption</code>
+        describing the formula. The <code>math</code> element must be valid MathML 3.
+        Additionally, given the dismal state of support for MathML in Web browsers the math
+        element must contain an annotation descendant with the TeX equivalent of the formula.
+      </p>
+      <p>
+        If <code>figure</code> is a <code>typeof="schema:SoftwareSourceCode"</code>, it is a
+        code container. It must contain a <code>pre</code> element and, optionally, a
+        <code>figcaption</code>. The <code>pre</code> element must contain a <code>code</code>
+        element as its only child.
+      </p>
     </section>
-    <section id="inline">
-      
-      <h3><span>3.4 </span>Inline Elements</h3>
-      <p>
-        <a href="https://www.w3.org/TR/html51/semantics.html#text-level-semantics">Inline
-          elements</a> decorate, describe, and enrich text. Inline elements can be used inside of
-        hunk elements, heading elements, and captioning elements. Where applicable, they can nest
-        within one another. Inline images and inline math can be inlcuded as well. This can be
-        accomplished using <code>img</code> for images or <code>math</code> for formulas.
-        Equations can be displayed inline or as blocks within a paragaph.
-      </p>
-      <figure typeof="schema:SoftwareSourceCode" resource="#mathblock-example" id="mathblock-example"
-        role="doc-example">
-        <pre><code>
+  </section>
+  <section id="inline">
+
+    <h3><span>3.4 </span>Inline Elements</h3>
+    <p>
+      <a href="https://www.w3.org/TR/html51/semantics.html#text-level-semantics">Inline
+        elements</a> decorate, describe, and enrich text. Inline elements can be used inside of
+      hunk elements, heading elements, and captioning elements. Where applicable, they can nest
+      within one another. Inline images and inline math can be inlcuded as well. This can be
+      accomplished using <code>img</code> for images or <code>math</code> for formulas.
+      Equations can be displayed inline or as blocks within a paragaph.
+    </p>
+    <figure typeof="schema:SoftwareSourceCode" resource="#mathblock-example" id="mathblock-example" role="doc-example">
+      <pre><code>
 &lt;p&gt;
   If we should weep when clowns put on their show,
   if we should stumble when musicians play,
@@ -343,165 +526,165 @@
   time can say nothing but I told you so.
 &lt;/p&gt;
           </code></pre>
-        <figcaption></figcaption>
-      </figure>
-    </section>
-    <section id="references">
-      
-      <h3><span>3.5 </span>References</h3>
-      <p>
-        The References section requires specific <a href="#citations">semantic
-          overlays</a>
-        (reference) as well as strict content structure. Apart from a (required) <code>hx</code>
-        element, it must contain only one <code>ol</code> or <code>dl</code> element.
-      </p>
-      <p>
-        If using a <code>dl</code> element, the contents must be alternating <code>dt</code> and
-        <code>dd</code> elements. The <code>dd</code> must contain the citation.
-      </p>
+      <figcaption></figcaption>
+    </figure>
+  </section>
+  <section id="references">
 
-      <p>
-        If using <code>ol</code>, the only contents are <code>li</code> that include citations.
-      </p>
-    </section>
+    <h3><span>3.5 </span>References</h3>
+    <p>
+      The References section requires specific <a href="#citations">semantic
+        overlays</a>
+      (reference) as well as strict content structure. Apart from a (required) <code>hx</code>
+      element, it must contain only one <code>ol</code> or <code>dl</code> element.
+    </p>
+    <p>
+      If using a <code>dl</code> element, the contents must be alternating <code>dt</code> and
+      <code>dd</code> elements. The <code>dd</code> must contain the citation.
+    </p>
 
-    <section id="interactive">
-      
-      <h3><span>3.6 </span>Interactive Elements</h3>
-      <p>
-        information about iframes to come
-      </p>
-      <p class="issue">
-        Let’s discuss details of iframes with the CG
-      </p>
-    </section>
-    <section id="HTMLRoles">
-      
-      <h3><span>3.7 </span>HTML Roles</h3>
-      <p>
-        It is possible to provide information about an HTML element by decorating it with the
-        <a href="https://www.w3.org/TR/html51/dom.html#aria-role-attribute">role</a> attribute. The
-        <a href="https://www.w3.org/TR/wai-aria-1.1/">ARIA</a> vocabulary and its extensions provide
-        convenient terms that are relevant to document structure. The following roles from ARIA and
-        <a href="https://www.w3.org/TR/dpub-aria-1.0/">DPUB-ARIA</a> should be applied where
-        appropriate:
-      </p>
-      <ul>
-        <li>
-          <a href="https://www.w3.org/TR/wai-aria-1.1/#contentinfo">contentinfo</a> to apply to the
-          <code>div</code> containing author and affiliation information
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/wai-aria-1.1/#definition">definition</a> for defining a
-          term, such as a keyword or a glossary term
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/wai-aria-1.1/#term">term</a> for a term corresponding to a
-          definition
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/wai-aria-1.1/#presentation">presentation</a> to indicate
-          that an image is purely decorative
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-abstract">doc-abstract</a> on the
-          <code>section</code> that contains the abstract
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-acknowledgments">doc-acknowledgments</a>
-          on the <code>section</code> that contains acknowledgements (note that this is not the same
-          as funding information).
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-appendix">doc-appendix</a> on the
-          <code>section</code> that contains the appendix
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-biblioentry">doc-biblioentry</a> on the
-          list item that includes a citation
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-bibliography">doc-bibliography</a> on
-          the <code>section</code> or list that contains the references or works cited
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-conclusion">doc-conclusion</a> on the
-          <code>section</code> that explicity concludes the article
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-dedication">doc-dedication</a> on the
-          dedication element of the article (allowed on any hunk element)
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnote">doc-endnote</a> on an
-          individual note item in a collection of notes
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-dedication">doc-endnotes</a> on the
-          <code>section</code> containing a group of notes
-        </li>
-        <li class="issue">
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-errata">doc-errata</a> on a ???
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-example">doc-example</a> on a hunk
-          element containing an illustrative concept, such as a code sample.
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-footnote">doc-footnote</a> on a hunk
-          element containing an individual note, such as an informative note about the author or
-          table footnote
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-introduction">doc-introduction</a> on
-          the <code>section</code> introducing the article, if relevant
-        </li>
-        <li>
-          <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-subtitle">doc-subtitle</a> to indicate
-          that a portion of a heading is a secondary or alternate title of the work
-        </li>
-      </ul>
-      <p class="issue">
-        Should we require ARIA’s table, grid, rowheader, and rowgroup?
-      </p>
-      <p class="issue">
-        I did not include doc-credit bc of extensive citation markup in JSON-LD
-      </p>
-      <p class="issue">
-        doc-endnote, doc-endnotes are not in the current published draft of DPUB-ARIA. See
-        <a href="http://rawgit.com/w3c/aria/master/aria/dpub.html">March DPUB-ARIA draft</a>
-      </p>
-    </section>
-    <section id="validate">
-      
-      <h3><span>3.8 </span>Validation</h3>
-      <p>
-        The only validation requirement for Scholarly HTML at this point is that the HTML is valid.
-        We are considering building a a validation tool in RelaxNG or JavaScript to check compliance
-        with this set of rules.
-      </p>
-      <p>
-        Articles should be in the following basic structure:
-      </p>
-      <ul>
-        <li>heading with article title</li>
-        <li>0+ hunks</li>
-        <li>
-          0+ sections
-          <ul>
-            <li>0+ headings</li>
-            <li>0+ hunks</li>
-            <li>0+ sections</li>
-          </ul>
-        </li>
-      </ul>
-      <p>
-        It must feature a <code>DOCTYPE</code> as its preamble.
-      </p>
-    </section>
+    <p>
+      If using <code>ol</code>, the only contents are <code>li</code> that include citations.
+    </p>
+  </section>
+
+  <section id="interactive">
+
+    <h3><span>3.6 </span>Interactive Elements</h3>
+    <p>
+      information about iframes to come
+    </p>
+    <p class="issue">
+      Let’s discuss details of iframes with the CG
+    </p>
+  </section>
+  <section id="HTMLRoles">
+
+    <h3><span>3.7 </span>HTML Roles</h3>
+    <p>
+      It is possible to provide information about an HTML element by decorating it with the
+      <a href="https://www.w3.org/TR/html51/dom.html#aria-role-attribute">role</a> attribute. The
+      <a href="https://www.w3.org/TR/wai-aria-1.1/">ARIA</a> vocabulary and its extensions provide
+      convenient terms that are relevant to document structure. The following roles from ARIA and
+      <a href="https://www.w3.org/TR/dpub-aria-1.0/">DPUB-ARIA</a> should be applied where
+      appropriate:
+    </p>
+    <ul>
+      <li>
+        <a href="https://www.w3.org/TR/wai-aria-1.1/#contentinfo">contentinfo</a> to apply to the
+        <code>div</code> containing author and affiliation information
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/wai-aria-1.1/#definition">definition</a> for defining a
+        term, such as a keyword or a glossary term
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/wai-aria-1.1/#term">term</a> for a term corresponding to a
+        definition
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/wai-aria-1.1/#presentation">presentation</a> to indicate
+        that an image is purely decorative
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-abstract">doc-abstract</a> on the
+        <code>section</code> that contains the abstract
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-acknowledgments">doc-acknowledgments</a>
+        on the <code>section</code> that contains acknowledgements (note that this is not the same
+        as funding information).
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-appendix">doc-appendix</a> on the
+        <code>section</code> that contains the appendix
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-biblioentry">doc-biblioentry</a> on the
+        list item that includes a citation
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-bibliography">doc-bibliography</a> on
+        the <code>section</code> or list that contains the references or works cited
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-conclusion">doc-conclusion</a> on the
+        <code>section</code> that explicity concludes the article
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-dedication">doc-dedication</a> on the
+        dedication element of the article (allowed on any hunk element)
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-endnote">doc-endnote</a> on an
+        individual note item in a collection of notes
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-dedication">doc-endnotes</a> on the
+        <code>section</code> containing a group of notes
+      </li>
+      <li class="issue">
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-errata">doc-errata</a> on a ???
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-example">doc-example</a> on a hunk
+        element containing an illustrative concept, such as a code sample.
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-footnote">doc-footnote</a> on a hunk
+        element containing an individual note, such as an informative note about the author or
+        table footnote
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-introduction">doc-introduction</a> on
+        the <code>section</code> introducing the article, if relevant
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/dpub-aria-1.0/#doc-subtitle">doc-subtitle</a> to indicate
+        that a portion of a heading is a secondary or alternate title of the work
+      </li>
+    </ul>
+    <p class="issue">
+      Should we require ARIA’s table, grid, rowheader, and rowgroup?
+    </p>
+    <p class="issue">
+      I did not include doc-credit bc of extensive citation markup in JSON-LD
+    </p>
+    <p class="issue">
+      doc-endnote, doc-endnotes are not in the current published draft of DPUB-ARIA. See
+      <a href="http://rawgit.com/w3c/aria/master/aria/dpub.html">March DPUB-ARIA draft</a>
+    </p>
+  </section>
+  <section id="validate">
+
+    <h3><span>3.8 </span>Validation</h3>
+    <p>
+      The only validation requirement for Scholarly HTML at this point is that the HTML is valid.
+      We are considering building a a validation tool in RelaxNG or JavaScript to check compliance
+      with this set of rules.
+    </p>
+    <p>
+      Articles should be in the following basic structure:
+    </p>
+    <ul>
+      <li>heading with article title</li>
+      <li>0+ hunks</li>
+      <li>
+        0+ sections
+        <ul>
+          <li>0+ headings</li>
+          <li>0+ hunks</li>
+          <li>0+ sections</li>
+        </ul>
+      </li>
+    </ul>
+    <p>
+      It must feature a <code>DOCTYPE</code> as its preamble.
+    </p>
+  </section>
   </section>
   <section id="semantics">
-    
+
     <h2><span>4. </span>Semantics Overlay</h2>
     <p>
       HTML provides an excellent backbone with which to capture the
@@ -550,7 +733,7 @@
       the <a href="#scholarly-article">Scholarly Article Vocabulary</a>.
     </p>
     <section id="person-org">
-      
+
       <h3><span>4.1 </span>Persons &amp; Organizations</h3>
       <p>
         Marking up persons and organizations can make use of any applicable properties in
@@ -632,16 +815,16 @@
       </p>
     </section>
     <section id="typing-sections">
-      
+
       <h3><span>4.2 </span>Typing Sections</h3>
       <p>
         XXX
       </p>
     </section>
     <section id="roles">
-      
+
       <h3><span>4.3 </span>Schema Roles</h3>
-   
+
       <p>
         It is worth taking a step back to understand the importance of the <em>role</em>
         modeling. Its application is clearly exemplified in the <a href="#authors">Authors &amp;
@@ -709,7 +892,7 @@
       </figure>
     </section>
     <section id="actions">
-      
+
       <h3><span>4.4 </span>Actions</h3>
       <p>
         Actions are a global <a role="doc-biblioref" href="#ref-schema.org">schema.org</a> mechanism to convey facts
@@ -794,7 +977,7 @@
       </figure>
     </section>
     <section id="article-title-semantics">
-      
+
       <h3><span>4.5 </span>Article and Title Semantics</h3>
       <p>
         The <code>article</code> element that roots the content of the Scholarly HTML document
@@ -858,7 +1041,7 @@
       </figure>
     </section>
     <section id="contentinfo-semantics">
-      
+
       <h3><span>4.6 </span>The <code>contentinfo</code> Region Semantics</h3>
       <p>
         As described in the <a href="#structure">Structure section</a>, the
@@ -872,7 +1055,7 @@
         specific <code>typeof</code> attribute.
       </p>
       <section id="authors">
-        
+
         <h4><span>4.6.1 </span>Authors &amp; Contributors</h4>
         <p>
           If the document has authors or contributors, they are listed in a <code>section</code>
@@ -991,7 +1174,7 @@
         </figure>
       </section>
       <section id="affiliations">
-        
+
         <h4><span>4.6.2 </span>Affiliations</h4>
         <p>
           If the authors and contributors of the documents are affiliated with organizations, they
@@ -1057,7 +1240,7 @@
         </figure>
       </section>
       <section id="abstract-etc">
-        
+
         <h4><span>4.6.3 </span>License, Copyright, Keywords, and Abstract</h4>
         <p>
           The copyright line of the document can be included in any element, but it must list two
@@ -1086,7 +1269,7 @@
         </p>
       </section>
       <section id="meta-notes">
-        
+
         <h4><span>4.6.4 </span>Notes</h4>
         <p>
           Notes that add information about the <a href="#authors">Authors and
@@ -1097,7 +1280,7 @@
       </section>
     </section>
     <section id="flavored-links">
-      
+
       <h3><span>4.7 </span>Flavored Links</h3>
       <p>
         The <a href="https://www.w3.org/TR/html51/semantics.html#linkTypes"><code>rel</code></a>
@@ -1116,7 +1299,7 @@
       </p>
     </section>
     <section id="citations">
-      
+
       <h3><span>4.8 </span>Citations &amp; References</h3>
       <p>
         Citations in scholarly articles provide a way to reference the work of others upon which
@@ -1247,7 +1430,7 @@
       </p>
     </section>
     <section id="footnotes">
-      
+
       <h3><span>4.9 </span>Footnotes &amp; Endnotes</h3>
       <p>
         If the document has notes, they are listed in a <code>section</code> with the role of
@@ -1257,7 +1440,7 @@
       </p>
     </section>
     <section id="funding">
-      
+
       <h3><span>4.10 </span>Funding Information</h3>
       <p>
         Funding informations is provided using a complex triples structure which can be summarized
@@ -1303,7 +1486,7 @@ XXX this example has issues
       </figure>
     </section>
     <section id="disclosures">
-      
+
       <h3><span>4.11 </span>Disclosures</h3>
       <p>
         Disclosure information is a list of disclosure actions described in a simple triples
@@ -1323,7 +1506,7 @@ XXX this example has issues
       </ul>
     </section>
     <section id="acknowledgements">
-      
+
       <h3><span>4.12 </span>Acknowledgements</h3>
       <p>
         XXX
@@ -1331,7 +1514,7 @@ XXX this example has issues
     </section>
   </section>
   <section id="scholarly-article">
-    
+
     <h2><span>5. </span>Scholarly Article Vocabulary</h2>
     <p>
       A limited number of classes and properties are currently not available from
@@ -1350,17 +1533,17 @@ XXX this example has issues
     </p>
   </section>
   <section id="hypermedia">
-    
+
     <h2><span>6. </span>Hypermedia Controls</h2>
 
   </section>
   <section id="processing-model">
-    
+
     <h2><span>7. </span>Processing Model</h2>
 
   </section>
   <section id="acks">
-    
+
     <h2><span>8. </span>Acknowledgements</h2>
     <p>
       Scholarly HTML would like to thank <a href="http://scholarlyhtml.org/">Scholarly HTML</a>
