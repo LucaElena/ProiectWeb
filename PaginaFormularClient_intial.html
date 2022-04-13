@@ -82,8 +82,8 @@
 
     <main>
 
-        <div class="formular_programare">
-            <!-- TO DO: css-->
+        <form action="./PaginaFormularClient_initial_mesaj.html" method="" class="formular_programare">
+          
 
             <div class="formular_programare__status">
                 <!-- Editare problema->In astepare raspuns->Programata*/ -->
@@ -94,23 +94,20 @@
             <div class="formular_programare__data">
                 <p class="formular_programare__data__mesaj">Ora programarii</p>
                 <input type="datetime-local" class="formular_programare__data__valoare"
-                    id="formular_programare__data__valoare" value="2022-05-18T09:00"
+                    id="formular_programare__data__valoare" name="ora_programare" value="2022-05-18T09:00"
                     min="2022-05-18T09:00"
                     max="2023-05-18T19:00"
                     step="3600">
-                <!-- <p class="formular_programare__data__valoare">2022-05-20 09:00</p> -->
+               
             </div>
 
             
 
             <div class="formular_programare__mesaj_client">
-                <!-- <input type="new-message" class="formular_programare__mesaj_client__txt" placeholder="Descrieti problema motocicletei dumneavoastra " required> -->
- 
-                <textarea name="new-messag-client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3" placeholder="Mesaj client cu descrierea problemei"></textarea>
-                <input type="file" accept="video/*,image/*" multiple="multiple" class="formular_programare__mesaj_client__video" placeholder="Incarcati fisiere video sau cu imagini cu problema">
-                <!-- <button type=button" class="formular_programare__mesaj_client__send_button">  <a href="./PaginaFormularLogatMesaj.html"><i class="fas fa-paper-plane"></i></a> </button> -->
                 
-               
+                <textarea name="new-messag-client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3" placeholder="Mesaj client cu descrierea problemei" required autofocus></textarea>
+                <input type="file" accept="video/*,image/*" multiple="multiple" class="formular_programare__mesaj_client__video" placeholder="Incarcati fisiere video sau cu imagini cu problema">
+                              
             </div>
 
 
@@ -118,9 +115,9 @@
             <div class="formular_programare__actiune">
                 <!-- <button type=button" class="formular_programare__actiune__accepta_button">Accepta</button>
                 <button type=button" class="formular_programare__actiune__respinge_button">Respinge</button> -->
-                <button type=button" class="formular_programare__actiune__trimite_button">  <a href="./PaginaFormularClient_initial_mesaj.html">Trimite</a> </button>
+                <button type=button" class="formular_programare__actiune__trimite_button"> Trimite</button>
            </div>  
-        </div>
+        </form>
     </main>
 
 
