@@ -353,7 +353,7 @@
   <section id="characteristics" role="characteristics">
     <h3><span>2.3 </span>User Classes and Characteristics</h3>
     <p>
-      Vom folosi un model MVC si anticipam sa folosim umatoare clasele:
+      Ne propunem sa folosim un model MVC si anticipam sa folosim umatoare clasele:
     </p>
     <ul>
       <li>
@@ -397,8 +397,26 @@
     </p>
   </section>
 
+  <section id="constraints" role="constraints">
+    <h3><span>2.5 </span>Design and Implementation Constraints</h3>
+    <p>
+      Desing-ul este limitat de timpul scurt de realizare a aplicatie si cunostintele noastre actuale...
 
+    </p>
+  </section>
 
+  <section id="user-documentation" role="user-documentation">
+    <h3><span>2.6 </span>User Documentation</h3>
+    <p>
+      List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.
+    </p>
+  </section>
+  <section id="assumptions-dependencies" role="assumptions-dependencies">
+    <h3><span>2.7 </span>Assumptions and Dependencies</h3>
+    <p>
+      List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).
+    </p>
+  </section>
   <section id="Root">
 
     <h3><span>3.1 </span>The root and <code>head</code></h3>
