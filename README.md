@@ -82,6 +82,7 @@
       </dd>
     </dl>
   </div>
+
   <section typeof="sa:Revision History" id="revision-history" role="revision-history">
     <h2><span>0. </span>Revision History</h2>
     <p>
@@ -105,42 +106,73 @@
     </table>
     </p>
   </section>
-  <!-- <li><a href="#introduction"><span>1. </span>Introduction</a>
-    <ol role="directory">
-      <li><a href="#purpose"><span>1.1 </span>Purpose</a> -->
+
   <section id="introduction" role="Introduction">
     <h2><span>1. </span>Introduction</h2>
   </section>
+
   <section id="purpose" role="purpose">
-    <h2><span>1.1 </span>Purpose</h2>
+    <h3><span>1.1 </span>Purpose</h3>
     <p>
-      Creați un sistem online de management al programărilor și stocurilor unui operatii de service de motociclete,
-       biciclete, trotinete (electrice sau nu). Fiecare client va consulta calendarul service-ului,
-      iar apoi va completa un formular cu data și ora dorită, plus detalii despre problemă,
-        putând adăuga inclusiv fișiere multimedia (imagini și filme).
+      Scopul acestui proiect este rezolvarea acestei cerinte la obiectul Tehnologii Web:
     </p>
+    <i>
+      <p>
+        "Creați un sistem online de management al programărilor și stocurilor unui operatii de service de motociclete,
+        biciclete, trotinete (electrice sau nu). Fiecare client va consulta calendarul service-ului,
+        iar apoi va completa un formular cu data și ora dorită, plus detalii despre problemă,
+        putând adăuga inclusiv fișiere multimedia (imagini și filme).
+      </p>
+      <p>
+        Administratorul afacerii va putea respinge programarea adăugând un mesaj explicativ:
+        "Ne pare rău, dar nu avem în stoc piesele necesare pentru reparație, reveniți în S săptămâni"
+        sau o va putea aproba, oferind și un preț estimativ, plus alte detalii de interes.
+        De asemenea, aplicația îi va permite acestuia să țină evidența stocurilor existente,
+        cât și a comenzilor date către furnizori. Sistemul va putea importa date în format CSV și JSON.
+        Pentru exportul datelor, se va recurge la oricare dintre formatele CSV, JSON, PDF.
+        Bonus: simularea activitatii service-ului pe o perioada de timp: luni/ani."
+      </p>
+    </i>
     <p>
-         Administratorul afacerii va putea respinge programarea adăugând un mesaj explicativ: 
-         "Ne pare rău, dar nu avem în stoc piesele necesare pentru reparație, reveniți în S săptămâni"
-          sau o va putea aproba, oferind și un preț estimativ, plus alte detalii de interes. 
-          De asemenea, aplicația îi va permite acestuia să țină evidența stocurilor existente, 
-          cât și a comenzilor date către furnizori. Sistemul va putea importa date în format CSV și JSON.
-           Pentru exportul datelor, se va recurge la oricare dintre formatele CSV, JSON, PDF. 
-           Bonus: simularea activitatii service-ului pe o perioada de timp: luni/ani.
+      De asemena trebuie sa respectam si cerintele de aici :
+      <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">Pagina Tehnologie Web</a>
     </p>
   </section>
-  <!-- <section id="structure">
-
-    <h2><span>3. </span>Structure</h2>
+  <!-- <li><a href="#document-conventions"><span>1.2 </span>Document Conventions</a></li> -->
+  <section id="document-conventions">
+    <h3><span>1.2 </span>Document Conventions</h3>
     <p>
-      A Scholarly HTML document is a valid <a role="doc-biblioref" href="#ref-HTML">HTML</a> document that follows
-      some additional rules to specialize its meaning and make it predictable to processors
-      wishing to produce or consume scholarly articles. These rules are outlined in the following
-      sections. While valuable on its own, the content structure defined here is simply a stepping
-      stone to enable semantic enrichment, detailed in <a href="#semantics">Semantics
-        Overlays</a>. If you would like to write a validation tool, please join us on GitHub.
+      Am incercat sa folosim urmatoarele conventii in rezolvarea proiectului:
     </p>
-    <section id="Root">
+    <ul>
+      <li>
+        <p>
+          pentru documentatie am folosit formatul <a href="https://w3c.github.io/scholarly-html/">Scholarly HTML</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          conform celor precizate în macheta <a href="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">IEEE System Requirements Specification Template</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          nume clase HTML/CSS respectand reguli de denumire de la parinte spre copii. Ex: "parinte" -> "parinte__copil-1" "parinte__copil-2"
+        </p>
+      </li>
+      <li>
+        <p>
+          o <a href="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">tema cromatica</a> similara in toate paginile 
+        </p>
+      </li>
+      <li>
+        <p>
+          paginile HTML similare au in general acelasi fisier CSS.
+        </p>
+      </li>
+    </ul>
+  </section>
+  <!--    <section id="Root">
 
       <h3><span>3.1 </span>The root and <code>head</code></h3>
       <p>
