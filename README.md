@@ -176,6 +176,16 @@
           paginile HTML similare au in general acelasi fisier CSS.
         </p>
       </li>
+      <li>
+        <p>
+          paginile HTML au in general acelasi meniu pentru clienti in diferite pagini. Similar si pentru admin.
+        </p>
+      </li>
+      <li>
+        <p>
+          paginile HTML au in general aspect asemanator.
+        </p>
+      </li>
     </ul>
   </section>
 
@@ -239,6 +249,16 @@
       <dt id="ref-HTML">HTML</dt>
       <dd property="schema:citation" typeof="schema:WebPage" resource="http://www.w3.org/TR/html5/">
         <cite property="schema:name"><a href="http://www.w3.org/TR/html5/">One of the HTML Specifications</a></cite>.
+      </dd>
+      <dt id="ref-ValidatorconsortiuWEB">Validator conform specificaţiilor Consorţiului Web</dt>
+      <dd property="schema:citation" typeof="schema:WebPage" resource="https://validator.w3.org/">
+        <cite property="schema:name"><a href="https://validator.w3.org/">Pagina spre validator HTML conform
+            specificaţiilor Consorţiului Web</a></cite>.
+      </dd>
+      <dt id="ref-ValidatorCSS">Validator CSS</dt>
+      <dd property="schema:citation" typeof="schema:WebPage" resource="https://jigsaw.w3.org/css-validator/">
+        <cite property="schema:name"><a href="https://jigsaw.w3.org/css-validator/">Pagina spre validator
+            CSS</a></cite>.
       </dd>
     </dl>
   </section>
@@ -392,8 +412,8 @@
     <h3><span>2.4 </span>Operating Environment</h3>
     <p>
       Folosim pagini web compatibile HTML5 cu CSS si JavaScript pentru interactiuni locale cu utilizatorul.
-      Pentru partea de backend ne propunem sa folosim PHP ce va fi procesat in xamp intr-un server de Apache.
-      De asemenea pentru stocarea datelor aplicatiei vom folosi MySql de asemenea procesat in xamp.
+      Pentru partea de backend ne propunem sa folosim PHP ce va fi procesat in Xampp intr-un server de Apache.
+      De asemenea pentru stocarea datelor aplicatiei vom folosi MySql de asemenea procesat in Xampp.
     </p>
   </section>
 
@@ -429,6 +449,8 @@
       </li>
       <li><a href="https://unicode-table.com">Unicode table</a></li>
       <li><a href="https://css-tricks.com/">Css-tricks</a></li>
+      <li><a href="https://validator.w3.org/">HTML validator</a></li>
+      <li><a href="https://jigsaw.w3.org/css-validator/">Css validator</a></li>
     </ul>
 
 
@@ -641,33 +663,23 @@
   <section id="hardware-interfaces" role="hardware-interfaces">
     <h3><span>3.2 </span>Hardware Interfaces</h3>
     <p>
-      Describe the logical and physical characteristics of each interface between the software product and the hardware
-      components of the system. This may include the supported device types, the nature of the data and control
-      interactions between the software and the hardware, and communication protocols to be used.
+      Paginile HTML cu CSS si Javascript sunt generate pentru clienti de catre serverul web Apache prin protocolul HTTP.
+      Datele din PHP sunt luate din baza de date Mysql.
+      Serverul de Apache si Mysql sunt gestionate cu ajutorul aplicatiei Xamp ce ruleaza pe calculatorul personal.
     </p>
+
   </section>
 
   <section id="software-interfaces" role="software-interfaces">
     <h3><span>3.3 </span>Software Interfaces</h3>
     <p>
-      Describe the connections between this product and other specific software components (name and version), including
-      databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or
-      messages coming into the system and going out and describe the purpose of each. Describe the services needed and
-      the nature of communications. Refer to documents that describe detailed application programming interface
-      protocols. Identify data that will be shared across software components. If the data sharing mechanism must be
-      implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify
-      this as an implementation constraint.
+      Datele din baza de date vor fi transformate in CSV/Json pentru a putea fi livrate prin API-ul aplicatiei
     </p>
   </section>
 
   <section id="communications-interfaces" role="communications-interfaces">
     <h3><span>3.4 </span>Communications Interfaces</h3>
-    <p>
-      Describe the requirements associated with any communications functions required by this product, including e-mail,
-      web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message
-      formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication
-      security or encryption issues, data transfer rates, and synchronization mechanisms.
-    </p>
+    <p>Folosim protocolul HTTP pentru comunicarea dintre client si servers</p>
   </section>
 
   <section id="system-features" role="System Features">
@@ -711,46 +723,55 @@
   <section id="performance-requirements" role="performance-requirements">
     <h3><span>5.1 </span>Performance Requirements</h3>
     <p>
-      If there are performance requirements for the product under various circumstances, state them here and explain
-      their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing
-      relationships for real time systems. Make such requirements as specific as possible. You may need to state
-      performance requirements for individual functional requirements or features.
+      Adoptarea principiilor designului Web responsiv.
     </p>
   </section>
   <section id="safety-requirements" role="safety-requirements">
     <h3><span>5.2 </span>Safety Requirements</h3>
     <p>
-      Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use
-      of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented.
-      Refer to any external policies or regulations that state safety issues that affect the product’s design or use.
-      Define any safety certifications that must be satisfied.
+      Implementarea va recurge la tehnici de prevenire a atacurilor (precum Cross Site Scripting sau SQL injection).
     </p>
   </section>
   <section id="security-requirements" role="quality-attributes">
     <h3><span>5.3 </span>Software Quality Attributes</h3>
     <p>
-      Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the
-      data used or created by the product. Define any user identity authentication requirements. Refer to any external
-      policies or regulations containing security issues that affect the product. Define any security or privacy
-      certifications that must be satisfied.
+      Pentru partea de client, interfaţa aplicaţiei/sitului Web va fi marcată obligatoriu în HTML5 </p>
+    <p>
+      Codul trebuind să fie valid conform specificaţiilor Consorţiului Web. Se vor utiliza foi de stiluri CSS valide
     </p>
+    <p> Pentru verificare, se poate recurge la instrumente dedicate precum Stylelint. De asemenea, este obligatorie
+      folosirea suitei de
+      tehnologii Ajax.
+    </p>
+    <p>
+      Respectarea cerinţelor de bază ale ingineriei software – e.g., comentarea şi modularizarea codului-sursă,
+      recurgerea
+      la unităţi de testare şi altele – cu redactarea documentaţiilor aferente – precum manualul dezvoltatorului, în
+      cazul
+      dezvoltării unui API ori serviciu Web.
+    </p>
+    <p>
+      Se vor folosi pe cât posibil machete (template-uri) de prezentare şi metode de configurare şi administrare a
+      aplicaţiei.
+    </p>
+
   </section>
   <section id="quality-attributes" role="hardware-interfaces">
     <h3><span>5.4 </span>Hardware Interfaces</h3>
     <p>
-      Specify any additional quality characteristics for the product that will be important to either the customers or
-      the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability,
-      maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be
-      specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various
-      attributes, such as ease of use over ease of learning.
+      Pentru stocarea şi managementul datelor, se vor putea utiliza servere de baze de date relaţionale, interogate via
+      SQL – minimal, a se considera SQLite. Complementar, se poate recurge la servere de baze de date aliniate
+      paradigmei NoSQL.
+    </p>
+    <p>
+      În procesul de dezvoltare a proiectelor, se va utiliza obligatoriu un sistem de stocare şi management online al
+      codului-sursă – e.g., utilizarea de soluţii populare precum Bitbucket, GitLab, GitHub etc.
     </p>
   </section>
   <section id="business-rules" role="business-rules">
     <h3><span>5.5 </span>Business Rules</h3>
     <p>
-      List any operating principles about the product, such as which individuals or roles can perform which functions
-      under specific circumstances. These are not functional requirements in themselves, but they may imply certain
-      functional requirements to enforce the rules.
+      Existenţa unui modul propriu de administrare a aplicaţiei Web.
     </p>
   </section>
 
@@ -764,11 +785,18 @@
   </section>
   <section id="glossary" role="Other Nonfunctional Requirements">
     <h2><span>Appendix A: Glossary</h2>
-    <p>
-      Define all the terms necessary to properly interpret the SRS, including acronyms and abbreviations. You may wish
-      to build a separate glossary that spans multiple projects or the entire organization, and just include terms
-      specific to a single project in each SRS.
-    </p>
+    <p>API - an application programming interface </p>
+    <p>Apache - a free and open-source cross-platform web server software</p>
+    <p>CSS - Cascading Style Sheets - is a declarative language that controls how webpages look in the browser.</p>
+    <p>CyMaT - Cycling Maintenance Web Tool</p>
+    <p>HTTP - HyperText Transfer Protocol</p>
+    <p>JSON - JavaScript Object Notation (JSON) - is a data-interchange format.</p>
+    <p>MVC - model view controller </p>
+    <p>MySql - is an open-source relational database management system </p>
+    <p>PDF - Portable Document Format </p>
+    <p>PHP - Hypertext Preprocessor - a general-purpose scripting language geared toward web development.</p>
+    <p>TW - technology web </p>
+    <p>XAMPP - a free and open-source cross-platform web server solution stack </p>
   </section>
   <section id="analysis-models" role="Other Nonfunctional Requirements">
     <h2>Appendix B: Analysis Models</h2>
