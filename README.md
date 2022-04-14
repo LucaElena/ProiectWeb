@@ -406,49 +406,63 @@
 
   <section id="user-documentation" role="user-documentation">
     <h3><span>2.6 </span>User Documentation</h3>
-   
-      <ul>
-        <li>
-          <a href="https://developer.mozilla.org/en-US/">MDN</a>
-        </li>
-        <li>
-          <a href="https://www.w3schools.com/">W3SHCOOL</a>
-        </li>
-        <li>
-          <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">Pagina obiectului Tehnologie Web</a>
-        </li>
-        <li>
-          <a href="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">IEEE System Requirements Specification Template </a>
-        </li>
-        <li>
-          <a href="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">Coolors palette</a>
-        </li>
-        <li>
-          <a href="https://fontawesome.com">Font Awesome</a>
-        </li>
-        <li><a href="https://unicode-table.com">Unicode table</a></li>
-        <li><a href="https://css-tricks.com/">Css-tricks</a></li>
-      </ul>
-    
-   
+    <ul>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/">MDN</a>
+      </li>
+      <li>
+        <a href="https://www.w3schools.com/">W3SHCOOL</a>
+      </li>
+      <li>
+        <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">Pagina obiectului Tehnologie
+          Web</a>
+      </li>
+      <li>
+        <a href="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">IEEE System Requirements
+          Specification Template </a>
+      </li>
+      <li>
+        <a href="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">Coolors palette</a>
+      </li>
+      <li>
+        <a href="https://fontawesome.com">Font Awesome</a>
+      </li>
+      <li><a href="https://unicode-table.com">Unicode table</a></li>
+      <li><a href="https://css-tricks.com/">Css-tricks</a></li>
+    </ul>
+
+
   </section>
   <section id="assumptions-dependencies" role="assumptions-dependencies">
     <h3><span>2.7 </span>Assumptions and Dependencies</h3>
     <p>
-      List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).
+      List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These
+      could include third-party or commercial components that you plan to use, issues around the development or
+      operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not
+      shared, or change. Also identify any dependencies the project has on external factors, such as software components
+      that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the
+      vision and scope document or the project plan).
     </p>
   </section>
   <section id="Root">
 
     <h3><span>3.1 </span>The root and <code>head</code></h3>
     <p>
-      Elementul HTML <code>html</code> reprezintă root-ul (elementul de nivel superior) a unui document HTML, deci este denumit și elementul
-         rădăcină. Deci, acesta nu are parinte si este elementul root al unui document. Toate celelalte elemente trebuie să fie descendenți ai acestui element. Desi nu sunt obligatori tag-urile de inceput si sfarsit, ar fi bine sa fie folosite.
-         tagu-ul root  <html>. Radacina contine 2 elemente importante: tagu-ul <head> </head> urmat de tagu-ul <body></body>.
-        
+      Elementul HTML <code>html</code> reprezintă root-ul (elementul de nivel superior) a unui document HTML, deci este
+      denumit și elementul
+      rădăcină. Deci, acesta nu are parinte si este elementul root al unui document. Toate celelalte elemente trebuie să
+      fie descendenți ai acestui element. Desi nu sunt obligatori tag-urile de inceput si sfarsit, ar fi bine sa fie
+      folosite.
+      tagu-ul root <html>. Radacina contine 2 elemente importante: tagu-ul
+
+      <head> </head> urmat de tagu-ul
+
+      <body></body>.
+
     </p>
     <p>
-      Elementul HTML <code>head</code>  conține informații (metadate) care pot fi citite de mașină despre document, cum ar fi <code>title</code>, scripturile și foile de stil css.
+      Elementul HTML <code>head</code> conține informații (metadate) care pot fi citite de mașină despre document, cum
+      ar fi <code>title</code>, scripturile și foile de stil css.
       The head</code> must contain <code>&lt;meta charset="utf-8"&gt;</code> element and a
       <code>title</code> element.
     </p>
