@@ -44,10 +44,10 @@
         </ol>
       </li>
       <li><a href="#system-features"><span>4. </span>System Features/a>
-          <ol role="directory">
+          <!-- <ol role="directory">
             <li><a href="#system-features1"><span>4.1 </span>System Feature 1</a></li>
             <li><a href="#system-features2"><span>4.2 </span>System Feature 2</a></li>
-          </ol>
+          </ol> -->
       </li>
       <li><a href="#other-nonfunctional-requirements"><span>5. </span>Other Nonfunctional Requirements</a>
         <ol role="directory">
@@ -55,7 +55,7 @@
           <li><a href="#safety-requirements"><span>5.2 </span>Safety Requirements</a></li>
           <li><a href="#security-requirements"><span>5.3 </span>Security Requirements</a></li>
           <li><a href="#quality-attributes"><span>5.4 </span>Software Quality Attributes</a></li>
-          <li><a href="#business-rules"><span>5.4 </span>Business Rules</a></li>
+          <li><a href="#business-rules"><span>5.5 </span>Business Rules</a></li>
         </ol>
       </li>
       <li><a href="#other-requirements"><span></span>Other Requirements</a></li>
@@ -684,7 +684,7 @@
 
   <section id="system-features" role="System Features">
     <h2><span>4. </span>System Features</h2>
-    <p>
+    <!-- <p>
       This template illustrates organizing the functional requirements for the product by system features, the major
       services provided by the product. You may prefer to organize this section by use case, mode of operation, user
       class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for
@@ -713,8 +713,9 @@
     <h3><span>4.2 </span>System Feature 2</h3>
     <p>
       so on
-    </p>
+    </p> -->
   </section>
+
 
   <section id="other-nonfunctional-requirements" role="Other Nonfunctional Requirements">
     <h2><span>5. </span>Other Nonfunctional Requirements</h2>
@@ -729,43 +730,50 @@
   <section id="safety-requirements" role="safety-requirements">
     <h3><span>5.2 </span>Safety Requirements</h3>
     <p>
-      Implementarea va recurge la tehnici de prevenire a atacurilor (precum Cross Site Scripting sau SQL injection).
+      Pentru verificare, se poate recurge la instrumente dedicate precum Stylelint. De asemenea, este obligatorie
+      folosirea suitei de tehnologii Ajax.
     </p>
-  </section>
-  <section id="security-requirements" role="quality-attributes">
-    <h3><span>5.3 </span>Software Quality Attributes</h3>
-    <p>
-      Pentru partea de client, interfaţa aplicaţiei/sitului Web va fi marcată obligatoriu în HTML5 </p>
     <p>
       Codul trebuind să fie valid conform specificaţiilor Consorţiului Web. Se vor utiliza foi de stiluri CSS valide
     </p>
-    <p> Pentru verificare, se poate recurge la instrumente dedicate precum Stylelint. De asemenea, este obligatorie
-      folosirea suitei de
-      tehnologii Ajax.
+    <p>
+      Respectarea cerinţelor de bază ale ingineriei software - e.g., comentarea şi modularizarea codului-sursă,
+      recurgerea la unităţi de testare şi altele - cu redactarea documentaţiilor aferente - precum manualul
+      dezvoltatorului, în
+      cazul dezvoltării unui API ori serviciu Web.
     </p>
     <p>
-      Respectarea cerinţelor de bază ale ingineriei software – e.g., comentarea şi modularizarea codului-sursă,
-      recurgerea
-      la unităţi de testare şi altele – cu redactarea documentaţiilor aferente – precum manualul dezvoltatorului, în
-      cazul
-      dezvoltării unui API ori serviciu Web.
+      În procesul de dezvoltare a proiectelor, se va utiliza obligatoriu un sistem de stocare şi management online al
+      codului-sursă - e.g., utilizarea de soluţii populare precum Bitbucket, GitLab, GitHub etc.
+    </p>
+    <p>
+      Import/export de date folosind formate deschise – minim, CSV.
+    </p>
+  </section>
+  <section id="security-requirements" role="security-requirements">
+    <h3><span>5.3 </span>Security Requirements</h3>
+    <p>
+      Implementarea va recurge la tehnici de prevenire a atacurilor (precum Cross Site Scripting sau SQL injection).
+    </p>
+
+  </section>
+  <section id="quality-attributes" role="quality-attributes">
+    <h3><span>5.4 </span>Software Quality Attributes</h3>
+    <p>
+      Pentru partea de client, interfaţa aplicaţiei/sitului Web va fi marcată obligatoriu în HTML5
     </p>
     <p>
       Se vor folosi pe cât posibil machete (template-uri) de prezentare şi metode de configurare şi administrare a
       aplicaţiei.
     </p>
-
-  </section>
-  <section id="quality-attributes" role="hardware-interfaces">
-    <h3><span>5.4 </span>Hardware Interfaces</h3>
     <p>
-      Pentru stocarea şi managementul datelor, se vor putea utiliza servere de baze de date relaţionale, interogate via
-      SQL – minimal, a se considera SQLite. Complementar, se poate recurge la servere de baze de date aliniate
-      paradigmei NoSQL.
+      Proiectele vor putea fi implementate pe partea de server folosind orice tehnologie, platformă şi limbaj de
+      programare actuale, cu condiţia ca acestea să adopte o licenţă deschisă.
     </p>
     <p>
-      În procesul de dezvoltare a proiectelor, se va utiliza obligatoriu un sistem de stocare şi management online al
-      codului-sursă – e.g., utilizarea de soluţii populare precum Bitbucket, GitLab, GitHub etc.
+      Pentru stocarea şi managementul datelor, se vor putea utiliza servere de baze de date relaţionale, interogate via
+      SQL - minimal, a se considera SQLite. Complementar, se poate recurge la servere de baze de date aliniate
+      paradigmei NoSQL.
     </p>
   </section>
   <section id="business-rules" role="business-rules">
@@ -773,14 +781,35 @@
     <p>
       Existenţa unui modul propriu de administrare a aplicaţiei Web.
     </p>
+    <p>
+      Nu se permite utilizarea de framework-uri la nivel de client (front-end) şi/sau server (back-end) Web.
+    </p>
+    <p>
+      Prezentarea arhitecturii de ansamblu (e.g., via diagrame UML sau similare - de studiat Modelul C4), plus etapele
+      intermediare ale dezvoltării proiectului.
+    </p>
+    <p>
+      Soluţia complet funcţională a proiectului ce va fi evaluată conform criteriilor enunţate anterior. Se vor oferi
+      detalii privind structura (modelarea) datelor şi provenienţa lor – de exemplu, recurgerea la anumite servicii Web
+      ori API-uri publice.
+    </p>
+
   </section>
 
   <section id="other-requirements" role="Other Nonfunctional Requirements">
     <h2>Other Requirements</h2>
     <p>
-      Define any other requirements not covered elsewhere in the SRS. This might include database requirements,
-      internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new
-      sections that are pertinent to the project.
+      Un raport în formatul Scholarly HTML disponibil public pe situl Web al echipei care descrie detaliile care vizează
+      progresul proiectului. Conţinuturile multimedia aferente, dacă există, vor putea fi distribuite pe Web sub formă
+      de prezentare ori film. Minimal, vor fi asociate tag-urile project, infoiasi, web. De asemenea, se va detalia
+      maniera de folosire a sistemului de management al codului-sursă ales.
+    </p>
+    <p>
+      Ghidul de utilizare a aplicaţiei dezvoltate – disponibil ca document HTML5, recurgând la formatul Scholarly HTML.
+    </p>
+    <p>
+      Fiecare echipă va avea alocate maxim 20 de minute pentru susţinerea orală în sala de laborator a soluţiei Web
+      dezvoltate. Toţi membrii echipei trebuie să fie prezenţi.
     </p>
   </section>
   <section id="glossary" role="Other Nonfunctional Requirements">
