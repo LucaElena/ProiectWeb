@@ -40,13 +40,13 @@ Simboluri: https://unicode-table.com/en/ sau https://fontawesome.com/
 
 -Legat paginile intre ele 
 
+-Documentatie
+
 **TO DO tasks pentru partea 1:**
 
 -Testat paginile daca sunt responsive
 
 -Testat paginile daca sunt corecte (https://validator.w3.org/ & https://jigsaw.w3.org/css-validator/ & https://stylelint.io/) + filtre min/max ... p buttoane  + add get/post in pagini + chestii de securitate
-
--Documentatie
 
 **TO DO tasks pentru partea 2:**
 
