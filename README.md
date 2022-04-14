@@ -353,7 +353,7 @@
   <section id="characteristics" role="characteristics">
     <h3><span>2.3 </span>User Classes and Characteristics</h3>
     <p>
-      Ne propunem sa folosim un model MVC si anticipam sa folosim umatoare clasele:
+      Ne propunem sa folosim un model MVC si anticipam sa folosim urmatoare clase:
     </p>
     <ul>
       <li>
@@ -447,12 +447,196 @@
   <section id="user-interfaces" role="user-interfaces">
     <h3><span>3.1 </span>User Interfaces</h3>
     <p>
-      Describe the logical characteristics of each interface between the software product and the users. This may
-      include sample screen images, any GUI standards or product family style guides that are to be followed, screen
-      layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard
-      shortcuts, error message display standards, and so on. Define the software components for which a user interface
-      is needed. Details of the user interface design should be documented in a separate user interface specification.
+      Logica principalelor interfete pentru utilizatori nostri.
     </p>
+    <ul>
+      <li>
+        <p>
+          logica interfata programari clienti/admin:
+        </p>
+      </li>
+      <ul>
+        <li>
+          <p>
+            un grid cu dreptunghiuri cu functionalitate de buton de la 08 la 19, de Luni pana Duminica
+          </p>
+        </li>
+        <li>
+          <p>
+            butoane de stanga-dreapta pentrua a schimba ziua/saptamana/luna de start a calendarului
+          </p>
+        </li>
+        <li>
+          <p>
+            butoanele de stanga-dreapta ce schimba saptamana/luna calculeaza prima luni din urmatoarele +/-7 sau +/-31
+            zile
+          </p>
+        </li>
+        <li>
+          <p>
+            butoanele de culoare rosie sunt ocupate de clientul curent si pot fi selectate pentru editare/vizualizare
+            formularului respectiv
+          </p>
+        </li>
+        <li>
+          <p>
+            butoanele de culoare gri sunt ocupate de de alti clienti si nu pot fi selectate de userul curent
+          </p>
+        </li>
+        <li>
+          <p>
+            butoanele de culoare verde sunt libere si pot fi selectate pentru a incepe un nou formular la acea data si
+            ora
+          </p>
+        </li>
+        <li>
+          <p>
+            butoanul de culoare albastru este cel selectat
+          </p>
+        </li>
+        <li>
+          <p>
+            similar si pentru admin doar ca el are acces la toate pentru a raspunde
+          </p>
+        </li>
+      </ul>
+      <li>
+        <p>
+          logica interfata formular:
+        </p>
+      </li>
+      <ul>
+        <li>
+          <p>
+            client poate incepe direct pe aceasta pagina din meniu caz in care va avea acces si la un input de data ora
+            ce ii va permite sa selecteze o ora/data
+            sau va veni din calendar caz in care aceasta va fi deja setat
+          </p>
+        </li>
+        <li>
+          <p>
+            initial formularul se afla in starea "Editare" si clientul poate incarca un mesaj text si 1 sau mai multe
+            fisiere video/imagini
+          </p>
+        </li>
+        <li>
+          <p>
+            apoi clientul poate trimite formularul , caz in care starea acestuia se modifica in "Asteptare"
+          </p>
+        </li>
+        <li>
+          <p>
+            adminul va putea selecta acest tip de formular si va putea raspunde cu un mesaj text de acept/refuz + un
+            tabel cu piesele de care are nevoie pentru a repara motocicleta (starea formularului ajunge in "Refuzat" sau
+            "Accept client")
+          </p>
+        </li>
+        <li>
+          <p>
+            clientul vede in istoric ca formularul are o stare schimbata si poate accepta/refuza oferta de pret (starea
+            formular devine "Programat" sau "Refuzat")
+          </p>
+        </li>
+        <li>
+          <p>
+            piesele se muta din stoc in stoc progrmate in momentul in care adminul raspunde clientului cu un accept
+          </p>
+        </li>
+        <li>
+          <p>
+            piesele se sterg din stoc-ul de rezervate dupa ce adminul muta formularul in starea de "Terminat"(sterg din
+            stoc) sau "Refuzat"(reintorc in stoc)
+          </p>
+        </li>
+      </ul>
+      <li>
+        <p>
+          logica interfata admin stoc:
+        </p>
+      </li>
+      <ul>
+        <li>
+          <p>
+            adminul va avea acces la un tabel de 5/10/15/20 randuri in care sunt toate piesele din stoc pe mai multe
+            pagini
+          </p>
+        </li>
+        <li>
+          <p>
+            adminul are pe aceasta pagina si mai multi selectori de filtrare a tabelului dupa brand/categorie/tip piesa
+            cat si buton de cauta si unul de reset al filtrelor
+          </p>
+        </li>
+        <li>
+          <p>
+            adminul poate modifica numarul de piese aflate in stoc si stoc rezervate
+          </p>
+        </li>
+        <li>
+          <p>
+            adminul poate parcurge tabelul stanga/dreapta cu un numar X de randuri in functie de selectorul de randuri
+          </p>
+        </li>
+      </ul>
+      <li>
+        <p>
+          logica interfata admin comenzi:
+        </p>
+      </li>
+      <ul>
+        <li>
+          <p>
+            un table filtrabil si similar cu cel de la stoc dar in care avem comenzi
+          </p>
+        </li>
+        <li>
+          <p>
+            adminul va putea sa marcheze comanda aflate in asteptare ca primite , caz in care piesele sunt mutate in
+            stoc
+          </p>
+        </li>
+        <li>
+          <p>
+            tot prin acest formular putem sa plasam diferite mesaje la sfarsitul diferitelor actiuni
+          </p>
+        </li>
+      </ul>
+      <li>
+        <p>
+          logica interfata admin plasare comenzi:
+        </p>
+      </li>
+      <ul>
+        <li>
+          <p>
+            selectori de piesa/brand/categori si numar de bucati + buton de plasare comanda(ne imaginam ca acesta este
+            legat la API-ul unor furnizori)
+          </p>
+        </li>
+        <li>
+          <p>
+            un tabel cu comenzile deja aflate in astepare
+          </p>
+        </li>
+      </ul>
+      <li>
+        <p>
+          logica interfata admin date:
+        </p>
+      </li>
+      <ul>
+        <li>
+          <p>
+            admin-ul poate sa selecta sa exporte toate/partial datele aplicatiei in format CSV/JSON/PDF
+          </p>
+        </li>
+        <li>
+          <p>
+            admin-ul poate sa selecta sa importe toate/partial datele aplicatiei in format CSV/JSON
+          </p>
+        </li>
+      </ul>
+    </ul>
   </section>
   <section id="hardware-interfaces" role="hardware-interfaces">
     <h3><span>3.2 </span>Hardware Interfaces</h3>
