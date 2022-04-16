@@ -82,7 +82,7 @@
 
     <main>
 
-        <form action="./PaginaFormularClient_initial_mesaj.html" method="" class="formular_programare">
+        <form action="./PaginaFormularClient_initial_mesaj.html" method="post" class="formular_programare">
           
 
             <div class="formular_programare__status">
@@ -106,16 +106,17 @@
             <div class="formular_programare__mesaj_client">
                 
                 <textarea name="new-messag-client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3" placeholder="Mesaj client cu descrierea problemei" required autofocus></textarea>
-                <input type="file" accept="video/*,image/*" multiple="multiple" class="formular_programare__mesaj_client__video" placeholder="Incarcati fisiere video sau cu imagini cu problema">
+                <input type="file" accept="video/*,image/*" multiple="multiple" class="formular_programare__mesaj_client__video" required>
+                <!-- placeholder="Incarcati fisiere video sau cu imagini cu problema" da erroare -->
                               
             </div>
 
 
             
             <div class="formular_programare__actiune">
-                <!-- <button type=button" class="formular_programare__actiune__accepta_button">Accepta</button>
-                <button type=button" class="formular_programare__actiune__respinge_button">Respinge</button> -->
-                <button type=button" class="formular_programare__actiune__trimite_button"> Trimite</button>
+                <!-- <button type="button" class="formular_programare__actiune__accepta_button">Accepta</button>
+                <button type="button" class="formular_programare__actiune__respinge_button">Respinge</button> -->
+                <button type="submit" class="formular_programare__actiune__trimite_button" name="formular_programare__actiune" value="Trmite" > Trimite</button>
            </div>  
         </form>
     </main>

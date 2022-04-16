@@ -82,7 +82,7 @@
 
     <main>
 
-        <div class="formular_programare">
+        <form class="formular_programare" method="post" action="#">
 
             <div class="formular_programare__status">
                 <!-- Editare client->Editare admin->Accept client -> Programat*/ -->
@@ -238,10 +238,12 @@
                 </div>
             </div>
             <div class="formular_programare__actiune">
-                <button type=button" class="formular_programare__actiune__terminat_button"><a href="./PaginaFormularClient_accept_mesaj.html">Accepta</a></button>
-                <button type=button" class="formular_programare__actiune__sterge_button"><a href="./PaginaFormularClient_respins_mesaj.html">Respinge</a></button>
-           </div>
-        </div>
+                <!-- <button type="submit" class="formular_programare__actiune__terminat_button"><a href="./PaginaFormularClient_accept_mesaj.html">Accepta</a></button>
+                <button type="submit" class="formular_programare__actiune__sterge_button"><a href="./PaginaFormularClient_respins_mesaj.html">Respinge</a></button> -->
+                <button type="submit" class="formular_programare__actiune__terminat_button" name="formular_programare__actiune" value="Accepta" >Accepta</button>
+                <button type="submit" class="formular_programare__actiune__sterge_button" name="formular_programare__actiune" value="Respinge" >Respinge</button>
+            </div>
+        </form>
     </main>
 
 
