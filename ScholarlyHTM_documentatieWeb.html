@@ -328,7 +328,7 @@
       <ul>
         <li>
           <p>
-            pagina ce permite edditare numarului de piese aflate in stoc (totale cat si a celor rezervate pentru
+            pagina ce permite editare numarului de piese aflate in stoc (totale cat si a celor rezervate pentru
             programari)
           </p>
         </li>
@@ -458,7 +458,7 @@
   <section id="assumptions-dependencies" role="assumptions-dependencies">
     <h3><span>2.7 </span>Assumptions and Dependencies</h3>
     <p>
-      Nu cunoastem dependinte.
+      Nu cunoastem dependente.
     </p>
   </section>
 
@@ -530,7 +530,7 @@
       <ul>
         <li>
           <p>
-            client poate incepe direct pe aceasta pagina din meniu caz in care va avea acces si la un input de data ora
+            client poate incepe direct pe aceasta pagina din meniu, caz in care va avea acces si la un input de data ora
             ce ii va permite sa selecteze o ora/data
             sau va veni din calendar caz in care aceasta va fi deja setat
           </p>
@@ -543,7 +543,7 @@
         </li>
         <li>
           <p>
-            apoi clientul poate trimite formularul , caz in care starea acestuia se modifica in "Asteptare"
+            apoi clientul poate trimite formularul, caz in care starea acestuia se modifica in "Asteptare"
           </p>
         </li>
         <li>
