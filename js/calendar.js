@@ -61,17 +61,10 @@ if (calendar_butoane) {
         // console.log(child);
         let calendar_buton = child.getElementsByTagName("button");
         let calendar_buton_id = calendar_buton[0].getAttribute("id");
-        buttons[i] = calendar_buton[0]
-        buttons[i].addEventListener('click', function () { buton_calendar_selected(calendar_buton_id) });
+        calendar_buton[0].addEventListener('click', function () { buton_calendar_selected(calendar_buton_id) });
         i++;
     });
-    // calendar_butoane.forEach(item => {
-    //     console.log(item);
-    //     calendar_buton = item.getElementsByTagName("button");
-    //     calendar_buton.addEventListener('click', event => {
-    //         console.log("Buton calendar click");
-    //     })
-    // });
+
 }
 
 function buton_calendar_selected(current_buton_id) {
