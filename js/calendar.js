@@ -8,6 +8,9 @@ var startHour = 8;
 var midHour = 14;
 var noHoursPerRow = 12;
 
+var lastSelectedButtonId = 0;
+var lastSelectedButtonClass = "programari__calendar__inside__hours_btn__open";
+
 console.log("Y=" + currentYear + " M=" + currentMonth + " D=" + currentDay + " H=" + currentStartHour);
 
 
@@ -19,33 +22,70 @@ var week_names = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
 let monthLeftBtn = document.getElementById("month_leftBtn");
 let monthRightBtn = document.getElementById("month_rightBtn");
 if (monthLeftBtn && monthRightBtn) {
-    monthLeftBtn.addEventListener("click", function() { change_curent_month(-1) });
-    monthRightBtn.addEventListener("click", function() { change_curent_month(1) });
+    monthLeftBtn.addEventListener("click", function () { change_curent_month(-1) });
+    monthRightBtn.addEventListener("click", function () { change_curent_month(1) });
     console.log("Add month buttons listener");
 }
 
 let weekLeftBtn = document.getElementById("week_leftBtn");
 let weekRightBtn = document.getElementById("week_rightBtn");
 if (weekLeftBtn && weekRightBtn) {
-    weekLeftBtn.addEventListener("click", function() { change_curent_week(-1) });
-    weekRightBtn.addEventListener("click", function() { change_curent_week(1) });
+    weekLeftBtn.addEventListener("click", function () { change_curent_week(-1) });
+    weekRightBtn.addEventListener("click", function () { change_curent_week(1) });
     console.log("Add week buttons listener");
 }
 
 let dayLeftBtn = document.getElementById("day_leftBtn");
 let dayRightBtn = document.getElementById("day_rightBtn");
 if (dayLeftBtn && dayRightBtn) {
-    dayLeftBtn.addEventListener("click", function() { change_curent_day(-1) });
-    dayRightBtn.addEventListener("click", function() { change_curent_day(1) });
+    dayLeftBtn.addEventListener("click", function () { change_curent_day(-1) });
+    dayRightBtn.addEventListener("click", function () { change_curent_day(1) });
     console.log("Add day buttons listener");
 }
 
 let hoursUpBtn = document.getElementById("hours_upBtn");
 let hoursDownBtn = document.getElementById("hours_downBtn");
 if (hoursUpBtn && hoursDownBtn) {
-    hoursUpBtn.addEventListener("click", function() { change_curent_hours(-1) });
-    hoursDownBtn.addEventListener("click", function() { change_curent_hours(1) });
+    hoursUpBtn.addEventListener("click", function () { change_curent_hours(-1) });
+    hoursDownBtn.addEventListener("click", function () { change_curent_hours(1) });
     console.log("Add hour buttons listener");
+}
+
+
+let calendar_butoane = document.getElementsByClassName("programari__calendar__inside__hours_btn");
+if (calendar_butoane) {
+    console.log("calendar_butoane length " + calendar_butoane.length);
+    let i = 0;
+    var buttons = [];
+    [].forEach.call(calendar_butoane, child => {
+        // console.log(child);
+        let calendar_buton = child.getElementsByTagName("button");
+        let calendar_buton_id = calendar_buton[0].getAttribute("id");
+        buttons[i] = calendar_buton[0]
+        buttons[i].addEventListener('click', function () { buton_calendar_selected(calendar_buton_id) });
+        i++;
+    });
+    // calendar_butoane.forEach(item => {
+    //     console.log(item);
+    //     calendar_buton = item.getElementsByTagName("button");
+    //     calendar_buton.addEventListener('click', event => {
+    //         console.log("Buton calendar click");
+    //     })
+    // });
+}
+
+function buton_calendar_selected(current_buton_id) {
+    // console.log(current_buton_id);
+    current_selected_buton = document.getElementById(current_buton_id);
+    last_selected_buton = document.getElementById(lastSelectedButtonId);
+    if (!(lastSelectedButtonId == 0)) {
+        last_selected_buton.className = lastSelectedButtonClass;
+    }
+    if (current_selected_buton.className == "programari__calendar__inside__hours_btn__open") {
+        lastSelectedButtonClass = current_selected_buton.className;
+        lastSelectedButtonId = current_buton_id;
+        current_selected_buton.className = "programari__calendar__inside__hours_btn__selected";
+    }
 }
 
 //Functiile de pe butoanele de stanga dreapta din calendar
