@@ -117,10 +117,10 @@
             <div class="admin-add-comanda__titlu">
                 <p>Pagina de adaugare comanda :</p>
             </div>
-            <form action="./PaginaAdaugaComandaAdmin.html" method="get" class="admin-add-comanda__select">
+            <form action="./PaginaAdaugaComandaAdmin.html" method="post" class="admin-add-comanda__select">
 
                 <select class="admin-add-comanda__select__brand" id="admin-add-comanda__select__brand" name="admin-add-comanda__select__brand" required>
-                    <option value="Default"> Brand</option>
+                    <option value=""> Brand</option>
                     <option value="APRILIA">APRILIA</option>
                     <option value="BETA">BETA</option>
                     <option value="BMW">BMW</option>
@@ -134,7 +134,7 @@
                 </select>
 
                 <select class="admin-add-comanda__select__categorie" id="admin-add-comanda__select__categorie" name="admin-add-comanda__select__categorie" required>
-                    <option value="Default"> Categorie</option>
+                    <option value=""> Categorie</option>
                     <option value="Electrice">Electrice</option>
                     <option value="Evacuari">Evacuari</option>
                     <option value="Filtre">Filtre</option>
@@ -152,7 +152,7 @@
 
 
                 <select class="admin-add-comanda__select__piesa" id="admin-add-comanda__select__piesa" name="admin-add-comanda__select__piesa" required>
-                    <option value="Default"> Piesa</option>
+                    <option value=""> Piesa</option>
                     <option value="Acumulator">Acumulator</option>
                     <option value="Anvelopa Fata">Anvelopa Fata</option>
                     <option value="Anvelopa Spate">Anvelopa Spate</option>
@@ -182,7 +182,7 @@
                     <option value="Supapa">Supapa</option>
                 </select>
                 <input type="number" id="admin-add-comanda__select__cantitate"
-                    class="admin-add-comanda__select__cantitate" name="admin-add-comanda__select__cantitate" min="0"
+                    class="admin-add-comanda__select__cantitate" name="admin-add-comanda__select__cantitate" min="1"
                     max="100" value="0" required>
                 <button type="submit" class="admin-add-comanda__select__add_button" id="admin-add-comanda__select__add_button" name="admin-add-comanda__select__add_button">Add</button>
             </form>
