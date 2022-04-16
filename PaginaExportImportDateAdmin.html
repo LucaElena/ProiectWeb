@@ -113,7 +113,7 @@
 
     <main>
         <div class="admin-date">
-            <div class="admin-date__import">
+            <form action="./PaginaExportImportDateAdmin.html" method="post" class="admin-date__import">
                 <div class="admin-date__import__txt">
                     <h1>Importa date</h1>
                 </div>
@@ -138,12 +138,12 @@
                     <input type="file" accept=".csv, .json" id="admin-date__import__file">
                 </div>
                 <div class="admin-date__import__button">
-                    <button type="button" id="admin-date__import__button">Importa</button>
+                    <button type="button" id="admin-date__import__button" name="actiune" value="Importa">Importa</button>
                 </div>
 
-            </div>
+            </form>
 
-            <div class="admin-date__export">
+            <form action="./PaginaExportImportDateAdmin.html" method="post" class="admin-date__export">
                 <div class="admin-date__export__txt">
                     <h1>Exporta date </h1>
                 </div>
@@ -167,9 +167,9 @@
                     </select>
                 </div>
                 <div class="admin-date__export__button">
-                    <button type="button" id="admin-date__export__button">Exporta</button>
+                    <button type="button" id="admin-date__export__button" name="actiune" value="Exporta">Exporta</button>
                 </div>
-            </div>
+            </form>
 
 
         </div>

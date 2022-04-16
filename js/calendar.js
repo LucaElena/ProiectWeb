@@ -60,7 +60,7 @@ function change_curent_month(direction) {
     currentDay = new_start_day.getDate();
     currentStartHour = 8;
     console.log("Change current month");
-    print_schedule(2);
+    print_programare(2);
 }
 
 function change_curent_week(direction) {
@@ -73,7 +73,7 @@ function change_curent_week(direction) {
     currentDay = new_start_day.getDate();
     currentStartHour = 8;
     console.log("Change current week");
-    print_schedule(1);
+    print_programare(1);
 }
 
 function change_curent_day(direction) {
@@ -86,7 +86,7 @@ function change_curent_day(direction) {
     currentDay = new_start_day.getDate();
     currentStartHour = 8;
     console.log("Change current day");
-    print_schedule(0);
+    print_programare(0);
 }
 
 
@@ -100,7 +100,7 @@ function change_curent_hours(direction) {
         currentStartHour = startHour;
     }
     console.log("Change current day hour=" + currentStartHour);
-    print_schedule(0);
+    print_programare(0);
 }
 
 function getMonday(d) {
@@ -120,7 +120,7 @@ function getFirstMonthDay(d) {
 //firstday = 1 -> Printam incepand cu prima Luni din saptamana la care suntem
 //firstday = 2 -> Printam incepand cu prima luni din luna la care suntem
 //Aici probabil trebuie sa si interogam date din baza de date sau sa mutam codul in MVC
-function print_schedule(firstDay) {
+function print_programare(firstDay) {
     console.log("Y=" + currentYear + " M=" + currentMonth + " D=" + currentDay + " H=" + currentStartHour)
     let current_day = new Date(currentYear, currentMonth, currentDay, 0, 0, 0, 0);
     //setam luna/anul
@@ -140,7 +140,7 @@ function print_schedule(firstDay) {
         var loopDate = new Date(current_monday.getTime() + i * 24 * 60 * 60 * 1000);
         //setam zile saptamanii
         //console.log( parseInt(loopDate.getDay()) )
-        document.getElementById("day_" + i + "_schedule").innerHTML = week_names[parseInt(loopDate.getDay())].substring(0, 3).toUpperCase() + " " + ("0" + (loopDate.getDate())).slice(-2) + "/" + ("0" + (loopDate.getMonth() + 1)).slice(-2);
+        document.getElementById("day_" + i + "_programare").innerHTML = week_names[parseInt(loopDate.getDay())].substring(0, 3).toUpperCase() + " " + ("0" + (loopDate.getDate())).slice(-2) + "/" + ("0" + (loopDate.getMonth() + 1)).slice(-2);
 
         for (var j = 0; j < noHoursPerRow; j++) {
             //calendar_row4_col5 
