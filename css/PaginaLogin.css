@@ -54,6 +54,7 @@ a {
   display: none;
 }
 
+
 header ul li {
   /* width: calc(16% - 2px); */ /*6 butoane */
   width: calc(19% - 2px);/*5 butoane */
@@ -258,6 +259,13 @@ body{
 @media (max-width :600px) {
   .header_text {
       display: none;
+  }
+
+  .logo img {
+      display: none;
+  }
+  .header_icon_logo {
+      display: block;
   }
   .login__content input::placeholder,
   .login__content input,
