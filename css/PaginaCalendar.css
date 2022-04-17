@@ -111,7 +111,6 @@ footer {
     transform: translate( 0%, 5%);
 }
 
-
 .programari .programari__details {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -183,7 +182,6 @@ footer {
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: auto;
     letter-spacing: 0.1em;
-    
 }
 
 .programari__calendar__month {
@@ -415,10 +413,7 @@ footer {
     button[id^='calendar_row7'] {
         display: none;
     }
-
-    
- 
-    .programari__calendar__inside__head div[id^='day_7'],
+    .programari__calendar__inside__head div[id^='day_1'],
     div[id^='day_2'],
     div[id^='day_3'],
     div[id^='day_4'],
@@ -430,7 +425,7 @@ footer {
         grid-column-start: 1;
         grid-column-end: 15;
         grid-row: 1/2;
-        /* background-color: #457b9d ; */
+        background-color: #457b9d ;
         font-weight: bold;
     }
     .programari__calendar__inside__hours_btn {
@@ -510,7 +505,7 @@ footer {
         font-size: xx-small;
     }
     .programari__calendar__inside__head {
-        /* background-color: #457b9d ; */
+        background-color: #457b9d ;
         font-weight: bold;
     }
 }
@@ -541,7 +536,7 @@ footer {
     .programari__calendar__inside__head {
         padding: 0em;
         font-size: x-small;
-        /* background-color: #457b9d ; */
+        background-color: #457b9d ;
     }
     .programari__calendar__month {
         font-size: x-small;

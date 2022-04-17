@@ -245,7 +245,7 @@ body{
 
 
 
-@media screen and (min-width:600px){
+@media screen and (min-width:700px){
   .login__forms{
     width: 30%;
     justify-self:right;
@@ -303,7 +303,7 @@ body{
   }
 
 }
-@media (max-height :400px) {
+@media (max-height :600px) {
   .input-group{
     
     padding: 0.2em;
