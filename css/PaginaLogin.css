@@ -139,7 +139,6 @@ body{
   margin-left: 1rem;
   margin-right: 1rem;
   margin-top: 5rem;
-
 }
 
 .login__content{
@@ -150,7 +149,7 @@ body{
 
 .login__forms{
   position: relative;
-  height: 500px;
+  height: 400px;
   width: 100%;
   font-size: medium;
 }
@@ -163,7 +162,6 @@ body{
   padding: 1rem 1rem;
   border-radius: 1rem;
   text-align: center;
-
 }
 
 
@@ -178,8 +176,6 @@ body{
   padding: 1.125rem 1rem;
   background-color: #FFF;
   margin-top: 1rem;
-
-  
 }
 
 .login-input{
@@ -246,12 +242,14 @@ body{
   display: none;
 }
 
+
+
+
 @media screen and (min-width:600px){
   .login__forms{
     width: 30%;
     justify-self:right;
   }
-  
 }
 
 
@@ -261,27 +259,84 @@ body{
   .header_text {
       display: none;
   }
-  .login__forms{
-    font-size: small;
+  .login__content input::placeholder,
+  .login__content input,
+  .login__content h1,
+  .login__content span,
+  .login__content button
+  {
+    font-size: medium;
   }
-
 
 }
 
 
-
-@media (max-width :400px) {
+@media (max-width :400px){
 
   
   .hover-value {
       font-size: xx-small;
   }
+  .logo img {
+      display: none;
+  }
 
-  /* body {
-      background-image: none; 
-      background-color: #A8DADC;
-  } */
+  .login__content input::placeholder,
+  .login__content input,
+  .login__content h1,
+  .login__content span,
+  .login__content button
+  {
+    font-size: small;
+  }
+  .login__registre, .login__create, .login__change__pass{
+    bottom: 0;
+    padding: 0;
+  }
+  .login
+  {
+    /* padding: 0; */
+    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+  }
 
+}
+@media (max-height :400px) {
+  .input-group{
+    
+    padding: 0.2em;
+    background-color: #FFF;
+    margin-top: 0.2em;
+  }
+  .login__content input::placeholder,
+  .login__content input,
+  .login__content h1,
+  .login__content span,
+  .login__content button
+  {
+    font-size: small;
+    padding: 0;
+    margin: 0;
+  }
+  .login__registre, .login__create, .login__change__pass{
+    bottom: 0;
+    padding: 0;
+  }
+
+  .login__forms{
+    margin: 0;
+    height: 200px;
+  }
+  .login
+  {
+    /* padding: 0; */
+    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+  }
 }
 
 
