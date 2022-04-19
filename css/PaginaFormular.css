@@ -185,6 +185,7 @@ footer {
     flex-direction: row;
     justify-content: start;
 }
+
 .formular_programare__date_client__f_name,
 .formular_programare__date_client__l_name,
 .formular_programare__date_client__email,
@@ -396,6 +397,7 @@ footer {
 }
 
 
+
 .formular_programare__actiune .formular_programare__actiune__accepta_button:hover,
 .formular_programare__actiune .formular_programare__actiune__respinge_button:hover,
 .formular_programare__actiune .formular_programare__actiune__terminat_button:hover,
@@ -407,6 +409,13 @@ footer {
     transition: .5s ease;
     transform: scale(1.1);
     
+}
+
+
+/* TO Do :remove link from action button */
+.formular_programare__actiune a
+{
+    padding: 0.5em;
 }
 
 .formular_programare__mesaj_dupa

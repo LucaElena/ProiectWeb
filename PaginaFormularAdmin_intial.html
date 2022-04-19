@@ -112,14 +112,13 @@
 
 
     <main>
-
-        <div class="formular_programare">
+        <form class="formular_programare" method="post" action="./PaginaFormularAdmin_intial.html">
 
 
             <div class="formular_programare__status">
                 <!-- Editare problema->In astepare raspuns->Programata*/ -->
                 <p class="formular_programare__status__text">Status formular:</p>
-                <p class="formular_programare__status__valoare">Cerere primita</p>
+                <p class="formular_programare__status__valoare">Aceptare</p>
             </div>
 
             <div class="formular_programare__data">
@@ -153,13 +152,20 @@
             <div class="formular_programare__mesaj_admin">
                 <!-- <button type=button" class="formular_programare__mesaj_admin__send_button"> <i class="fas fa-paper-plane"></i> </button> -->
                 <textarea name="new-messag-admin" class="formular_programare__mesaj_admin__txt" cols="10" rows="3"
-                    placeholder="Scrieti raspuns pentru client" autofocus></textarea>
+                    placeholder="Scrieti raspuns pentru client" required></textarea>
             </div>
+            <div class="formular_programare__actiune">
+                <button type="submit" class="formular_programare__actiune__accepta_button"
+                    name="formular_programare__actiune" value="Accepta">Accepta</button>
+                <button type="submit" class="formular_programare__actiune__respinge_button"
+                    name="formular_programare__actiune" value="Respinge">Respinge</button>
+            </div>
+
 
             <div class="formular_programare__piese_necesare">
                 <select class="formular_programare__piese_necesare__brand" name="formular_programare__brand"
-                    id="formular_programare__piese_necesare__brand">
-                    <option value="Default" selected> Brand</option>
+                    id="formular_programare__piese_necesare__brand" >
+                    <option value="" selected> Brand</option>
                     <option value="APRILIA">APRILIA</option>
                     <option value="BETA">BETA</option>
                     <option value="BMW">BMW</option>
@@ -171,8 +177,8 @@
                     <option value="SUZUKI">SUZUKI</option>
                     <option value="YAMAHA">YAMAHA</option>
                 </select>
-                <select class="formular_programare__piese_necesare__cateorie">
-                    <option value="Default" selected> Categorie</option>
+                <select class="formular_programare__piese_necesare__cateorie" >
+                    <option value="" selected> Categorie</option>
                     <option value="Electrice">Electrice</option>
                     <option value="Evacuari">Evacuari</option>
                     <option value="Filtre">Filtre</option>
@@ -187,8 +193,8 @@
                     <option value="Transmisie">Transmisie</option>
                     <option value="Uleiuri si Lubrifianti">Uleiuri si Lubrifianti</option>
                 </select>
-                <select class="formular_programare__piese_necesare__piesa">
-                    <option value="Default" selected> Piesa</option>
+                <select class="formular_programare__piese_necesare__piesa" >
+                    <option value="" selected> Piesa</option>
                     <option value="Acumulator">Acumulator</option>
                     <option value="Anvelopa Fata">Anvelopa Fata</option>
                     <option value="Anvelopa Spate">Anvelopa Spate</option>
@@ -218,9 +224,10 @@
                     <option value="Supapa">Supapa</option>
                 </select>
                 <input class="formular_programare__piese_necesare__cantitate" type="number"
-                    id="formular_programare__piese_necesare__cantitate" name="cantitate" value=1 min="1" max="10">
-
-                <a class="formular_programare__piese_necesare__adauga"><i class="fas fa-plus"></i>Add</a>
+                    id="formular_programare__piese_necesare__cantitate" name="cantitate" value=1 min="1" max="10"
+                    required>
+                <button type="button" class="formular_programare__piese_necesare__adauga" name="formular_programare__actiune"
+                    value="Add"><i class="fas fa-plus"></i>Add</button>
             </div>
             <div class="formular_programare__piese_selectate">
                 <table>
@@ -231,7 +238,7 @@
                             <th>Cateorie</th>
                             <th>Nume</th>
                             <th>Cantitate</th>
-                            <th>Pret(RON)</th>
+                            <th>Pret</th>
                             <th>Sterge</th>
                         </tr>
                     </thead>
@@ -284,12 +291,6 @@
                     </tbody>
                 </table>
             </div>
-
-            <div class="formular_programare__actiune">
-                <button type=button" class="formular_programare__actiune__accepta_button">Accepta</button>
-                <button type=button" class="formular_programare__actiune__respinge_button">Respinge</button>
-            </div>
-        </div>
     </main>
 
 

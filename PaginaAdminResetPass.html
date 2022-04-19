@@ -116,15 +116,17 @@
 
 
             <div class="login__forms">
-                <form action="" class="login__registre none" id="login-in">
+                <form action="./PaginaCalendarAdmin.html" method="post" class="login__registre none" id="login-in">
                     <h1 class="title">Sign In</h1>
 
                     <div class="input-group">
-                        <input type="text" placeholder="Username" minlength="5" maxlength="20" class="login-input">
+                        <input type="text" placeholder="Username" minlength="5" maxlength="20" class="login-input"
+                            required>
                     </div>
 
                     <div class="input-group">
-                        <input type="password" placeholder="Password" minlength="5" maxlength="20" class="login-input">
+                        <input type="password" placeholder="Password" minlength="5" maxlength="20" class="login-input"
+                            required>
                     </div>
 
                     <div>
@@ -132,7 +134,9 @@
                         <span class="login__signin" id="change-pass">Change Password</span>
                     </div>
 
-                    <a href="./PaginaGeneralaAdmin.html" class="login__button">Sign In</a>
+                    <!-- <a class="login__button">Sign In</a> -->
+                    <button type="submit" class="login__button" name="login_button" value="Sign In">Sign In</button>
+
 
                     <div>
                         <span class="login__account">Don't have an Account ?</span>
@@ -140,25 +144,29 @@
                     </div>
                 </form>
 
-                <form action="" class="login__create none" id="login-up">
+                <form action="./PaginaGeneralaAdmin.html" method="post" class="login__create none" id="login-up">
                     <h1 class="title">Create Account</h1>
 
                     <div class="input-group">
 
-                        <input type="text" class="login-input" minlength="5" maxlength="20" placeholder="Username">
+                        <input type="text" class="login-input" minlength="5" maxlength="20" placeholder="Username"
+                            required>
                     </div>
 
                     <div class="input-group">
 
-                        <input type="text" class="login-input" minlength="10" maxlength="30" placeholder="Email">
+                        <input type="email" class="login-input" minlength="10" maxlength="30" placeholder="Email"
+                            required>
                     </div>
 
                     <div class="input-group">
 
-                        <input type="password" class="login-input" minlength="5" maxlength="20" placeholder="Password">
+                        <input type="password" class="login-input" minlength="5" maxlength="20" placeholder="Password"
+                            required>
                     </div>
 
-                    <a href="./PaginaGeneralaAdmin.html" class="login__button">Sign Up</a>
+                    <!-- <a class="login__button">Sign Up</a> -->
+                    <button type="submit" class="login__button" name="login_button" value="Sign Up">Sign Up</button>
 
                     <div>
                         <span class="login__account">Already have an Account ?</span>
@@ -168,27 +176,29 @@
 
                 </form>
 
-                <form action="" class="login__change__pass" id="login-forgot">
+                <form action="./PaginaGeneralaAdmin.html" method="post" class="login__change__pass" id="login-forgot">
                     <h1 class="title">Change Password</h1>
 
                     <div class="input-group">
 
-                        <input type="text" class="login-input" minlength="10" maxlength="30" placeholder="Email">
+                        <input type="email" class="login-input" minlength="10" maxlength="30" placeholder="Email"
+                            required>
                     </div>
 
 
                     <div class="input-group">
 
                         <input type="password" class="login-input" minlength="5" maxlength="20"
-                            placeholder="New_Password">
+                            placeholder="New_Password" required>
                     </div>
 
-                    <a href="./PaginaGeneralaAdmin.html" class="login__button">Save</a>
+                    <!-- <a class="login__button">Save</a> -->
+                    <button type="submit" class="login__button" name="login_button" value="Save">Save</button>
 
-                    <div>
+                    <!-- <div>
                         <span class="login__account">You want to give up ?</span>
                         <span class="login__pass" id="sign-in1">Sign In</span>
-                    </div>
+                    </div> -->
                 </form>
 
             </div>

@@ -95,7 +95,7 @@ footer {
     height: 50px;
 }
 
-.schedul {
+.programari {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 0.5em;
@@ -111,7 +111,7 @@ footer {
     transform: translate( 0%, 5%);
 }
 
-.schedul .schedul__details {
+.programari .programari__details {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
@@ -119,14 +119,14 @@ footer {
     background-color: white;
 }
 
-.schedul .schedul__calendar {
+.programari .programari__calendar {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
 }
 
-.schedul>.schedul__data {
+.programari>.programari__data {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
@@ -136,7 +136,7 @@ footer {
     padding-right: 20%;
 }
 
-.schedul .schedul__btn {
+.programari .programari__btn {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 4;
@@ -145,14 +145,14 @@ footer {
     /* background-color: white; */
 }
 
-.schedul__btn {
+.programari__btn {
     display: inline-block;
     text-align: center;
 }
 
-.schedul__btn .schedul__btn__btn1,
-.schedul__btn__btn2,
-.schedul__btn__btn3 {
+.programari__btn .programari__btn__btn1,
+.programari__btn__btn2,
+.programari__btn__btn3 {
     border-radius: 0.5em;
     background-color: #457b9d ;
     color: #a8dadc;
@@ -167,11 +167,11 @@ footer {
     font-family: Arial;
 }
 
-.schedul__btn__btn2 {
+.programari__btn__btn2 {
     background-color: #e63946;
 }
 
-.schedul__btn__btn3 {
+.programari__btn__btn3 {
     background-color: orange;
 }
 
@@ -447,9 +447,9 @@ footer {
     .programari__calendar {
         letter-spacing: 0em;
     }
-    .schedul__btn .schedul__btn__btn1,
-    .schedul__btn__btn2,
-    .schedul__btn__btn3 {
+    .programari__btn .programari__btn__btn1,
+    .programari__btn__btn2,
+    .programari__btn__btn3 {
         padding: 0em;
         margin: 0em;
         width: 4em;
@@ -458,7 +458,7 @@ footer {
         top: 0.1em;
         font-size: x-small;
     }
-    .schedul {
+    .programari {
         font-size: small;
     }
 }
@@ -494,7 +494,7 @@ footer {
     footer {
         display: none;
     }
-    .schedul {
+    .programari {
         font-size: x-small;
     }
     .programari__calendar__month {
@@ -514,16 +514,16 @@ footer {
     .programari__calendar {
         letter-spacing: 0em;
     }
-    .schedul {
+    .programari {
         column-gap: 0em;
         row-gap: 0em;
         padding: 0em;
         margin: 0em;
         border-radius: 0em;
     }
-    .schedul__btn .schedul__btn__btn1,
-    .schedul__btn__btn2,
-    .schedul__btn__btn3 {
+    .programari__btn .programari__btn__btn1,
+    .programari__btn__btn2,
+    .programari__btn__btn3 {
         padding: 0em;
         margin: 0em;
         width: 25%;

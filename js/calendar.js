@@ -8,6 +8,9 @@ var startHour = 8;
 var midHour = 14;
 var noHoursPerRow = 12;
 
+var lastSelectedButtonId = 0;
+var lastSelectedButtonClass = "programari__calendar__inside__hours_btn__open";
+
 console.log("Y=" + currentYear + " M=" + currentMonth + " D=" + currentDay + " H=" + currentStartHour);
 
 
@@ -19,33 +22,63 @@ var week_names = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
 let monthLeftBtn = document.getElementById("month_leftBtn");
 let monthRightBtn = document.getElementById("month_rightBtn");
 if (monthLeftBtn && monthRightBtn) {
-    monthLeftBtn.addEventListener("click", function() { change_curent_month(-1) });
-    monthRightBtn.addEventListener("click", function() { change_curent_month(1) });
+    monthLeftBtn.addEventListener("click", function () { change_curent_month(-1) });
+    monthRightBtn.addEventListener("click", function () { change_curent_month(1) });
     console.log("Add month buttons listener");
 }
 
 let weekLeftBtn = document.getElementById("week_leftBtn");
 let weekRightBtn = document.getElementById("week_rightBtn");
 if (weekLeftBtn && weekRightBtn) {
-    weekLeftBtn.addEventListener("click", function() { change_curent_week(-1) });
-    weekRightBtn.addEventListener("click", function() { change_curent_week(1) });
+    weekLeftBtn.addEventListener("click", function () { change_curent_week(-1) });
+    weekRightBtn.addEventListener("click", function () { change_curent_week(1) });
     console.log("Add week buttons listener");
 }
 
 let dayLeftBtn = document.getElementById("day_leftBtn");
 let dayRightBtn = document.getElementById("day_rightBtn");
 if (dayLeftBtn && dayRightBtn) {
-    dayLeftBtn.addEventListener("click", function() { change_curent_day(-1) });
-    dayRightBtn.addEventListener("click", function() { change_curent_day(1) });
+    dayLeftBtn.addEventListener("click", function () { change_curent_day(-1) });
+    dayRightBtn.addEventListener("click", function () { change_curent_day(1) });
     console.log("Add day buttons listener");
 }
 
 let hoursUpBtn = document.getElementById("hours_upBtn");
 let hoursDownBtn = document.getElementById("hours_downBtn");
 if (hoursUpBtn && hoursDownBtn) {
-    hoursUpBtn.addEventListener("click", function() { change_curent_hours(-1) });
-    hoursDownBtn.addEventListener("click", function() { change_curent_hours(1) });
+    hoursUpBtn.addEventListener("click", function () { change_curent_hours(-1) });
+    hoursDownBtn.addEventListener("click", function () { change_curent_hours(1) });
     console.log("Add hour buttons listener");
+}
+
+
+let calendar_butoane = document.getElementsByClassName("programari__calendar__inside__hours_btn");
+if (calendar_butoane) {
+    console.log("calendar_butoane length " + calendar_butoane.length);
+    let i = 0;
+    var buttons = [];
+    [].forEach.call(calendar_butoane, child => {
+        // console.log(child);
+        let calendar_buton = child.getElementsByTagName("button");
+        let calendar_buton_id = calendar_buton[0].getAttribute("id");
+        calendar_buton[0].addEventListener('click', function () { buton_calendar_selected(calendar_buton_id) });
+        i++;
+    });
+
+}
+
+function buton_calendar_selected(current_buton_id) {
+    // console.log(current_buton_id);
+    current_selected_buton = document.getElementById(current_buton_id);
+    last_selected_buton = document.getElementById(lastSelectedButtonId);
+    if (!(lastSelectedButtonId == 0)) {
+        last_selected_buton.className = lastSelectedButtonClass;
+    }
+    if (current_selected_buton.className == "programari__calendar__inside__hours_btn__open") {
+        lastSelectedButtonClass = current_selected_buton.className;
+        lastSelectedButtonId = current_buton_id;
+        current_selected_buton.className = "programari__calendar__inside__hours_btn__selected";
+    }
 }
 
 //Functiile de pe butoanele de stanga dreapta din calendar
@@ -60,7 +93,7 @@ function change_curent_month(direction) {
     currentDay = new_start_day.getDate();
     currentStartHour = 8;
     console.log("Change current month");
-    print_schedule(2);
+    print_programare(2);
 }
 
 function change_curent_week(direction) {
@@ -73,7 +106,7 @@ function change_curent_week(direction) {
     currentDay = new_start_day.getDate();
     currentStartHour = 8;
     console.log("Change current week");
-    print_schedule(1);
+    print_programare(1);
 }
 
 function change_curent_day(direction) {
@@ -86,7 +119,7 @@ function change_curent_day(direction) {
     currentDay = new_start_day.getDate();
     currentStartHour = 8;
     console.log("Change current day");
-    print_schedule(0);
+    print_programare(0);
 }
 
 
@@ -100,7 +133,7 @@ function change_curent_hours(direction) {
         currentStartHour = startHour;
     }
     console.log("Change current day hour=" + currentStartHour);
-    print_schedule(0);
+    print_programare(0);
 }
 
 function getMonday(d) {
@@ -120,7 +153,7 @@ function getFirstMonthDay(d) {
 //firstday = 1 -> Printam incepand cu prima Luni din saptamana la care suntem
 //firstday = 2 -> Printam incepand cu prima luni din luna la care suntem
 //Aici probabil trebuie sa si interogam date din baza de date sau sa mutam codul in MVC
-function print_schedule(firstDay) {
+function print_programare(firstDay) {
     console.log("Y=" + currentYear + " M=" + currentMonth + " D=" + currentDay + " H=" + currentStartHour)
     let current_day = new Date(currentYear, currentMonth, currentDay, 0, 0, 0, 0);
     //setam luna/anul
@@ -140,7 +173,7 @@ function print_schedule(firstDay) {
         var loopDate = new Date(current_monday.getTime() + i * 24 * 60 * 60 * 1000);
         //setam zile saptamanii
         //console.log( parseInt(loopDate.getDay()) )
-        document.getElementById("day_" + i + "_schedule").innerHTML = week_names[parseInt(loopDate.getDay())].substring(0, 3).toUpperCase() + " " + ("0" + (loopDate.getDate())).slice(-2) + "/" + ("0" + (loopDate.getMonth() + 1)).slice(-2);
+        document.getElementById("day_" + i + "_programare").innerHTML = week_names[parseInt(loopDate.getDay())].substring(0, 3).toUpperCase() + " " + ("0" + (loopDate.getDate())).slice(-2) + "/" + ("0" + (loopDate.getMonth() + 1)).slice(-2);
 
         for (var j = 0; j < noHoursPerRow; j++) {
             //calendar_row4_col5 

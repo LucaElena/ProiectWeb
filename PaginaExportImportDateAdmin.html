@@ -113,14 +113,14 @@
 
     <main>
         <div class="admin-date">
-            <div class="admin-date__import">
+            <form action="./PaginaExportImportDateAdmin.html" method="post" class="admin-date__import">
                 <div class="admin-date__import__txt">
                     <h1>Importa date</h1>
                 </div>
 
                 <div class="admin-date__import__categorie">
-                    <select id="admin-date__import__categorie">
-                        <option value="Default" selected>Categorie</option>
+                    <select id="admin-date__import__categorie" required>
+                        <option value="" selected>Categorie</option>
                         <option value="General">General</option>
                         <option value="Programari">Programari</option>
                         <option value="Stoc">Stoc</option>
@@ -128,29 +128,29 @@
                     </select>
                 </div>
                 <div class="admin-date__import__format">
-                    <select id="admin-date__import__format">
-                        <option value="Default" selected>Format</option>
+                    <select id="admin-date__import__format" required>
+                        <option value="" selected>Format</option>
                         <option value="JSON">JSON</option>
                         <option value="CSV">CSV</option>
                     </select>
                 </div>
                 <div class="admin-date__import__file">
-                    <input type="file" accept=".csv, .json" id="admin-date__import__file">
+                    <input type="file" accept=".csv, .json" id="admin-date__import__file" required>
                 </div>
                 <div class="admin-date__import__button">
-                    <button type="button" id="admin-date__import__button">Importa</button>
+                    <button type="submit" id="admin-date__import__button" name="actiune" value="Importa">Importa</button>
                 </div>
 
-            </div>
+            </form>
 
-            <div class="admin-date__export">
+            <form action="./PaginaExportImportDateAdmin.html" method="post" class="admin-date__export">
                 <div class="admin-date__export__txt">
                     <h1>Exporta date </h1>
                 </div>
 
                 <div class="admin-date__export__categorie">
-                    <select id="admin-date__export__categorie">
-                        <option value="Default" selected>Categorie</option>
+                    <select id="admin-date__export__categorie" required>
+                        <option value="" selected>Categorie</option>
                         <option value="General">General</option>
                         <option value="Programari">Programari</option>
                         <option value="Stoc">Stoc</option>
@@ -159,17 +159,17 @@
                 </div>
 
                 <div class="admin-date__export__format">
-                    <select id="admin-date__export__format">
-                        <option value="Default" selected>Format</option>
+                    <select id="admin-date__export__format" required>
+                        <option value="" selected>Format</option>
                         <option value="JSON">JSON</option>
                         <option value="CSV">CSV</option>
                         <option value="PDF">PDF</option>
                     </select>
                 </div>
                 <div class="admin-date__export__button">
-                    <button type="button" id="admin-date__export__button">Exporta</button>
+                    <button type="submit" id="admin-date__export__button" name="actiune" value="Exporta">Exporta</button>
                 </div>
-            </div>
+            </form>
 
 
         </div>

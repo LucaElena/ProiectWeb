@@ -513,7 +513,7 @@
         </li>
         <li>
           <p>
-            butoanul de culoare albastru este cel selectat
+            butonul de culoare albastru este cel selectat
           </p>
         </li>
         <li>

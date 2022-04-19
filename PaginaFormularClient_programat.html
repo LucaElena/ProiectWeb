@@ -18,7 +18,7 @@
                 <a class="logo" href="./PaginaGeneralaClient.html">
 
                     <!-- <span class="header_icon_logo"> <i class="fas fa-clinic-medical"></i> </span> -->
-                    <span class="header_icon_logo"> &#127949; </span>
+                    <span class="header_icon_logo"> &#128757; </span>
                     <img class="logo" src="./images/favicon.png" alt="CyMaT">
                     <!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span>
                         <span class="header_text">Logo</span> -->
@@ -37,7 +37,7 @@
             <li>
                 <a class="header_button" href="./PaginaFormularClient_intial.html">
                     <!-- <span class="header_icon"> <i class="fa fa-check-square"></i> </span>	 -->
-                    <span class="header_icon"> &#128462; </span>
+                    <span class="header_icon"> &#128193; </span>
                     <span class="header_text">Formular</span>
                 </a>
             </li>
@@ -82,7 +82,7 @@
 
     <main>
 
-        <div class="formular_programare">
+        <form class="formular_programare" method="post" action="#">
 
             <div class="formular_programare__status">
                 <!-- Editare client->Editare admin->Accept client -> Programat*/ -->
@@ -238,10 +238,12 @@
                 </div>
             </div>
             <div class="formular_programare__actiune">
-                <button type=button" class="formular_programare__actiune__terminat_button"><a href="./PaginaFormularClient_accept_mesaj.html">Accepta</a></button>
-                <button type=button" class="formular_programare__actiune__sterge_button"><a href="./PaginaFormularClient_respins_mesaj.html">Respinge</a></button>
-           </div>
-        </div>
+                <!-- <button type="submit" class="formular_programare__actiune__terminat_button"><a href="./PaginaFormularClient_accept_mesaj.html">Accepta</a></button>
+                <button type="submit" class="formular_programare__actiune__sterge_button"><a href="./PaginaFormularClient_respins_mesaj.html">Respinge</a></button> -->
+                <button type="submit" class="formular_programare__actiune__terminat_button" name="formular_programare__actiune" value="Accepta" >Accepta</button>
+                <button type="submit" class="formular_programare__actiune__sterge_button" name="formular_programare__actiune" value="Respinge" >Respinge</button>
+            </div>
+        </form>
     </main>
 
 
