@@ -1,0 +1,466 @@
+* {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+
+/* curatam intai elementele de decoratiuni default */
+
+body {
+    background-image: url("../images/back.jpg"); 
+    background-size: 100% 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header {
+    padding: 1em;
+    height: 2em;
+    box-shadow: 0 0 2px black;
+    /*linie umbra jos heder pe x,y  cu raza de estompare*/
+    background-color: #457b9d;
+}
+
+
+/* scoatem partea de albastru de la butoane */
+
+a {
+    color: inherit;
+}
+
+
+/* dimensiunea logo imagine */
+
+.logo img {
+    width: 2em;
+    height: auto;
+    border-radius: 50%;
+}
+
+.header_icon_logo {
+    display: none;
+}
+
+header ul li {
+    /* width: calc(16% - 2px); */ /*6 butoane */
+    width: calc(19% - 2px);/*5 butoane */
+    float: left;
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
+    /* background-color:rgb(41, 107, 21) ; */
+    margin-right: 2px;
+    z-index: 9999;
+    /* facem meniul suprapus peste toate celelalte elemente cand coboara. Fara astea doua devine transparent sau este suprascris de alte elemente din html */
+    /* ??? */
+    position: relative;
+}
+
+header ul li a {
+    display: block;
+    user-select: none;
+}
+
+header ul li a:hover {
+    opacity: 0.8;
+    color: #a8dadc;
+    transform: scale(1.2);
+}
+
+header ul li ul li {
+    display: none;
+    width: 100%;
+}
+
+header ul li:hover ul li {
+    display: block;
+    background-color: #457b9d;
+    color: #a8dadc;
+    transform: scale(1.2);
+}
+
+footer {
+    box-shadow: 0 0 3px black;
+    /*linie umbra jos heder pe x,y  cu raza de estompare*/
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+}
+
+.hover-value
+{
+    /* visibility: collapse; */
+    -webkit-transition: width 2s ease-in-out;
+    transition: width 3s;
+    overflow: hidden;
+    display: none;
+    top: 0.2em;
+    position: relative;
+    font-size: small;
+}
+
+.admin-stoc
+{
+    background-color: #1d3557;
+    padding: 1em;
+    margin: 1em;
+    margin-top:3em ;
+    border-radius:1em;
+    transform: translate( 0%, 5%);
+    opacity: 0.95;
+    font-size: small;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+}
+.admin-stoc__titlu
+{
+    grid-area: 1 / 1 / 2 / 16;
+    margin-bottom: 1em;
+    padding: 1em;
+    background-color: #457B9D;
+    border-radius: 0.5em;
+    font-size: medium;
+}
+.admin-stoc__filtrare 
+{
+    grid-area: 2 / 1 / 3 / 16;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1em;
+    
+}
+
+.admin-stoc__filtrare__brand
+{
+    grid-area: 2 / 1 / 3 / 3;
+}
+.admin-stoc__filtrare__categorie
+{
+    grid-area: 2 / 3 / 2 / 6;
+}
+.admin-stoc__filtrare__piesa
+{
+    grid-area: 2 / 6 / 3 / 9;
+}
+.admin-stoc__filtrare__numar-randuri
+{
+    grid-area: 2 / 9 / 3 / 10;
+}
+.admin-stoc__filtrare__cauta__piesa
+{
+    grid-area: 2 / 10 / 3 / 12;
+}
+.admin-stoc__filtrare__reset__button
+{
+    grid-area: 2 / 14 / 3 / 16;
+}
+
+.admin-stoc__filtrare__brand ,
+.admin-stoc__filtrare__categorie ,
+.admin-stoc__filtrare__piesa ,
+.admin-stoc__filtrare__numar-randuri ,
+.admin-stoc__filtrare__cauta__piesa,
+.admin-stoc__filtrare__reset__button
+{
+    background-color: #A8DADC;
+    border-radius: 0.2em;
+    margin-left: 0.2em;
+    padding: 1em;
+}
+
+.admin-stoc__filtrare__reset__button
+{
+    border-radius: 0.2em;
+    justify-content: end;
+    background-color:#E63946;
+}
+
+.admin-stoc__tabel 
+{
+    grid-area: 3 / 1 / 7 / 16;
+}
+
+.admin-stoc__tabel table
+{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    padding: 1em;
+    background-color: #F1FAEE;
+    margin: 0;
+}
+.admin-stoc__tabel thead{
+    background-color: #a8dadc;
+}
+.admin-stoc__tabel td, th
+{ 
+    /* border: 1px solid #E63946; */
+    text-align: left;
+    padding: 0.5em;
+    margin: 0em;
+}
+
+
+.admin-stoc__tabel tr:nth-child(even) 
+{
+    background-color: #a8dadc;
+}
+
+.admin-stoc__tabel table tr td,
+.admin-stoc__tabel thead
+{
+    align-items: center;
+    font-size: small;
+}
+
+.admin-stoc__tabel__stoc-actiune,
+.admin-stoc__tabel__rezervat-actiune
+{
+    width: 100%;
+}
+
+.admin-stoc__tabel-button
+{
+    grid-area: 7 / 1 / 8 / 16;
+}
+
+
+.admin-stoc__tabel-button__stanga,
+.admin-stoc__tabel-button__dreapta
+{
+    border-radius: 5px;
+    transition: .3s ease;
+    font-family: Arial;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.5em;
+    margin-left: 2em;
+}
+
+.admin-stoc__tabel-button
+{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+.admin-stoc__tabel-button__stanga,
+.admin-stoc__tabel-button__dreapta
+{
+    width: 20%;
+}
+
+.admin-stoc__filtrare__brand:hover,
+.admin-stoc__filtrare__categorie:hover,
+.admin-stoc__filtrare__piesa:hover,
+.admin-stoc__filtrare__numar-randuri:hover,
+.admin-stoc__filtrare__cauta__piesa:hover,
+.admin-stoc__filtrare__reset__button:hover,
+.admin-stoc__tabel-button__stanga:hover,
+.admin-stoc__tabel-button__dreapta:hover
+{
+    opacity: 0.8;
+    color: #1D3557;
+    transition: .5s ease;
+    transform: scale(1.02);
+}
+
+
+
+/* @media (max-width :900px) {
+
+    .admin-stoc__filtrare  {
+        font-size: small;
+    }
+
+    .admin-stoc__tabel table tr td,
+    .admin-stoc__tabel thead
+    {
+        align-items: center;
+        font-size: small;
+    }
+
+} */
+
+
+@media (max-width :600px) {
+    .header_text {
+        display: none;
+    }
+    /* .logo img {
+        display: none;
+    } */
+    .hover-value {
+        top: 0.1em;
+        font-size: x-small;
+    }
+    .admin-stoc__titlu
+    {
+        margin-bottom: 0.5em;
+        padding: 0.5em;
+        font-size: small;
+    }
+    .admin-stoc__filtrare  {
+        font-size: x-small;
+    }
+
+    .admin-stoc__tabel table tr td,
+    .admin-stoc__tabel thead 
+    {
+        align-items: center;
+        font-size: x-small;
+    }
+
+    .admin-stoc__filtrare__brand ,
+    .admin-stoc__filtrare__categorie ,
+    .admin-stoc__filtrare__piesa ,
+    .admin-stoc__filtrare__numar-randuri ,
+    .admin-stoc__filtrare__cauta__piesa,
+    .admin-stoc__filtrare__reset__button 
+    {
+        padding: 0em;
+        margin: 0em;
+        font-size: x-small;
+    }
+}
+
+
+
+@media (max-width :400px) {
+
+    
+    .hover-value {
+        font-size: xx-small;
+    }
+    .admin-stoc
+    {
+       transform: none;
+    }
+
+    .admin-stoc__titlu
+    {
+
+        padding: 0.5em;
+        font-size: x-small;
+    }
+
+    .admin-stoc__filtrare  {
+        font-size: xx-small;
+    }
+
+    .admin-stoc__filtrare  {
+        font-size: xx-small;
+        display: block;
+    }
+
+    /* .admin-stoc__tabel table tr td,
+    .admin-stoc__tabel thead 
+    {
+        font-size: xx-small;
+        margin: 0;
+        padding: 0;
+    } */
+
+    .admin-stoc__filtrare__brand ,
+    .admin-stoc__filtrare__categorie ,
+    .admin-stoc__filtrare__piesa ,
+    .admin-stoc__filtrare__numar-randuri ,
+    .admin-stoc__filtrare__cauta__piesa,
+    .admin-stoc__filtrare__reset__button 
+    {
+
+        font-size: xx-small;
+        width: 100%;
+    }
+
+    .admin-stoc
+    {
+        margin: 0.4em;
+        padding: 0.4em;
+    }
+
+    .admin-stoc__tabel-button__stanga,
+    .admin-stoc__tabel-button__dreapta
+    {
+        padding: 0;
+        margin-left: 1em;
+    }
+    
+    
+
+    
+    body {
+        background-image: none; 
+        background-color: #A8DADC;
+    }
+
+	table, thead, tbody, th, td, tr 
+    { 
+		display: block; 
+	}
+	
+	thead tr 
+    { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr
+    { 
+        border: 1px solid #ccc;
+        text-align: right;
+    }
+	
+	td
+    { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before
+    { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 30%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+    .admin-stoc__tabel td, th
+    { 
+        text-align: right;
+    }
+    
+    td:nth-of-type(1):before { content: "No"; }
+	td:nth-of-type(2):before { content: "Brand"; }
+	td:nth-of-type(3):before { content: "Categorie"; }
+	td:nth-of-type(4):before { content: "Nume"; }
+	td:nth-of-type(5):before { content: "Stoc"; }
+	td:nth-of-type(6):before { content: "Rezervate"; }
+	td:nth-of-type(7):before { content: "Pret"; }
+}
+
+
+
+

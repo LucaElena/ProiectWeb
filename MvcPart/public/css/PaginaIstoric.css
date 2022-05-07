@@ -1,0 +1,319 @@
+* {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+
+/* curatam intai elementele de decoratiuni default */
+
+body {
+    background-image: url("../images/back.jpg"); 
+    background-size: 100% 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header {
+    padding: 1em;
+    height: 2em;
+    box-shadow: 0 0 2px black;
+    /*linie umbra jos heder pe x,y  cu raza de estompare*/
+    background-color: #457b9d;
+}
+
+
+/* scoatem partea de albastru de la butoane */
+
+a {
+    color: inherit;
+}
+
+
+/* dimensiunea logo imagine */
+
+.logo img {
+    width: 2em;
+    height: auto;
+    border-radius: 50%;
+}
+
+.header_icon_logo {
+    display: none;
+}
+
+header ul li {
+    /* width: calc(16% - 2px); */ /*6 butoane */
+    width: calc(19% - 2px);/*5 butoane */
+    float: left;
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
+    /* background-color:rgb(41, 107, 21) ; */
+    margin-right: 2px;
+    z-index: 9999;
+    /* facem meniul suprapus peste toate celelalte elemente cand coboara. Fara astea doua devine transparent sau este suprascris de alte elemente din html */
+    /* ??? */
+    position: relative;
+}
+
+header ul li a {
+    display: block;
+    user-select: none;
+}
+
+header ul li a:hover {
+    opacity: 0.8;
+    color: #a8dadc;
+    transform: scale(1.2);
+}
+
+header ul li ul li {
+    display: none;
+    width: 100%;
+}
+
+header ul li:hover ul li {
+    display: block;
+    background-color: #457b9d;
+    color: #a8dadc;
+    transform: scale(1.2);
+}
+
+footer {
+    box-shadow: 0 0 3px black;
+    /*linie umbra jos heder pe x,y  cu raza de estompare*/
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+}
+.hover-value {
+    /* visibility: collapse; */
+    -webkit-transition: width 2s ease-in-out;
+    transition: width 3s;
+    overflow: hidden;
+    display: none;
+    top: 0.2em;
+    position: relative;
+    font-size: small;
+}
+
+
+.istoric_programari
+{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+    background-color: #1d3557;
+    padding: 1em;
+    margin: 1em;
+    margin-top:3em ;
+    border-radius:1em;
+    transform: translate( 0%, 5%);
+    opacity: 0.95;
+    font-size: medium;
+}
+
+.istoric_programari__lista__text
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    color: #a8dadc;
+    padding: 1em;
+    text-align: left;
+}
+.istoric_programari__fitru_status
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    padding: 1em;
+    font-size: small;
+    background-color: #a8dadc;
+}
+
+.istoric_programari__lista table
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    padding: 1em;
+    background-color: #F1FAEE;
+}
+
+.istoric_programari__lista td, th
+{ 
+    border: 1px solid #F1FAEE;
+    text-align: left;
+    padding: 0.5em;
+}
+
+
+.istoric_programari__lista tr:nth-child(even) 
+{
+    background-color: #a8dadc;
+}
+.istoric_programari__lista__actiune
+{
+    color: #E63946;
+    width: 10%;
+    border-radius: 5px;
+    transition: .3s ease;
+    font-family: Arial;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+.istoric_programari__lista__actiune:hover
+{
+    opacity: 0.8;
+    color: #E63946;
+    transition: .5s ease;
+    transform: scale(1.1);
+}
+
+
+
+/* @media (min-width :1000px) {
+
+    
+    .header_text {
+        font-size: xx-large;
+    }
+    .istoric_programari {
+        font-size: xx-large;
+    }
+} */
+
+
+@media (max-width :600px) {
+    .header_text {
+        display: none;
+    }
+    
+    .hover-value {
+        top: 0.1em;
+        font-size: x-small;
+    }
+    .istoric_programari {
+        font-size: small;
+    }
+    .istoric_programari__fitru_status
+    {
+        padding: 0.5em;
+        font-size: small;
+    }
+    .istoric_programari__lista table
+    {
+        padding: 0.5em;
+    }
+    .istoric_programari__lista td, th
+    {
+        padding: 0em;
+    }
+
+
+}
+
+
+
+
+@media (max-width :400px) {
+    .header_icon_logo {
+        display: inline;
+    }
+    .logo img {
+        display: none;
+    }
+
+    .istoric_programari
+    {
+       transform: none;
+    }
+
+    .istoric_programari__lista,
+    .istoric_programari__lista table,
+    .istoric_programari__fitru_status,
+    .istoric_programari__lista__text,
+    .istoric_programari__lista__actiune
+    {
+        font-size: xx-small;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .istoric_programari__lista table .istoric_programari__lista__actiune
+    {
+        width: 95%;
+        text-align: center;
+    }
+    
+
+    body {
+        background-image: none; 
+        background-color: #A8DADC;
+    }
+
+	table, thead, tbody, th, td, tr 
+    { 
+		display: block; 
+	}
+	
+	thead tr 
+    { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr
+    { 
+        border: 1px solid #ccc;
+        text-align: right;
+    }
+	
+	td
+    { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before
+    { 
+		position: absolute;
+		left: 4px;
+		width: 30%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+    .istoric_programari__lista td, th
+    { 
+        text-align: right;
+    }
+    
+    td:nth-of-type(1):before { content: "No"; }
+	td:nth-of-type(2):before { content: "Data"; }
+	td:nth-of-type(3):before { content: "Ora"; }
+	td:nth-of-type(4):before { content: "Status"; }
+	td:nth-of-type(5):before { content: "Pret"; }
+	/* td:nth-of-type(6):before { content: "Actiune"; } */
+    
+
+    
+}

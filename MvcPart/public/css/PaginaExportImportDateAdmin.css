@@ -1,0 +1,305 @@
+* {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+
+/* curatam intai elementele de decoratiuni default */
+
+body {
+    background-image: url("../images/back.jpg"); 
+    background-size: 100% 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header {
+    padding: 1em;
+    height: 2em;
+    box-shadow: 0 0 2px black;
+    /*linie umbra jos heder pe x,y  cu raza de estompare*/
+    background-color: #457b9d;
+}
+
+
+/* scoatem partea de albastru de la butoane */
+
+a {
+    color: inherit;
+}
+
+
+/* dimensiunea logo imagine */
+
+.logo img {
+    width: 2em;
+    height: auto;
+    border-radius: 50%;
+}
+
+.header_icon_logo {
+    display: none;
+}
+
+header ul li {
+    /* width: calc(16% - 2px); */ /*6 butoane */
+    width: calc(19% - 2px);/*5 butoane */
+    float: left;
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
+    /* background-color:rgb(41, 107, 21) ; */
+    margin-right: 2px;
+    z-index: 9999;
+    /* facem meniul suprapus peste toate celelalte elemente cand coboara. Fara astea doua devine transparent sau este suprascris de alte elemente din html */
+    /* ??? */
+    position: relative;
+}
+
+header ul li a {
+    display: block;
+    user-select: none;
+}
+
+header ul li a:hover {
+    opacity: 0.8;
+    color: #a8dadc;
+    transform: scale(1.2);
+}
+
+header ul li ul li {
+    display: none;
+    width: 100%;
+}
+
+header ul li:hover ul li {
+    display: block;
+    background-color: #457b9d;
+    color: #a8dadc;
+    transform: scale(1.2);
+}
+
+footer {
+    box-shadow: 0 0 3px black;
+    /*linie umbra jos heder pe x,y  cu raza de estompare*/
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+}
+.hover-value
+{
+    /* visibility: collapse; */
+    -webkit-transition: width 2s ease-in-out;
+    transition: width 3s;
+    overflow: hidden;
+    display: none;
+    top: 0.2em;
+    position: relative;
+    font-size: small;
+}
+
+.admin-date
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    column-gap: 1em;
+    row-gap: 1em;
+    background-color: #1d3557;
+    padding: 1em;
+    margin: 1em;
+    margin-top:3em ;
+    border-radius:1em;
+    top: 50%;
+    left: 50%;
+    transform: translate( 0%, 5%);
+    opacity: 0.95;
+    font-size: medium;
+    color: #a8dadc;
+}
+.admin-date__export
+{
+
+    grid-area: 1 / 2 / 6 / 3;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.admin-date__import
+{
+
+    grid-area: 1 / 1 / 6 / 2;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.admin-date__import__txt,
+.admin-date__export__txt
+{ 
+    margin-top: 1em;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.admin-date__import__txt,
+.admin-date__export__txt h1{
+    font-size: large;
+    text-align: center;
+    color: #a8dadc;
+}
+
+.admin-date__import__categorie,
+.admin-date__export__categorie
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.admin-date__import__format,
+.admin-date__export__format
+{
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+/* .admin-date__import__categorie , */
+.admin-date__import__categorie select,
+.admin-date__export__categorie select,
+.admin-date__import__format select,
+.admin-date__export__format select
+{ 
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #F1FAEE;
+}
+
+.admin-date__import__file
+{ 
+    margin-top: 1em;
+    padding: 1em;
+    width: 100%;
+    
+} 
+
+.admin-date__import__button ,
+.admin-date__export__button
+{
+    grid-row-start: 5;
+    grid-row-end: 6;
+    display: flex;
+    justify-content: center;
+}
+
+.admin-date__import__button button,
+.admin-date__export__button button
+{ 
+    width: 30%;
+    border-radius: 5px;
+    transition: .3s ease;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #F1FAEE;
+} 
+
+.admin-date__import__button button:hover,
+.admin-date__export__button button:hover
+{ 
+    opacity: 0.8;
+    color: #a8dadc;
+    transition: .5s ease;
+    transform: scale(1.1);
+} 
+
+
+
+@media (max-width :700px) 
+{
+    .admin-date {
+        font-size: small;
+        padding: 0.5em;
+    }
+}
+
+
+
+@media (max-width :600px) {
+    .header_text {
+        display: none;
+    }
+    
+    .admin-date
+    {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .hover-value {
+        top: 0.1em;
+        font-size: x-small;
+    }
+    
+    .admin-date__import__txt,
+    .admin-date__export__txt,
+    .admin-date__import__categorie select,
+    .admin-date__export__categorie select,
+    .admin-date__import__format select,
+    .admin-date__export__format select,
+    .admin-date__import__button button,
+    .admin-date__export__button button,
+    .admin-date__import__file
+    {
+        padding: 0.5em;
+        margin-top: 0.5em;
+    }
+}
+
+
+
+
+@media (max-width :400px) {
+    .header_icon_logo {
+        display: inline;
+    }
+    .logo img {
+        display: none;
+    }
+    .admin-date {
+        font-size: x-small;
+        padding: 0em;
+    }
+    .admin-date__import__txt,
+    .admin-date__export__txt,
+    .admin-date__import__categorie,
+    .admin-date__export__categorie,
+    .admin-date__import__categorie select,
+    .admin-date__export__categorie select,
+    .admin-date__import__format,
+    .admin-date__export__format,
+    .admin-date__import__format select,
+    .admin-date__export__format select,
+    .admin-date__import__button,
+    .admin-date__export__button,
+    .admin-date__import__button button,
+    .admin-date__export__button button,
+    .admin-date__import__file,
+    .admin-date__import__file input
+    {
+        padding: 0em;
+        margin-top: 0em;
+    }
+    
+} 

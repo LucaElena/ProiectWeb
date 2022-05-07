@@ -1,0 +1,351 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* *,::before,::after{
+  box-sizing: border-box;
+} */
+
+* {
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+
+/* curatam intai elementele de decoratiuni default */
+
+body {
+  background-image: url("../images/back.jpg"); 
+  background-size: 100% 100%;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+header {
+  padding: 1em;
+  height: 2em;
+  box-shadow: 0 0 2px black;
+  /*linie umbra jos heder pe x,y  cu raza de estompare*/
+  background-color: #457b9d;
+}
+
+
+/* scoatem partea de albastru de la butoane */
+
+a {
+  color: inherit;
+}
+
+
+/* dimensiunea logo imagine */
+
+.logo img {
+  width: 2em;
+  height: auto;
+  border-radius: 50%;
+}
+
+.header_icon_logo {
+  display: none;
+}
+
+
+header ul li {
+  /* width: calc(16% - 2px); */ /*6 butoane */
+  width: calc(19% - 2px);/*5 butoane */
+  float: left;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  /* background-color:rgb(41, 107, 21) ; */
+  margin-right: 2px;
+  z-index: 9999;
+  /* facem meniul suprapus peste toate celelalte elemente cand coboara. Fara astea doua devine transparent sau este suprascris de alte elemente din html */
+  /* ??? */
+  position: relative;
+}
+
+header ul li a {
+  display: block;
+  user-select: none;
+}
+
+header ul li a:hover {
+  opacity: 0.8;
+  color: #a8dadc;
+  transform: scale(1.2);
+}
+
+header ul li ul li {
+  display: none;
+  width: 100%;
+}
+
+header ul li:hover ul li {
+  display: block;
+  background-color: #457b9d;
+  color: #a8dadc;
+  transform: scale(1.2);
+}
+
+footer {
+  box-shadow: 0 0 3px black;
+  /*linie umbra jos heder pe x,y  cu raza de estompare*/
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.hover-value
+{
+  /* visibility: collapse; */
+  -webkit-transition: width 2s ease-in-out;
+  transition: width 3s;
+  overflow: hidden;
+  display: none;
+  top: 0.2em;
+  position: relative;
+  font-size: small;
+}
+
+
+
+
+
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  background-image: url("../images/w1.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.login{
+  display: grid;
+  grid-template-columns: 100%;
+  height: 100vh;
+  padding: 10px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 5rem;
+}
+
+.login__content{
+  display: grid;
+}
+
+
+
+.login__forms{
+  position: relative;
+  height: 400px;
+  width: 100%;
+  font-size: medium;
+}
+
+.login__registre, .login__create, .login__change__pass{
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  background-color: #fff;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+
+
+.title{
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.input-group{
+  
+  padding: 1.125rem 1rem;
+  background-color: #FFF;
+  margin-top: 1rem;
+}
+
+.login-input{
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight:700;
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  height: 100%;
+  
+  
+}
+
+.login-input::placeholder{
+  font-size: .989rem;
+  font-family: 'Poppins', sans-serif;
+  color: #A49EAC;
+}
+
+.input-group input:is(:focus, :valid){
+    border-bottom-color: #4070f4;
+}
+
+
+
+.login__button{
+  display: block;
+  padding: 1rem;
+  margin: 2rem 0;
+  background-color: #4070f4;
+  color: #FFF;
+  font-weight: 600;
+  text-align: center;
+  border-radius: .5rem;
+  transition: .3s;
+  width: 100%;
+}
+
+.login__button:hover{
+  background-color: #0000CD;
+}
+
+
+.login__account, .login__signin, .login__signup, .login__pass{
+  font-weight: 600;
+  font-size: .813rem;
+}
+
+
+
+.login__signin, .login__signup, .login__pass{
+  color: #4070f4;
+  cursor: pointer;
+}
+
+
+.block{
+  display: block;
+}
+
+
+.none{
+  display: none;
+}
+
+
+
+
+@media screen and (min-width:700px){
+  .login__forms{
+    width: 30%;
+    justify-self:right;
+  }
+}
+
+
+
+
+@media (max-width :600px) {
+  .header_text {
+      display: none;
+  }
+
+  .logo img {
+      display: none;
+  }
+  .header_icon_logo {
+      display: block;
+  }
+  .login__content input::placeholder,
+  .login__content input,
+  .login__content h1,
+  .login__content span,
+  .login__content button
+  {
+    font-size: medium;
+  }
+
+}
+
+
+@media (max-width :400px){
+
+  
+  .hover-value {
+      font-size: xx-small;
+  }
+  .logo img {
+      display: none;
+  }
+
+  .login__content input::placeholder,
+  .login__content input,
+  .login__content h1,
+  .login__content span,
+  .login__content button
+  {
+    font-size: small;
+  }
+  .login__registre, .login__create, .login__change__pass{
+    bottom: 0;
+    padding: 0;
+  }
+  .login
+  {
+    /* padding: 0; */
+    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+  }
+
+}
+@media (max-height :600px) {
+  .input-group{
+    
+    padding: 0.2em;
+    background-color: #FFF;
+    margin-top: 0.2em;
+  }
+  .login__content input::placeholder,
+  .login__content input,
+  .login__content h1,
+  .login__content span,
+  .login__content button
+  {
+    font-size: small;
+    padding: 0;
+    margin: 0;
+  }
+  .login__registre, .login__create, .login__change__pass{
+    bottom: 0;
+    padding: 0;
+  }
+
+  .login__forms{
+    margin: 0;
+    height: 200px;
+  }
+  .login
+  {
+    /* padding: 0; */
+    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+  }
+}
+
+
+

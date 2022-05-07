@@ -1,0 +1,633 @@
+* {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+
+/* curatam intai elementele de decoratiuni default */
+body {
+    background-image: url("../images/back.jpg"); 
+    background-size: 100% 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header {
+    padding: 1em;
+    height: 2em;
+    box-shadow: 0 0 2px black;
+    /*linie umbra jos heder pe x,y  cu raza de estompare*/
+    background-color: #457b9d;
+}
+
+
+/* scoatem partea de albastru de la butoane */
+a {
+    color: inherit;
+}
+
+
+/* dimensiunea logo imagine */
+
+.logo img {
+    width: 2em;
+    height: auto;
+    border-radius: 50%;
+}
+
+.header_icon_logo {
+    display: none;
+}
+
+header ul li {
+    /* width: calc(16% - 2px); */ /*6 butoane */
+    width: calc(19% - 2px);/*5 butoane */
+    float: left;
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
+    /* background-color:rgb(41, 107, 21) ; */
+    margin-right: 2px;
+    z-index: 9999;
+    /* facem meniul suprapus peste toate celelalte elemente cand coboara. Fara astea doua devine transparent sau este suprascris de alte elemente din html */
+    /* ??? */
+    position: relative;
+}
+
+header ul li a {
+    display: block;
+    user-select: none;
+}
+
+header ul li a:hover {
+    opacity: 0.8;
+    color: #a8dadc;
+    transform: scale(1.2);
+}
+
+header ul li ul li {
+    display: none;
+    width: 100%;
+}
+
+header ul li:hover ul li {
+    display: block;
+    background-color: #457b9d;
+    color: #a8dadc;
+    transform: scale(1.2);
+}
+
+footer {
+    box-shadow: 0 0 3px black;
+    /*linie umbra jos heder pe x,y  cu raza de estompare*/
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+}
+
+.hover-value {
+    /* visibility: collapse; */
+    -webkit-transition: width 2s ease-in-out;
+    transition: width 3s;
+    overflow: hidden;
+    display: none;
+    top: 0.2em;
+    position: relative;
+    font-size: small;
+}
+
+
+.formular_programare {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 0.5em;
+    row-gap: 0.5em;
+    grid-auto-rows: minmax(0em, auto);
+    background-color: #1d3557;
+    padding: 1em;
+    margin: 1em;
+    margin-top:3em ;
+    border-radius: 0.5em;
+    top: 50%;
+    left: 50%;
+    transform: translate( 0%, 5%);
+    text-align: center;
+    opacity: 0.95;
+    font-size: small;
+}
+
+
+.formular_programare__status
+{ 
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    color: #a8dadc;
+    font-size: medium;
+    display: flex;
+    flex-direction: row;
+    margin-left: 1em;
+}
+
+.formular_programare__status__text,
+.formular_programare__status__valoare
+{
+    padding-left: 1em;
+    padding: 0.5em;
+}
+
+
+.formular_programare__data { 
+    grid-column-start: 4;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    color: #a8dadc;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    font-size: medium;
+    
+}
+.formular_programare__data__mesaj
+{
+    padding: 0.5em;
+    margin-right: 1em;
+}
+.formular_programare__data__valoare
+{
+    background-color: #E63946;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+
+.formular_programare__date_client
+{
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    color: #a8dadc;
+}
+
+.formular_programare__date_client
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.formular_programare__date_client__f_name,
+.formular_programare__date_client__l_name,
+.formular_programare__date_client__email,
+.formular_programare__date_client__pass
+{
+    background-color: #A8DADC;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    margin-left: 1em;
+    width: 20%;
+}
+
+
+.formular_programare__mesaj_client { 
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap:nowrap ;
+    flex-shrink: 3;
+    padding: 1em;
+    
+}
+.formular_programare__mesaj_client__txt {
+    
+    width: 80%;
+    padding: 2em 1em;
+    border-radius: 5px;
+    background-color: #F1FAEE;
+}
+.formular_programare__mesaj_client__video,
+.formular_programare__mesaj_client_imagine {
+    width: 20%;
+    padding: 2em 1em;
+    border-radius: 0.2em;
+    background-color: #F1FAEE;
+}
+.formular_programare__mesaj_client__send_button,
+.formular_programare__mesaj_admin__send_button
+{
+    background-color: #E63946;
+    width: 10%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.formular_programare__mesaj_client__send_button:hover,
+.formular_programare__mesaj_admin__send_button:hover {
+    opacity: 0.8;
+    color: #a8dadc;
+    transition: .5s ease;
+    transform: scale(1.1);
+}
+
+.formular_programare__mesaj_admin{
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 5;
+    grid-row-end: 7;
+    display: flex;
+    justify-content: right;
+    padding: 1em;
+    
+}
+.formular_programare__mesaj_admin textarea
+{
+    width: 80%;
+    padding: 2em 1em;
+    border-radius: 5px;
+    background-color: #F1FAEE;
+}
+
+.formular_programare__piese_necesare
+{
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 7;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.5);  
+}
+.formular_programare__piese_selectate
+{
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 8;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.5);  
+
+}
+
+
+
+.formular_programare__piese_necesare .formular_programare__piese_necesare__brand{
+    width: 15%;
+    background-color: #A8DADC;
+    float: left;
+}
+.formular_programare__piese_necesare .formular_programare__piese_necesare__cateorie{
+    width: 20%;
+    background-color: #A8DADC;
+    float: left;
+}
+.formular_programare__piese_necesare .formular_programare__piese_necesare__piesa{
+    width: 20%;
+    background-color: #A8DADC;
+    float: left;
+}
+.formular_programare__piese_necesare .formular_programare__piese_necesare__cantitate{
+    width: 5%;
+    background-color: #A8DADC;
+    text-align: center;
+    float: left;
+}
+.formular_programare__piese_necesare .formular_programare__piese_necesare__adauga
+{
+    width: 10%;
+    background-color: #E63946;
+    border-radius: 5px;
+    float: right;
+    transition: .3s ease;
+    font-family: Arial;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.formular_programare__piese_necesare .formular_programare__piese_necesare__adauga:hover {
+    opacity: 0.8;
+    color: #a8dadc;
+    transition: .5s ease;
+    transform: scale(1.1);
+}
+
+.formular_programare__piese_necesare .formular_programare__piese_necesare__brand, 
+.formular_programare__piese_necesare .formular_programare__piese_necesare__cateorie,
+.formular_programare__piese_necesare .formular_programare__piese_necesare__piesa,
+.formular_programare__piese_necesare .formular_programare__piese_necesare__cantitate,
+.formular_programare__piese_necesare .formular_programare__piese_necesare__adauga
+{
+    display: inline-block;
+    padding: 0.5em;
+}
+
+.formular_programare__piese_selectate table
+{
+
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 8;
+    padding: 1em;
+    background-color: #F1FAEE;
+}
+
+.formular_programare__piese_selectate thead{
+    background-color: #a8dadc;
+}
+
+
+.formular_programare__piese_selectate td, th
+{
+    border: 1px solid #F1FAEE;
+    text-align: left;
+    padding: 0.5em;
+}
+.formular_programare__piese_selectate tr:nth-child(even) 
+{
+    background-color: #a8dadc;
+}
+
+
+.formular_programare__actiune 
+{
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 9;
+}
+.formular_programare__actiune__accepta_button,
+.formular_programare__actiune__terminat_button,
+.formular_programare__actiune__trimite_button
+{
+    background-color: #caffbf;
+}
+.formular_programare__actiune__respinge_button,
+.formular_programare__actiune__sterge_button
+{
+    background-color: #E63946;
+}
+
+.formular_programare__actiune .formular_programare__actiune__accepta_button,
+.formular_programare__actiune .formular_programare__actiune__respinge_button,
+.formular_programare__actiune .formular_programare__actiune__terminat_button,
+.formular_programare__actiune .formular_programare__actiune__sterge_button,
+.formular_programare__actiune .formular_programare__actiune__trimite_button
+{
+    width: 15%;
+    border-radius: 5px;
+    transition: .3s ease;
+    font-family: Arial;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.5em;
+}
+
+
+
+.formular_programare__actiune .formular_programare__actiune__accepta_button:hover,
+.formular_programare__actiune .formular_programare__actiune__respinge_button:hover,
+.formular_programare__actiune .formular_programare__actiune__terminat_button:hover,
+.formular_programare__actiune .formular_programare__actiune__sterge_button:hover,
+.formular_programare__actiune .formular_programare__actiune__trimite_button:hover
+{
+    opacity: 0.8;
+    color: #a8dadc;
+    transition: .5s ease;
+    transform: scale(1.1);
+    
+}
+
+
+/* TO Do :remove link from action button */
+.formular_programare__actiune a
+{
+    padding: 0.5em;
+}
+
+.formular_programare__mesaj_dupa
+{
+    
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 10;
+    background-color: #a8dadc;
+    text-align: left;
+}
+
+@media (max-width :900px) {
+    .formular_programare__status,
+    .formular_programare__data,
+    .formular_programare__date_client {
+        font-size: medium;
+    }
+    .formular_programare__date_client__f_name,
+    .formular_programare__date_client__l_name,
+    .formular_programare__date_client__email,
+    .formular_programare__date_client__pass
+    {
+        padding: 0.2em;
+        border-radius: 0.5em;
+        margin-left: 0.5em;
+    }
+}
+
+@media (max-width :600px) {
+    .header_text {
+        display: none;
+    }
+    
+    .hover-value {
+        top: 0.1em;
+        font-size: x-small;
+    }
+    
+    .formular_programare {
+        font-size: x-small;
+    }
+    
+
+    .formular_programare__status,
+    .formular_programare__data,
+    .formular_programare__date_client {
+        font-size: small;
+
+    }
+    .formular_programare__status__text,
+    .formular_programare__status__valoare,
+    .formular_programare__data__mesaj,
+    .formular_programare__data__valoare
+    {
+        padding-left: 0.5em;
+        padding: 0.2em;
+    }
+    .formular_programare__piese_selectate table
+    {
+        padding: 0.5em;
+    }
+    .formular_programare__piese_selectate td, th
+    {
+        padding: 0em;
+    }
+
+}
+
+
+
+
+@media (max-width :400px) {
+    .header_icon_logo {
+        display: inline;
+    }
+    .logo img {
+        display: none;
+    }
+
+    .formular_programare {
+        font-size: xx-small;
+        gap: 0em;
+        padding: 0em;
+        margin: 0em;
+    }
+
+    .formular_programare__status,
+    .formular_programare__data,
+    .formular_programare__date_client {
+        font-size: x-small;
+    }
+    .formular_programare__status,
+    .formular_programare__data
+    {
+        display: block;
+    }
+    .formular_programare__date_client
+    {
+        flex-direction: column;
+    }
+    
+    .formular_programare__mesaj_client,
+    .formular_programare__mesaj_admin
+    {
+        display: block;
+    }
+    .formular_programare__date_client__f_name,
+    .formular_programare__date_client__l_name,
+    .formular_programare__date_client__email,
+    .formular_programare__date_client__pass
+    {
+        padding: 0.2em;
+        border-radius: 0.5em;
+        margin-left: 0.5em;
+        width: 90%;
+    }
+
+    .formular_programare__piese_necesare
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    /* .formular_programare__piese_selectate table
+    {
+        padding: 0em;
+    } */
+    .formular_programare__actiune .formular_programare__actiune__accepta_button,
+    .formular_programare__actiune .formular_programare__actiune__respinge_button,
+    .formular_programare__actiune .formular_programare__actiune__terminat_button,
+    .formular_programare__actiune .formular_programare__actiune__sterge_button,
+    .formular_programare__actiune .formular_programare__actiune__trimite_button
+    {
+        padding: 0em;
+    }
+
+    .formular_programare__mesaj_client__video, 
+    .formular_programare__mesaj_client_imagine {
+        width: 80%;
+        padding: 1em 1em;
+    }
+    .formular_programare__mesaj_client__send_button,
+    .formular_programare__mesaj_admin__send_button
+    {
+        background-color: #E63946;
+        width: 20%;
+        border-radius: 5px;
+        height: 1em;
+    }
+
+    .formular_programare__piese_necesare .formular_programare__piese_necesare__brand, 
+    .formular_programare__piese_necesare .formular_programare__piese_necesare__cateorie,
+    .formular_programare__piese_necesare .formular_programare__piese_necesare__piesa,
+    .formular_programare__piese_necesare .formular_programare__piese_necesare__cantitate,
+    .formular_programare__piese_necesare .formular_programare__piese_necesare__adauga
+    {
+
+        font-size: xx-small;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    
+	table, thead, tbody, th, td, tr 
+    { 
+		display: block; 
+	}
+	
+	thead tr 
+    { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr
+    { 
+        border: 1px solid #ccc;
+        text-align: right;
+    }
+	
+	td
+    { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 20%; 
+	}
+	
+	td:before
+    { 
+		position: absolute;
+		/* top: 6px; */
+		/* left: 6px; */
+		width: 30%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+    .formular_programare__piese_selectate td, th
+    { 
+        text-align: right;
+    }
+
+    /* td:nth-of-type(1):before { content: "No"; }
+	td:nth-of-type(2):before { content: "Brand"; }
+	td:nth-of-type(3):before { content: "Categorie"; }
+	td:nth-of-type(4):before { content: "Piesa"; }
+	td:nth-of-type(5):before { content: "Cantitate"; }
+	td:nth-of-type(6):before { content: "Pret"; }
+	td:nth-of-type(7):before { content: "Actiune"; } */
+    
+}
