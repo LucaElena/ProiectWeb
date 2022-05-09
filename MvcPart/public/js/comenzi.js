@@ -112,7 +112,7 @@ function filtreaza_randuri_tabel(numarRanduriSetat)
     var valPiesa =  piesaSelectat.value.toUpperCase();
    
     
-    if(valBrand === "DEFAULT")
+    if(valBrand === "BRAND")
     {
         valBrand = "";
     }

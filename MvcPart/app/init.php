@@ -40,7 +40,7 @@
 
 
             <li>
-                <a class="header_button" href="/calendar/CLIENT_NELOGAT">
+                <a class="header_button" href="/programare/CLIENT_NELOGAT">
                     <!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span> -->
                     <span class="header_icon"> &#128197; </span>
                     <span class="header_text">Program</span>
@@ -101,7 +101,7 @@
 
 
 							<li>
-								<a class="header_button" href="/calendar/GENERIC_USERNAME">
+								<a class="header_button" href="/programare/GENERIC_USERNAME">
 									<!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span> -->
 									<span class="header_icon"> &#128197; </span>
 									<span class="header_text">Program</span>
@@ -161,7 +161,7 @@
 
 
 							<li>
-								<a class="header_button" href="/calendar/admin">
+								<a class="header_button" href="/programare/admin">
 										<span class="header_icon"> &#128197; </span>
 										<span class="header_text">Program</span>
 								</a>

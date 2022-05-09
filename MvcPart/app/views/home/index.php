@@ -25,7 +25,7 @@
                 <p>Bine ati venit pe site-ul nostru de reparatii motociclete CyMaT</p>
             </div>
             <div class="client-welcome__mesaj">
-                <p>Puteti sa faceti direct o programare <a href="/calendar/<?=$data['username']?>">aici</a> </p>
+                <p>Puteti sa faceti direct o programare <a href="/programare/<?=$data['username']?>">aici</a> </p>
                 <p>Sau sa va creati intai un cont <a href="/signup/<?=$data['username']?>">aici</a> sau sa va autentificati
                     <a href="/login/<?=$data['username']?>">aici</a>
                 </p>

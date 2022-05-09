@@ -1,5 +1,5 @@
 <?php
-	class Home extends Controller
+	class Programare extends Controller
 	{   
 
         public function index($userName = "")
@@ -12,7 +12,7 @@
             if ($userName == "")
             {
                 $info['generalbar'] = str_replace("CLIENT_NELOGAT" , $userName , BARA_CLIENT_NELOGAT);
-                $this->view('home/index', $info);
+                $this->view('programare/index', $info);
             }
             else
             {
@@ -24,23 +24,23 @@
                     if ($user_type) # is admin
                     {
                         $info['generalbar'] = str_replace("GENERIC_USERNAME" , $userName , BARA_ADMIN_MOTO);
-                        // header('Location: ' . URL . 'home/'. $userName);
-                        $this->view('home/index', $info);
+                        // header('Location: ' . URL . 'programare/'. $userName);
+                        $this->view('programare/index', $info);
                     }
                     else
                     {
                         $info['generalbar'] = str_replace("GENERIC_USERNAME" , $userName , BARA_CLIENT_MOTO);
-                        // header('Location: ' . URL . 'home/'. $userName);
-                        $this->view('home/index', $info);
+                        // header('Location: ' . URL . 'programare/'. $userName);
+                        $this->view('programare/index', $info);
                     }
                 }
                 else
                 {
                     $info['generalbar'] = str_replace("CLIENT_NELOGAT" , $userName , BARA_CLIENT_NELOGAT);
-                    $this->view('home/index', $info);
+                    $this->view('programare/index', $info);
                 }
             }   
         }
     }
-
+    
 ?>
