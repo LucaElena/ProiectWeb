@@ -62,59 +62,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>HONDA</td>
-                            <td>Electrice</td>
-                            <td>Acumulator</td>
-                            <td>2</td>
-                            <td>2022-04-08</td>
-                            <td>In asteptare</td>
-
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>KAWASAKI</td>
-                            <td>Electrice</td>
-                            <td>Becuri</td>
-                            <td>10</td>
-                            <td>2022-04-07</td>
-                            <td>In asteptare</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>HONDA</td>
-                            <td>Frane</td>
-                            <td>Kit Reparatie Frana</td>
-                            <td>1</td>
-                            <td>2022-04-07</td>
-                            <td>In asteptare</td>
-
-
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>YAMAHA</td>
-                            <td>Electrice</td>
-                            <td>Bujii</td>
-                            <td>10</td>
-                            <td>2022-04-07</td>
-                            <td>In asteptare</td>
-
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>KAWASAKI</td>
-                            <td>Electrice</td>
-                            <td>Acumulator</td>
-                            <td>1</td>
-                            <td>2022-04-07</td>
-                            <td>In asteptare</td>
-
-                        </tr>
-
-
-
+                        <?=$data['comenziTableRow']?>
                     </tbody>
                 </table>
 

@@ -30,6 +30,24 @@
                         $info['pieseOptions'] = "";
                         $info['comenziTableRow'] = "";
                         $stoc = $this->model('stocModel');
+                        
+                        // Daca $_POST este setat marcam ca primita comanda
+                        // $_POST contine : Array ( [admin-comenzi__tabel__actiune__primit] => 23 )
+                        if( isset($_POST['admin-comenzi__tabel__actiune__primit']))
+                        {
+                            //Datele extrase din POST:
+                            $id_comanda = $_POST['admin-comenzi__tabel__actiune__primit'];
+                            print_r("id comanda:".$id_comanda);
+                             
+                            if ($id_comanda && $id_comanda != 0)
+                            {
+                                //Marcam comanda ca primita:
+                                $stoc->comandaPrimita( $id_comanda );
+
+                                //Si inseram datele din comanda in stoc:
+                                // $stoc->processComanda( $id_comanda );
+                            }
+                        }
 
                         $brands = $stoc->getBrands();
                         $categorii = $stoc->getCategorii();
@@ -55,18 +73,26 @@
                             // print_r($comanda);
                             $status = "";
                             $actiune = "";
+
+                            $date_piesa = $stoc->getDatePiesaById($comanda['id_part']);
+                            $date_categorie = $stoc->getDateCategorieById($date_piesa['id_category']);
+                            $date_brand = $stoc->getDateBrandById($date_piesa['id_brand']);
+
                             if($comanda['status'] == 0)
                             {
                                 $status = "In asteptare";
-                                $actiune = '<button type="submit" class="admin-comenzi__tabel__actiune__primit" id="admin-comenzi__tabel__actiune__primit" name="admin-comenzi__tabel__actiune__primit">Primit</button>';
+                                // print_r($date_piesa);
+                                // print_r($date_categorie);
+
+                                $actiune = '<button type="submit" class="admin-comenzi__tabel__actiune__primit" 
+                                    id="admin-comenzi__tabel__actiune__primit" name="admin-comenzi__tabel__actiune__primit" 
+                                    value=' . $comanda['id_order'] . '>Primit</button>';
                             }
                             else
                             {
                                 $status = "Primit";
                             }
-                            $date_piesa = $stoc->getDatePiesaById($comanda['id_part']);
-                            $date_categorie = $stoc->getDateCategorieById($date_piesa['id_category']);
-                            $date_brand = $stoc->getDateBrandById($date_piesa['id_brand']);
+                            
 
                             $info['comenziTableRow'] = $info['comenziTableRow'] .  
                                     ' 

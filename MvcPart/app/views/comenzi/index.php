@@ -59,7 +59,7 @@
                     id="admin-comenzi__filtrare__reset__button">Reset</button>
                 <!-- </div> -->
             </div>
-            <form action="./PaginaComenziAdmin.html" class="admin-comenzi__tabel" method="post">
+            <form action="/comenzi/<?=$data['username']?>" class="admin-comenzi__tabel" method="post">
                 <table id="admin-comenzi__tabel">
                     <thead>
                         <tr>

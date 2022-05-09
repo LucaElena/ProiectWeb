@@ -50,7 +50,7 @@ class StocModel extends Controller
 
     public function getComenzi()
     {
-        $sql_getComenzi = "SELECT id_part, order_date, status, quantity FROM orders";
+        $sql_getComenzi = "SELECT * FROM orders";
         $query_getComenzi = $this->conn->prepare($sql_getComenzi);
         $query_getComenzi->execute();
         $results = $query_getComenzi->fetchAll(PDO::FETCH_ASSOC);
@@ -88,16 +88,44 @@ class StocModel extends Controller
     }
     
 
+    public function getPiesaIdByNameBrandCategory($part_name, $brand_name , $category_name)
+    {
+        $sql_getPiesaIdByNameBrandCategory = "SELECT id_part FROM parts as p INNER JOIN brands as b ON p.id_brand=b.id_brand INNER join categories as c WHERE p.name=:part_name and b.brand_name=:brand_name and c.category_name=:category_name;";
+        $query_getPiesaIdByNameBrandCategory = $this->conn->prepare($sql_getPiesaIdByNameBrandCategory);
+        $query_getPiesaIdByNameBrandCategory->execute(array(":part_name" => $part_name , ":brand_name" => $brand_name , ":category_name" => $category_name ));
+        $result = $query_getPiesaIdByNameBrandCategory->fetch(PDO::FETCH_ASSOC);
+        if ($result)
+        {   //am gasit id-ul piesei cautate
+            $id_piesa = $result['id_part'];
+            // print_r("ID piesa = " . $id_piesa);
+            return $id_piesa;
+        }
+        return 0;
+        
+    }
     
 
-    public function addComanda( $order_date, $id_part , $quantity )
+    public function addComanda( $id_part , $quantity )
     {
-        // $sql_getComenzi = "SELECT id_part, order_date, status, quantity FROM orders";
-        // $query_getComenzi = $this->conn->prepare($sql_getComenzi);
-        // $query_getComenzi->execute();
-        // $results = $query_getComenzi->fetchAll(PDO::FETCH_ASSOC);
-       
-        // return $results;
+        if ($id_part && $id_part != 0)
+        {
+            $data = date('Y-m-d', time());
+            //INSERT INTO `orders` (`id_order`, `id_part`, `order_date`, `status`, `quantity`, `shipped_date`) VALUES (NULL, '26', '2022-05-06', '0', '2', NULL);
+            $sql_addComanda = "INSERT INTO orders (id_order, id_part, order_date, status, quantity, shipped_date) VALUES (NULL, :id_part, :data, 0, :quantity, NULL)";
+            $stmt= $this->conn->prepare($sql_addComanda); 
+            $stmt->execute(array(":id_part" => $id_part , ":data" => $data , ":quantity" => $quantity ));
+            // print_r(" Inseram comanda : ". $sql_addComanda);
+        }
+    }
+
+    public function comandaPrimita( $id_comanda )
+    {
+        print_r("Comanda primita cu id:" . $id_comanda);
+        $data = date('Y-m-d', time());
+        $sql_comandaPrimita = "UPDATE orders SET status = '1', shipped_date=:data WHERE id_order = :id_comanda;";
+        $stmt= $this->conn->prepare($sql_comandaPrimita); 
+        $stmt->execute(array(":data" => $data , ":id_comanda" => $id_comanda ));
+
     }
 
 }
