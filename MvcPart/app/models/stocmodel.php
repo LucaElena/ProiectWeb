@@ -48,6 +48,17 @@ class StocModel extends Controller
         return array_unique($piese);
     }
 
+    public function getAllPiese()
+    {
+        $sql = "SELECT * FROM parts";
+        $query = $this->conn->prepare($sql);
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+
     public function getComenzi()
     {
         $sql_getComenzi = "SELECT * FROM orders";
@@ -107,26 +118,60 @@ class StocModel extends Controller
 
     public function addComanda( $id_part , $quantity )
     {
-        if ($id_part && $id_part != 0)
-        {
-            $data = date('Y-m-d', time());
-            //INSERT INTO `orders` (`id_order`, `id_part`, `order_date`, `status`, `quantity`, `shipped_date`) VALUES (NULL, '26', '2022-05-06', '0', '2', NULL);
-            $sql_addComanda = "INSERT INTO orders (id_order, id_part, order_date, status, quantity, shipped_date) VALUES (NULL, :id_part, :data, 0, :quantity, NULL)";
-            $stmt= $this->conn->prepare($sql_addComanda); 
-            $stmt->execute(array(":id_part" => $id_part , ":data" => $data , ":quantity" => $quantity ));
-            // print_r(" Inseram comanda : ". $sql_addComanda);
-        }
-    }
 
-    public function comandaPrimita( $id_comanda )
-    {
-        print_r("Comanda primita cu id:" . $id_comanda);
         $data = date('Y-m-d', time());
-        $sql_comandaPrimita = "UPDATE orders SET status = '1', shipped_date=:data WHERE id_order = :id_comanda;";
-        $stmt= $this->conn->prepare($sql_comandaPrimita); 
-        $stmt->execute(array(":data" => $data , ":id_comanda" => $id_comanda ));
-
+        //INSERT INTO `orders` (`id_order`, `id_part`, `order_date`, `status`, `quantity`, `shipped_date`) VALUES (NULL, '26', '2022-05-06', '0', '2', NULL);
+        $sql_addComanda = "INSERT INTO orders (id_order, id_part, order_date, status, quantity, shipped_date) VALUES (NULL, :id_part, :data, 0, :quantity, NULL)";
+        $stmt= $this->conn->prepare($sql_addComanda); 
+        $stmt->execute(array(":id_part" => $id_part , ":data" => $data , ":quantity" => $quantity ));
+        // print_r(" Inseram comanda : ". $sql_addComanda);
     }
+
+
+    public function updateStatusComanda( $id_comanda )
+    {
+        // print_r("updateStatusComanda cu id:" . $id_comanda);
+        $data = date('Y-m-d', time());
+        $sql_updateStatusComanda = "UPDATE orders SET status = '1', shipped_date=:data WHERE id_order = :id_comanda;";
+        $stmt= $this->conn->prepare($sql_updateStatusComanda); 
+        $stmt->execute(array(":data" => $data , ":id_comanda" => $id_comanda ));
+    }
+    
+    public function getComanda( $id_comanda )
+    {
+        $sql_getComanda = "SELECT * FROM orders WHERE id_order=:id_comanda;";
+        $query_getComanda = $this->conn->prepare($sql_getComanda);
+        $query_getComanda->execute(array(":id_comanda" => $id_comanda));
+        $result = $query_getComanda->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getStocPiesa( $id_piesa )
+    {
+        $sql_getStocPiesa = "SELECT * FROM stoc WHERE id_stoc=:id_piesa;";
+        $query_getStocPiesa = $this->conn->prepare($sql_getStocPiesa);
+        $query_getStocPiesa->execute(array(":id_piesa" => $id_piesa));
+        $result = $query_getStocPiesa->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function updateCantitateStoc( $id_stoc , $cantitate_stoc_noua)
+    {
+        $sql_updateCantitateStoc = "UPDATE stoc SET cantitate_stoc = :cantitate_stoc_noua WHERE id_stoc = :id_stoc;";
+        $stmt= $this->conn->prepare($sql_updateCantitateStoc); 
+        $stmt->execute(array(":cantitate_stoc_noua" => $cantitate_stoc_noua , ":id_stoc" => $id_stoc ));
+    }
+
+    public function updateRezervatStoc( $id_stoc , $cantitate_rezervata_noua)
+    {
+        $sql_updateRezervatStoc = "UPDATE stoc SET cantitate_rezervata = :cantitate_rezervata_noua WHERE id_stoc = :id_stoc;";
+        $stmt= $this->conn->prepare($sql_updateRezervatStoc); 
+        $stmt->execute(array(":cantitate_rezervata_noua" => $cantitate_rezervata_noua , ":id_stoc" => $id_stoc ));
+    }
+
+
+
+    
 
 }
 

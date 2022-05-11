@@ -242,6 +242,7 @@ footer {
 
 
 .admin-stoc__tabel-button__stanga,
+.admin-stoc__tabel-button__update,
 .admin-stoc__tabel-button__dreapta
 {
     border-radius: 5px;
@@ -263,6 +264,7 @@ footer {
     width: 100%;
 }
 .admin-stoc__tabel-button__stanga,
+.admin-stoc__tabel-button__update,
 .admin-stoc__tabel-button__dreapta
 {
     width: 20%;
@@ -275,6 +277,7 @@ footer {
 .admin-stoc__filtrare__cauta__piesa:hover,
 .admin-stoc__filtrare__reset__button:hover,
 .admin-stoc__tabel-button__stanga:hover,
+.admin-stoc__tabel-button__update:hover,
 .admin-stoc__tabel-button__dreapta:hover
 {
     opacity: 0.8;
@@ -398,6 +401,7 @@ footer {
     }
 
     .admin-stoc__tabel-button__stanga,
+    .admin-stoc__tabel-button__update,
     .admin-stoc__tabel-button__dreapta
     {
         padding: 0;

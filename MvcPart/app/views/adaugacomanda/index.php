@@ -29,18 +29,18 @@
             <form action="/adaugacomanda/<?=$data['username']?>" method="post" class="admin-add-comanda__select">
 
                 <select class="admin-add-comanda__select__brand" id="admin-add-comanda__select__brand" name="admin-add-comanda__select__brand" required>
-                    <option value=""> Brand</option>
+                    <option value="Default"> Brand</option>
                     <?=$data['brandOptions']?>
                 </select>
 
                 <select class="admin-add-comanda__select__categorie" id="admin-add-comanda__select__categorie" name="admin-add-comanda__select__categorie" required>
-                    <option value=""> Categorie</option>
+                    <option value="Default"> Categorie</option>
                     <?=$data['categoriiOptions']?>
                 </select>
 
 
                 <select class="admin-add-comanda__select__piesa" id="admin-add-comanda__select__piesa" name="admin-add-comanda__select__piesa" required>
-                    <option value=""> Piesa</option>
+                    <option value="Default"> Piesa</option>
                     <?=$data['pieseOptions']?>
                 </select>
                 <input type="number" id="admin-add-comanda__select__cantitate"
