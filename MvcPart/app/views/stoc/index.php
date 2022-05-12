@@ -25,20 +25,21 @@
             <div class="admin-stoc__titlu">
                 <p>Pagina administrare stoc :</p>
             </div>
+            
             <div class="admin-stoc__filtrare">
 
-                <select class="admin-stoc__filtrare__brand" id="admin-stoc__filtrare__brand">
-                    <option value="Default"> Brand</option>
+                <select class="admin-stoc__filtrare__brand" id="admin-stoc__filtrare__brand" name="admin-stoc__filtrare__brand">
+                    <option name="admin-stoc__filtrare__brand" value="Default"> Brand</option>
                     <?=$data['brandOptions']?>
                 </select>
 
-                <select class="admin-stoc__filtrare__categorie" id="admin-stoc__filtrare__categorie">
+                <select class="admin-stoc__filtrare__categorie" id="admin-stoc__filtrare__categorie"  name="admin-stoc__filtrare__categorie">
                     <option value="Default"> Categorie</option>
                     <?=$data['categoriiOptions']?>
                 </select>
 
 
-                <select class="admin-stoc__filtrare__piesa" id="admin-stoc__filtrare__piesa">
+                <select class="admin-stoc__filtrare__piesa" id="admin-stoc__filtrare__piesa" name="admin-stoc__filtrare__piesa">
                     <option value="Default"> Piesa</option>
                     <?=$data['pieseOptions']?>
                 </select>
@@ -55,7 +56,7 @@
                     id="admin-stoc__filtrare__cauta__piesa" " placeholder=" Cauta piesa...">
                 <!-- <div class="admin-stoc__filtrare__reset"> -->
                 <button type="button" class="admin-stoc__filtrare__reset__button"
-                    id="admin-stoc__filtrare__reset__button">Reset</button>
+                    id="admin-stoc__filtrare__reset__button">Reset filtru</button>
                 <!-- </div> -->
             </div>
             <form action="/stoc/<?=$data['username']?>" class="admin-stoc__tabel" method="post">
@@ -85,7 +86,7 @@
                     <button type="button" class="admin-stoc__tabel-button__stanga" id="admin-stoc__tabel-button__stanga">
                         &#10094; </button>
                     <button type="submit" class="admin-stoc__tabel-button__update" id="admin-stoc__tabel-button__update" value="Update">
-                        Update
+                        Update stoc
                     </button>
                     <button type="button" class="admin-stoc__tabel-button__dreapta" id="admin-stoc__tabel-button__dreapta">
                         &#10095; </button>

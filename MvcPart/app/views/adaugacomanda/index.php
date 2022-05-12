@@ -73,7 +73,7 @@
                 <button type="button" class="admin-add-comanda__tabel-button__stanga" id="admin-add-comanda__tabel-button__stanga"> &#10094; </button>
                 <button type="button" class="admin-add-comanda__tabel-button__dreapta" id="admin-add-comanda__tabel-button__dreapta"> &#10095; </button>
             </div> -->
-            <!-- <script src="./js/comenzi.js"></script> -->
+            <script src="../js/comenzi.js"></script>
         </div>
 
 

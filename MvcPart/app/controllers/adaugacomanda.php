@@ -70,11 +70,19 @@
                         }
                         foreach ($categorii as $categorie)
                         {
-                            $info['categoriiOptions'] = $info['categoriiOptions'] .  ' <option value="' . ucwords(strtolower($categorie)) . '">' . ucwords(strtolower($categorie)) . '</option>';
+                            #transmitem in plus si id-ul categoriei pentru a putea sa legam optiunile din categorie de cele din piese in js
+                            $id_si_nume_categorie = explode (";", $categorie); 
+                            $id_categorie = $id_si_nume_categorie[0];
+                            $nume_categorie = $id_si_nume_categorie[1];
+                            $info['categoriiOptions'] = $info['categoriiOptions'] .  ' <option value="'  . $id_categorie . ';' . ucwords(strtolower($nume_categorie)) . '">' . ucwords(strtolower($nume_categorie)) . '</option>';
                         }
                         foreach ($piese as $piesa)
                         {
-                            $info['pieseOptions'] = $info['pieseOptions'] .  ' <option value="' . ucwords(strtolower($piesa)) . '">' . ucwords(strtolower($piesa)) . '</option>';
+                           #transmitem in plus si id-ul categoriei pentru a putea sa legam optiunile din categorie de cele din piese in js
+                           $id_si_nume_piesa = explode (";", $piesa); 
+                           $id_categorie = $id_si_nume_piesa[0];
+                           $nume_piesa = $id_si_nume_piesa[1];
+                           $info['pieseOptions'] = $info['pieseOptions'] .  ' <option value="' . $id_categorie . ';' . ucwords(strtolower($nume_piesa)) . '">' . ucwords(strtolower($nume_piesa)) . '</option>';
                         }
 
                         

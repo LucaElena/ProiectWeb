@@ -20,7 +20,7 @@ class StocModel extends Controller
 
     public function getCategorii()
     {
-        $sql_getCategorii = "SELECT category_name FROM categories";
+        $sql_getCategorii = "SELECT id_category,category_name FROM categories";
         $query_getCategorii = $this->conn->prepare($sql_getCategorii);
         $query_getCategorii->execute();
         $results = $query_getCategorii->fetchAll(PDO::FETCH_ASSOC);
@@ -28,14 +28,14 @@ class StocModel extends Controller
         foreach ($results as $categorie)
         {
             // print_r($categorie['category_name']);
-            array_push($categorii, $categorie['category_name']);
+            array_push($categorii, $categorie['id_category'].";".$categorie['category_name']);
         }
         return $categorii;
     }
 
     public function getPiese()
     {
-        $sql_getPiese = "SELECT name FROM parts";
+        $sql_getPiese = "SELECT name,id_category FROM parts";
         $query_getPiese = $this->conn->prepare($sql_getPiese);
         $query_getPiese->execute();
         $results = $query_getPiese->fetchAll(PDO::FETCH_ASSOC);
@@ -43,7 +43,7 @@ class StocModel extends Controller
         foreach ($results as $piesa)
         {
             // print_r($piesa['name']);
-            array_push($piese, $piesa['name']);
+            array_push($piese, $piesa['id_category'].";".$piesa['name']);
         }
         return array_unique($piese);
     }

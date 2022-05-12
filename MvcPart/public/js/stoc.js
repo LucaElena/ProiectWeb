@@ -7,6 +7,7 @@ var filtruMemorieBrand = "";// stocam in el cuvantul cautat -> daca se modifica 
 var filtruMemorieCategorie = "";// stocam in el cuvantul cautat -> daca se modifica ar trebui sa resetam si startul
 var filtruMemoriePiesa = "";// stocam in el cuvantul cautat -> daca se modifica ar trebui sa resetam si startul
 
+var idCategorieSelectata = "";
 
 const brandSelectat = document.getElementById("admin-stoc__filtrare__brand");
 const categorieSelectat = document.getElementById("admin-stoc__filtrare__categorie");
@@ -82,6 +83,7 @@ function reseteaza_filtru() {
     piesaSelectat.value = "Default";
     NoRanduriTabel.value = "10";
     cautaPiesaFiltru.value = "";
+    idCategorieSelectata = "";
     startRand = 1;
     //  = document.getElementById("admin-stoc__filtrare__brand");
     // categorieSelectat = document.getElementById("admin-stoc__filtrare__categorie");
@@ -124,7 +126,68 @@ function filtreaza_randuri_tabel(numarRanduriSetat)
     {
         valPiesa = "";
     }
-    console.log("Valoare brand = " + valBrand + " cateorie= " + valCategorie + " piesa = " + valPiesa)
+    
+    //Am adaugat si legatura prin id intre categorie-piesa pentru a avea doar un subset in optiuni cand selectam o categorie.
+    if(valCategorie)
+    {
+        if (valCategorie.includes(";"))
+        {
+            const arrayIdCategorie = valCategorie.split(";");
+            idCategorieSelectata = arrayIdCategorie[0];
+            valCategorie = arrayIdCategorie[1];
+
+        }
+    }
+    if(valPiesa)
+    {
+        if (valPiesa.includes(";"))
+        {
+            const arrayIdPiesa = valPiesa.split(";");
+            idCategorieSelectata = arrayIdPiesa[0];
+            valPiesa = arrayIdPiesa[1];
+
+        }
+    }
+    console.log("Valoare brand = " + valBrand + " categorie= " + valCategorie + " piesa = " + valPiesa + " idCategorieSelectata=" + idCategorieSelectata)
+    
+    //Daca avem o categorie selectata -> updatam si optiunile disponibile din piese
+    selectPiese = piesaSelectat.getElementsByTagName("option")
+    if(idCategorieSelectata)
+    {
+        for(i = 0; i < selectPiese.length; i++)
+        {   
+            
+            if (selectPiese[i].value.includes(";"))
+            {
+                const arrayIdNumePiesa = selectPiese[i].value.split(";");
+                idCategorieNumePiesa = arrayIdNumePiesa[0];
+                numePiesa = arrayIdNumePiesa[1];
+                
+                if(idCategorieSelectata && idCategorieNumePiesa)
+                {
+                    if(idCategorieNumePiesa != idCategorieSelectata)
+                    {
+                        // console.log("Facem invisibila piesa : " + idCategorieNumePiesa)
+                        selectPiese[i].style.display = "none"
+                    }
+                    else
+                    {   //cand schimbam categoria ramanem cu piese invisibila de la iteratia trecuta -> trebuie sa le facem vizibile pe restul
+                        // console.log("Facem visibila piesa : " + idCategorieNumePiesa)
+                        selectPiese[i].style.display = ""
+                    }
+                }
+            }
+        }
+    }
+    else
+    {   //La resetare (nu mai avem categorie selectata) -> trebuie sa facem toate piesele vizibile
+        for(i = 0; i < selectPiese.length; i++)
+        {
+            selectPiese[i].style.display = ""
+        }
+    }
+    
+
 
     var filtruCautaPiesa = cautaPiesaFiltru.value.toUpperCase();
 
