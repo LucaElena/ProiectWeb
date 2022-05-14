@@ -29,18 +29,18 @@
             <div class="admin-comenzi__filtrare">
 
                 <select class="admin-comenzi__filtrare__brand" id="admin-comenzi__filtrare__brand">
-                    <option value=""> Brand</option>
+                    <option value="Default"> Brand</option>
                     <?=$data['brandOptions']?>
                 </select>
 
                 <select class="admin-comenzi__filtrare__categorie" id="admin-comenzi__filtrare__categorie">
-                    <option value=""> Categorie</option>
+                    <option value="Default"> Categorie</option>
                     <?=$data['categoriiOptions']?>
                 </select>
 
 
                 <select class="admin-comenzi__filtrare__piesa" id="admin-comenzi__filtrare__piesa">
-                    <option value=""> Piesa</option>
+                    <option value="Default"> Piesa</option>
                     <?=$data['pieseOptions']?>
                 </select>
 
@@ -59,7 +59,8 @@
                     id="admin-comenzi__filtrare__reset__button">Reset</button>
                 <!-- </div> -->
             </div>
-            <form action="/comenzi/<?=$data['username']?>" class="admin-comenzi__tabel" method="post">
+            <!-- <form action="/comenzi/<?=$data['username']?>" class="admin-comenzi__tabel" method="post"> -->
+            <div class="admin-comenzi__tabel">
                 <table id="admin-comenzi__tabel">
                     <thead>
                         <tr>
@@ -79,7 +80,8 @@
                 </table>
                 <div>
                 </div>
-            </form>
+            </div>
+            <!-- </form> -->
             <div class="admin-comenzi__tabel-button">
                 <button type="button" class="admin-comenzi__tabel-button__stanga"
                     id="admin-comenzi__tabel-button__stanga"> &#10094; </button>

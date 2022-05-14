@@ -33,28 +33,28 @@
                         
                         // Daca $_POST este setat marcam ca primita comanda
                         // $_POST contine : Array ( [admin-comenzi__tabel__actiune__primit] => 23 )
-                        if( isset($_POST['admin-comenzi__tabel__actiune__primit']))
-                        {
-                            //Datele extrase din POST:
-                            $id_comanda = $_POST['admin-comenzi__tabel__actiune__primit'];
-                            print_r("id comanda:".$id_comanda);
+                        // if( isset($_POST['admin-comenzi__tabel__actiune__primit']))
+                        // {
+                        //     //Datele extrase din POST:
+                        //     $id_comanda = $_POST['admin-comenzi__tabel__actiune__primit'];
+                        //     print_r("id comanda:".$id_comanda);
                              
-                            if ($id_comanda && $id_comanda != 0)
-                            {
-                                //Marcam comanda ca primita:
-                                $stoc->updateStatusComanda( $id_comanda );
+                        //     if ($id_comanda && $id_comanda != 0)
+                        //     {
+                        //         //Marcam comanda ca primita:
+                        //         $stoc->updateStatusComanda( $id_comanda );
 
-                                //comanda actual este:
-                                $date_comanda = $stoc->getComanda( $id_comanda );
-                                // Array ( [id_order] => 16 [id_part] => 164 [order_date] => 2022-05-09 [status] => 1 [quantity] => 1 [shipped_date] => 2022-05-10 )
-                                $id_piesa_comanda = $date_comanda['id_part'];
-                                $stoc_de_adaugat_din_comanda = $date_comanda['quantity'];
-                                $date_stoc = $stoc->getStocPiesa( $id_piesa_comanda );
-                                $stoc_curent = $date_stoc['cantitate_stoc'];
-                                $cantitate_stoc_noua = $stoc_curent + $stoc_de_adaugat_din_comanda;
-                                $stoc->updateCantitateStoc( $id_piesa_comanda , $cantitate_stoc_noua);
-                            }
-                        }
+                        //         //comanda actual este:
+                        //         $date_comanda = $stoc->getComanda( $id_comanda );
+                        //         // Array ( [id_order] => 16 [id_part] => 164 [order_date] => 2022-05-09 [status] => 1 [quantity] => 1 [shipped_date] => 2022-05-10 )
+                        //         $id_piesa_comanda = $date_comanda['id_part'];
+                        //         $stoc_de_adaugat_din_comanda = $date_comanda['quantity'];
+                        //         $date_stoc = $stoc->getStocPiesa( $id_piesa_comanda );
+                        //         $stoc_curent = $date_stoc['cantitate_stoc'];
+                        //         $cantitate_stoc_noua = $stoc_curent + $stoc_de_adaugat_din_comanda;
+                        //         $stoc->updateCantitateStoc( $id_piesa_comanda , $cantitate_stoc_noua);
+                        //     }
+                        // }
 
                         $brands = $stoc->getBrands();
                         $categorii = $stoc->getCategorii();
@@ -137,6 +137,47 @@
                     $this->view('errors/403.php', $info);
                 }
             }   
+        }
+        public function primit( $userName = "" , $idComanda = "")
+		{
+            //Json pentru raspuns la request-ul AJAX de procesare a comenzii
+            $raspuns =  array("insert" => 0 , "error" => "");
+            
+            if( isset($idComanda))
+            {
+
+                if ($idComanda && $idComanda != 0)
+                {
+                    $stoc = $this->model('stocModel');
+                    //Marcam comanda ca primita:
+                    $stoc->updateStatusComanda( $idComanda );
+                    //comanda actual este:
+                    $date_comanda = $stoc->getComanda( $idComanda );
+                    // Array ( [id_order] => 16 [id_part] => 164 [order_date] => 2022-05-09 [status] => 1 [quantity] => 1 [shipped_date] => 2022-05-10 )
+                    $id_piesa_comanda = $date_comanda['id_part'];
+                    $stoc_de_adaugat_din_comanda = $date_comanda['quantity'];
+                    $date_stoc = $stoc->getStocPiesa( $id_piesa_comanda );
+                    $stoc_curent = $date_stoc['cantitate_stoc'];
+                    $cantitate_stoc_noua = $stoc_curent + $stoc_de_adaugat_din_comanda;
+                    $stoc->updateCantitateStoc( $id_piesa_comanda , $cantitate_stoc_noua);
+                    $raspuns['insert'] = 1;
+                }
+                else
+                {
+                    $raspuns['error'] = "Id commanda 0"; 
+                }
+                    
+               
+            }
+            else
+            {
+                $raspuns['error'] = "Id commanda lipsa";
+            }
+            
+            // trimitem raspuns in format JSON inapoi pentru intrebare AJAX  
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($raspuns);
+
         }
     }
     

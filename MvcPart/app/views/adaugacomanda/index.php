@@ -49,7 +49,7 @@
                 <button type="submit" class="admin-add-comanda__select__add_button" id="admin-add-comanda__select__add_button" name="admin-add-comanda__select__add_button">Add</button>
             </form>
             <div class="admin-add-comanda__tabel">
-                <table id="admin-add-comanda__tabel">
+                <table id="admin-add-comanda__tabel_efectiv">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -69,11 +69,11 @@
                 <div>
                 </div>
             </div>
-            <!-- <div class="admin-add-comanda__tabel-button">
+            <div class="admin-add-comanda__tabel-button">
                 <button type="button" class="admin-add-comanda__tabel-button__stanga" id="admin-add-comanda__tabel-button__stanga"> &#10094; </button>
                 <button type="button" class="admin-add-comanda__tabel-button__dreapta" id="admin-add-comanda__tabel-button__dreapta"> &#10095; </button>
-            </div> -->
-            <script src="../js/comenzi.js"></script>
+            </div>
+            <script src="../js/adaugacomanda.js"></script>
         </div>
 
 

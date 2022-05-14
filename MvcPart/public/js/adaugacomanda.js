@@ -1,9 +1,7 @@
 
-// 1 ) Partea de filtrare a tabelului:
-// Tabelul este incarcat tot in html si in functie de datele selectate in filtrare doar o anumita parte este vizibila
-
 var defaultNoRanduriTabel = 10;
 var startRand = 1;
+// var sfarsitRand = startRan
 var filtruMemorieCauta = "";// stocam in el cuvantul cautat -> daca se modifica ar trebui sa resetam si startul
 var filtruMemorieBrand = "";// stocam in el cuvantul cautat -> daca se modifica ar trebui sa resetam si startul
 var filtruMemorieCategorie = "";// stocam in el cuvantul cautat -> daca se modifica ar trebui sa resetam si startul
@@ -11,19 +9,13 @@ var filtruMemoriePiesa = "";// stocam in el cuvantul cautat -> daca se modifica 
 
 var idCategorieSelectata = "";
 
-const brandSelectat = document.getElementById("admin-comenzi__filtrare__brand");
-const categorieSelectat = document.getElementById("admin-comenzi__filtrare__categorie");
-const piesaSelectat = document.getElementById("admin-comenzi__filtrare__piesa");
+const brandSelectat = document.getElementById("admin-add-comanda__select__brand");
+const categorieSelectat = document.getElementById("admin-add-comanda__select__categorie");
+const piesaSelectat = document.getElementById("admin-add-comanda__select__piesa");
 const NoRanduriTabel = document.getElementById("admin-comenzi__filtrare__numar-randuri");
 const cautaPiesaFiltru = document.getElementById("admin-comenzi__filtrare__cauta__piesa");
 const resetFiltru = document.getElementById("admin-comenzi__filtrare__reset__button");
-const tabelStoc = document.getElementById("admin-comenzi__tabel");
-
-
-
-
-
-
+const tabelStoc = document.getElementById("admin-add-comanda__tabel_efectiv")
 var tr = tabelStoc.getElementsByTagName("tr");
 
 if (brandSelectat) {
@@ -36,25 +28,28 @@ if (piesaSelectat) {
     piesaSelectat.addEventListener("input", function () { filtreaza_randuri_tabel() });
 }
 
-if (cautaPiesaFiltru) {
-    cautaPiesaFiltru.addEventListener("input", function () { filtreaza_randuri_tabel() });
-}
+// if (cautaPiesaFiltru) {
+//     cautaPiesaFiltru.addEventListener("input", function () { filtreaza_randuri_tabel() });
+// }
 
-if (NoRanduriTabel) {
-    NoRanduriTabel.addEventListener("input", function () { filtreaza_randuri_tabel() });
-}
+// if (NoRanduriTabel) {
+//     NoRanduriTabel.addEventListener("input", function () { filtreaza_randuri_tabel() });
+// }
 
-if (resetFiltru) {
-    resetFiltru.addEventListener("click", function () { reseteaza_filtru() });
-}
+// if (resetFiltru) {
+//     resetFiltru.addEventListener("click", function () { reseteaza_filtru() });
+// }
 
-const stangaTabelBtn = document.getElementById("admin-comenzi__tabel-button__stanga");
-const dreaptaTabelBtn = document.getElementById("admin-comenzi__tabel-button__dreapta");
+const stangaTabelBtn = document.getElementById("admin-add-comanda__tabel-button__stanga");
+const dreaptaTabelBtn = document.getElementById("admin-add-comanda__tabel-button__dreapta");
+
+
 
 if (stangaTabelBtn && dreaptaTabelBtn) {
+    console.log("Add tabel stanga-dreapta buttons listener");
     stangaTabelBtn.addEventListener("click", function () { schimba_randuri_tabel(-1) });
     dreaptaTabelBtn.addEventListener("click", function () { schimba_randuri_tabel(1) });
-    console.log("Add tabel stanga-dreapta buttons listener");
+    
 }
 
 filtreaza_randuri_tabel(defaultNoRanduriTabel);
@@ -62,7 +57,8 @@ filtreaza_randuri_tabel(defaultNoRanduriTabel);
 
 //Functiile de pe butoanele de stanga dreapta din tabel stoc -> arata numai un numar X de randuri , restul le facem invizibile
 function schimba_randuri_tabel(direction) {
-    var numarRanduri = NoRanduriTabel.value;
+    // var numarRanduri = NoRanduriTabel.value;
+    var numarRanduri = defaultNoRanduriTabel;
     var newStartRand = startRand + direction * numarRanduri;
     console.log("Schimba start rand:  initial = " + startRand + " new = " + newStartRand);
 
@@ -94,7 +90,7 @@ function reseteaza_filtru() {
 //Functie cautat dupa nume piesa in tabelul de stoc
 function filtreaza_randuri_tabel(numarRanduriSetat) {
 
-    var numarRanduri = "";
+    var numarRanduri = defaultNoRanduriTabel;
     if (NoRanduriTabel) {
         numarRanduri = NoRanduriTabel.value;
     }
@@ -130,7 +126,6 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
             const arrayIdCategorie = valCategorie.split(";");
             idCategorieSelectata = arrayIdCategorie[0];
             valCategorie = arrayIdCategorie[1];
-
         }
     }
     if (valPiesa) {
@@ -142,7 +137,10 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
         }
     }
     console.log("Valoare brand = " + valBrand + " categorie= " + valCategorie + " piesa = " + valPiesa + " idCategorieSelectata=" + idCategorieSelectata)
-
+    //Nu mai filtram in cazul acestei pagini
+    valBrand = "";
+    valCategorie = "";
+    valPiesa = "";
     //Daca avem o categorie selectata -> updatam si optiunile disponibile din piese
     selectPiese = piesaSelectat.getElementsByTagName("option")
     if (idCategorieSelectata) {
@@ -173,7 +171,8 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
     }
 
     var filtruCautaPiesa = "";
-    if (cautaPiesaFiltru) {
+    if(cautaPiesaFiltru)
+    {
         filtruCautaPiesa = cautaPiesaFiltru.value.toUpperCase();
     }
 
@@ -240,76 +239,3 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
 
 
 
-//Partea de procesare actiuni AJAX
-//Pentru a nu reincarca paginile prindem actiunile clientului si le trimitem noi direct catre server si introducem raspunsul in aceiasi pagina
-const buttonPrimitComanda = document.getElementById("admin-comenzi__tabel__actiune__primit");
-var request;
-if (buttonPrimitComanda) {
-    buttonPrimitComanda.addEventListener("click", function () { ajaxPrimitComanda() });
-}
-
-//Functie ce preia ID-ul comandei primite si il trimite prin HTTP catre server pentru a fi marcata ca primita
-function ajaxPrimitComanda() {
-    idComanda = buttonPrimitComanda.value;
-    currentUrl = document.URL
-    console.log("Button Primit Comanda cu id_comanda = " + idComanda + " din url pagina = " + currentUrl);
-    urlPrimitComanda = currentUrl.replace("/comenzi", "/comenzi/primit") + "/" + idComanda;
-    console.log("Url pagina primit= " + urlPrimitComanda);
-
-    //Cod adaptat din suport-ul de curs:
-    if (window.XMLHttpRequest) {
-        // exista suport nativ
-        request = new XMLHttpRequest();
-    }
-    else
-        if (window.ActiveXObject) {
-            // se poate folosi obiectul ActiveX din vechiul MSIE
-            request = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-
-    if (request) {
-        // stabilim functia de tratare a starii incarcarii
-        request.onreadystatechange = handleResponsePrimitComanda;
-        // preluam documentul prin metoda GET
-        request.open("GET", urlPrimitComanda, true);
-        request.send(null);
-    } else {
-        // nu exista suport pentru Ajax
-        console.error('No Ajax support :(');
-    }
-}
-
-//Cod adaptat din suport-ul de curs:
-// functia de tratare a schimbarii de stare a cererii
-// daca e ok modifica pagina (scoate buttonul)
-function handleResponsePrimitComanda() {
-    // verificam daca incarcarea s-a terminat cu succes
-    if (request.readyState == 4) {
-        // verificam daca am obtinut codul de stare '200 Ok'
-        if (request.status == 200) {
-            // procesam datele receptionate prin DOM
-            // (preluam elementul radacina al documentului XML)
-            var response = request.response;
-            // var res = response.getElementsByTagName('result')[0].firstChild.data;
-            var jsonRaspuns = JSON.parse(response);
-            // console.log("Am primit raspuns insert = " + jsonRaspuns.insert + " and error = " + jsonRaspuns.error);
-            if (jsonRaspuns.insert == 1)
-            {
-                // stergem buttonul pentru comanda current din pagina
-                buttonPrimitComanda.parentNode.removeChild(buttonPrimitComanda);
-                console.log("Am sters buttonul pentru comanda curenta primita");
-            }
-            else
-            {
-                console.log("Am primit raspuns primit comanda = " + jsonRaspuns.insert + " and error = " + jsonRaspuns.error);
-            }
-
-            
-        }
-        // eventual, se pot trata si alte coduri HTTP (404, 500 etc.)
-        else { // semnalam eroarea in consola browser-ului...
-            console.error("A problem occurred (XML data transfer):\n" +
-                response.statusText);
-        }
-    } // final de if
-}

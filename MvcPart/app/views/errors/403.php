@@ -15,7 +15,7 @@
     <p>Referer url = <?=$data['referer_url']?> </p>
     <div class="link">
         <a 
-            href="<?php echo URL; ?>home/index/"> 403:Forbidden page -> Go home
+            href="<?php echo URL; ?>home"> 403:Forbidden page -> Go home
         </a>
     </div>
 </body>

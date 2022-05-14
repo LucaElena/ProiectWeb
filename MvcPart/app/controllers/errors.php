@@ -18,7 +18,7 @@
 			#http_response_code(403);# nu stiu daca merge
             
 		}
-		public function error404(  $curenturl = "")
+		public function error404 ( $curenturl = "")
 		{
 			#print_r("Error on url:");
 			#print_r($_SERVER['REQUEST_URI']);

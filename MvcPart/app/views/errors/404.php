@@ -15,7 +15,7 @@
     <p>Referer url = <?=$data['referer_url']?> </p>
     <div class="link">
         <a 
-            href="<?php echo URL; ?>home/index/"> 404:Page not found -> Go home
+            href="<?php echo URL; ?>home"> 404:Page not found -> Go home
         </a>
     </div>
 </body>

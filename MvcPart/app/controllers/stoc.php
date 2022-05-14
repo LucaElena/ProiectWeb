@@ -13,7 +13,8 @@
             //user empty -> neautorizat 
             if ($userName == "")
             {
-                $this->view('errors/403.php', $info);
+                header('HTTP/1.0 403 Forbidden');
+                $this->view('errors/error403.php', $info);
             }
             else
             {
@@ -129,12 +130,14 @@
                     }
                     else
                     {   //user nu este admin in baza de date -> neautorizat
-                        $this->view('errors/403.php', $info);
+                        // header('HTTP/1.0 403 Forbidden');
+                        $this->view('errors/error403.php', $info);
                     }
                 }
                 else
                 {   //user negasit in baza de date -> neautorizat
-                    $this->view('errors/403.php', $info);
+                    header('HTTP/1.0 403 Forbidden');
+                    $this->view('errors/error403.php', $info);
                 }
             }   
         }

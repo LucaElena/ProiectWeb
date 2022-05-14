@@ -42,8 +42,8 @@
 			#var_dump( $this->controller);
 			#echo("<br>2:Method = " );
 			#var_dump($this->method);
-			print_r("<br>2:Params = " );
-			print_r($this->params);
+			// print_r("<br>2:Params = " );
+			// print_r($this->params);
 			#print_r($url);
 			
 			call_user_func_array(array($this->controller , $this->method) , $this->params );
