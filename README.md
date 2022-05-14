@@ -272,7 +272,7 @@
     <p>
       Acest sitem este o aplicatie web noua de gestiune al programărilor și stocurilor unui operatii de service de
       motociclete
-      <img src="./images/overview.png">
+      <img src="./WebPart/images/overview.png">
     </p>
   </section>
 
