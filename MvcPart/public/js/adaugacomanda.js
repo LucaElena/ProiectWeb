@@ -1,4 +1,7 @@
 
+// 1 ) Partea de filtrare a tabelului:
+// Tabelul este incarcat tot in html si in functie de datele selectate in filtrare doar o anumita parte este vizibila
+
 var defaultNoRanduriTabel = 10;
 var startRand = 1;
 // var sfarsitRand = startRan
@@ -9,13 +12,14 @@ var filtruMemoriePiesa = "";// stocam in el cuvantul cautat -> daca se modifica 
 
 var idCategorieSelectata = "";
 
-const brandSelectat = document.getElementById("admin-add-comanda__select__brand");
-const categorieSelectat = document.getElementById("admin-add-comanda__select__categorie");
-const piesaSelectat = document.getElementById("admin-add-comanda__select__piesa");
-const NoRanduriTabel = document.getElementById("admin-comenzi__filtrare__numar-randuri");
-const cautaPiesaFiltru = document.getElementById("admin-comenzi__filtrare__cauta__piesa");
-const resetFiltru = document.getElementById("admin-comenzi__filtrare__reset__button");
-const tabelStoc = document.getElementById("admin-add-comanda__tabel_efectiv")
+var brandSelectat = document.getElementById("admin-add-comanda__select__brand");
+var categorieSelectat = document.getElementById("admin-add-comanda__select__categorie");
+var piesaSelectat = document.getElementById("admin-add-comanda__select__piesa");
+var NoRanduriTabel = document.getElementById("admin-comenzi__filtrare__numar-randuri");
+var cautaPiesaFiltru = document.getElementById("admin-comenzi__filtrare__cauta__piesa");
+var cantitateaSelectata = document.getElementById("admin-add-comanda__select__cantitate");
+var resetFiltru = document.getElementById("admin-comenzi__filtrare__reset__button");
+var tabelStoc = document.getElementById("admin-add-comanda__tabel_efectiv")
 var tr = tabelStoc.getElementsByTagName("tr");
 
 if (brandSelectat) {
@@ -49,7 +53,7 @@ if (stangaTabelBtn && dreaptaTabelBtn) {
     console.log("Add tabel stanga-dreapta buttons listener");
     stangaTabelBtn.addEventListener("click", function () { schimba_randuri_tabel(-1) });
     dreaptaTabelBtn.addEventListener("click", function () { schimba_randuri_tabel(1) });
-    
+
 }
 
 filtreaza_randuri_tabel(defaultNoRanduriTabel);
@@ -76,8 +80,10 @@ function reseteaza_filtru() {
     brandSelectat.value = "Default";
     categorieSelectat.value = "Default";
     piesaSelectat.value = "Default";
-    NoRanduriTabel.value = "10";
-    cautaPiesaFiltru.value = "";
+    cantitateaSelectata.value = 0
+    
+    // NoRanduriTabel.value = "10";
+    // cautaPiesaFiltru.value = "";
     idCategorieSelectata = "";
     startRand = 1;
     //  = document.getElementById("admin-comenzi__filtrare__brand");
@@ -164,6 +170,7 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
             }
         }
     }
+
     else {   //La resetare (nu mai avem categorie selectata) -> trebuie sa facem toate piesele vizibile
         for (i = 0; i < selectPiese.length; i++) {
             selectPiese[i].style.display = ""
@@ -171,8 +178,7 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
     }
 
     var filtruCautaPiesa = "";
-    if(cautaPiesaFiltru)
-    {
+    if (cautaPiesaFiltru) {
         filtruCautaPiesa = cautaPiesaFiltru.value.toUpperCase();
     }
 
@@ -237,5 +243,141 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
     }
 }
 
+
+//Partea de procesare actiuni AJAX
+//Pentru a nu reincarca paginile prindem actiunile clientului si le trimitem noi direct catre server si introducem raspunsul in aceiasi pagina
+const formTrimiteComanda = document.getElementById("admin-add-comanda__select");
+const buttonTrimiteComanda = document.getElementById("admin-add-comanda__select__add_button");
+
+var request;
+var brandSelectat;
+var categorieSelectat;
+var piesaSelectata;
+var cantitateaSelectata;
+
+if (buttonTrimiteComanda) {
+    buttonTrimiteComanda.addEventListener('click', (event) => {
+        //1) Buttonul a fost apasat
+        //2) Prevent submit -> deorece ar trimite datele si reincarca pagina dar dorim sa le transmitem noi AJAX
+        event.preventDefault();
+
+        //2) Citim datele selectate prin interogare DOM-ului. Cu toate ca ar trebuie sa fie o metoda sa le luam si din POST direct.
+        brandSelectat = document.getElementById("admin-add-comanda__select__brand");
+        categorieSelectat = document.getElementById("admin-add-comanda__select__categorie");
+        piesaSelectata = document.getElementById("admin-add-comanda__select__piesa");
+        cantitateaSelectata = document.getElementById("admin-add-comanda__select__cantitate");
+
+        //3) Le verificam daca sunt sau nu goale
+        if (brandSelectat.value == "Default" || categorieSelectat.value == "Default" || piesaSelectata.value == "Default" || cantitateaSelectata.value == 0) {
+            console.log("Form incomplet");
+        }
+        else {   //4 Avem datele -> le trimitem la server
+            ajaxTrimiteComanda()
+        }
+
+    });
+}
+
+//Functie ce preia datele comandei primite si le trimite prin HTTP catre server pentru a fi pusa in asteptare in baza de date
+function ajaxTrimiteComanda() {
+    //1) Avem datele
+    console.log("Brand selectat = " + brandSelectat.value + " categorie selectata = " + categorieSelectat.value + " piesa selectata = " + piesaSelectata.value + " cantitate= " + cantitateaSelectata.value);
+
+
+    //2) construim url-ul cu date 
+    currentUrl = document.URL;
+    urlTrimiteComanda = currentUrl.replace("/adaugacomanda", "/adaugacomanda/trimite") + "/";
+    console.log("Url pagina trimite= " + urlTrimiteComanda);
+
+    //3) construim datele pentru POST 
+    var params = 'brandSelectat=' + brandSelectat.value + '&categorieSelectat=' + categorieSelectat.value + '&piesaSelectata=' + piesaSelectata.value + '&cantitateaSelectata=' + cantitateaSelectata.value;
+    // const params = {
+    //     "brandSelectat": brandSelectat.value,
+    //     "categorieSelectat": categorieSelectat.value,
+    //     "piesaSelectata": piesaSelectata.value,
+    //     "categorieSelectat": categorieSelectat.value
+    // };
+
+    //4) trimitem prin HTTP datele catre server 
+    // Cod adaptat din suport-ul de curs:
+    if (window.XMLHttpRequest) {
+        // exista suport nativ
+        request = new XMLHttpRequest();
+    }
+    else
+        if (window.ActiveXObject) {
+            // se poate folosi obiectul ActiveX din vechiul MSIE
+            request = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    if (request) {
+        // stabilim functia de tratare a starii incarcarii
+        request.onreadystatechange = handleResponsePrimitComanda;
+        // preluam documentul prin metoda POST
+        request.open("POST", urlTrimiteComanda, true);
+        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        // request.send(JSON.stringify(params));
+        request.send(params);
+    } else {
+        // nu exista suport pentru Ajax
+        console.error('No Ajax support :(');
+    }
+
+    //Asta opreste ca formul sa mai fie trimis  
+    return false;
+}
+
+//Cod adaptat din suport-ul de curs:
+// functia de tratare a schimbarii de stare a cererii
+// daca e ok modifica pagina (scoate buttonul)
+function handleResponsePrimitComanda() {
+    // verificam daca incarcarea s-a terminat cu succes
+    if (request.readyState == 4) {
+        // verificam daca am obtinut codul de stare '200 Ok'
+        if (request.status == 200) {
+            // procesam datele receptionate prin DOM
+            // (preluam elementul radacina al documentului XML)
+            var response = request.response;
+            // var res = response.getElementsByTagName('result')[0].firstChild.data;
+            var jsonRaspuns = JSON.parse(response);
+            // console.log("Am primit raspuns insert = " + jsonRaspuns.insert + " and error = " + jsonRaspuns.error);
+            if (jsonRaspuns.insert == 1) {
+                // actiune raspuns
+                console.log("Am adaugat comanda cu succes -> adauga si o noua linie in tabel");
+                var tabelComenzi = document.getElementById("admin-add-comanda__tabel_efectiv");
+
+                var randNou = tabelComenzi.insertRow(1);
+
+                var numar = randNou.insertCell(0);
+                var brand = randNou.insertCell(1);
+                var categorie = randNou.insertCell(2);
+                var piesa = randNou.insertCell(3);
+                var cantitate = randNou.insertCell(4);
+                var dataComanda = randNou.insertCell(5);
+                var status = randNou.insertCell(6);
+
+                numar.innerText = "Noua";
+                brand.innerText = brandSelectat.value;
+                categorie.innerText = categorieSelectat.value.split(";")[1];
+                piesa.innerText = piesaSelectata.value.split(";")[1];
+                cantitate.innerText = cantitateaSelectata.value;
+                dataComanda.innerText = "Noua: Astazi";
+                status.innerText = "In asteptare";
+
+
+                reseteaza_filtru();
+            }
+            else {
+                console.log("Am primit raspuns primit insert = " + jsonRaspuns.insert + " and error = " + jsonRaspuns.error);
+            }
+
+
+        }
+        // eventual, se pot trata si alte coduri HTTP (404, 500 etc.)
+        else { // semnalam eroarea in consola browser-ului...
+            console.error("A problem occurred (XML data transfer):\n" +
+                response.statusText);
+        }
+    } // final de if
+}
 
 

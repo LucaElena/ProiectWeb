@@ -166,8 +166,7 @@
                 {
                     $raspuns['error'] = "Id commanda 0"; 
                 }
-                    
-               
+
             }
             else
             {

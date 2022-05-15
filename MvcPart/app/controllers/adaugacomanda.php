@@ -37,45 +37,45 @@
                         $stoc = $this->model('stocModel');
 
 
-                        print_r($_POST);
+                        // print_r($_POST);
                         // Daca $_POST este setat adaugam o noua comanda
                         // $_POST contine : Array ( [admin-add-comanda__select__brand] => Bmw [admin-add-comanda__select__categorie] => 17;Suspensii Moto [admin-add-comanda__select__piesa] => 17;Suspensie [admin-add-comanda__select__cantitate] => 1 [admin-add-comanda__select__add_button] => )
                         // am adaugat la numele piesei si al categoriei si id-ul categoriei pentru a face legatura intre el in js
-                        if( isset($_POST['admin-add-comanda__select__brand']) && isset($_POST['admin-add-comanda__select__categorie']) && isset($_POST['admin-add-comanda__select__piesa']) && isset($_POST['admin-add-comanda__select__cantitate']))
-                        {
-                            //Datele extrase din POST:
-                            $nume_brand_selectat = $_POST['admin-add-comanda__select__brand'];
-                            $nume_categorie_selectata = explode (";", $_POST['admin-add-comanda__select__categorie'])[1];
-                            $nume_piesa_selectata = explode (";", $_POST['admin-add-comanda__select__piesa'])[1];
-                            $id_categorie_selectata = explode (";", $_POST['admin-add-comanda__select__piesa'])[0];
-                            $cantitate_selectata = $_POST['admin-add-comanda__select__cantitate'];
+                        // if( isset($_POST['admin-add-comanda__select__brand']) && isset($_POST['admin-add-comanda__select__categorie']) && isset($_POST['admin-add-comanda__select__piesa']) && isset($_POST['admin-add-comanda__select__cantitate']))
+                        // {
+                        //     //Datele extrase din POST:
+                        //     $nume_brand_selectat = $_POST['admin-add-comanda__select__brand'];
+                        //     $nume_categorie_selectata = explode (";", $_POST['admin-add-comanda__select__categorie'])[1];
+                        //     $nume_piesa_selectata = explode (";", $_POST['admin-add-comanda__select__piesa'])[1];
+                        //     $id_categorie_selectata = explode (";", $_POST['admin-add-comanda__select__piesa'])[0];
+                        //     $cantitate_selectata = $_POST['admin-add-comanda__select__cantitate'];
                             
-                            //Cautam id-ul piesei dupa numele piesei, al brandului si al categoriei:
-                            $id_piesa_selectata = $stoc->getPiesaIdByNameBrandCategory($nume_piesa_selectata , $nume_brand_selectat , $nume_categorie_selectata);
-                            print_r("Id piesa selectata = " . $id_piesa_selectata);
+                        //     //Cautam id-ul piesei dupa numele piesei, al brandului si al categoriei:
+                        //     $id_piesa_selectata = $stoc->getPiesaIdByNameBrandCategory($nume_piesa_selectata , $nume_brand_selectat , $nume_categorie_selectata);
+                        //     print_r("Id piesa selectata = " . $id_piesa_selectata);
 
                             
-                            //Adaugam comanda:
-                            if ($id_piesa_selectata && $id_piesa_selectata != 0)
-                            {
-                                $stoc->addComanda( $id_piesa_selectata , $cantitate_selectata );
-                            }
-                            else
-                            {//piese nu se afla in baza de date-> trebuie sa o inseram in piese stoc si sa ii facem o comanda
+                        //     //Adaugam comanda:
+                        //     if ($id_piesa_selectata && $id_piesa_selectata != 0)
+                        //     {
+                        //         $stoc->addComanda( $id_piesa_selectata , $cantitate_selectata );
+                        //     }
+                        //     else
+                        //     {//piese nu se afla in baza de date-> trebuie sa o inseram in piese stoc si sa ii facem o comanda
                                 
-                                print_r("Trebuie sa adaugam piesa intai");
-                                $id_brand =  $stoc->getIdBrad($nume_brand_selectat);
-                                print_r("Id brand = " . $id_brand);
-                                $stoc->insertPiesa( $id_brand, $id_categorie_selectata, $nume_piesa_selectata);
-                                $id_piesa_selectata = $stoc->getPiesaIdByNameBrandCategory($nume_piesa_selectata , $nume_brand_selectat , $nume_categorie_selectata);
-                                print_r("Id piesa selectata = " . $id_piesa_selectata);
-                                if ($id_piesa_selectata && $id_piesa_selectata != 0)
-                                {
-                                    $stoc->addComanda( $id_piesa_selectata , $cantitate_selectata );
-                                }
+                        //         print_r("Trebuie sa adaugam piesa intai");
+                        //         $id_brand =  $stoc->getIdBrad($nume_brand_selectat);
+                        //         print_r("Id brand = " . $id_brand);
+                        //         $stoc->insertPiesa( $id_brand, $id_categorie_selectata, $nume_piesa_selectata);
+                        //         $id_piesa_selectata = $stoc->getPiesaIdByNameBrandCategory($nume_piesa_selectata , $nume_brand_selectat , $nume_categorie_selectata);
+                        //         print_r("Id piesa selectata = " . $id_piesa_selectata);
+                        //         if ($id_piesa_selectata && $id_piesa_selectata != 0)
+                        //         {
+                        //             $stoc->addComanda( $id_piesa_selectata , $cantitate_selectata );
+                        //         }
 
-                            }
-                        }
+                        //     }
+                        // }
                         
                         $brands = $stoc->getBrands();
                         $categorii = $stoc->getCategorii();
@@ -150,6 +150,61 @@
                     $this->view('errors/403.php', $info);
                 }
             }   
+        }
+
+        public function  trimite($userName = "")
+        {
+            //Json pentru raspuns la request-ul AJAX de procesare a comenzii
+            $raspuns =  array("insert" => 0 , "error" => "");
+        
+            
+            if( isset($_POST['brandSelectat']) && isset($_POST['categorieSelectat']) && isset($_POST['piesaSelectata']) && isset($_POST['cantitateaSelectata']))
+            {
+                
+                $stoc = $this->model('stocModel');
+                //Datele extrase din POST:
+                $nume_brand_selectat = $_POST['brandSelectat'];
+                $nume_categorie_selectata = explode (";", $_POST['categorieSelectat'])[1];
+                $nume_piesa_selectata = explode (";", $_POST['piesaSelectata'])[1];
+                $id_categorie_selectata = explode (";", $_POST['piesaSelectata'])[0];
+                $cantitate_selectata = $_POST['cantitateaSelectata'];
+                
+                //Cautam id-ul piesei dupa numele piesei, al brandului si al categoriei:
+                $id_piesa_selectata = $stoc->getPiesaIdByNameBrandCategory($nume_piesa_selectata , $nume_brand_selectat , $nume_categorie_selectata);
+                // print_r("Id piesa selectata = " . $id_piesa_selectata);
+
+                
+                //Adaugam comanda:
+                if ($id_piesa_selectata && $id_piesa_selectata != 0)
+                {
+                    $stoc->addComanda( $id_piesa_selectata , $cantitate_selectata );
+                    $raspuns["insert"] = 1;
+                }
+                else
+                {//piese nu se afla in baza de date-> trebuie sa o inseram in piese stoc si sa ii facem o comanda
+                    
+                    // print_r("Trebuie sa adaugam piesa intai");
+                    $id_brand =  $stoc->getIdBrad($nume_brand_selectat);
+                    // print_r("Id brand = " . $id_brand);
+                    $stoc->insertPiesa( $id_brand, $id_categorie_selectata, $nume_piesa_selectata);
+                    $id_piesa_selectata = $stoc->getPiesaIdByNameBrandCategory($nume_piesa_selectata , $nume_brand_selectat , $nume_categorie_selectata);
+                    // print_r("Id piesa selectata = " . $id_piesa_selectata);
+                    if ($id_piesa_selectata && $id_piesa_selectata != 0)
+                    {
+                        $stoc->addComanda( $id_piesa_selectata , $cantitate_selectata );
+                    }
+                    else
+                    {
+                        $raspuns["error"] = "Piesa nu se afla in stoc si am primit erroare la inserarea ei";   
+                    }
+                    
+
+                }
+            }
+
+            // Trimitem json-ul cu raspunsul
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($raspuns);
         }
     }
     

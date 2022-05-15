@@ -27,6 +27,7 @@
                 <p>Pagina de adaugare comanda :</p>
             </div>
             <form action="/adaugacomanda/<?=$data['username']?>" method="post" class="admin-add-comanda__select">
+            <!-- <form onsubmit="return ajaxTrimiteComanda();" class="admin-add-comanda__select"> -->
 
                 <select class="admin-add-comanda__select__brand" id="admin-add-comanda__select__brand" name="admin-add-comanda__select__brand" required>
                     <option value="Default"> Brand</option>
