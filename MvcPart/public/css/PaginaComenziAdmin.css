@@ -243,7 +243,8 @@ footer {
 
 
 .admin-comenzi__tabel-button__stanga,
-.admin-comenzi__tabel-button__dreapta
+.admin-comenzi__tabel-button__dreapta,
+.admin-comenzi__tabel__actiune__primit
 {
     border-radius: 5px;
     transition: .3s ease;
@@ -276,7 +277,8 @@ footer {
 .admin-comenzi__filtrare__cauta__piesa:hover,
 .admin-comenzi__filtrare__reset__button:hover,
 .admin-comenzi__tabel-button__stanga:hover,
-.admin-comenzi__tabel-button__dreapta:hover
+.admin-comenzi__tabel-button__dreapta:hover,
+.admin-comenzi__tabel__actiune__primit:hover
 {
     opacity: 0.8;
     color: #1D3557;

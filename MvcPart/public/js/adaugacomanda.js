@@ -147,9 +147,11 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
     valBrand = "";
     valCategorie = "";
     valPiesa = "";
-    //Daca avem o categorie selectata -> updatam si optiunile disponibile din piese
+    //Daca avem o categorie selectata -> updatam si optiunile disponibile din piese dar si Invers de la piesa la categorie
     selectPiese = piesaSelectat.getElementsByTagName("option")
+    selectCategorii = categorieSelectat.getElementsByTagName("option")
     if (idCategorieSelectata) {
+        
         for (i = 0; i < selectPiese.length; i++) {
 
             if (selectPiese[i].value.includes(";")) {
@@ -169,11 +171,36 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
                 }
             }
         }
-    }
 
-    else {   //La resetare (nu mai avem categorie selectata) -> trebuie sa facem toate piesele vizibile
+        for (i = 0; i < selectCategorii.length; i++) {
+
+            if (selectCategorii[i].value.includes(";")) {
+                const arrayIdCategorie = selectCategorii[i].value.split(";");
+                idCategorie = arrayIdCategorie[0];
+                categorie = arrayIdCategorie[1];
+
+                if (idCategorieSelectata && idCategorie) {
+                    if (idCategorie != idCategorieSelectata) {
+                        //  console.log("Facem invisibila piesa : " + idCategorieNumePiesa)
+                        selectCategorii[i].style.display = "none"
+                    }
+                    else {   //cand schimbam categoria ramanem cu piese invisibila de la iteratia trecuta -> trebuie sa le facem vizibile pe restul
+                        //  console.log("Facem visibila piesa : " + idCategorieNumePiesa)
+                        selectCategorii[i].style.display = ""
+                    }
+                }
+            }
+        }
+
+
+
+    }
+    else {   //La resetare (nu mai avem categorie selectata) -> trebuie sa facem toate piesele vizibile si categoriile
         for (i = 0; i < selectPiese.length; i++) {
             selectPiese[i].style.display = ""
+        }
+        for (i = 0; i < selectCategorii.length; i++) {
+            selectCategorii[i].style.display = ""
         }
     }
 

@@ -138,6 +138,7 @@
                 }
             }   
         }
+        
         public function primit( $userName = "" , $idComanda = "")
 		{
             //Json pentru raspuns la request-ul AJAX de procesare a comenzii

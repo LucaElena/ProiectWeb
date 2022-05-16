@@ -143,8 +143,9 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
     }
     console.log("Valoare brand = " + valBrand + " categorie= " + valCategorie + " piesa = " + valPiesa + " idCategorieSelectata=" + idCategorieSelectata)
 
-    //Daca avem o categorie selectata -> updatam si optiunile disponibile din piese
+    //Daca avem o categorie selectata -> updatam si optiunile disponibile din piese dar si Invers de la piesa la categorie
     selectPiese = piesaSelectat.getElementsByTagName("option")
+    selectCategorii = categorieSelectat.getElementsByTagName("option")
     if (idCategorieSelectata) {
         for (i = 0; i < selectPiese.length; i++) {
 
@@ -165,10 +166,32 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
                 }
             }
         }
+        for (i = 0; i < selectCategorii.length; i++) {
+
+            if (selectCategorii[i].value.includes(";")) {
+                const arrayIdCategorie = selectCategorii[i].value.split(";");
+                idCategorie = arrayIdCategorie[0];
+                categorie = arrayIdCategorie[1];
+
+                if (idCategorieSelectata && idCategorie) {
+                    if (idCategorie != idCategorieSelectata) {
+                        //  console.log("Facem invisibila piesa : " + idCategorieNumePiesa)
+                        selectCategorii[i].style.display = "none"
+                    }
+                    else {   //cand schimbam categoria ramanem cu piese invisibila de la iteratia trecuta -> trebuie sa le facem vizibile pe restul
+                        //  console.log("Facem visibila piesa : " + idCategorieNumePiesa)
+                        selectCategorii[i].style.display = ""
+                    }
+                }
+            }
+        }
     }
-    else {   //La resetare (nu mai avem categorie selectata) -> trebuie sa facem toate piesele vizibile
+    else {   //La resetare (nu mai avem categorie selectata) -> trebuie sa facem toate piesele vizibile si categoriile
         for (i = 0; i < selectPiese.length; i++) {
             selectPiese[i].style.display = ""
+        }
+        for (i = 0; i < selectCategorii.length; i++) {
+            selectCategorii[i].style.display = ""
         }
     }
 
@@ -242,15 +265,30 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
 
 //Partea de procesare actiuni AJAX
 //Pentru a nu reincarca paginile prindem actiunile clientului si le trimitem noi direct catre server si introducem raspunsul in aceiasi pagina
-const buttonPrimitComanda = document.getElementById("admin-comenzi__tabel__actiune__primit");
+// var buttonPrimitComanda = document.getElementById("admin-comenzi__tabel__actiune__primit");
+var butoanePrimitComanda = document.querySelectorAll("[id='admin-comenzi__tabel__actiune__primit']");
+
 var request;
-if (buttonPrimitComanda) {
-    buttonPrimitComanda.addEventListener("click", function () { ajaxPrimitComanda() });
+var indexButon;
+if (butoanePrimitComanda) {
+    // buttonPrimitComanda.addEventListener("click", function () { ajaxPrimitComanda() });
+
+    for (var i = 0; i < butoanePrimitComanda.length; i++) {
+        (function(index) {
+            butoanePrimitComanda[index].addEventListener("click", function() {
+                console.log("Ai apasat buttonul de primit cu index-ul=" + index);
+                indexButon = index;
+                ajaxPrimitComanda()
+              })
+        })(i);
+     }
+
+
 }
 
 //Functie ce preia ID-ul comandei primite si il trimite prin HTTP catre server pentru a fi marcata ca primita
 function ajaxPrimitComanda() {
-    idComanda = buttonPrimitComanda.value;
+    idComanda = butoanePrimitComanda[indexButon].value;
     currentUrl = document.URL
     console.log("Button Primit Comanda cu id_comanda = " + idComanda + " din url pagina = " + currentUrl);
     urlPrimitComanda = currentUrl.replace("/comenzi", "/comenzi/primit") + "/" + idComanda;
@@ -295,9 +333,19 @@ function handleResponsePrimitComanda() {
             // console.log("Am primit raspuns insert = " + jsonRaspuns.insert + " and error = " + jsonRaspuns.error);
             if (jsonRaspuns.insert == 1)
             {
+
+                //ar trebui sa modificam si statusul in tabel:
+                var status = butoanePrimitComanda[indexButon].parentNode.parentNode.cells[6];
+                status.innerText = "Primit";
                 // stergem buttonul pentru comanda current din pagina
-                buttonPrimitComanda.parentNode.removeChild(buttonPrimitComanda);
+                butoanePrimitComanda[indexButon].parentNode.removeChild(butoanePrimitComanda[indexButon]);
                 console.log("Am sters buttonul pentru comanda curenta primita");
+
+                // adaugam iar un listener pe butoanele de primit
+                // buttonPrimitComanda = document.getElementById("admin-comenzi__tabel__actiune__primit");
+                // if (buttonPrimitComanda) {
+                //     buttonPrimitComanda.addEventListener("click", function () { ajaxPrimitComanda() });
+                // }
             }
             else
             {
