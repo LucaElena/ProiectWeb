@@ -339,7 +339,7 @@ function ajaxTrimiteComanda() {
     if (request) {
         // stabilim functia de tratare a starii incarcarii
         request.onreadystatechange = handleResponsePrimitComanda;
-        // preluam documentul prin metoda POST
+        // trimitem prin HTTP datele cu metoda POST la url-ul controlerului de adauga comanda
         request.open("POST", urlTrimiteComanda, true);
         request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         // request.send(JSON.stringify(params));

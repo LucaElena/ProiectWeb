@@ -186,7 +186,7 @@ function filtreaza_randuri_tabel(numarRanduriSetat) {
             }
         }
     }
-    else {   //La resetare (nu mai avem categorie selectata) -> trebuie sa facem toate piesele vizibile si categoriile
+    else {   //La resetare (nu mai avem categorie selectata) -> trebuie sa facem toate piesele vizibile si invers categoriile
         for (i = 0; i < selectPiese.length; i++) {
             selectPiese[i].style.display = ""
         }
@@ -308,7 +308,7 @@ function ajaxPrimitComanda() {
     if (request) {
         // stabilim functia de tratare a starii incarcarii
         request.onreadystatechange = handleResponsePrimitComanda;
-        // preluam documentul prin metoda GET
+        // trimitem prin HTTP datele cu metoda GET la url-ul controlerului de primit comanda
         request.open("GET", urlPrimitComanda, true);
         request.send(null);
     } else {

@@ -90,20 +90,20 @@
                             $date_brand = $stoc->getDateBrandById($piesa['id_brand']);
                             $date_stoc = $stoc->getStocPiesa($id_piesa_curenta);
 
-                            if(isset($_POST['admin-stoc__tabel__stoc-actiune_rand_stoc']))
-                            {
-                                //valoare din baza de date e diferita de cea primita prin POST -> update
-                                if($date_stoc['cantitate_stoc'] != $_POST['admin-stoc__tabel__stoc-actiune_rand_stoc'][$id_piesa_curenta])
-                                {
-                                    $date_stoc['cantitate_stoc']  = $_POST['admin-stoc__tabel__stoc-actiune_rand_stoc'][$id_piesa_curenta];
-                                    $stoc->updateCantitateStoc($id_piesa_curenta, $date_stoc['cantitate_stoc']);
-                                }
-                                if($date_stoc['cantitate_rezervata'] != $_POST['admin-stoc__tabel__stoc-actiune_rand_rezervate'][$id_piesa_curenta])
-                                {
-                                    $date_stoc['cantitate_rezervata']  = $_POST['admin-stoc__tabel__stoc-actiune_rand_rezervate'][$id_piesa_curenta];
-                                    $stoc->updateRezervatStoc($id_piesa_curenta, $date_stoc['cantitate_rezervata']);
-                                }
-                            }
+                            // if(isset($_POST['admin-stoc__tabel__stoc-actiune_rand_stoc']))
+                            // {
+                            //     //valoare din baza de date e diferita de cea primita prin POST -> update
+                            //     if($date_stoc['cantitate_stoc'] != $_POST['admin-stoc__tabel__stoc-actiune_rand_stoc'][$id_piesa_curenta])
+                            //     {
+                            //         $date_stoc['cantitate_stoc']  = $_POST['admin-stoc__tabel__stoc-actiune_rand_stoc'][$id_piesa_curenta];
+                            //         $stoc->updateCantitateStoc($id_piesa_curenta, $date_stoc['cantitate_stoc']);
+                            //     }
+                            //     if($date_stoc['cantitate_rezervata'] != $_POST['admin-stoc__tabel__stoc-actiune_rand_rezervate'][$id_piesa_curenta])
+                            //     {
+                            //         $date_stoc['cantitate_rezervata']  = $_POST['admin-stoc__tabel__stoc-actiune_rand_rezervate'][$id_piesa_curenta];
+                            //         $stoc->updateRezervatStoc($id_piesa_curenta, $date_stoc['cantitate_rezervata']);
+                            //     }
+                            // }
                             //inputurile cu valorile number ale stocului le denumim cu nume[id_part] pentru a fi salvate intr-un dictionar id_part:valoare_stoc 
                             $info['stocTableRow'] = $info['stocTableRow'] .  
                                     ' 
@@ -140,6 +140,48 @@
                     $this->view('errors/error403.php', $info);
                 }
             }   
+        }
+
+        public function update($userName = "")
+		{
+            //Json pentru raspuns la request-ul AJAX de procesare a comenzii
+            $raspuns =  array("insert" => 0 , "error" => "");
+
+            // if(isset($_POST))
+           //Aparent $_POST nu este completat automat in cazul unui json-> trebuie sa il luam neprelucrat noi:
+            $json = file_get_contents('php://input');
+            $values = json_decode($json, true);
+            if(isset($values["stoc"]) &&  isset($values["stoc-rezervate"]))
+            {
+                
+                $stoc = $this->model('stocModel');
+                $piese = $stoc->getAllPiese();
+                foreach ($piese as $piesa)
+                {
+                    
+                    $id_piesa_curenta = $piesa['id_part'];
+                    $date_stoc = $stoc->getStocPiesa($id_piesa_curenta);
+                    //valoare din baza de date e diferita de cea primita prin POST -> update
+                    if($date_stoc['cantitate_stoc'] != $values["stoc"][$id_piesa_curenta])
+                    {
+                        $date_stoc['cantitate_stoc']  = $values["stoc"][$id_piesa_curenta];
+                        $stoc->updateCantitateStoc($id_piesa_curenta, $date_stoc['cantitate_stoc']);
+                        $raspuns["insert"] = 1;
+                    }
+                    if($date_stoc['cantitate_rezervata'] != $values["stoc-rezervate"][$id_piesa_curenta])
+                    {
+                        $date_stoc['cantitate_rezervata']  = $values["stoc-rezervate"][$id_piesa_curenta];
+                        $stoc->updateRezervatStoc($id_piesa_curenta, $date_stoc['cantitate_rezervata']);
+                        $raspuns["insert"] = 1;
+                    }
+                }
+                
+            }
+
+            // Trimitem json-ul cu raspunsul
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($raspuns);
+
         }
     }
     
