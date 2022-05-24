@@ -8,6 +8,23 @@ var startHour = 8;
 var midHour = 14;
 var noHoursPerRow = 12;
 
+//Extragem data curenta din pagina si o suprascriem 
+let pageSelectedYear = document.getElementById("selected_month");
+let pageSelectedMonday = document.getElementById("day_0_programare");
+if (pageSelectedYear && pageSelectedMonday)
+{
+    lunaAn = pageSelectedYear.innerHTML;
+    ziLuna = pageSelectedMonday.innerHTML
+    console.log("Anul curent = " +  lunaAn); 
+    console.log("Ziua de luni curenta = " +  ziLuna); 
+    // Arata asa si il spargem pentru a ne extrage bucatile an/zi/luna
+    // Anul curent = FEB 2022
+    // Ziua de luni curenta = MON 21/02
+    currentYear = lunaAn.split(" ")[1];
+    currentMonth = ziLuna.split("/")[1]; 
+    currentDay = ziLuna.split("/")[0].split(" ")[1];
+}
+
 var lastSelectedButtonId = 0;
 var lastSelectedButtonClass = "programari__calendar__inside__hours_btn__open";
 
@@ -160,8 +177,9 @@ function print_programare(firstDay) {
     document.getElementById("selected_month").innerHTML = mounth_names[currentMonth].toUpperCase() + " " + currentYear;
     let current_monday = current_day
     if (firstDay == 2) {
-        FirstMonthDay = getFirstMonthDay(current_day)
-        current_monday = getMonday(FirstMonthDay)
+        FirstMonthDay = getFirstMonthDay(current_day);
+        current_monday = getMonday(FirstMonthDay);
+
     }
     if (firstDay == 1) {
         current_monday = getMonday(current_day)
