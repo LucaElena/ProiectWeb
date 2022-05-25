@@ -118,6 +118,10 @@
                         }
 
                     }
+                    if($oraCurentaTabel < new DateTime("now"))
+                    {
+                        $status = "busy";
+                    }
                     $info['tabelProgram'] = $info['tabelProgram']. 
                     '
                         <div class="programari__calendar__inside__hours_btn">
@@ -169,6 +173,87 @@
                 }
             }   
         }
+        public function updatestatus($userName = "")
+		{
+            //Json pentru raspuns la request-ul AJAX de trimitere status programari
+            $raspuns =  array("status" => 0 , "data" => array() , "error" => "");
+
+    
+           //Aparent $_POST nu este completat automat in cazul unui json-> trebuie sa il luam neprelucrat noi:
+            $json = file_get_contents('php://input');
+            $values = json_decode($json, true);
+
+            if(isset($values["currentDay"]))
+            {
+                
+                
+                // $raspuns["error"] = $values["currentDay"];
+                //2022-06-29T21:00:00.000Z
+                if (DateTime::createFromFormat('m/d/Y',  $values["currentDay"]) !== false)
+                {
+                    //Extragem datele din ziua curenta
+                    $dataSetataStart =  DateTime::createFromFormat('m/d/Y H:i', $values["currentDay"] . ' 00:01');
+                    $anAcum = $dataSetataStart->format('Y');
+                    $lunaAcum = $dataSetataStart->format('m');
+                    $ziAcum = $dataSetataStart->format('w');
+                    $oraAcum = $dataSetataStart->format('H');
+                    $minuteAcum = $dataSetataStart->format('i');
+
+                    //Construim un obiect de tip data cu inceputul si sfarsitul
+                    $weekStart = date('Y-m-d 00:00:00', strtotime('monday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                    $weekEnd = date('Y-m-d 23:59:59', strtotime('sunday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                    
+                    $programare = $this->model('ProgramareModel');
+                    $programariSaptamnaCurenta = $programare->getProgramari( $weekStart , $weekEnd );
+                    $raspuns["status"] = 1;
+                    
+
+                    for ($j = 1; $j <= 12; $j++) 
+                    {
+                        //Incepem de la 8 la 20
+                        $oraCurentaInt = $j + 7;
+                        //pentru fiecare zi adaugam celule cu continutul tabelului de programare
+                        for ($i = 1; $i <= 7; $i++) 
+                        {
+                            
+                            // $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum + 1)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
+                            $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s', strtotime("+" . (($i-$ziAcum + 1)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes" , strtotime($dataSetataStart->format('Y-m-d H:i:s')))));
+                            $oraCurentaFormataTabel = strtoupper(date_format($oraCurentaTabel, 'H:i')); 
+                            $status = "open";
+                            foreach($programariSaptamnaCurenta as $programare)
+                            {
+                                $difenta = $oraCurentaTabel->diff(new DateTime($programare['date']));
+                                if ($difenta->d == 0 && $difenta->h == 0)
+                                {
+                                    $status = "busy";
+                                }
+        
+                            }
+                            //Daca data curenta e mai mica decat data de acum totul este ocupat
+                            if($oraCurentaTabel < new DateTime("now"))
+                            {
+                                $status = "busy";
+                            }
+                            
+                            array_push( $raspuns["data"], array("i" => $i, "j" => $j , "status" => $status));
+                        }
+                    }
+
+                }
+                else
+                {
+                    $raspuns["error"] = $values["currentDay"];
+                }
+                
+                
+            }
+
+            // Trimitem json-ul cu raspunsul
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($raspuns);
+
+        }
+        
     }
     
 ?>

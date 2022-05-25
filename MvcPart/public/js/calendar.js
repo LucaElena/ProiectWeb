@@ -20,9 +20,9 @@ if (pageSelectedYear && pageSelectedMonday)
     // Arata asa si il spargem pentru a ne extrage bucatile an/zi/luna
     // Anul curent = FEB 2022
     // Ziua de luni curenta = MON 21/02
-    currentYear = lunaAn.split(" ")[1];
-    currentMonth = ziLuna.split("/")[1]; 
-    currentDay = ziLuna.split("/")[0].split(" ")[1];
+    currentYear = parseInt(lunaAn.split(" ")[1]);
+    currentMonth = parseInt(ziLuna.split("/")[1]); 
+    currentDay = parseInt(ziLuna.split("/")[0].split(" ")[1]);
 }
 
 var lastSelectedButtonId = 0;
@@ -227,6 +227,7 @@ function print_programare(firstDay) {
             //current_button.setAttribute("class" , "programari__calendar__inside__hours_btn__bussy");
         }
     }
+    ajaxUpdateStatusProgramari(current_day);
 }
 
 
@@ -234,8 +235,90 @@ function print_programare(firstDay) {
 
 
 
+//functie ce schimba statusul programarilor la apasarea buttoanelor stanga/dreapta din calendar
+//facem un request AJAX catre server si la primirea raspunsului updatam calendarul
+function ajaxUpdateStatusProgramari(current_day)
+{
+    console.log("Trebuie sa preluam si status-ul nou al programarilor din saptamana curenta" + current_day.toLocaleDateString());
+    //1) Preluam si pregatim datele 
+    var params = {"currentDay": {}};
+    // params["currentDay"] = current_day.getFullYear() + '-' + current_day.getMonth() + '-' +  current_day.getDate(); 
+    params["currentDay"] = current_day.toLocaleDateString();
 
 
+    //2) Construim url-ul catre server
+    currentUrl = document.URL;
+    var urlUpdateStatusProgramari = currentUrl.replace("/programare", "/programare/updatestatus") + "/";
+    console.log("Url update status programari din saptamana curenta = " + urlUpdateStatusProgramari);
+
+    //Cod adaptat din suport-ul de curs . 
+    //3)  trimitem datele prin HTTP catre server
+    if (window.XMLHttpRequest) {
+        // exista suport nativ
+        request = new XMLHttpRequest();
+    }
+    else
+        if (window.ActiveXObject) {
+            // se poate folosi obiectul ActiveX din vechiul MSIE
+            request = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+    if (request) {
+        // stabilim functia de tratare a starii incarcarii
+        request.onreadystatechange = handleResponseUpdateStatusProgramari;
+        // trimitem prin HTTP datele transformate in json cu metoda POST la url-ul controlerului de update stoc
+        request.open("POST", urlUpdateStatusProgramari, true); 
+        request.setRequestHeader("Content-Type", "application/json");
+        request.send(JSON.stringify(params));
+
+    } else {
+        // nu exista suport pentru Ajax
+        console.error('No Ajax support :(');
+    }
+}
+
+
+
+//Cod adaptat din suport-ul de curs:
+// functia de tratare a schimbarii de stare a cererii
+// daca e ok modifica pagina (scoate buttonul)
+function handleResponseUpdateStatusProgramari() {
+    // verificam daca incarcarea s-a terminat cu succes
+    if (request.readyState == 4) {
+        // verificam daca am obtinut codul de stare '200 Ok'
+        if (request.status == 200) {
+            // procesam datele receptionate prin DOM
+            // (preluam elementul radacina al documentului XML)
+            var response = request.response;
+            // var res = response.getElementsByTagName('result')[0].firstChild.data;
+            var jsonRaspuns = JSON.parse(response);
+            // console.log("Am primit raspuns status = " + jsonRaspuns.status + " and error = " + jsonRaspuns.error);
+            if (jsonRaspuns.status == 1) {
+                // actiune raspuns
+                // console.log("Am primit raspunsul:" + jsonRaspuns.data);
+                tabelProgramari = document.getElementsByClassName("programari__calendar__inside");
+                //primim un json cu statusul la toate butoanele si cordonatele i j corespunzatoare 
+                jsonRaspuns.data.forEach(
+                    element => {
+                            // console.log("i=" + element.i + " j=" + element.j + " status =" + element.status);
+                            buttonCurentProgramare = document.getElementById("calendar_row" + element.i + "_col" + element.j);
+                            buttonCurentProgramare.className = "programari__calendar__inside__hours_btn__" + element.status;
+                        }
+                    )
+            }
+            else {
+                console.log("Am primit raspuns primit status = " + jsonRaspuns.status + " and error = " + jsonRaspuns.error);
+            }
+
+
+        }
+        // eventual, se pot trata si alte coduri HTTP (404, 500 etc.)
+        else { // semnalam eroarea in consola browser-ului...
+            console.error("A problem occurred (XML data transfer):\n" +
+                response.statusText);
+        }
+    } // final de if
+}
 
 
 

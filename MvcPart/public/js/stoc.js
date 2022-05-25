@@ -270,8 +270,8 @@ if (buttonUpdateStoc) {
 function ajaxUpdateStoc() {
 
     console.log("Button de update apasat");
-    //1) Preluam datele
-    //trebuie sa reluam tabelul din DOM deoarece poate sa fie modificat si vrem varianta curenta
+    //1) Preluam si pregatim datele 
+    //trebuie sa preluam tabelul din DOM deoarece poate sa fie modificat si vrem varianta curenta
     tabelStoc = document.getElementById("admin-stoc__tabel");
     tr = tabelStoc.getElementsByTagName("tr");
     var params = {"stoc": {}, "stoc-rezervate" : {}};
