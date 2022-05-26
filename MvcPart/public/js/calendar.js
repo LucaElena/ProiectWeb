@@ -21,7 +21,7 @@ if (pageSelectedYear && pageSelectedMonday)
     // Anul curent = FEB 2022
     // Ziua de luni curenta = MON 21/02
     currentYear = parseInt(lunaAn.split(" ")[1]);
-    currentMonth = parseInt(ziLuna.split("/")[1]); 
+    currentMonth = parseInt(ziLuna.split("/")[1])-1; // luna in obiectul Date javascript incepe de la 0 
     currentDay = parseInt(ziLuna.split("/")[0].split(" ")[1]);
 }
 
@@ -155,8 +155,9 @@ function change_curent_hours(direction) {
 
 function getMonday(d) {
     d = new Date(d);
-    var day = d.getDay(),
-        diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
+    var day = d.getDay();
+    
+    diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
     return new Date(d.setDate(diff));
 }
 
@@ -303,6 +304,7 @@ function handleResponseUpdateStatusProgramari() {
                             // console.log("i=" + element.i + " j=" + element.j + " status =" + element.status);
                             buttonCurentProgramare = document.getElementById("calendar_row" + element.i + "_col" + element.j);
                             buttonCurentProgramare.className = "programari__calendar__inside__hours_btn__" + element.status;
+                            buttonCurentProgramare.innerHTML = buttonCurentProgramare.innerHTML + element.hover;
                         }
                     )
             }
@@ -320,28 +322,3 @@ function handleResponseUpdateStatusProgramari() {
     } // final de if
 }
 
-
-
-/*
- LeftBtn.addEventListener("mouseenter", setGreyBackground);
- LeftBtn.addEventListener("mouseleave", setWhiteBackground);
- rightBtn.addEventListener("mouseenter", setGreyBackground);
- rightBtn.addEventListener("mouseleave", setWhiteBackground);
- rightBtn.addEventListener("click", goTOnextMount);
-function setGreyBackground(e){
-    e.target.style.background= 'grey';
-}
-function setWhiteBackground(e){
-    e.target.style.background= 'white';
-}
-function goTOnextMount()
-{
-    
-    let months = document.getElementsByClassName("schedul__calendar__months");
-    for(let i = 0;i < months.length; i++)
-    {
-        months[i].style.transform = 'translateX(-${(currentMonthIndex + 1) *100}%)';
-    }
-    currentMonthIndex++;
-}
-*/

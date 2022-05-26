@@ -23,11 +23,25 @@
                     $dataStart = $temp;
                 }
             }
+            $user = $this->model('UserModel');
+            $programare = $this->model('ProgramareModel');
+
+            $user_exist = 0;
+            $user_type = 0;
+            $user_id = "";
+
+            if ($userName != "")
+            {
+                $user_exist = $user->isDefined($userName);
+                if ($user_exist)
+                {
+                    $user_id = $user->getUserId($userName);
+                    $user_type = $user->getUserType($userName);
+                }
+            }
 
 
             $info['username'] =  $userName;
-            $user = $this->model('UserModel');
-            $programare = $this->model('ProgramareModel');
             $info['butoane'] = "";
             $info['tabelProgram'] = "";
             $info['tabelSaptamanaProgram'] = "";
@@ -76,8 +90,8 @@
             }
             $lunaTabel = $dataSetataStart->format('M Y');
             $info['tabelLunaProgram'] = '<div class="programari__calendar__month" id="selected_month">' . strtoupper($lunaTabel) . '</div>';
-            print_r("zi start = " . $ziStart);
-            print_r("Inceput saptamna = " . $weekStart . " sfarsit = " . $weekEnd);
+            // print_r("zi start = " . $ziStart);
+            // print_r("Inceput saptamna = " . $weekStart . " sfarsit = " . $weekEnd);
             // Inceput saptamna = 2022-05-15 00:00:00 sfarsit = 2022-05-21 23:59:59
 
             $programariSaptamnaCurenta = $programare->getProgramari( $weekStart , $weekEnd );
@@ -106,28 +120,43 @@
                 for ($i = 1; $i <= 7; $i++) 
                 {
                     
-                    $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum + 1)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
+                    $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
                     $oraCurentaFormataTabel = strtoupper(date_format($oraCurentaTabel, 'H:i')); 
                     $status = "open";
+                    $hover = "";
                     foreach($programariSaptamnaCurenta as $programare)
                     {
                         $difenta = $oraCurentaTabel->diff(new DateTime($programare['date']));
                         if ($difenta->d == 0 && $difenta->h == 0)
                         {
                             $status = "busy";
+                            // $status == "busy"//clasa cu gri cu mai putine informatii 
+                            // $status = "bussy"//clasa cu rosu si mai multe informatii in hover
+                            //admin  ori //utilizator normal si programare ce ii apartine
+                            if (($user_exist && $user_type) || ($user_exist && $user_type == 0 && $programare["id_user"] == $user_id))
+                            {
+                                $status = "bussy";
+                                $dateUserProgramare = $user->getUserData($programare["id_user"]);
+                                $hover = '<span class="hover-value">'. $dateUserProgramare['user_name'] . ' ' . $dateUserProgramare['phone'] . ' '. $dateUserProgramare['email'] .'</span>';
+                                // print_r($dateUserProgramare);
+                            }
+                            
                         }
 
                     }
-                    if($oraCurentaTabel < new DateTime("now"))
+                    //daca ora curenta e mai veche decat timpul actual totul este ocupat(NU putem programa in trecut)
+                    if( new DateTime("now") > $oraCurentaTabel && $status !="bussy")
                     {
                         $status = "busy";
+                        // print_r("</br>" . $j . ":" . $i . " ". $status .":" . date_format($oraCurentaTabel , 'Y-m-d H') . " " . date_format(new DateTime("now") , 'Y-m-d H'));
                     }
                     $info['tabelProgram'] = $info['tabelProgram']. 
                     '
                         <div class="programari__calendar__inside__hours_btn">
-                            <button type="button" class="programari__calendar__inside__hours_btn__' . $status . '" name="button_progrmare_ora" value="08:00" id="calendar_row' . $i . '_col' . $j . '"> ' . $oraCurentaFormataTabel . '</button>
+                            <button type="button" class="programari__calendar__inside__hours_btn__' . $status . '" name="button_progrmare_ora" value="08:00" id="calendar_row' . $i . '_col' . $j . '"> ' . $oraCurentaFormataTabel .  $hover . '</button>
                         </div>
                     ';
+                    
                 }
             }
 
@@ -145,7 +174,7 @@
                 $user_exist = $user->isDefined($userName);
 				if ($user_exist)
 				{
-                    // $user_id = $user->getUserId($userName);
+                    
                     $user_type = $user->getUserType($userName);
                     if ($user_type) # is admin
                     {
@@ -173,12 +202,29 @@
                 }
             }   
         }
+
+
         public function updatestatus($userName = "")
 		{
             //Json pentru raspuns la request-ul AJAX de trimitere status programari
             $raspuns =  array("status" => 0 , "data" => array() , "error" => "");
+            $user = $this->model('UserModel');
+            $programare = $this->model('ProgramareModel');
+            $user_exist = 0;
+            $user_type = 0;
+            $user_id = "";
 
-    
+            if ($userName != "")
+            {
+                $user_exist = $user->isDefined($userName);
+                if ($user_exist)
+                {
+                    $user_id = $user->getUserId($userName);
+                    $user_type = $user->getUserType($userName);
+                }
+            }
+            
+
            //Aparent $_POST nu este completat automat in cazul unui json-> trebuie sa il luam neprelucrat noi:
             $json = file_get_contents('php://input');
             $values = json_decode($json, true);
@@ -203,7 +249,6 @@
                     $weekStart = date('Y-m-d 00:00:00', strtotime('monday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
                     $weekEnd = date('Y-m-d 23:59:59', strtotime('sunday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
                     
-                    $programare = $this->model('ProgramareModel');
                     $programariSaptamnaCurenta = $programare->getProgramari( $weekStart , $weekEnd );
                     $raspuns["status"] = 1;
                     
@@ -217,25 +262,39 @@
                         {
                             
                             // $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum + 1)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
-                            $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s', strtotime("+" . (($i-$ziAcum + 1)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes" , strtotime($dataSetataStart->format('Y-m-d H:i:s')))));
+                            $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s', strtotime("+" . (($i-$ziAcum )*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes" , strtotime($dataSetataStart->format('Y-m-d H:i:s')))));
                             $oraCurentaFormataTabel = strtoupper(date_format($oraCurentaTabel, 'H:i')); 
                             $status = "open";
+                            $hover = "";
                             foreach($programariSaptamnaCurenta as $programare)
                             {
                                 $difenta = $oraCurentaTabel->diff(new DateTime($programare['date']));
                                 if ($difenta->d == 0 && $difenta->h == 0)
                                 {
                                     $status = "busy";
+                                    // print_r($oraCurentaTabel . " " . DateTime("now"));
+                                    // $status == "busy"//clasa cu gri cu mai putine informatii 
+                                    // $status = "bussy"//clasa cu rosu si mai multe informatii in hover
+                                    //admin  ori //utilizator normal si programare ce ii apartine
+                                    if (($user_exist && $user_type) || ($user_exist && $user_type == 0 && $programare["id_user"] == $user_id))
+                                    {
+                                        $status = "bussy";
+                                        $dateUserProgramare = $user->getUserData($programare["id_user"]);
+                                        $hover = '<span class="hover-value">'. $dateUserProgramare['user_name'] . ' ' . $dateUserProgramare['phone'] . ' '. $dateUserProgramare['email'] .'</span>';
+                                        $raspuns["error"] = " user_exist:" . $user_exist ." user_type:". $user_type ." programare user id =".  $programare["id_user"] ." user id current=". $user_id;
+                                    }
                                 }
-        
-                            }
-                            //Daca data curenta e mai mica decat data de acum totul este ocupat
-                            if($oraCurentaTabel < new DateTime("now"))
-                            {
-                                $status = "busy";
+                                //Daca data curenta e mai mica decat data de acum totul este ocupat
+                                if( new DateTime("now") > $oraCurentaTabel && $status != "bussy")
+                                {
+                                    $status = "busy";
+                                    // print_r("</br>" . $j . ":" . $i . " ". $status .":" . date_format($oraCurentaTabel , 'Y-m-d H') . " " . date_format(new DateTime("now") , 'Y-m-d H'));
+                                }
+                                
                             }
                             
-                            array_push( $raspuns["data"], array("i" => $i, "j" => $j , "status" => $status));
+                            
+                            array_push( $raspuns["data"], array("i" => $i, "j" => $j , "status" => $status , "hover" => $hover));
                         }
                     }
 

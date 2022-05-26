@@ -47,6 +47,14 @@ class UserModel extends Controller
         // print_r($userType);
         return $userType;
     }
+    public function getUserData($userId)
+    {
+        $sql = "SELECT * FROM users WHERE id_user = :userId";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":userId" => $userId));
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
 
 }
