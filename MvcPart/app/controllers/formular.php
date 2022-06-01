@@ -5,6 +5,7 @@
         public function index($userName = "")
 		{
             
+            //Status formular : Editare(0)->Astepare raspuns admin(1)->->Astepare accept client(2)->Programat(3) Respins(4)
             $info['username'] =  $userName;
             $info['oraSelectata'] =  "2022-05-18T09:00";
             $info['oraSelectataMin'] =  "2022-05-18T09:00";

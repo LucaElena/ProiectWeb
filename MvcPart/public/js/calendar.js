@@ -228,7 +228,7 @@ function print_programare(firstDay) {
             //current_button.setAttribute("class" , "programari__calendar__inside__hours_btn__bussy");
         }
     }
-    ajaxUpdateStatusProgramari(current_day);
+    ajaxUpdateStatusProgramari(current_day, firstDay);
 }
 
 
@@ -238,13 +238,14 @@ function print_programare(firstDay) {
 
 //functie ce schimba statusul programarilor la apasarea buttoanelor stanga/dreapta din calendar
 //facem un request AJAX catre server si la primirea raspunsului updatam calendarul
-function ajaxUpdateStatusProgramari(current_day)
+function ajaxUpdateStatusProgramari(current_day , firstDay)
 {
     console.log("Trebuie sa preluam si status-ul nou al programarilor din saptamana curenta" + current_day.toLocaleDateString());
     //1) Preluam si pregatim datele 
-    var params = {"currentDay": {}};
+    var params = {"currentDay": {}, "firstDay": {}};
     // params["currentDay"] = current_day.getFullYear() + '-' + current_day.getMonth() + '-' +  current_day.getDate(); 
     params["currentDay"] = current_day.toLocaleDateString();
+    params["firstDay"] = firstDay;
 
 
     //2) Construim url-ul catre server
@@ -297,6 +298,7 @@ function handleResponseUpdateStatusProgramari() {
             if (jsonRaspuns.status == 1) {
                 // actiune raspuns
                 // console.log("Am primit raspunsul:" + jsonRaspuns.data);
+                console.log("Am primit raspuns primit status = " + jsonRaspuns.status + " and error = " + jsonRaspuns.error);
                 tabelProgramari = document.getElementsByClassName("programari__calendar__inside");
                 //primim un json cu statusul la toate butoanele si cordonatele i j corespunzatoare 
                 jsonRaspuns.data.forEach(

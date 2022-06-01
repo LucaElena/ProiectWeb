@@ -178,11 +178,20 @@ class StocModel extends Controller
         return $result['id_brand'];
     }
     
+    public function getPret( $id_part)
+    {
+        $sql = "SELECT price FROM parts WHERE id_part=:id_part;";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":id_part" => $id_part));
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result['price'];
+    }
+
     public function insertPiesa( $id_brand, $id_categorie_selectata, $nume_piesa_selectata)
     {
-        $sql = "INSERT INTO parts (name, id_category, id_brand, price, quantity, shipped_date) VALUES (NULL, :id_part, :data, 0, :quantity, NULL)";
-        $stmt= $this->conn->prepare($sql); 
-        $stmt->execute(array(":id_part" => $id_part , ":data" => $data , ":quantity" => $quantity ));
+        // $sql = "INSERT INTO parts (name, id_category, id_brand, price, quantity, shipped_date) VALUES (NULL, :id_part, :data, 0, :quantity, NULL)";
+        // $stmt= $this->conn->prepare($sql); 
+        // $stmt->execute(array(":id_part" => $id_part , ":data" => $data , ":quantity" => $quantity ));
     }
 
 }

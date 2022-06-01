@@ -213,6 +213,9 @@
             $user_exist = 0;
             $user_type = 0;
             $user_id = "";
+            $weekStart = '';
+            $weekEnd = '';
+            $dataSetataStart = '';
 
             if ($userName != "")
             {
@@ -229,14 +232,20 @@
             $json = file_get_contents('php://input');
             $values = json_decode($json, true);
 
-            if(isset($values["currentDay"]))
+
+            //firstday = 0 -> Incepand cu ziua la care suntem
+            //firstday = 1 -> Incepand cu prima Luni din saptamana la care suntem
+            //firstday = 2 -> Incepand cu prima luni din luna la care suntem
+            
+            if(isset($values["currentDay"]) && isset($values["firstDay"]))
             {
-                
-                
+
                 // $raspuns["error"] = $values["currentDay"];
                 //2022-06-29T21:00:00.000Z
                 if (DateTime::createFromFormat('m/d/Y',  $values["currentDay"]) !== false)
                 {
+                    
+                    
                     //Extragem datele din ziua curenta
                     $dataSetataStart =  DateTime::createFromFormat('m/d/Y H:i', $values["currentDay"] . ' 00:01');
                     $anAcum = $dataSetataStart->format('Y');
@@ -246,9 +255,22 @@
                     $minuteAcum = $dataSetataStart->format('i');
 
                     //Construim un obiect de tip data cu inceputul si sfarsitul
-                    $weekStart = date('Y-m-d 00:00:00', strtotime('monday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
-                    $weekEnd = date('Y-m-d 23:59:59', strtotime('sunday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
-                    
+                    if ($values["firstDay"] == 0)
+                    {
+                        $weekStart = date('Y-m-d 00:00:00', strtotime($dataSetataStart->format('Y-m-d H:i:s')));
+                        $weekEnd = date('Y-m-d 23:59:59', strtotime('+6 days', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                    }
+                    if ($values["firstDay"] == 1)
+                    {
+                        $weekStart = date('Y-m-d 00:00:00', strtotime('monday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                        $weekEnd = date('Y-m-d 23:59:59', strtotime('sunday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                    }
+                    if ($values["firstDay"] == 2)
+                    {
+                        $weekStart = date('Y-m-d 00:00:00', strtotime('first monday this month', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                        $weekEnd = date('Y-m-d 23:59:59', strtotime('+7 days', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                    }
+                   
                     $programariSaptamnaCurenta = $programare->getProgramari( $weekStart , $weekEnd );
                     $raspuns["status"] = 1;
                     
@@ -262,7 +284,7 @@
                         {
                             
                             // $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum + 1)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
-                            $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s', strtotime("+" . (($i-$ziAcum )*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes" , strtotime($dataSetataStart->format('Y-m-d H:i:s')))));
+                            $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H:i:s' , date('Y-m-d H:i:s', strtotime("+" . (($i-$ziAcum )*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes" , strtotime($dataSetataStart->format('Y-m-d H:i:s')))));
                             $oraCurentaFormataTabel = strtoupper(date_format($oraCurentaTabel, 'H:i')); 
                             $status = "open";
                             $hover = "";
@@ -297,16 +319,18 @@
                             array_push( $raspuns["data"], array("i" => $i, "j" => $j , "status" => $status , "hover" => $hover));
                         }
                     }
+                    
 
                 }
                 else
                 {
-                    $raspuns["error"] = $values["currentDay"];
+                    $raspuns["error"] = " currentDay = " . $values["currentDay"] . " firstDay = " . $values["firstDay"];
                 }
                 
                 
             }
 
+            $raspuns["error"] = " currentDay = " . $values["currentDay"] . " firstDay = " . $values["firstDay"] . " weekStart = " . $weekStart . " weekEnd = " . $weekEnd . " dataSetataStart = " . $dataSetataStart->format('Y-m-d H:i:s');
             // Trimitem json-ul cu raspunsul
             header('Content-Type: application/json; charset=utf-8');
             echo json_encode($raspuns);
