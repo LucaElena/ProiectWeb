@@ -15,7 +15,7 @@ class ProgramareModel extends Controller
     }
     public function getAllIstoricProgramari()
     {
-        $sql = "SELECT * FROM appointments";
+        $sql = "SELECT * FROM appointments ORDER BY date DESC";
         $query = $this->conn->prepare($sql);
         $query->execute();
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -24,7 +24,7 @@ class ProgramareModel extends Controller
 
     public function getIstoricProgramari($userID)
     {
-        $sql = "SELECT * FROM appointments WHERE id_user=:userID";
+        $sql = "SELECT * FROM appointments WHERE id_user=:userID ORDER BY date DESC";
         $query = $this->conn->prepare($sql);
         $query->execute(array(":userID" => $userID));
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
