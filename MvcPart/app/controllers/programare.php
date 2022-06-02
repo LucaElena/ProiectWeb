@@ -122,6 +122,7 @@
                     
                     $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
                     $oraCurentaFormataTabel = strtoupper(date_format($oraCurentaTabel, 'H:i')); 
+                    $ziuaCurentaFormataTabel = date_format($oraCurentaTabel, 'Y-m-d H:i'); 
                     $status = "open";
                     $hover = "";
                     foreach($programariSaptamnaCurenta as $programare)
@@ -150,10 +151,17 @@
                         $status = "busy";
                         // print_r("</br>" . $j . ":" . $i . " ". $status .":" . date_format($oraCurentaTabel , 'Y-m-d H') . " " . date_format(new DateTime("now") , 'Y-m-d H'));
                     }
+                    // $info['tabelProgram'] = $info['tabelProgram']. 
+                    // '
+                    //     <div class="programari__calendar__inside__hours_btn">
+                    //         <button type="button" class="programari__calendar__inside__hours_btn__' . $status . '" name="button_progrmare_ora" value="' . $ziuaCurentaFormataTabel . '" id="calendar_row' . $i . '_col' . $j . '"> ' . $oraCurentaFormataTabel .  $hover . '</button>
+                    //         <input type="hidden" id="calendar_ascuns_row' . $i . '_col' . $j . '" name="calendar_ascuns_row' . $i . '_col' . $j . '" value="' . $ziuaCurentaFormataTabel . '">
+                    //     </div>
+                    // ';
                     $info['tabelProgram'] = $info['tabelProgram']. 
                     '
                         <div class="programari__calendar__inside__hours_btn">
-                            <button type="button" class="programari__calendar__inside__hours_btn__' . $status . '" name="button_progrmare_ora" value="08:00" id="calendar_row' . $i . '_col' . $j . '"> ' . $oraCurentaFormataTabel .  $hover . '</button>
+                            <button type="button" class="programari__calendar__inside__hours_btn__' . $status . '" name="button_progrmare_ora" value="' . $ziuaCurentaFormataTabel . '" id="calendar_row' . $i . '_col' . $j . '"> ' . $oraCurentaFormataTabel .  $hover . '</button>
                         </div>
                     ';
                     

@@ -27,6 +27,7 @@ if (pageSelectedYear && pageSelectedMonday)
 
 var lastSelectedButtonId = 0;
 var lastSelectedButtonClass = "programari__calendar__inside__hours_btn__open";
+var lastSelectedButtonHtml = "";
 
 console.log("Y=" + currentYear + " M=" + currentMonth + " D=" + currentDay + " H=" + currentStartHour);
 
@@ -73,12 +74,17 @@ let calendar_butoane = document.getElementsByClassName("programari__calendar__in
 if (calendar_butoane) {
     console.log("calendar_butoane length " + calendar_butoane.length);
     let i = 0;
-    var buttons = [];
+    
+    //Asta itereaza prin toate buttoanele si adauga cate un EventListener pentru fiecare button in parte
+    //TO DO: BUG: un button deja selectat nu mai poate fi reselectat deoarece EventListener-ul e sters pentru acel button 
+    //Poate de readaugat EventListerul cumva dupa ce am consumat unul sau de cautat optiuni ce trebuie setate
     [].forEach.call(calendar_butoane, child => {
         // console.log(child);
         let calendar_buton = child.getElementsByTagName("button");
         let calendar_buton_id = calendar_buton[0].getAttribute("id");
-        calendar_buton[0].addEventListener('click', function () { buton_calendar_selected(calendar_buton_id) });
+        calendar_buton[0].addEventListener('click', function () { 
+            buton_calendar_selected(calendar_buton_id) 
+        });
         i++;
     });
 
@@ -88,13 +94,29 @@ function buton_calendar_selected(current_buton_id) {
     // console.log(current_buton_id);
     current_selected_buton = document.getElementById(current_buton_id);
     last_selected_buton = document.getElementById(lastSelectedButtonId);
+    // console.log(lastSelectedButtonId);
     if (!(lastSelectedButtonId == 0)) {
+        // daca am avut button selectat punem la loc vechea clasa si vechiul continut html
+        last_selected_buton.parentNode.innerHTML = current_parent_selected_buton_html;
+        //trebuie sa il luam inca o data din DOM pentru ca l-am modificat mai sus si dupa nu ii mai putem modifica clasa// Ramanea cu clasa selected 
+        last_selected_buton = document.getElementById(lastSelectedButtonId);
         last_selected_buton.className = lastSelectedButtonClass;
+        console.log("Resetam vechiul button selectat : " + lastSelectedButtonId + " cu valoarea=" + last_selected_buton.value );
     }
     if (current_selected_buton.className == "programari__calendar__inside__hours_btn__open") {
         lastSelectedButtonClass = current_selected_buton.className;
+        lastSelectedButtonHtml = current_selected_buton.parentNode.innerHTML;
         lastSelectedButtonId = current_buton_id;
+        //marcam ca selected buttonl primit
         current_selected_buton.className = "programari__calendar__inside__hours_btn__selected";
+        current_parent_selected_buton_html = current_selected_buton.parentNode.innerHTML;
+        //adaugam partea de input hidden pentru a transmite valoare prin POST
+        current_selected_buton.parentNode.innerHTML = current_parent_selected_buton_html 
+                + 
+            '<input type="hidden" id="ascuns_selected_button" name="ascuns_selected_button" value="' + current_selected_buton.value + '">'
+        // current_selected_buton_actualizat = document.getElementById(current_buton_id);
+        // console.log(current_selected_buton_actualizat.parentNode.innerHTML);
+        console.log("Marcam ca selected si ii adaugam input hidden pentru post buttonului : " + current_buton_id + " cu valoarea=" + current_selected_buton.value );
     }
 }
 

@@ -67,6 +67,46 @@ class ProgramareModel extends Controller
         return $result;
     }
 
+    public function checkProgramareByData($dataProgramare)
+    {
+        $sql = "SELECT * FROM appointments WHERE  date =:dataProgramare";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":dataProgramare" => $dataProgramare));
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        // print_r($sql);
+        if (!$result)
+        {
+            $result = -1;
+        }
+
+        return $result;
+    }
+    
+    public function countProgramari()
+    {
+        $sql = "SELECT COUNT(date) FROM appointments";
+        $query = $this->conn->prepare($sql);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        if ($result && array_key_exists('COUNT(date)', $result ))
+        {
+            $result = $result['COUNT(date)'];
+        }
+        else
+        {
+            $result = -1;
+        }
+        return $result;
+    }
+
+    public function insertProgramare($id_appointment, $date , $id_user , $id_form )
+    {
+        $sql = "INSERT INTO `appointments` (`id_appointment`, `date`, `id_user`, `id_form`) VALUES (:id_appointment, :date, :id_user, :id_form)";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":id_appointment" => $id_appointment , ":date" => $date  , ":id_user" => $id_user  , ":id_form" => $id_form));
+    }
+    
+    
     
 
 
