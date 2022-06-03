@@ -21,6 +21,15 @@ class FormularModel extends Controller
         $query->execute(array(":id_form" => $id_form , ":request_message" => $request_message , ":response_message" => $response_message  , ":reserved_parts_list" => $reserved_parts_list  , ":status" => $status));
     }
 
+    public function getFormular($formID)
+    {
+        $sql = "SELECT * FROM forms WHERE id_form >=:formID";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":formID" => $formID));
+        $results = $query->fetch(PDO::FETCH_ASSOC);
+        return $results;
+    }
+
     
 }
 

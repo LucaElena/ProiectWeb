@@ -61,8 +61,16 @@
             <div class="formular_programare__actiune">
                 <!-- <button type="button" class="formular_programare__actiune__accepta_button">Accepta</button>
                 <button type="button" class="formular_programare__actiune__respinge_button">Respinge</button> -->
-                <button type="submit" class="formular_programare__actiune__trimite_button" name="formular_programare__actiune" value="Trmite" > Trimite</button>
-           </div>  
+                <!-- <button type="submit" class="formular_programare__actiune__trimite_button" name="formular_programare__actiune" value="Trmite" > Trimite</button> -->
+                <?=$data['butoaneFormular']?>
+               
+            </div> 
+            <div class="formular_programare__piese_necesare">
+                <?=$data['selectPieseOptionAdmin']?>
+            </div>   
+            <div class="formular_programare__piese_selectate">
+                <?=$data['tabelPieseSelectateAdmin']?>
+            </div> 
         </form>
     </main>
 
