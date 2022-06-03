@@ -167,12 +167,7 @@
                  }
 
                  $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
-                     '</select>
-                     <input class="formular_programare__piese_necesare__cantitate" type="number"
-                         id="formular_programare__piese_necesare__cantitate" name="cantitate" value=1 min="1" max="10"
-                         required>
-                     <button type="button" class="formular_programare__piese_necesare__adauga" name="formular_programare__actiune"
-                         value="Add"><i class="fas fa-plus"></i>Add</button>';
+                     '</select>';
 
 
                  $tabelPieseSelectateAdmin = '<table>
@@ -192,18 +187,26 @@
                 {
                     $jsonPieseSelectate = json_decode($jsonPieseSelectate);
                     $i = 1;
+                    $pretTotal = 0;
                     foreach($jsonPieseSelectate as $idPiesa => $cantitatePiesa)
                     {
                         $pretPiesaCurenta = $modelStoc->getPret($idPiesa);
-                        $infoPiesa = $modelStoc->getPret($idPiesa);
-                        // $pret = $pret + $pretPiesaCurenta * $cantitatePiesa;
+                        $infoPiesaCurenta = $modelStoc->getDatePiesaById($idPiesa);
+                        $idCategorieCurenta = $infoPiesaCurenta['id_category'];
+                        $idBrandCurent = $infoPiesaCurenta['id_brand'];
+                        $idStocCurent = $infoPiesaCurenta['id_stoc'];
+
+                        $date_categorie = $modelStoc->getDateCategorieById($idCategorieCurenta);
+                        $date_brand = $modelStoc->getDateBrandById($idBrandCurent);
+
+                        $pretTotal = $pretTotal + $pretPiesaCurenta * $cantitatePiesa;
                         $tabelPieseSelectateAdmin = $tabelPieseSelectateAdmin . 
                             '<tr>
                                 <td>' . $i . '</td>
-                                <td>HONDA</td>
-                                <td>Electrice</td>
-                                <td>Acumulator</td>
-                                <td>1</td>
+                                <td>' . ucwords(strtolower($date_brand['brand_name'])) . '</td>
+                                <td>' . ucwords(strtolower($date_categorie['category_name'])) . '</td>
+                                <td>' . ucwords(strtolower($infoPiesaCurenta['name'])) . '</td>
+                                <td>' . $cantitatePiesa . '</td>
                                 <td>' . $pretPiesaCurenta . '</td>
                                 <td><i class="fas fa-trash-alt"></i></td>
                             </tr>';
@@ -215,7 +218,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>' . $pretPiesaCurenta . '</td>
+                                <td>' . $pretTotal . '</td>
                                 <td></td>
                             </tr>';
                 }                                     
@@ -253,6 +256,14 @@
                             $mesajAdmin = '<textarea name="new-messag-admin" class="formular_programare__mesaj_admin__txt" cols="10" rows="3"
                                             placeholder="Scrieti raspuns pentru client" required></textarea>
                                     ';
+                            
+                            //Admin-ul poate sa adauge piese la acest pass
+                            $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
+                                '<input class="formular_programare__piese_necesare__cantitate" type="number"
+                                    id="formular_programare__piese_necesare__cantitate" name="cantitate" value=1 min="1" max="10"
+                                    required>
+                                <button type="button" class="formular_programare__piese_necesare__adauga" name="formular_programare__actiune"
+                                    value="Add"><i class="fas fa-plus"></i>Add</button>';
                             $info['selectPieseOptionAdmin'] = $selectPieseOptionAdmin;
                             $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                             $info['butoaneFormular'] = '<button type="submit" class="formular_programare__actiune__accepta_button"
@@ -274,36 +285,64 @@
                     break;
                 case 2://formular in asteptare raspuns accept client
                     $status = "Astepare client";
-                    $mesajClient = "";
-                    $mesajClient = $mesajClient . $fisiereDovada;
-                    $mesajAdmin = "";
-                    $info['butoaneFormular'] = '';
+                    $mesajClient = '<textarea name="mesaj_nou_client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                                        readonly>' . $formResultat['request_message'] . '</textarea>';
+                        $mesajClient = $mesajClient . $fisiereDovada;
+                    $mesajAdmin = '<textarea name="new-messag-client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                                    readonly>' . $formResultat['response_message'] . '</textarea>';
+                    $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
+                    $info['butoaneFormular'] = '<button type="submit" class="formular_programare__actiune__accepta_button"
+                                                    name="formular_programare__actiune" value="Accepta">Accepta</button>
+                                                <button type="submit" class="formular_programare__actiune__respinge_button"
+                                                    name="formular_programare__actiune" value="Respinge">Respinge</button>';
                     break;
                 case 3://formular programat
                     $status = "Programat";
-                    $mesajClient = "";
+                    $mesajClient = '<textarea name="mesaj_nou_client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                                        readonly>' . $formResultat['request_message'] . '</textarea>';
                     $mesajClient = $mesajClient . $fisiereDovada;
-                    $mesajAdmin = "";
+                    $mesajAdmin = '<textarea name="new-messag-client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                                    readonly>' . $formResultat['response_message'] . '</textarea>';
+                    $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                     $info['butoaneFormular'] = '';
+                    if ($user_exist)
+                    {
+                        if($user_type)//admin -> Terminat/Sterge
+                        {
+                            $info['butoaneFormular'] = 
+                            '<button type="submit" class="formular_programare__actiune__terminat_button"  name="formular_programare__actiune" value="Terminat" >Terminat</button>
+                            <button type="submit" class="formular_programare__actiune__sterge_button"  name="formular_programare__actiune" value="Sterge">Sterge</button>';
+                        }
+                        else//client-> Sterge
+                        {
+                            $info['butoaneFormular'] = 
+                            '<button type="submit" class="formular_programare__actiune__sterge_button"  name="formular_programare__actiune" value="Sterge">Sterge</button>';
+                        }
+                    }
                     break;
                 case 4://formular refuzat si procesat-> piesele rezervate daca e cazul sunt sterse
                     $status = "Refuzat";
-                    $mesajClient = "";
+                    $mesajClient = '<textarea name="mesaj_nou_client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                                        readonly>' . $formResultat['request_message'] . '</textarea>';
                     $mesajClient = $mesajClient . $fisiereDovada;
-                    $mesajAdmin = "";
+                    $mesajAdmin = '<textarea name="new-messag-client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                                    readonly>' . $formResultat['response_message'] . '</textarea>';
+                    $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                     $info['butoaneFormular'] = '';
                     break;
                 case 5://formular terminat si procesat-> piesele utilizate sunt consumate din stoc 
                     $status = "Terminat";
-                    $mesajClient = "";
+                    $mesajClient = '<textarea name="mesaj_nou_client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                                        readonly>' . $formResultat['request_message'] . '</textarea>';
                     $mesajClient = $mesajClient . $fisiereDovada;
-                    $mesajAdmin = "";
+                    $mesajAdmin = '<textarea name="new-messag-client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                                    readonly>' . $formResultat['response_message'] . '</textarea>';
+                    $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                     $info['butoaneFormular'] = '';
                     break;
                 case -1://formular lipsa: nu am completat baza de date cu istoric complet 
                     $status = "Lipsa formular";
                     $mesajClient = "";
-                    $mesajClient = $mesajClient . $fisiereDovada;
                     $mesajAdmin = "";
                     $info['butoaneFormular'] = '';
                     break;
