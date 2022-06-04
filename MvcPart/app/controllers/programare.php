@@ -188,16 +188,16 @@
                     {
                         $info['generalbar'] = str_replace("GENERIC_USERNAME" , $userName , BARA_ADMIN_MOTO);
                         $info['butoane'] = '
-                            <button type="submit" class="programari__btn__btn1" name="calendar_action" value="Raspuns" >Raspuns</button>
-                            <button type="submit" class="programari__btn__btn2" name="calendar_action" value="Terminat" >Terminat</button>';
+                            <button type="submit" class="programari__btn__btn1" name="calendar_action" formaction="/formular/raspuns/' . $userName . '" value="Raspuns" >Raspuns</button>
+                            <button type="submit" class="programari__btn__btn2" name="calendar_action" formaction="/formular/terminat/' . $userName . '"value="Terminat" >Terminat</button>';
                         $this->view('programare/index', $info);
                     }
                     else
                     {
                         $info['generalbar'] = str_replace("GENERIC_USERNAME" , $userName , BARA_CLIENT_MOTO);
                         $info['butoane'] = '
-                            <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" value="Book">Book</button>
-                            <button type="submit" class="programari__btn__btn2" id="programari__btn__cancel" name="calendar_action" value="Cancel">Cancel</button>';
+                            <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" formaction="/formular/book/' . $userName . '" value="Book">Book</button>
+                            <button type="submit" class="programari__btn__btn2" id="programari__btn__cancel" name="calendar_action" formaction="/formular/cancel/' . $userName . '" value="Cancel">Cancel</button>';
                         $this->view('programare/index', $info);
                     }
                 }
@@ -205,7 +205,7 @@
                 {
                     $info['generalbar'] = str_replace("CLIENT_NELOGAT" , $userName , BARA_CLIENT_NELOGAT);
                     $info['butoane'] = '
-                        <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" value="Book"> Book</button>';
+                        <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" formaction="/formular/book/' . $userName . '" value="Book"> Book</button>';
                     $this->view('programare/index', $info);
                 }
             }   

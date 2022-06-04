@@ -103,7 +103,7 @@ function buton_calendar_selected(current_buton_id) {
         last_selected_buton.className = lastSelectedButtonClass;
         console.log("Resetam vechiul button selectat : " + lastSelectedButtonId + " cu valoarea=" + last_selected_buton.value );
     }
-    if (current_selected_buton.className == "programari__calendar__inside__hours_btn__open") {
+    if (current_selected_buton.className == "programari__calendar__inside__hours_btn__open" || current_selected_buton.className == "programari__calendar__inside__hours_btn__bussy") {
         lastSelectedButtonClass = current_selected_buton.className;
         lastSelectedButtonHtml = current_selected_buton.parentNode.innerHTML;
         lastSelectedButtonId = current_buton_id;

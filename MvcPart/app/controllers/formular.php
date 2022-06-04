@@ -2,48 +2,33 @@
 	class Formular extends Controller
 	{   
 
-        public function index($userName = "", )
+        //I) Functia principala in care avem doar logica de printare view in diferite feluri
+        //Actiunile le rezolvam in functii individuale pentru a nu complica si mai tare functia principala
+        public function index($userName = "")
 		{
             
-            //Status formular : Editare(0)->Astepare raspuns admin(1)->->Astepare accept client(2)->Programat(3) Refuzat(4) -> Terminat(5)
-            $oraSelectata = "2022-05-18 09:00";
-            if(isset($_POST['ascuns_selected_button']))
-            {
-                $oraSelectata = $_POST['ascuns_selected_button'];
-            }
+            // Status formular : Editare(0)->Astepare raspuns admin(1)->->Astepare accept client(2)->Programat(3) Refuzat(4) -> Terminat(5)
             
-            $statusPrimit = 0;
+            //0) Variabile globale:
             $info['username'] =  $userName;
-            $oraSelectataFormatDate = DateTime::createFromFormat('Y-m-d H:i', $oraSelectata);
-            $info['oraSelectata'] =  $oraSelectataFormatDate->format('Y-m-d')."T".$oraSelectataFormatDate->format('H:00');
-            $info['oraSelectataMin'] =  $oraSelectataFormatDate->format('Y-m-d')."T09:00";
-            $info['oraSelectataMax'] =  $oraSelectataFormatDate->format('Y-m-d')."T19:00";
             $info['butoaneFormular'] = '';
             $info['tabelPieseSelectateAdmin'] = '';
             $info['selectPieseOptionAdmin'] = '';
-            
+            $oraSelectata = "2022-05-18 09:00";
             $actiuneFormular = -1;
-            if(isset($_POST['calendar_action']))
-            {
-                
-                switch ($_POST['calendar_action']) {
-                    case "Book"://un client vrea sa faca o cerere programare
-                        $actiuneFormular = 0;
-                        break;
-                    case "Cancel"://un client vrea sa anuleze o programare in orice stadiu
-                        $actiuneFormular = 1;
-                        break;
-                    case "Raspuns"://admin-ul vrea sa raspunda la o cerere de programare
-                        $actiuneFormular = 2;
-                        break;
-                    case "Terminat"://admin-ul marcheaza ca terminata o programare-> pentru a consuma piesele rezervate.
-                        $actiuneFormular = 3;
-                        break;
-                }
-            }
-
+            $actiune = "";
+            $statusPrimit = 0;
             $mesajClient = "";
             $mesajAdmin = "";
+            $user_exist = 0;
+            $user_type = 0;
+            $user_id = "";
+            $formID = 0;
+            $programareID = 0;
+            $jsonPieseSelectate = "{}";
+            $selectPieseOptionAdmin = "";
+            $tabelPieseSelectateAdmin = "";
+            $fisiereDovada = "";
 
             $modelUser = $this->model('userModel');
             $modelProgramare = $this->model('programareModel');
@@ -51,10 +36,64 @@
             $modelStoc = $this->model('stocModel');
             $modelFisier = $this->model('fisierModel');
 
-            $user_exist = 0;
-            $user_type = 0;
-            $user_id = "";
+            
 
+            //1) Culegem datele din POST:
+            if(isset($_POST['ascuns_selected_button']))
+            {
+                $oraSelectata = $_POST['ascuns_selected_button'];
+            }
+
+            $oraSelectataFormatDate = DateTime::createFromFormat('Y-m-d H:i', $oraSelectata);
+            $info['oraSelectata'] =  $oraSelectataFormatDate->format('Y-m-d')."T".$oraSelectataFormatDate->format('H:00');
+            $info['oraSelectataMin'] =  $oraSelectataFormatDate->format('Y-m-d')."T09:00";
+            $info['oraSelectataMax'] =  $oraSelectataFormatDate->format('Y-m-d')."T19:00";
+
+            //mutat in functii individuale:
+            // if(isset($_POST['calendar_action']))
+            // {
+            //     $actiune = strtolower($_POST['calendar_action']);
+            //     switch ($_POST['calendar_action']) {
+            //         case "Book"://un client vrea sa faca o cerere programare
+            //             $actiuneFormular = 0;
+            //             break;
+            //         case "Cancel"://un client vrea sa anuleze o programare in orice stadiu
+            //             $actiuneFormular = 1;
+            //             break;
+            //         case "Raspuns"://admin-ul vrea sa raspunda la o cerere de programare
+            //             $actiuneFormular = 2;
+            //             break;
+            //         case "Terminat"://admin-ul marcheaza ca terminata o programare-> pentru a consuma piesele rezervate.
+            //             $actiuneFormular = 3;
+            //             break;
+            //     }
+            // }
+
+            // if(isset($_POST['formular_programare__actiune']))
+            // {
+            //     $actiune = strtolower($_POST['formular_programare__actiune']);
+            //     switch ($_POST['formular_programare__actiune']) {
+            //         case "Trimite"://un client trimite datele completate intr-o cerere
+            //             $actiuneFormular = 4;
+            //             break;
+            //         case "Accepta"://un client accepta oferta de pret sau un admin accepta cererea de programare
+            //             $actiuneFormular = 5;
+            //             break;
+            //         case "Respinge"://un client respinge oferta de pret sau un admin respinge cererea de programare
+            //             $actiuneFormular = 6;
+            //             break;
+            //         case "Terminat"://admin-ul marcheaza ca terminata o programare-> pentru a consuma piesele rezervate.
+            //             $actiuneFormular = 7;
+            //             break;
+            //         case "Sterge"://admin-ul sterge progrmarea
+            //             $actiuneFormular = 8;
+            //             break;
+            //     }
+            // }
+            
+
+            
+            //2) Procesam datele formului curent + inseram inainte daca avem si o actiune:
             if ($userName != "")
             {
                 $user_exist = $modelUser->isDefined($userName);
@@ -65,17 +104,9 @@
                 }
             }
 
-            //Trebuie sa verficam daca deja avem un formular la data respectiva.
+            //Trebuie sa verficam daca deja avem un formular la data selectata.
             //Daca nu avem si suntem in modul "Book" -> trebuie sa creiem un formular initial
-            //Si apoi sa il completam pe parcurs ce clientul si adminul il completeaza
-            $formID = 0;
-            $programareID = 0;
-            $jsonPieseSelectate = "{}";
-            $selectPieseOptionAdmin = "";
-            $tabelPieseSelectateAdmin = "";
-
-           
-                
+            //Si apoi sa il completam pe parcurs ce clientul si adminul il completeaza 
             $programareResultat = $modelProgramare->checkProgramareByData($oraSelectataFormatDate->format('Y-m-d H:00:00'));
             if($programareResultat == -1)
             {
@@ -101,7 +132,8 @@
             $statusPrimit = $formResultat['status'];
             $jsonPieseSelectate = $formResultat['reserved_parts_list'];
             $fisiereResultat = $modelFisier->getFisiere($formID);
-            $fisiereDovada = "";
+            // print_r( $fisiereResultat);
+            
 
             
 
@@ -229,18 +261,17 @@
 
             
 
-
-            
+            //3) In functie de status si diferiti parametri afisam un view cu parametrii diferiti:
             //In functie de status-ul primit , userul curent si actiunea facem o logica diferita 
             switch ($statusPrimit) {
                 case 0://formular initial in editare de catre client/admin
                     $status = "Editare";
                     $mesajClient = '
                             <textarea name="new-messag-client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3" placeholder="Mesaj client cu descrierea problemei" required autofocus></textarea>
-                            <input type="file" accept="video/*,image/*" multiple="multiple" class="formular_programare__mesaj_client__video" required>
+                            <input type="file" accept="video/*,image/*" multiple="multiple" name="dovezi[]" class="formular_programare__mesaj_client__video" required>
                             ';
                     $mesajAdmin = "";
-                    $info['butoaneFormular'] = '<button type="submit" class="formular_programare__actiune__trimite_button" name="formular_programare__actiune" value="Trmite" > Trimite</button>';
+                    $info['butoaneFormular'] = '<button type="submit" class="formular_programare__actiune__trimite_button" name="formular_programare__actiune" formaction="/formular/trimite/' . $userName . '" value="Trimite" > Trimite</button>';
                     
                     break;
                 case 1://formular in asteptare raspuns admin  // Parte rezervata admin
@@ -267,17 +298,17 @@
                             $info['selectPieseOptionAdmin'] = $selectPieseOptionAdmin;
                             $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                             $info['butoaneFormular'] = '<button type="submit" class="formular_programare__actiune__accepta_button"
-                                                        name="formular_programare__actiune" value="Accepta">Accepta</button>
+                                                        name="formular_programare__actiune" formaction="/formular/accepta/' . $userName . '" value="Accepta">Accepta</button>
                                                     <button type="submit" class="formular_programare__actiune__respinge_button"
-                                                        name="formular_programare__actiune" value="Respinge">Respinge</button>';
+                                                        name="formular_programare__actiune" formaction="/formular/respinge/' . $userName . '" value="Respinge">Respinge</button>';
                         }
                         else//client
                         {//poate sa stearga cererea
                             $info['butoaneFormular'] = '
                                                 <button type="submit" class="formular_programare__actiune__Editare_button"
-                                                        name="formular_programare__actiune" value="Editare">Editare</button>        
+                                                        name="formular_programare__actiune" formaction="/formular/editare/' . $userName . '" value="Editare">Editare</button>        
                                                 <button type="submit" class="formular_programare__actiune__sterge_button"
-                                                        name="formular_programare__actiune" value="Sterge">Sterge</button>
+                                                        name="formular_programare__actiune" formaction="/formular/sterge/' . $userName . '" value="Sterge">Sterge</button>
                                                     ';
                         }
                     }
@@ -292,9 +323,9 @@
                                     readonly>' . $formResultat['response_message'] . '</textarea>';
                     $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                     $info['butoaneFormular'] = '<button type="submit" class="formular_programare__actiune__accepta_button"
-                                                    name="formular_programare__actiune" value="Accepta">Accepta</button>
+                                                    name="formular_programare__actiune" formaction="/formular/accepta/' . $userName . '" value="Accepta">Accepta</button>
                                                 <button type="submit" class="formular_programare__actiune__respinge_button"
-                                                    name="formular_programare__actiune" value="Respinge">Respinge</button>';
+                                                    name="formular_programare__actiune" formaction="/formular/respinge/' . $userName . '" value="Respinge">Respinge</button>';
                     break;
                 case 3://formular programat
                     $status = "Programat";
@@ -310,13 +341,13 @@
                         if($user_type)//admin -> Terminat/Sterge
                         {
                             $info['butoaneFormular'] = 
-                            '<button type="submit" class="formular_programare__actiune__terminat_button"  name="formular_programare__actiune" value="Terminat" >Terminat</button>
-                            <button type="submit" class="formular_programare__actiune__sterge_button"  name="formular_programare__actiune" value="Sterge">Sterge</button>';
+                            '<button type="submit" class="formular_programare__actiune__terminat_button"  name="formular_programare__actiune" formaction="/formular/terminat/' . $userName . '" value="Terminat" >Terminat</button>
+                            <button type="submit" class="formular_programare__actiune__sterge_button"  name="formular_programare__actiune" formaction="/formular/sterge/' . $userName . '" value="Sterge">Sterge</button>';
                         }
                         else//client-> Sterge
                         {
                             $info['butoaneFormular'] = 
-                            '<button type="submit" class="formular_programare__actiune__sterge_button"  name="formular_programare__actiune" value="Sterge">Sterge</button>';
+                            '<button type="submit" class="formular_programare__actiune__sterge_button"  name="formular_programare__actiune" formaction="/formular/sterge/' . $userName . '" value="Sterge">Sterge</button>';
                         }
                     }
                     break;
@@ -347,6 +378,8 @@
                     $info['butoaneFormular'] = '';
                     break;
             }
+
+            
 
             $info['formularStatus'] =  $status;
             $info['mesajClient'] =  $mesajClient;
@@ -382,8 +415,76 @@
                     $info['generalbar'] = str_replace("CLIENT_NELOGAT" , $userName , BARA_CLIENT_NELOGAT);
                     $this->view('formular/index', $info);
                 }
-            }   
+            }
         }
+
+
+        //II) Actiuni primite de pe butoanele din calendarul de programari: raspuns terminat book cancel
+        public function raspuns($userName = "", )
+		{
+            // niste modificari si redirect la formular
+            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+
+        public function terminat($userName = "", )
+		{
+            // niste modificari si redirect la formular
+            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+
+        public function book($userName = "", )
+		{
+            // niste modificari si redirect la formular
+            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+
+        public function cancel($userName = "", )
+		{
+            // niste modificari si redirect la formular
+            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+
+
+        //III) Actiuni primite de pe butoanele din formular: trimite accepta respinge terminat sterge
+        public function trimite($userName = "", )
+        {
+            // niste modificari si redirect la formular
+            print_r($_POST['dovezi']);
+            foreach($_POST['dovezi'] as $name)
+            {
+                print_r($_FILES[$name]['name']);
+            }
+            foreach($_FILES as $file)
+            {
+                print_r($file['name'] . "<br>");
+                print_r($file['type'] . "<br>");
+                print_r($file['size'] . "<br>");
+                print_r($file['error'] . "<br>");
+            }
+            // header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+        public function accepta($userName = "", )
+        {
+            // niste modificari si redirect la formular
+            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+        public function respinge($userName = "", )
+        {
+            // niste modificari si redirect la formular
+            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+        // public function terminat($userName = "", )// o lasam pe cea de mai sus 
+        // {
+        //     // niste modificari si redirect la formular
+        //     header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        // }
+        public function sterge($userName = "", )
+        {
+            // niste modificari si redirect la formular
+            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+
     }
+    
     
 ?>

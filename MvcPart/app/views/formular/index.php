@@ -22,7 +22,7 @@
 
     <main>
 
-        <form action="/formular/<?=$data['username']?>l" method="post" class="formular_programare">
+        <form action="/formular/<?=$data['username']?>" method="post" class="formular_programare">
           
 
             <div class="formular_programare__status">
