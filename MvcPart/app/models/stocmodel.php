@@ -98,7 +98,7 @@ class StocModel extends Controller
         return $results;
     }
     
-
+    
     public function getPiesaIdByNameBrandCategory($part_name, $brand_name , $category_name)
     {
         $sql = "SELECT id_part FROM parts as p INNER JOIN brands as b ON p.id_brand=b.id_brand INNER join categories as c WHERE p.name=:part_name and b.brand_name=:brand_name and c.category_name=:category_name;";

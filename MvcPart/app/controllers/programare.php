@@ -127,16 +127,17 @@
                     $hover = "";
                     foreach($programariSaptamnaCurenta as $programare)
                     {
+                        //o am deja in baza de date? compar la nivel de zi si ora prin diferenta
                         $difenta = $oraCurentaTabel->diff(new DateTime($programare['date']));
                         if ($difenta->d == 0 && $difenta->h == 0)
                         {
-                            $status = "busy";
+                            $status = "busy";//gri
                             // $status == "busy"//clasa cu gri cu mai putine informatii 
                             // $status = "bussy"//clasa cu rosu si mai multe informatii in hover
                             //admin  ori //utilizator normal si programare ce ii apartine
                             if (($user_exist && $user_type) || ($user_exist && $user_type == 0 && $programare["id_user"] == $user_id))
                             {
-                                $status = "bussy";
+                                $status = "bussy";//rosu
                                 $dateUserProgramare = $user->getUserData($programare["id_user"]);
                                 $hover = '<span class="hover-value">'. $dateUserProgramare['user_name'] . ' ' . $dateUserProgramare['phone'] . ' '. $dateUserProgramare['email'] .'</span>';
                                 // print_r($dateUserProgramare);

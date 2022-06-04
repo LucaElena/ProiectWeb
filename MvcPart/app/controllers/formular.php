@@ -14,6 +14,7 @@
             $info['butoaneFormular'] = '';
             $info['tabelPieseSelectateAdmin'] = '';
             $info['selectPieseOptionAdmin'] = '';
+            $info['idFormularAscuns'] = '';
             $oraSelectata = "2022-05-18 09:00";
             $actiuneFormular = -1;
             $actiune = "";
@@ -128,6 +129,9 @@
                 
             }
 
+            //punem in pagina si un form ascuns pentru a transmite la functiile de actiune id-ul formularului
+            $info['idFormularAscuns'] = $formID;
+            print_r($info['idFormularAscuns']);
             $formResultat = $modelFormular->getFormular($formID);
             $statusPrimit = $formResultat['status'];
             $jsonPieseSelectate = $formResultat['reserved_parts_list'];
@@ -172,7 +176,7 @@
 
                  $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
                      '</select>
-                     <select class="formular_programare__piese_necesare__cateorie" >
+                     <select class="formular_programare__piese_necesare__cateorie" name="formular_programare__categorie">
                          <option value="" selected> Categorie</option>';
 
                  foreach ($categorii as $categorie)
@@ -186,7 +190,7 @@
 
                  $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
                      '</select>
-                     <select class="formular_programare__piese_necesare__piesa" >
+                     <select class="formular_programare__piese_necesare__piesa" name="formular_programare__piesa" >
                          <option value="" selected> Piesa</option>';
 
                  foreach ($piese_unice as $piesa)
@@ -222,27 +226,35 @@
                     $pretTotal = 0;
                     foreach($jsonPieseSelectate as $idPiesa => $cantitatePiesa)
                     {
-                        $pretPiesaCurenta = $modelStoc->getPret($idPiesa);
-                        $infoPiesaCurenta = $modelStoc->getDatePiesaById($idPiesa);
-                        $idCategorieCurenta = $infoPiesaCurenta['id_category'];
-                        $idBrandCurent = $infoPiesaCurenta['id_brand'];
-                        $idStocCurent = $infoPiesaCurenta['id_stoc'];
+                        if($idPiesa != 0)
+                        {
+                            $pretPiesaCurenta = $modelStoc->getPret($idPiesa);
+                            $infoPiesaCurenta = $modelStoc->getDatePiesaById($idPiesa);
+                            $idCategorieCurenta = $infoPiesaCurenta['id_category'];
+                            $idBrandCurent = $infoPiesaCurenta['id_brand'];
+                            $idStocCurent = $infoPiesaCurenta['id_stoc'];
+    
+                            $date_categorie = $modelStoc->getDateCategorieById($idCategorieCurenta);
+                            $date_brand = $modelStoc->getDateBrandById($idBrandCurent);
+    
+                            $pretTotal = $pretTotal + $pretPiesaCurenta * $cantitatePiesa;
+                            $tabelPieseSelectateAdmin = $tabelPieseSelectateAdmin . 
+                                '<tr>
+                                    <td>' . $i . '</td>
+                                    <td>' . ucwords(strtolower($date_brand['brand_name'])) . '</td>
+                                    <td>' . ucwords(strtolower($date_categorie['category_name'])) . '</td>
+                                    <td>' . ucwords(strtolower($infoPiesaCurenta['name'])) . '</td>
+                                    <td>' . $cantitatePiesa . '</td>
+                                    <td>' . $pretPiesaCurenta . '</td>
+                                    <td><button type="submit" class="formular_programare__piese_necesare__sterge" name="formular_programare__actiune" formaction="/formular/stergepiesa/' . $userName . '"
+                                        value="' . $idPiesa . ';Remove"><i class="fas fa-plus"><i class="fas fa-trash-alt"></i></button></td>
+                                </tr>';
+                            $i++;
+                        }
 
-                        $date_categorie = $modelStoc->getDateCategorieById($idCategorieCurenta);
-                        $date_brand = $modelStoc->getDateBrandById($idBrandCurent);
-
-                        $pretTotal = $pretTotal + $pretPiesaCurenta * $cantitatePiesa;
-                        $tabelPieseSelectateAdmin = $tabelPieseSelectateAdmin . 
-                            '<tr>
-                                <td>' . $i . '</td>
-                                <td>' . ucwords(strtolower($date_brand['brand_name'])) . '</td>
-                                <td>' . ucwords(strtolower($date_categorie['category_name'])) . '</td>
-                                <td>' . ucwords(strtolower($infoPiesaCurenta['name'])) . '</td>
-                                <td>' . $cantitatePiesa . '</td>
-                                <td>' . $pretPiesaCurenta . '</td>
-                                <td><i class="fas fa-trash-alt"></i></td>
-                            </tr>';
                     }
+                    
+
                     $tabelPieseSelectateAdmin = $tabelPieseSelectateAdmin . 
                             '<tr>
                                 <td></td>
@@ -267,7 +279,7 @@
                 case 0://formular initial in editare de catre client/admin
                     $status = "Editare";
                     $mesajClient = '
-                            <textarea name="new-messag-client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3" placeholder="Mesaj client cu descrierea problemei" required autofocus></textarea>
+                            <textarea name="mesaj_nou_client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3" placeholder="Mesaj client cu descrierea problemei" required autofocus></textarea>
                             <input type="file" accept="video/*,image/*" multiple="multiple" name="dovezi[]" class="formular_programare__mesaj_client__video" required>
                             ';
                     $mesajAdmin = "";
@@ -284,16 +296,26 @@
                         
                         if($user_type)//admin
                         {//poate sa raspunda si sa accepte/respinga cererea 
-                            $mesajAdmin = '<textarea name="new-messag-admin" class="formular_programare__mesaj_admin__txt" cols="10" rows="3"
-                                            placeholder="Scrieti raspuns pentru client" required></textarea>
-                                    ';
+                            if (isset($formResultat['response_message']))
+                            {
+                                $mesajAdmin = '<textarea name="mesaj_nou_admin" class="formular_programare__mesaj_admin__txt" cols="10" rows="3"
+                                placeholder="Scrieti raspuns pentru client" required>'. $formResultat['response_message'] . '</textarea>
+                                         ';
+                            }
+                            else
+                            {
+                                $mesajAdmin = '<textarea name="mesaj_nou_admin" class="formular_programare__mesaj_admin__txt" cols="10" rows="3"
+                                placeholder="Scrieti raspuns pentru client" required></textarea>
+                                         ';
+                            }
+                            
                             
                             //Admin-ul poate sa adauge piese la acest pass
                             $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
                                 '<input class="formular_programare__piese_necesare__cantitate" type="number"
                                     id="formular_programare__piese_necesare__cantitate" name="cantitate" value=1 min="1" max="10"
                                     required>
-                                <button type="button" class="formular_programare__piese_necesare__adauga" name="formular_programare__actiune"
+                                <button type="submit" class="formular_programare__piese_necesare__adauga" name="formular_programare__actiune" formaction="/formular/adaugapiesa/' . $userName . '"
                                     value="Add"><i class="fas fa-plus"></i>Add</button>';
                             $info['selectPieseOptionAdmin'] = $selectPieseOptionAdmin;
                             $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
@@ -319,7 +341,7 @@
                     $mesajClient = '<textarea name="mesaj_nou_client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
                                         readonly>' . $formResultat['request_message'] . '</textarea>';
                         $mesajClient = $mesajClient . $fisiereDovada;
-                    $mesajAdmin = '<textarea name="new-messag-client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                    $mesajAdmin = '<textarea name="mesaj_nou_admin" class="formular_programare__mesaj_admin__txt" cols="10" rows="3"
                                     readonly>' . $formResultat['response_message'] . '</textarea>';
                     $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                     $info['butoaneFormular'] = '<button type="submit" class="formular_programare__actiune__accepta_button"
@@ -332,7 +354,7 @@
                     $mesajClient = '<textarea name="mesaj_nou_client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
                                         readonly>' . $formResultat['request_message'] . '</textarea>';
                     $mesajClient = $mesajClient . $fisiereDovada;
-                    $mesajAdmin = '<textarea name="new-messag-client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                    $mesajAdmin = '<textarea name="mesaj_nou_admin" class="formular_programare__mesaj_admin__txt" cols="10" rows="3"
                                     readonly>' . $formResultat['response_message'] . '</textarea>';
                     $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                     $info['butoaneFormular'] = '';
@@ -356,7 +378,7 @@
                     $mesajClient = '<textarea name="mesaj_nou_client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
                                         readonly>' . $formResultat['request_message'] . '</textarea>';
                     $mesajClient = $mesajClient . $fisiereDovada;
-                    $mesajAdmin = '<textarea name="new-messag-client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                    $mesajAdmin = '<textarea name="mesaj_nou_admin" class="formular_programare__mesaj_admin__txt" cols="10" rows="3"
                                     readonly>' . $formResultat['response_message'] . '</textarea>';
                     $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                     $info['butoaneFormular'] = '';
@@ -366,7 +388,7 @@
                     $mesajClient = '<textarea name="mesaj_nou_client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
                                         readonly>' . $formResultat['request_message'] . '</textarea>';
                     $mesajClient = $mesajClient . $fisiereDovada;
-                    $mesajAdmin = '<textarea name="new-messag-client" class="formular_programare__mesaj_client__txt" cols="10" rows="3"
+                    $mesajAdmin = '<textarea name="mesaj_nou_admin" class="formular_programare__mesaj_admin__txt" cols="10" rows="3"
                                     readonly>' . $formResultat['response_message'] . '</textarea>';
                     $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                     $info['butoaneFormular'] = '';
@@ -445,24 +467,199 @@
         }
 
 
-        //III) Actiuni primite de pe butoanele din formular: trimite accepta respinge terminat sterge
+        //III) Actiuni primite de pe butoanele din formular: trimite adauga accepta respinge terminat sterge
         public function trimite($userName = "", )
         {
             // niste modificari si redirect la formular
-            print_r($_POST['dovezi']);
-            foreach($_POST['dovezi'] as $name)
+            // phpinfo(); // printeaza toate datele de configurare
+            // print_r($_POST);
+            // print_r($_FILES['dovezi']); Arata asa:
+            // Array (
+            //  [name] => Array ( [0] => moto_stricat1.jpg [1] => moto_stricat2.jpg ) 
+            //  [type] => Array ( [0] => image/jpeg [1] => image/jpeg ) 
+            //  [tmp_name] => Array ( [0] => G:\xampp\tmp\phpF42F.tmp [1] => G:\xampp\tmp\phpF440.tmp ) 
+            //  [error] => Array ( [0] => 0 [1] => 0 )
+            //  [size] => Array ( [0] => 143453 [1] => 144558 ) 
+            //  )
+
+            $modelFisier = $this->model('fisierModel');
+            $modelFormular = $this->model('formularModel');
+            if(isset(($_POST)))
             {
-                print_r($_FILES[$name]['name']);
+                if(isset($_POST['id_formular_ascuns']))
+                {
+                    $currentFormId = $_POST['id_formular_ascuns'];
+                    if(isset($_POST['ora_programare']))
+                    {
+                        $oraProgramare = $_POST['ora_programare'];
+                    }
+                    if(isset($_POST['mesaj_nou_client']))
+                    {
+                        $mesajClient = $_POST['mesaj_nou_client'];
+                        $modelFormular->updateMesajClient($currentFormId, $mesajClient );
+                    }
+
+
+                    $i = 0;
+                    foreach($_FILES['dovezi']['name'] as $name)
+                    {
+                        if($_FILES['dovezi']['error'][$i] == 0)
+                        {
+                            $tipFisier = '1';
+                            if (str_contains($_FILES['dovezi']['type'][$i], 'image')) { 
+                                $tipFisier = '1';
+                            }
+                            if (str_contains($_FILES['dovezi']['type'][$i], 'video')) { 
+                                $tipFisier = '2';
+                            }
+                            $modelFisier->insertFisier( $_FILES['dovezi']['tmp_name'][$i] , $currentFormId , $tipFisier);
+                        }
+                        $i++;
+                    }
+                }
+                
             }
-            foreach($_FILES as $file)
-            {
-                print_r($file['name'] . "<br>");
-                print_r($file['type'] . "<br>");
-                print_r($file['size'] . "<br>");
-                print_r($file['error'] . "<br>");
-            }
-            // header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            //Trecem si statusul de la 0 la 1 (de la Editare la Asteptare raspuns admin)
+            $modelFormular->schimbaStatus($currentFormId, "1");
+            //redirect la formular index(unde avem logica de printare view)
+            // header('Location: ' . URL . 'formular/' . $userName); 
+            //sau sa printam un view de multumire
+
         }
+        public function adaugapiesa($userName = "", )
+        {
+            // niste modificari si redirect la formular
+            // print_r($_POST);
+            // Array ( [id_formular_ascuns] => 102 [ora_programare] => 2022-05-18T09:00 [mesaj_nou_client] => zfsdgsdg [mesaj_nou_admin] => sdgdfgdshgdh [formular_programare__brand] => Honda [cantitate] => 2 [formular_programare__actiune] => Add )
+            
+            $modelFisier = $this->model('fisierModel');
+            $modelFormular = $this->model('formularModel');
+            $modelStoc = $this->model('stocModel');
+            if(isset(($_POST)))
+            {
+                if(isset($_POST['id_formular_ascuns']))
+                {
+                    $currentFormId = $_POST['id_formular_ascuns'];
+                    if(isset($_POST['ora_programare']))
+                    {
+                        $oraProgramare = $_POST['ora_programare'];
+                    }
+                    if(isset($_POST['mesaj_nou_client']))
+                    {
+                        $mesajClient = $_POST['mesaj_nou_client'];
+                        $modelFormular->updateMesajClient($currentFormId, $mesajClient );
+                    }
+                    if(isset($_POST['mesaj_nou_admin']))
+                    {
+                        $mesajAdmin = $_POST['mesaj_nou_admin'];
+                        $modelFormular->updateMesajAdmin($currentFormId, $mesajAdmin );
+                    }
+                    if(isset($_POST['formular_programare__actiune']))
+                    {
+                        if($_POST['formular_programare__actiune'] == "Add")
+                        {
+                            if(empty($_POST['formular_programare__brand']) && empty($_POST['formular_programare__categorie']) && empty($_POST['formular_programare__piesa']) && empty($_POST['cantitate'])) 
+                            {
+                                // Array ( [id_formular_ascuns] => 102 [ora_programare] => 2022-05-18T09:00 [mesaj_nou_client] => zfsdgsdg [mesaj_nou_admin] => test test [formular_programare__brand] => Beta [formular_programare__categorie] => 7;Filtre [formular_programare__piesa] => 7;Filtru Benzina [cantitate] => 3 [formular_programare__actiune] => Add )
+                                
+                                //Datele extrase din POST dupa ce am verificat mai sus ca exista:
+                                $nume_brand_selectat = $_POST['formular_programare__brand'];
+                                $nume_categorie_selectata = explode (";", $_POST['formular_programare__categorie'])[1];
+                                $nume_piesa_selectata = explode (";", $_POST['formular_programare__piesa'])[1];
+                                $cantitate = $_POST['cantitate'];
+                                
+                                //Cautam id-ul piesei dupa numele piesei, al brandului si al categoriei:
+                                $piesaID = $modelStoc->getPiesaIdByNameBrandCategory($nume_piesa_selectata , $nume_brand_selectat , $nume_categorie_selectata);
+
+                                $formResultat = $modelFormular->getFormular($currentFormId);
+                                $jsonPieseCurente = $formResultat['reserved_parts_list'];
+
+                                // print_r($piesaID . ":" . $cantitate . " json curent =" .  $jsonPieseCurente);
+
+                                //decodam stringul cu piese curente in JSON , apoi adaugam piesa curenta si transformam JSON-ul inapoi in string si updatam formularul
+                                $jsonPieseCurente = json_decode($jsonPieseCurente,true);
+                                if (isset($jsonPieseCurente[$piesaID]))
+                                {
+                                    $jsonPieseCurente[$piesaID] = strval(intval($jsonPieseCurente[$piesaID]) + intval($cantitate));
+                                }
+                                else
+                                {
+                                    $jsonPieseCurente[$piesaID] = strval(intval($cantitate));
+                                }
+                                $jsonPieseCurente = json_encode($jsonPieseCurente);
+                                // print_r($jsonPieseCurente);
+                                $modelFormular->updateListaPiese($currentFormId, $jsonPieseCurente );
+
+                            }
+                        }
+                    }
+                }
+            }
+            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+
+        public function stergepiesa($userName = "", )
+        {
+            // niste modificari si redirect la formular
+            // print_r($_POST);
+            // Array ( [id_formular_ascuns] => 102 [ora_programare] => 2022-05-18T09:00 [mesaj_nou_client] => zfsdgsdg [mesaj_nou_admin] => test test dssdsfas [formular_programare__brand] => [formular_programare__categorie] => [formular_programare__piesa] => [cantitate] => 1 [formular_programare__actiune] => 114;Remove )
+            
+            $modelFisier = $this->model('fisierModel');
+            $modelFormular = $this->model('formularModel');
+            $modelStoc = $this->model('stocModel');
+            if(isset(($_POST)))
+            {
+                if(isset($_POST['id_formular_ascuns']))
+                {
+                    $currentFormId = $_POST['id_formular_ascuns'];
+                    if(isset($_POST['ora_programare']))
+                    {
+                        $oraProgramare = $_POST['ora_programare'];
+                    }
+                    if(isset($_POST['mesaj_nou_client']))
+                    {
+                        $mesajClient = $_POST['mesaj_nou_client'];
+                        $modelFormular->updateMesajClient($currentFormId, $mesajClient );
+                    }
+                    if(isset($_POST['mesaj_nou_client']))
+                    {
+                        $mesajClient = $_POST['mesaj_nou_client'];
+                        $modelFormular->updateMesajClient($currentFormId, $mesajClient );
+                    }
+                    if(isset($_POST['mesaj_nou_admin']))
+                    {
+                        $mesajAdmin = $_POST['mesaj_nou_admin'];
+                        $modelFormular->updateMesajAdmin($currentFormId, $mesajAdmin );
+                    }
+                    if(isset($_POST['formular_programare__actiune']))
+                    {
+                        //Am facut un mic truc sa trimitem mai repede si Id-ul Piesei pe care o stergem
+                        //Arata asa initial : [formular_programare__actiune] => 114;Remove
+                        $actiunePrimita = explode (";", $_POST['formular_programare__actiune']);
+                        $actiune =  $actiunePrimita[1];
+                        $idPiesa =  $actiunePrimita[0];
+
+                        if($actiune == "Remove")
+                        {
+                            // print_r("Trebuie sa stergem piesa:" . $idPiesa);
+                            $formResultat = $modelFormular->getFormular($currentFormId);
+                            $jsonPieseCurente = $formResultat['reserved_parts_list'];
+                            //decodam stringul cu piese curente in JSON , apoi adaugam piesa curenta si transformam JSON-ul inapoi in string si updatam formularul
+                            $jsonPieseCurente = json_decode($jsonPieseCurente,true);
+                            if (isset($jsonPieseCurente[$idPiesa]))
+                            {
+                                unset($jsonPieseCurente[$idPiesa]);
+                            }
+                            $jsonPieseCurente = json_encode($jsonPieseCurente);
+                            // print_r($jsonPieseCurente);
+                            $modelFormular->updateListaPiese($currentFormId, $jsonPieseCurente );
+                        }
+                    }
+                }
+            }
+            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+
         public function accepta($userName = "", )
         {
             // niste modificari si redirect la formular
