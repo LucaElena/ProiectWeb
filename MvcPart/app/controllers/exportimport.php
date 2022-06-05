@@ -79,11 +79,12 @@
                     $extensie = "";
                     $date_formatate_json = "{}";
                     $date_formatate_json = json_decode($date_formatate_json, true);
-                    $fisierExport = fopen($categorie . '.' . $format, "w") or die("Unable to open file!");
+                    $numeFisier = strtolower($categorie . '.' . $format);
+                    $fisierExport = fopen($numeFisier, "w");
                     $i = 0; 
 
                     switch ($categorie) {
-                        case "General":
+                        case "General"://TO DO
                             //1) extragem datele din categorie curenta
                             $date = "";
                             //2) le procesam in formatul curent
@@ -137,6 +138,7 @@
                                         $date_formatate_json[$i]['status'] = $status;
                                         break;
                                     case "CSV":
+                                        // fputcsv($fisierExport, [$id_appointment , $data , $id_user , $id_form , addslashes($request_message) , addslashes($response_message) , $reserved_parts_list , $status]);
                                         fputcsv($fisierExport, $elementCurent);
                                         break;
                                     case "PDF":
@@ -144,7 +146,6 @@
                                 }
                                 $i++;
                             }
-
                             break;
                         case "Stoc":
                             //1) extragem datele din categorie curenta
@@ -210,35 +211,74 @@
                                 }
                                 $i++;
                             }
-
-                            //3) le scriem in fisier
-                            switch ($format) {
-                                case "JSON":
-                                    $date_formatate_json = json_encode($date_formatate_json);
-                                    // print_r("Scriem datele json");
-                                    fwrite($fisierExport, $date_formatate_json);
-                                    break;
-                                case "CSV":
-                                    //fputcsv deja le-a scris in fisier 
-                                    break;
-                                case "PDF":
-                                    $extensie = "pdf"; 
-                                    break;
-                            }
-                            fclose($fisierExport);
-
-                            //4) trimitem fisierul catre client  
-                            header('Content-disposition: attachment;filename=' . $categorie . '.' . $format);
-                            readfile($categorie . '.' . $format);
                             break;
                         case "Comenzi":
-                            $date  = "";
+                            $date = $modelStoc->getComenzi();
+                            // print_r($date);
+                            // Array ( 
+                            //     [id_order] => 1 
+                            //     [id_part] => 95 
+                            //     [order_date] => 2022-04-05 
+                            //     [status] => 1 
+                            //     [quantity] => 5 
+                            //     [shipped_date] => 2022-04-07 )
+                            foreach( $date as $elementCurent )
+                            {
+                                // print_r($elementCurent);
+                                $id_order = $elementCurent['id_order'];
+                                $id_part = $elementCurent['id_part'];
+                                $order_date = $elementCurent['order_date'];
+                                $status = $elementCurent['status'];
+                                $quantity = $elementCurent['quantity'];
+                                $shipped_date = $elementCurent['shipped_date'];
+
+                                //2) le procesam in formatul curent
+                                switch ($format) {
+                                    case "JSON":
+                                        $date_formatate_json[$i] = [];
+                                        $date_formatate_json[$i]['id_order'] = $id_order;
+                                        $date_formatate_json[$i]['id_part'] = $id_part;
+                                        $date_formatate_json[$i]['order_date'] = $order_date;
+                                        $date_formatate_json[$i]['status'] = $status;
+                                        $date_formatate_json[$i]['quantity'] = $quantity;
+                                        $date_formatate_json[$i]['shipped_date'] = $shipped_date;
+                                        break;
+                                    case "CSV":
+                                        // fputcsv($fisierExport, [$id_appointment , $data , $id_user , $id_form , addslashes($request_message) , addslashes($response_message) , $reserved_parts_list , $status]);
+                                        fputcsv($fisierExport, $elementCurent);
+                                        break;
+                                    case "PDF":
+                                        break;
+                                }
+                                $i++;
+                            }
                             break;
                     }
+
+                    //3) le scriem in fisier
+                    switch ($format) {
+                        case "JSON":
+                            $date_formatate_json = json_encode($date_formatate_json);
+                            // print_r("Scriem datele json");
+                            fwrite($fisierExport, $date_formatate_json);
+                            break;
+                        case "CSV":
+                            //fputcsv deja le-a scris in fisier 
+                            break;
+                        case "PDF":
+                            $extensie = "pdf"; 
+                            break;
+                    }
+                    fclose($fisierExport);
+
+                    //4) trimitem fisierul catre client  
+                    header('Content-disposition: attachment;filename=' . $numeFisier);
+                    readfile($numeFisier);
                     
                 }
             }
-            // header('Location: ' . URL . 'exportimport/' . $userName); // redirect la exportimport index
+
+            
         }
         public function importa($userName = "")
 		{

@@ -30,7 +30,7 @@
                 <div class="admin-date__import__categorie">
                     <select id="admin-date__import__categorie" name="admin-date__import__categorie" required>
                         <option value="" selected>Categorie</option>
-                        <option value="General">General</option>
+                        <!-- <option value="General">General</option> -->
                         <option value="Programari">Programari</option>
                         <option value="Stoc">Stoc</option>
                         <option value="Comenzi">Comenzi</option>
@@ -60,7 +60,7 @@
                 <div class="admin-date__export__categorie">
                     <select id="admin-date__export__categorie" name="admin-date__export__categorie" required>
                         <option value="" selected>Categorie</option>
-                        <option value="General">General</option>
+                        <!-- <option value="General">General</option> -->
                         <option value="Programari">Programari</option>
                         <option value="Stoc">Stoc</option>
                         <option value="Comenzi">Comenzi</option>
