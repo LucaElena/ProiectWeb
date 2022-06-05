@@ -58,6 +58,24 @@ class FormularModel extends Controller
         $query->execute(array(":newStatus" => $newStatus , ":formID" => $formID ));
     }
 
+    public function stergeDateProgramare( $formID)
+    {
+        //Stergem form-ul asociat:
+        $sql = "DELETE FROM `forms` WHERE `forms`.`id_form` = :formID";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":formID" => $formID));
+
+        //Stergem programarea:
+        $sql = "DELETE FROM `appointments` WHERE `appointments`.`id_form` = :formID";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":formID" => $formID));
+
+        //Stergem fisierele asociate:
+        $sql = "DELETE FROM `files` WHERE `files`.`id_form` = :formID";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":formID" => $formID));
+    }
+
 }
 
 

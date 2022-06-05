@@ -30,6 +30,8 @@
             $selectPieseOptionAdmin = "";
             $tabelPieseSelectateAdmin = "";
             $fisiereDovada = "";
+            $info['dateClientNou'] = "";
+            $status = "Gol";
 
             $modelUser = $this->model('userModel');
             $modelProgramare = $this->model('programareModel');
@@ -104,6 +106,20 @@
                     $user_type = $modelUser->getUserType($userName);
                 }
             }
+            if($userName == "" || $user_exist == 0)
+            { //adaugam si partea de introdus date utilizator
+                $info['dateClientNou'] = '<div class="formular_programare__date_client">
+                            <input class="formular_programare__date_client__u_name" id="formular_programare__date_client__u_name"
+                                type="Text" placeholder="Username" name="formular_programare__date_client__u_name" required autofocus>
+                            <input class="formular_programare__date_client__phone" id="formular_programare__date_client__phone"
+                                type="phone"  pattern="0[0-9]{9}" placeholder="Phone" name="formular_programare__date_client__phone" required>
+                            <input class="formular_programare__date_client__email" id="formular_programare__date_client__email"
+                                type="email" placeholder="Email" name="formular_programare__date_client__email" required>
+                            <input class="formular_programare__date_client__pass" id="formular_programare__date_client__pass"
+                                type="password" name="formular_programare__date_client__pass" placeholder="Alege parola" required>
+                        </div>
+                        ';
+            }
 
             //Trebuie sa verficam daca deja avem un formular la data selectata.
             //Daca nu avem si suntem in modul "Book" -> trebuie sa creiem un formular initial
@@ -158,7 +174,7 @@
                                 </video>';
                 }
             }
-            if ($user_exist )
+            if ($user_exist || $statusPrimit = 0)
             {
                 
                  //Calculam si tabelul de selectare a pieselor necesare pentru admin
@@ -292,9 +308,10 @@
                 case 0://formular initial in editare de catre client/admin
                     $status = "Editare";
                     $mesajClient = '
-                            <textarea name="mesaj_nou_client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3" placeholder="Mesaj client cu descrierea problemei" required autofocus></textarea>
+                            <textarea name="mesaj_nou_client" class="formular_programare__mesaj_client__txt"  cols="10" rows="3" placeholder="Mesaj client cu descrierea problemei" required autofocus>' . $formResultat['request_message'] . '</textarea>
                             <input type="file" accept="video/*,image/*" multiple="multiple" name="dovezi[]" class="formular_programare__mesaj_client__video" required>
                             ';
+                    $mesajClient = $mesajClient ;
                     $mesajAdmin = "";
                     $info['butoaneFormular'] = '<button type="submit" class="formular_programare__actiune__trimite_button" name="formular_programare__actiune" formaction="/formular/trimite/' . $userName . '" value="Trimite" > Trimite</button>';
                     
@@ -341,9 +358,9 @@
                         {//poate sa stearga cererea
                             $info['butoaneFormular'] = '
                                                 <button type="submit" class="formular_programare__actiune__Editare_button"
-                                                        name="formular_programare__actiune" formaction="/formular/editare/' . $userName . '" value="Editare">Editare</button>        
+                                                        name="formular_programare__actiune" formaction="/formular/editareformular/' . $userName . '" value="Editare">Editare</button>        
                                                 <button type="submit" class="formular_programare__actiune__sterge_button"
-                                                        name="formular_programare__actiune" formaction="/formular/sterge/' . $userName . '" value="Sterge">Sterge</button>
+                                                        name="formular_programare__actiune" formaction="/formular/stergeformular/' . $userName . '" value="Sterge">Sterge</button>
                                                     ';
                         }
                     }
@@ -377,13 +394,13 @@
                         if($user_type)//admin -> Terminat/Sterge
                         {
                             $info['butoaneFormular'] = 
-                            '<button type="submit" class="formular_programare__actiune__terminat_button"  name="formular_programare__actiune" formaction="/formular/terminat/' . $userName . '" value="Terminat" >Terminat</button>
-                            <button type="submit" class="formular_programare__actiune__sterge_button"  name="formular_programare__actiune" formaction="/formular/sterge/' . $userName . '" value="Sterge">Sterge</button>';
+                            '<button type="submit" class="formular_programare__actiune__terminat_button"  name="formular_programare__actiune" formaction="/formular/terminareformular/' . $userName . '" value="Terminat" >Terminat</button>
+                            <button type="submit" class="formular_programare__actiune__sterge_button"  name="formular_programare__actiune" formaction="/formular/stergeformular/' . $userName . '" value="Sterge">Sterge</button>';
                         }
                         else//client-> Sterge
                         {
                             $info['butoaneFormular'] = 
-                            '<button type="submit" class="formular_programare__actiune__sterge_button"  name="formular_programare__actiune" formaction="/formular/sterge/' . $userName . '" value="Sterge">Sterge</button>';
+                            '<button type="submit" class="formular_programare__actiune__sterge_button"  name="formular_programare__actiune" formaction="/formular/stergeformular/' . $userName . '" value="Sterge">Sterge</button>';
                         }
                     }
                     break;
@@ -465,7 +482,9 @@
         public function terminat($userName = "", )
 		{
             // niste modificari si redirect la formular
-            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            print_r($_POST);
+
+            // header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
         public function book($userName = "" )
@@ -486,7 +505,7 @@
         {
             // niste modificari si redirect la formular
             // phpinfo(); // printeaza toate datele de configurare
-            // print_r($_POST);
+            print_r($_POST);
             // print_r($_FILES['dovezi']); Arata asa:
             // Array (
             //  [name] => Array ( [0] => moto_stricat1.jpg [1] => moto_stricat2.jpg ) 
@@ -495,11 +514,25 @@
             //  [error] => Array ( [0] => 0 [1] => 0 )
             //  [size] => Array ( [0] => 143453 [1] => 144558 ) 
             //  )
+            
+            
 
             $modelFisier = $this->model('fisierModel');
             $modelFormular = $this->model('formularModel');
+            $modelUser = $this->model('userModel');
+
             if(isset(($_POST)))
             {
+
+                if(!empty($_POST['formular_programare__date_client__u_name']) && !empty($_POST['formular_programare__date_client__phone']) && !empty($_POST['formular_programare__date_client__email']) && !empty($_POST['formular_programare__date_client__pass']))
+                {
+                    $userName = $_POST['formular_programare__date_client__u_name'];
+                    $phone = $_POST['formular_programare__date_client__phone'];
+                    $email = $_POST['formular_programare__date_client__email'];
+                    $password = $_POST['formular_programare__date_client__pass'];
+                    $modelUser->newUser($userName, $phone, $email, $password);
+                }
+
                 if(isset($_POST['id_formular_ascuns']))
                 {
                     $currentFormId = $_POST['id_formular_ascuns'];
@@ -530,13 +563,14 @@
                         }
                         $i++;
                     }
+                    //Trecem si statusul de la 0 la 1 (de la Editare la Asteptare raspuns admin)
+                    $modelFormular->schimbaStatus($currentFormId, "1");
                 }
                 
             }
-            //Trecem si statusul de la 0 la 1 (de la Editare la Asteptare raspuns admin)
-            $modelFormular->schimbaStatus($currentFormId, "1");
+            
             //redirect la formular index(unde avem logica de printare view)
-            // header('Location: ' . URL . 'formular/' . $userName); 
+            header('Location: ' . URL . 'formular/' . $userName); 
             //sau sa printam un view de multumire
 
         }
@@ -589,18 +623,35 @@
                                 $jsonPieseCurente = $formResultat['reserved_parts_list'];
 
                                 // print_r($piesaID . ":" . $cantitate . " json curent =" .  $jsonPieseCurente);
+                                $cantitateVerificataStoc = $modelStoc->verifcaCantitateStoc($piesaID , $cantitate);
+                                if ($cantitateVerificataStoc)
+                                {
+                                    $stocCurent = $modelStoc->getStocPiesa($piesaID);
+                                    $cantitateCurentaRezervata = 0;
+                                    if ($stocCurent['cantitate_rezervata'])
+                                    {
+                                        $cantitateCurentaRezervata = $stocCurent['cantitate_rezervata'];
+                                    }
+                                    $cantitateCurentaRezervata = $cantitateCurentaRezervata + $cantitate;
+                                    $cantitateVerificataStoc = $cantitateVerificataStoc - $cantitate;
+                                    $modelStoc->updateRezervatStoc($piesaID , $cantitateCurentaRezervata);
+                                    $modelStoc->updateCantitateStoc($piesaID , $cantitateVerificataStoc);
 
-                                //decodam stringul cu piese curente in JSON , apoi adaugam piesa curenta si transformam JSON-ul inapoi in string si updatam formularul
-                                $jsonPieseCurente = json_decode($jsonPieseCurente,true);
-                                if (isset($jsonPieseCurente[$piesaID]))
-                                {
-                                    $jsonPieseCurente[$piesaID] = strval(intval($jsonPieseCurente[$piesaID]) + intval($cantitate));
+                                    //decodam stringul cu piese curente in JSON , apoi adaugam piesa curenta si transformam JSON-ul inapoi in string si updatam formularul
+                                    $jsonPieseCurente = json_decode($jsonPieseCurente,true);
+                                    if (isset($jsonPieseCurente[$piesaID]))
+                                    {
+                                        $jsonPieseCurente[$piesaID] = strval(intval($jsonPieseCurente[$piesaID]) + intval($cantitate));
+                                    }
+                                    else
+                                    {
+                                        $jsonPieseCurente[$piesaID] = strval(intval($cantitate));
+                                    }
+                                    $jsonPieseCurente = json_encode($jsonPieseCurente);
                                 }
-                                else
-                                {
-                                    $jsonPieseCurente[$piesaID] = strval(intval($cantitate));
-                                }
-                                $jsonPieseCurente = json_encode($jsonPieseCurente);
+                                
+
+                                
                                 // print_r($jsonPieseCurente);
                                 $modelFormular->updateListaPiese($currentFormId, $jsonPieseCurente );
 
@@ -662,6 +713,25 @@
                             $jsonPieseCurente = json_decode($jsonPieseCurente,true);
                             if (isset($jsonPieseCurente[$idPiesa]))
                             {
+                                $stocCurent = $modelStoc->getStocPiesa($idPiesa);
+                                $cantitateCurentaStoc = 0;
+                                $cantitateCurentaRezervata = 0;
+                                if ($stocCurent['cantitate_rezervata'])
+                                {
+                                    $cantitateCurentaRezervata = $stocCurent['cantitate_rezervata'];
+                                }
+                                if ($stocCurent['cantitate_stoc'])
+                                {
+                                    $cantitateCurentaStoc = $stocCurent['cantitate_stoc'];
+                                }
+                                $cantitateNouaStoc = $cantitateCurentaStoc + $jsonPieseCurente[$idPiesa];
+                                $cantitateNouaRezervat = $cantitateCurentaRezervata - $jsonPieseCurente[$idPiesa];
+
+                                // print_r( $idPiesa . ' stoc = ' . $cantitateCurentaStoc . '+' . $jsonPieseCurente[$idPiesa]);
+                                // print_r( $idPiesa . ' rezervat = ' . $cantitateCurentaRezervata . '-' . $jsonPieseCurente[$idPiesa]);
+                                $modelStoc->updateRezervatStoc($idPiesa , $cantitateNouaRezervat);
+                                $modelStoc->updateCantitateStoc($idPiesa , $cantitateNouaStoc);
+
                                 unset($jsonPieseCurente[$idPiesa]);
                             }
                             $jsonPieseCurente = json_encode($jsonPieseCurente);
@@ -776,16 +846,152 @@
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        // public function terminat($userName = "" )// o lasam pe cea de mai sus 
-        // {
-        //     // niste modificari si redirect la formular
-        //     header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
-        // }
-        public function sterge($userName = "" )
+        public function terminareformular($userName = "" )
         {
             // niste modificari si redirect la formular
+            // print_r($_POST);
+            $modelFisier = $this->model('fisierModel');
+            $modelFormular = $this->model('formularModel');
+            $modelStoc = $this->model('stocModel');
+            if(isset(($_POST)))
+            {
+                if(isset($_POST['id_formular_ascuns']))
+                {
+                    $currentFormId = $_POST['id_formular_ascuns'];
+                    if(isset($_POST['ora_programare']))
+                    {
+                        $oraProgramare = $_POST['ora_programare'];
+                    }
+                    if(isset($_POST['mesaj_nou_client']))
+                    {
+                        $mesajClient = $_POST['mesaj_nou_client'];
+                        $modelFormular->updateMesajClient($currentFormId, $mesajClient );
+                    }
+                    if(isset($_POST['mesaj_nou_client']))
+                    {
+                        $mesajClient = $_POST['mesaj_nou_client'];
+                        $modelFormular->updateMesajClient($currentFormId, $mesajClient );
+                    }
+                    if(isset($_POST['mesaj_nou_admin']))
+                    {
+                        $mesajAdmin = $_POST['mesaj_nou_admin'];
+                        $modelFormular->updateMesajAdmin($currentFormId, $mesajAdmin );
+                    }
+                    if(isset($_POST['formular_programare__actiune']))
+                    {
+                        if($_POST['formular_programare__actiune'] == "Terminat")
+                        {
+                            // print_r("Trebuie sa terminam formularul" . $currentFormId);
+                            $formResultat = $modelFormular->getFormular($currentFormId);
+                            $jsonPieseSelectate = $formResultat['reserved_parts_list'];
+                            //decodam stringul cu piese curente in JSON , apoi adaugam piesa curenta si transformam JSON-ul inapoi in string si updatam formularul
+                            $jsonPieseSelectate = json_decode($jsonPieseSelectate,true);
+                            foreach($jsonPieseSelectate as $idPiesa => $cantitatePiesa)
+                            {
+                                if($idPiesa != 0)
+                                {
+                                    //consumam piesele din rezervare
+                                    $stocCurent = $modelStoc->getStocPiesa($idPiesa);
+                                    $cantitateCurentaStoc = 0;
+                                    $cantitateCurentaRezervata = 0;
+                                    if ($stocCurent['cantitate_rezervata'])
+                                    {
+                                        $cantitateCurentaRezervata = $stocCurent['cantitate_rezervata'];
+                                    }
+                                    // if ($stocCurent['cantitate_stoc'])
+                                    // {
+                                    //     $cantitateCurentaStoc = $stocCurent['cantitate_stoc'];
+                                    // }
+                                    // $cantitateNouaStoc = $cantitateCurentaStoc + $jsonPieseCurente[$idPiesa];
+                                    $cantitateNouaRezervat = $cantitateCurentaRezervata - $jsonPieseSelectate[$idPiesa];
+                                    $modelStoc->updateRezervatStoc($idPiesa , $cantitateNouaRezervat);
+                                    // $modelStoc->updateCantitateStoc($idPiesa , $cantitateNouaStoc);
+                                }
+                            }
+                            //marcam formularul ca terminat: de la 3 la 4 (de la Programat la Terminat)
+                            $modelFormular->schimbaStatus($currentFormId, "4");
+                        }
+                    }
+                }
+            }
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
+        public function stergeformular($userName = "")
+        {
+            // niste modificari si redirect la formular
+            // niste modificari si redirect la formular
+            // print_r($_POST);
+            $modelFisier = $this->model('fisierModel');
+            $modelFormular = $this->model('formularModel');
+            $modelStoc = $this->model('stocModel');
+            if(isset(($_POST)))
+            {
+                if(isset($_POST['id_formular_ascuns']))
+                {
+                    $currentFormId = $_POST['id_formular_ascuns'];
+                    if(isset($_POST['formular_programare__actiune']))
+                    {
+                        if($_POST['formular_programare__actiune'] == "Sterge")
+                        {
+                            // print_r("Trebuie sa stergem formularul" . $currentFormId);
+                            $formResultat = $modelFormular->getFormular($currentFormId);
+                            $jsonPieseSelectate = $formResultat['reserved_parts_list'];
+                            // //decodam stringul cu piese curente in JSON , apoi adaugam piesa curenta si transformam JSON-ul inapoi in string si updatam formularul
+                            $jsonPieseSelectate = json_decode($jsonPieseSelectate,true);
+                            foreach($jsonPieseSelectate as $idPiesa => $cantitatePiesa)
+                            {
+                                if($idPiesa != 0)
+                                {
+                                    //mutam piesele din rezervare inapoi in stoc
+                                    $stocCurent = $modelStoc->getStocPiesa($idPiesa);
+                                    $cantitateCurentaStoc = 0;
+                                    $cantitateCurentaRezervata = 0;
+                                    if ($stocCurent['cantitate_rezervata'])
+                                    {
+                                        $cantitateCurentaRezervata = $stocCurent['cantitate_rezervata'];
+                                    }
+                                    if ($stocCurent['cantitate_stoc'])
+                                    {
+                                        $cantitateCurentaStoc = $stocCurent['cantitate_stoc'];
+                                    }
+                                    $cantitateNouaStoc = $cantitateCurentaStoc + $jsonPieseSelectate[$idPiesa];
+                                    $cantitateNouaRezervat = $cantitateCurentaRezervata - $jsonPieseSelectate[$idPiesa];
+                                    $modelStoc->updateRezervatStoc($idPiesa , $cantitateNouaRezervat);
+                                    $modelStoc->updateCantitateStoc($idPiesa , $cantitateNouaStoc);
+                                }
+                            }
+                            //stergem formular-ul / programarea si fisierele asociate 
+                            $modelFormular->stergeDateProgramare($currentFormId);
+                        }
+                    }
+                }
+            }
+            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+
+        public function editareformular($userName = "")
+        {
+            $modelFisier = $this->model('fisierModel');
+            $modelFormular = $this->model('formularModel');
+            $modelStoc = $this->model('stocModel');
+            if(isset(($_POST)))
+            {
+                if(isset($_POST['id_formular_ascuns']))
+                {
+                    $currentFormId = $_POST['id_formular_ascuns'];
+                    if(isset($_POST['formular_programare__actiune']))
+                    {
+                        if($_POST['formular_programare__actiune'] == "Editare")
+                        {
+                            // print_r("Trebuie sa aducem formularul " . $currentFormId) . " in stare de editare";
+                            $modelFormular->schimbaStatus($currentFormId, "0");
+                        }
+                    }
+                }
+            }
+            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+        }
+        
 
     }
     

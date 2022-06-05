@@ -41,8 +41,8 @@
                
             </div>
 
+            <?=$data['dateClientNou']?>
             
-
             <div class="formular_programare__mesaj_client">
                 
                 <?=$data['mesajClient']?>

@@ -194,6 +194,25 @@ class StocModel extends Controller
         // $stmt->execute(array(":id_part" => $id_part , ":data" => $data , ":quantity" => $quantity ));
     }
 
+    public function verifcaCantitateStoc( $id_piesa , $cantitate)
+    {
+        $sql = "SELECT * FROM stoc WHERE id_stoc=:id_piesa;";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":id_piesa" => $id_piesa));
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        if ($result['cantitate_stoc'] >= $cantitate)
+        {
+            return $result['cantitate_stoc'];
+        }
+        return 0;
+    }
+
+    
+
+
+
+
+
 }
 
 ?>

@@ -186,8 +186,8 @@ footer {
     justify-content: start;
 }
 
-.formular_programare__date_client__f_name,
-.formular_programare__date_client__l_name,
+.formular_programare__date_client__u_name,
+.formular_programare__date_client__phone,
 .formular_programare__date_client__email,
 .formular_programare__date_client__pass
 {
@@ -437,8 +437,8 @@ footer {
     .formular_programare__date_client {
         font-size: medium;
     }
-    .formular_programare__date_client__f_name,
-    .formular_programare__date_client__l_name,
+    .formular_programare__date_client__u_name,
+    .formular_programare__date_client__phone,
     .formular_programare__date_client__email,
     .formular_programare__date_client__pass
     {
@@ -526,8 +526,8 @@ footer {
     {
         display: block;
     }
-    .formular_programare__date_client__f_name,
-    .formular_programare__date_client__l_name,
+    .formular_programare__date_client__u_name,
+    .formular_programare__date_client__phone,
     .formular_programare__date_client__email,
     .formular_programare__date_client__pass
     {

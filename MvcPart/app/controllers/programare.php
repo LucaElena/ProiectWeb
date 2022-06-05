@@ -175,7 +175,7 @@
             {
                 $info['generalbar'] = str_replace("CLIENT_NELOGAT" , $userName , BARA_CLIENT_NELOGAT);
                 $info['butoane'] = '
-                    <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" value="Book"> Book</button>';
+                    <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" formaction="/formular/book" value="Book"> Book</button>';
                 $this->view('programare/index', $info);
             }
             else
