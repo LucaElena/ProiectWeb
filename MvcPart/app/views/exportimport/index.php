@@ -22,7 +22,7 @@
 
     <main>
         <div class="admin-date">
-            <form action="/exportimport/<?=$data['username']?>" method="post" class="admin-date__import">
+            <form action="/exportimport/<?=$data['username']?>" method="post" class="admin-date__import" enctype="multipart/form-data">
                 <div class="admin-date__import__txt">
                     <h1>Importa date</h1>
                 </div>
@@ -44,7 +44,7 @@
                     </select>
                 </div>
                 <div class="admin-date__import__file">
-                    <input type="file" accept=".csv, .json" id="admin-date__import__file" required>
+                    <input type="file" accept=".csv, .json" id="admin-date__import__file" name="fisier_import" required>
                 </div>
                 <div class="admin-date__import__button">
                     <button type="submit" id="admin-date__import__button" name="actiune" formaction=/exportimport/importa/<?=$data['username']?> value="Importa">Importa</button>

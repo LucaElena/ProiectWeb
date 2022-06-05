@@ -295,6 +295,52 @@
         public function importa($userName = "")
 		{
             print_r($_POST);
+            // print_r($_FILES);
+            // Array ( 
+            //     [fisier_import] => Array (
+            //          [name] => stoc.json [type] => application/json 
+            //          [tmp_name] => G:\xampp\tmp\php86DB.tmp 
+            //          [error] => 0 
+            //          [size] => 44916 ) )
+
+            if(isset(($_POST)))
+            {
+                if(!empty($_POST['admin-date__import__categorie']) && !empty($_POST['admin-date__import__format']) && !empty($_POST['actiune']))
+                {
+                    $actiune = $_POST['actiune'];
+                    $categorie = $_POST['admin-date__import__categorie'];
+                    $format = $_POST['admin-date__import__format'];
+                    $date = "";
+                    if($_FILES['fisier_import']['error'] == 0)
+                    {
+                        print_r("Am primit fisierul fara errori"  );
+                        //deschidem fisierul primit:
+                        $fisierImport = fopen($_FILES['fisier_import']['tmp_name'] , 'r');
+                        $dateFisierImport = fread($fisierImport,$_FILES['fisier_import']['size']);
+                        print_r( $dateFisierImport);
+                    }
+                    switch ($categorie) {
+                        case "General":
+                            break;
+                        case "Programari":
+                            break;
+                        case "Stoc":
+                            break;
+                        case "Comenzi":
+                            break;
+                    }
+
+                    switch ($format) {
+                        case "JSON":
+                            break;
+                        case "CSV":
+                            break;
+                        case "PDF":
+                            break;
+                    }
+                }
+            }
+
         }
 
     }
