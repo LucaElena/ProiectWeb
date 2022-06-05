@@ -106,6 +106,15 @@ class ProgramareModel extends Controller
         $query->execute(array(":id_appointment" => $id_appointment , ":date" => $date  , ":id_user" => $id_user  , ":id_form" => $id_form));
     }
     
+    public function exportProgramari()
+    {
+        $sql = "SELECT * FROM appointments as a INNER JOIN forms as f ON a.id_form=f.id_form";
+        $query = $this->conn->prepare($sql);
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
+
     
     
 

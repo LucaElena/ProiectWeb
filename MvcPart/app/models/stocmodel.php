@@ -207,12 +207,16 @@ class StocModel extends Controller
         return 0;
     }
 
+    public function exportStoc()
+    {
+        $sql = "SELECT * FROM parts as p INNER JOIN brands as b ON p.id_brand=b.id_brand INNER join categories as c ON p.id_category=c.id_category INNER join stoc as s ON p.id_part=s.id_part";
+        $query = $this->conn->prepare($sql);
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
+
     
-
-
-
-
-
 }
 
 ?>
