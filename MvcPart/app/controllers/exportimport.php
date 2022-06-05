@@ -77,10 +77,16 @@
 
                     $date = "";
                     $extensie = "";
+                    
                     $date_formatate_json = "{}";
                     $date_formatate_json = json_decode($date_formatate_json, true);
                     $numeFisier = strtolower($categorie . '.' . $format);
                     $fisierExport = fopen($numeFisier, "w");
+                    //Am descarcat in folderul public libraria open source de procesare PDF de aici http://www.fpdf.org/ 
+                    require('./fpdf184/fpdf.php');
+                    $pdf = new FPDF();
+                    $pdf->AddPage();
+                    $pdf->SetFont('Arial','B',16);
                     $i = 0; 
 
                     switch ($categorie) {
@@ -142,6 +148,8 @@
                                         fputcsv($fisierExport, $elementCurent);
                                         break;
                                     case "PDF":
+                                        //transforma array-ul curent in string si il adaugam in pdf-ul curent pe cate un rand
+                                        $pdf->Cell(0,10,implode($elementCurent),0,1);
                                         break;
                                 }
                                 $i++;
@@ -207,6 +215,8 @@
                                         fputcsv($fisierExport, $elementCurent);
                                         break;
                                     case "PDF":
+                                        //transforma array-ul curent in string si il adaugam in pdf-ul curent pe cate un rand
+                                        $pdf->Cell(0,10,implode($elementCurent),0,1);
                                         break;
                                 }
                                 $i++;
@@ -248,6 +258,8 @@
                                         fputcsv($fisierExport, $elementCurent);
                                         break;
                                     case "PDF":
+                                        //transforma array-ul curent in string si il adaugam in pdf-ul curent pe cate un rand
+                                        $pdf->Cell(0,10,implode($elementCurent),0,1);
                                         break;
                                 }
                                 $i++;
@@ -266,7 +278,7 @@
                             //fputcsv deja le-a scris in fisier 
                             break;
                         case "PDF":
-                            $extensie = "pdf"; 
+                            $pdf->Output($numeFisier,'F' );
                             break;
                     }
                     fclose($fisierExport);
