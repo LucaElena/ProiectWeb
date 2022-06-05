@@ -158,55 +158,59 @@
                                 </video>';
                 }
             }
-            if ($user_exist && $user_type)//admin
+            if ($user_exist )
             {
+                
                  //Calculam si tabelul de selectare a pieselor necesare pentru admin
                  $brands = $modelStoc->getBrands();
                  $categorii = $modelStoc->getCategorii();
                  $piese_unice = $modelStoc->getPiese();
-                 $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
-                     '<select class="formular_programare__piese_necesare__brand" name="formular_programare__brand"
-                     id="formular_programare__piese_necesare__brand" >
-                     <option value="" selected> Brand</option>';
+                 if ($user_type) //admin 
+                 { // partea de select e doar pentru admin
+                    $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
+                        '<select class="formular_programare__piese_necesare__brand" name="formular_programare__brand"
+                        id="formular_programare__piese_necesare__brand" >
+                        <option value="" selected> Brand</option>';
 
-                 foreach ($brands as $brand)
-                 {
-                    $selectPieseOptionAdmin = $selectPieseOptionAdmin .  ' <option value="' . ucwords(strtolower($brand)) . '">' . ucwords(strtolower($brand)) . '</option>';
-                 }
+                    foreach ($brands as $brand)
+                    {
+                        $selectPieseOptionAdmin = $selectPieseOptionAdmin .  ' <option value="' . ucwords(strtolower($brand)) . '">' . ucwords(strtolower($brand)) . '</option>';
+                    }
 
-                 $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
-                     '</select>
-                     <select class="formular_programare__piese_necesare__cateorie" name="formular_programare__categorie">
-                         <option value="" selected> Categorie</option>';
+                    $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
+                        '</select>
+                        <select class="formular_programare__piese_necesare__cateorie" name="formular_programare__categorie">
+                            <option value="" selected> Categorie</option>';
 
-                 foreach ($categorii as $categorie)
-                 {
-                     #transmitem in plus si id-ul categoriei pentru a putea sa legam optiunile din categorie de cele din piese in js
-                     $id_si_nume_categorie = explode (";", $categorie); 
-                     $id_categorie = $id_si_nume_categorie[0];
-                     $nume_categorie = $id_si_nume_categorie[1];
-                     $selectPieseOptionAdmin = $selectPieseOptionAdmin .  ' <option value="'  . $id_categorie . ';' . ucwords(strtolower($nume_categorie)) . '">' . ucwords(strtolower($nume_categorie)) . '</option>';
-                 }
+                    foreach ($categorii as $categorie)
+                    {
+                        #transmitem in plus si id-ul categoriei pentru a putea sa legam optiunile din categorie de cele din piese in js
+                        $id_si_nume_categorie = explode (";", $categorie); 
+                        $id_categorie = $id_si_nume_categorie[0];
+                        $nume_categorie = $id_si_nume_categorie[1];
+                        $selectPieseOptionAdmin = $selectPieseOptionAdmin .  ' <option value="'  . $id_categorie . ';' . ucwords(strtolower($nume_categorie)) . '">' . ucwords(strtolower($nume_categorie)) . '</option>';
+                    }
 
-                 $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
-                     '</select>
-                     <select class="formular_programare__piese_necesare__piesa" name="formular_programare__piesa" >
-                         <option value="" selected> Piesa</option>';
+                    $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
+                        '</select>
+                        <select class="formular_programare__piese_necesare__piesa" name="formular_programare__piesa" >
+                            <option value="" selected> Piesa</option>';
 
-                 foreach ($piese_unice as $piesa)
-                 {
-                     #transmitem in plus si id-ul categoriei pentru a putea sa legam optiunile din categorie de cele din piese in js
-                     $id_si_nume_piesa = explode (";", $piesa); 
-                     $id_categorie = $id_si_nume_piesa[0];
-                     $nume_piesa = $id_si_nume_piesa[1];
-                     $selectPieseOptionAdmin = $selectPieseOptionAdmin .  ' <option value="' . $id_categorie . ';' . ucwords(strtolower($nume_piesa)) . '">' . ucwords(strtolower($nume_piesa)) . '</option>';
-                 }
+                    foreach ($piese_unice as $piesa)
+                    {
+                        #transmitem in plus si id-ul categoriei pentru a putea sa legam optiunile din categorie de cele din piese in js
+                        $id_si_nume_piesa = explode (";", $piesa); 
+                        $id_categorie = $id_si_nume_piesa[0];
+                        $nume_piesa = $id_si_nume_piesa[1];
+                        $selectPieseOptionAdmin = $selectPieseOptionAdmin .  ' <option value="' . $id_categorie . ';' . ucwords(strtolower($nume_piesa)) . '">' . ucwords(strtolower($nume_piesa)) . '</option>';
+                    }
+                
 
                  $selectPieseOptionAdmin = $selectPieseOptionAdmin . 
                      '</select>';
+                }
 
-
-                 $tabelPieseSelectateAdmin = '<table>
+                $tabelPieseSelectateAdmin = '<table>
                                                          <thead>
                                                              <tr>
                                                                  <th>No</th>
@@ -245,10 +249,19 @@
                                     <td>' . ucwords(strtolower($date_categorie['category_name'])) . '</td>
                                     <td>' . ucwords(strtolower($infoPiesaCurenta['name'])) . '</td>
                                     <td>' . $cantitatePiesa . '</td>
-                                    <td>' . $pretPiesaCurenta . '</td>
-                                    <td><button type="submit" class="formular_programare__piese_necesare__sterge" name="formular_programare__actiune" formaction="/formular/stergepiesa/' . $userName . '"
-                                        value="' . $idPiesa . ';Remove"><i class="fas fa-plus"><i class="fas fa-trash-alt"></i></button></td>
-                                </tr>';
+                                    <td>' . $pretPiesaCurenta . '</td>';
+                            if ($user_type && $statusPrimit == 1) //admin la stare 1  -> are button de stergere piesa    
+                            {
+                                $tabelPieseSelectateAdmin = $tabelPieseSelectateAdmin .  '<td><button type="submit" class="formular_programare__piese_necesare__sterge" name="formular_programare__actiune" formaction="/formular/stergepiesa/' . $userName . '"
+                                            value="' . $idPiesa . ';Remove"><i class="fas fa-trash-alt"></i></button></td>
+                                    </tr>';
+                            }
+                            else //client sau alt status decat cel la care putem modifica tabelul -> nu avem button de stergere piesa      
+                            {
+                                $tabelPieseSelectateAdmin = $tabelPieseSelectateAdmin .  '<td></td>
+                                    </tr>';
+                            }
+                            
                             $i++;
                         }
 
@@ -266,7 +279,7 @@
                                 <td></td>
                             </tr>';
                 }                                     
-                 $tabelPieseSelectateAdmin = $tabelPieseSelectateAdmin . 
+                $tabelPieseSelectateAdmin = $tabelPieseSelectateAdmin . 
                                                          '</tbody>
                                                      </table>';
             }
@@ -320,9 +333,9 @@
                             $info['selectPieseOptionAdmin'] = $selectPieseOptionAdmin;
                             $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                             $info['butoaneFormular'] = '<button type="submit" class="formular_programare__actiune__accepta_button"
-                                                        name="formular_programare__actiune" formaction="/formular/accepta/' . $userName . '" value="Accepta">Accepta</button>
+                                                        name="formular_programare__actiune" formaction="/formular/acceptaformular/' . $userName . '" value="Accepta">Accepta</button>
                                                     <button type="submit" class="formular_programare__actiune__respinge_button"
-                                                        name="formular_programare__actiune" formaction="/formular/respinge/' . $userName . '" value="Respinge">Respinge</button>';
+                                                        name="formular_programare__actiune" formaction="/formular/respingeformular/' . $userName . '" value="Respinge">Respinge</button>';
                         }
                         else//client
                         {//poate sa stearga cererea
@@ -345,9 +358,9 @@
                                     readonly>' . $formResultat['response_message'] . '</textarea>';
                     $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                     $info['butoaneFormular'] = '<button type="submit" class="formular_programare__actiune__accepta_button"
-                                                    name="formular_programare__actiune" formaction="/formular/accepta/' . $userName . '" value="Accepta">Accepta</button>
+                                                    name="formular_programare__actiune" formaction="/formular/acceptaformular/' . $userName . '" value="Accepta">Accepta</button>
                                                 <button type="submit" class="formular_programare__actiune__respinge_button"
-                                                    name="formular_programare__actiune" formaction="/formular/respinge/' . $userName . '" value="Respinge">Respinge</button>';
+                                                    name="formular_programare__actiune" formaction="/formular/respingeformular/' . $userName . '" value="Respinge">Respinge</button>';
                     break;
                 case 3://formular programat
                     $status = "Programat";
@@ -356,6 +369,7 @@
                     $mesajClient = $mesajClient . $fisiereDovada;
                     $mesajAdmin = '<textarea name="mesaj_nou_admin" class="formular_programare__mesaj_admin__txt" cols="10" rows="3"
                                     readonly>' . $formResultat['response_message'] . '</textarea>';
+                    
                     $info['tabelPieseSelectateAdmin'] = $tabelPieseSelectateAdmin;
                     $info['butoaneFormular'] = '';
                     if ($user_exist)
@@ -454,13 +468,13 @@
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        public function book($userName = "", )
+        public function book($userName = "" )
 		{
             // niste modificari si redirect la formular
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        public function cancel($userName = "", )
+        public function cancel($userName = "")
 		{
             // niste modificari si redirect la formular
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
@@ -468,7 +482,7 @@
 
 
         //III) Actiuni primite de pe butoanele din formular: trimite adauga accepta respinge terminat sterge
-        public function trimite($userName = "", )
+        public function trimite($userName = "")
         {
             // niste modificari si redirect la formular
             // phpinfo(); // printeaza toate datele de configurare
@@ -526,7 +540,7 @@
             //sau sa printam un view de multumire
 
         }
-        public function adaugapiesa($userName = "", )
+        public function adaugapiesa($userName = "" )
         {
             // niste modificari si redirect la formular
             // print_r($_POST);
@@ -558,7 +572,7 @@
                     {
                         if($_POST['formular_programare__actiune'] == "Add")
                         {
-                            if(empty($_POST['formular_programare__brand']) && empty($_POST['formular_programare__categorie']) && empty($_POST['formular_programare__piesa']) && empty($_POST['cantitate'])) 
+                            if(!empty($_POST['formular_programare__brand']) && !empty($_POST['formular_programare__categorie']) && !empty($_POST['formular_programare__piesa']) && !empty($_POST['cantitate']))
                             {
                                 // Array ( [id_formular_ascuns] => 102 [ora_programare] => 2022-05-18T09:00 [mesaj_nou_client] => zfsdgsdg [mesaj_nou_admin] => test test [formular_programare__brand] => Beta [formular_programare__categorie] => 7;Filtre [formular_programare__piesa] => 7;Filtru Benzina [cantitate] => 3 [formular_programare__actiune] => Add )
                                 
@@ -567,7 +581,7 @@
                                 $nume_categorie_selectata = explode (";", $_POST['formular_programare__categorie'])[1];
                                 $nume_piesa_selectata = explode (";", $_POST['formular_programare__piesa'])[1];
                                 $cantitate = $_POST['cantitate'];
-                                
+                                // print_r("piesa:" . $nume_piesa_selectata ."brand:". $nume_brand_selectat . $nume_categorie_selectata);
                                 //Cautam id-ul piesei dupa numele piesei, al brandului si al categoriei:
                                 $piesaID = $modelStoc->getPiesaIdByNameBrandCategory($nume_piesa_selectata , $nume_brand_selectat , $nume_categorie_selectata);
 
@@ -598,7 +612,7 @@
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        public function stergepiesa($userName = "", )
+        public function stergepiesa($userName = "" )
         {
             // niste modificari si redirect la formular
             // print_r($_POST);
@@ -660,22 +674,114 @@
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        public function accepta($userName = "", )
+        public function acceptaformular($userName = "")
         {
             // niste modificari si redirect la formular
+            print_r($_POST);
+            $modelFormular = $this->model('formularModel');
+
+            if(isset(($_POST)))
+            {
+                if(isset($_POST['id_formular_ascuns']))
+                {
+                    $currentFormId = $_POST['id_formular_ascuns'];
+                    if(isset($_POST['ora_programare']))
+                    {
+                        $oraProgramare = $_POST['ora_programare'];
+                    }
+                    if(isset($_POST['mesaj_nou_client']))
+                    {
+                        $mesajClient = $_POST['mesaj_nou_client'];
+                        $modelFormular->updateMesajClient($currentFormId, $mesajClient );
+                    }
+                    if(isset($_POST['mesaj_nou_client']))
+                    {
+                        $mesajClient = $_POST['mesaj_nou_client'];
+                        $modelFormular->updateMesajClient($currentFormId, $mesajClient );
+                    }
+                    if(isset($_POST['mesaj_nou_admin']))
+                    {
+                        $mesajAdmin = $_POST['mesaj_nou_admin'];
+                        $modelFormular->updateMesajAdmin($currentFormId, $mesajAdmin );
+                    }
+
+                    if(isset($_POST['formular_programare__actiune']))
+                    {
+                        if($_POST['formular_programare__actiune'] == "Accepta")
+                        {
+                            
+                            $formResultat = $modelFormular->getFormular($currentFormId);
+                            $statusCurentFormular = $formResultat['status'];
+                            if($statusCurentFormular == 1)
+                            {
+                                //Trecem si statusul de la 1 la 2 (de la Raspuns admin la Raspuns client)
+                                $modelFormular->schimbaStatus($currentFormId, "2");
+                            }
+                            if($statusCurentFormular == 2)
+                            {
+                                //Trecem si statusul de la 2 la 3 (de la Raspuns client la Programat)
+                                $modelFormular->schimbaStatus($currentFormId, "3");
+                            }
+                            
+                        }
+                    }
+                }
+            }
+
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
-        public function respinge($userName = "", )
+        public function respingeformular($userName = "" )
         {
             // niste modificari si redirect la formular
+            // print_r($_POST);
+
+            $modelFormular = $this->model('formularModel');
+
+            if(isset(($_POST)))
+            {
+                if(isset($_POST['id_formular_ascuns']))
+                {
+                    $currentFormId = $_POST['id_formular_ascuns'];
+                    if(isset($_POST['ora_programare']))
+                    {
+                        $oraProgramare = $_POST['ora_programare'];
+                    }
+                    if(isset($_POST['mesaj_nou_client']))
+                    {
+                        $mesajClient = $_POST['mesaj_nou_client'];
+                        $modelFormular->updateMesajClient($currentFormId, $mesajClient );
+                    }
+                    if(isset($_POST['mesaj_nou_client']))
+                    {
+                        $mesajClient = $_POST['mesaj_nou_client'];
+                        $modelFormular->updateMesajClient($currentFormId, $mesajClient );
+                    }
+                    if(isset($_POST['mesaj_nou_admin']))
+                    {
+                        $mesajAdmin = $_POST['mesaj_nou_admin'];
+                        $modelFormular->updateMesajAdmin($currentFormId, $mesajAdmin );
+                    }
+
+                    if(isset($_POST['formular_programare__actiune']))
+                    {
+                        if($_POST['formular_programare__actiune'] == "Respinge")
+                        {
+                            //Trecem si statusul de la 1 la 4 (de la Raspuns admin la Refuzat)
+                            $modelFormular->schimbaStatus($currentFormId, "4");
+                        }
+                    }
+                }
+            }
+            
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
-        // public function terminat($userName = "", )// o lasam pe cea de mai sus 
+
+        // public function terminat($userName = "" )// o lasam pe cea de mai sus 
         // {
         //     // niste modificari si redirect la formular
         //     header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         // }
-        public function sterge($userName = "", )
+        public function sterge($userName = "" )
         {
             // niste modificari si redirect la formular
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
