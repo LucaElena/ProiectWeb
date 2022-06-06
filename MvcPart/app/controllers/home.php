@@ -6,12 +6,17 @@
 		{
             
             $userName = "";
+            $info['mesajPrimire'] =  '<p>Puteti sa faceti direct o programare <a href="/programare/">aici</a> </p>
+                                      <p>Sau sa va creati intai un cont <a href="/signup/">aici</a> sau sa va autentificati
+                                      <a href="/login/">aici</a></p>';
             if(!empty($_SESSION['userName']))
             {
                 $userName = $_SESSION['userName'];
+                $info['mesajPrimire'] =  '<p>Client ' . ucfirst($userName) . ' puteti sa faceti o programare <a href="/programare/">aici</a> Sau sa va vedeti istoricul <a href="/istoric/">aici</a></p>';
             }
 
             $info['username'] =  $userName;
+            
             $user = $this->model('userModel');
             // echo("User : " . $userName . " !");
 

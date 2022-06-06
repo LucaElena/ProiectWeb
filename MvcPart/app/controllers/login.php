@@ -13,7 +13,7 @@
 
             $info['generalbar'] = str_replace("CLIENT_NELOGAT" , $userName , BARA_CLIENT_NELOGAT);
             $info['mesajEroare'] = "";
-            print_r($_SESSION);
+            // print_r($_SESSION);
 
             $modelUser = $this->model('userModel');
 
@@ -65,3 +65,4 @@
             $this->view('login/index', $info);
         }
     }
+?>
