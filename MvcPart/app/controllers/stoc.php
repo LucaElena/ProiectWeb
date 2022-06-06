@@ -3,9 +3,14 @@
 	class Stoc extends Controller
 	{   
 
-        public function index($userName = "")
+        public function index()
 		{
-            
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             $info['username'] =  $userName;
             $user = $this->model('userModel');
             
@@ -143,8 +148,14 @@
             }   
         }
 
-        public function update($userName = "")
+        public function update()
 		{
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+            
             //Json pentru raspuns la request-ul AJAX de procesare a comenzii
             $raspuns =  array("insert" => 0 , "error" => "");
 

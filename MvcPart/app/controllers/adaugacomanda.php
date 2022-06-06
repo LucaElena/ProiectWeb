@@ -3,8 +3,13 @@
 	class Adaugacomanda extends Controller
 	{   
 
-        public function index($userName = "")
+        public function index()
 		{
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
             
             $info['username'] =  $userName;
             $user = $this->model('userModel');
@@ -152,8 +157,14 @@
             }   
         }
 
-        public function  trimite($userName = "")
+        public function  trimite()
         {
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+            
             //Json pentru raspuns la request-ul AJAX de procesare a comenzii
             $raspuns =  array("insert" => 0 , "error" => "");
         

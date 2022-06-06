@@ -85,24 +85,24 @@
                 
 
                 <div class="login__forms">
-                    <form action="../MvcPart/app/controllers/login.php" class="login__registre" id="login-in" method="post">
+                    <form action="./PaginaGeneralaClient.html" class="login__registre" id="login-in" method="post">
                         <h1 class="title">Sign In</h1>
-                        <?php if (isset($_GET['error'])) { ?>
-                            <p class="error"><?php echo $_GET['error']; ?></p>
-                        <?php } ?>
-
-                        <?php if (isset($_GET['success'])) { ?>
-                            <p class="success"><?php echo $_GET['success']; ?></p>
-                        <?php } ?>
+    
                         <div class="input-group">
-                            <input type="text" name="name" placeholder="Username"  minlength="5" maxlength="20" class="login-input" required>
+                            <input type="text" placeholder="Username"  minlength="5" maxlength="20" class="login-input" required>
                         </div>
     
                         <div class="input-group">
-                            <input type="password" name="password" placeholder="Password" minlength="5" maxlength="20" class="login-input" required>
+                            <input type="password" placeholder="Password" minlength="5" maxlength="20" class="login-input" required>
                         </div>
 
-                        <button type="submit" class="login__button" name="login_button">Sign In</button>
+                        <!-- <div>
+                            <span class="login__account">Forgot password?</span>
+                            <span class="login__signin" id="change-pass">Change Password</span>
+                        </div> -->
+
+                        <!-- <a href="./PaginaGeneralaClient.html" class="login__button">Sign In</a> -->
+                        <button type="submit" class="login__button" name="login_button" value="Sign In">Sign In</button>
 
                         <div>
                             <span class="login__account">Don't have an Account ?</span>
@@ -110,59 +110,59 @@
                         </div>
                     </form>
 
-<!--                    <form action="./PaginaGeneralaClient.html" class="login__create none" id="login-up" method="post">-->
-<!--                        <h1 class="title">Create Account</h1>-->
-<!--    -->
-<!--                        <div class="input-group">-->
-<!--                            -->
-<!--                            <input type="text" class="login-input" minlength="5" maxlength="20" placeholder="Username" required>-->
-<!--                        </div>-->
-<!--    -->
-<!--                        <div class="input-group">-->
-<!--                            -->
-<!--                            <input type="email" class="login-input" minlength="10" maxlength="30" placeholder="Email" required>-->
-<!--                        </div>-->
+                    <form action="./PaginaGeneralaClient.html" class="login__create none" id="login-up" method="post">
+                        <h1 class="title">Create Account</h1>
+    
+                        <div class="input-group">
+                            
+                            <input type="text" class="login-input" minlength="5" maxlength="20" placeholder="Username" required>
+                        </div>
+    
+                        <div class="input-group">
+                            
+                            <input type="email" class="login-input" minlength="10" maxlength="30" placeholder="Email" required>
+                        </div>
 
-<!--                        <div class="input-group">-->
-<!--                            -->
-<!--                            <input type="password" class="login-input" minlength="5" maxlength="20" placeholder="Password" required>-->
-<!--                        </div>-->
+                        <div class="input-group">
+                            
+                            <input type="password" class="login-input" minlength="5" maxlength="20" placeholder="Password" required>
+                        </div>
 
-<!--                        &lt;!&ndash; <a class="login__button">Sign Up</a> &ndash;&gt;-->
-<!--                        <button type="submit" class="login__button" name="login_button" value="Sign Up">Sign Up</button>-->
+                        <!-- <a class="login__button">Sign Up</a> -->
+                        <button type="submit" class="login__button" name="login_button" value="Sign Up">Sign Up</button>
 
 
-<!--                        <div>-->
-<!--                            <span class="login__account">Already have an Account ?</span>-->
-<!--                            <span class="login__signup" id="sign-in">Sign In</span>-->
-<!--                        </div>-->
+                        <div>
+                            <span class="login__account">Already have an Account ?</span>
+                            <span class="login__signup" id="sign-in">Sign In</span>
+                        </div>
 
-<!--                        -->
-<!--                    </form>-->
-<!--                    -->
-<!--                    <form action="./PaginaGeneralaClient.html" class="login__change__pass none" id="login-forgot" method="post">-->
-<!--                        <h1 class="title">Change Password</h1>-->
-<!--    -->
-<!--                        <div class="input-group">-->
-<!--                            -->
-<!--                            <input type="email" class="login-input" minlength="10" maxlength="30" placeholder="Email" required>-->
-<!--                        </div>-->
-<!--    -->
+                        
+                    </form>
+                    
+                    <form action="./PaginaGeneralaClient.html" class="login__change__pass none" id="login-forgot" method="post">
+                        <h1 class="title">Change Password</h1>
+    
+                        <div class="input-group">
+                            
+                            <input type="email" class="login-input" minlength="10" maxlength="30" placeholder="Email" required>
+                        </div>
+    
 
-<!--                        <div class="input-group">-->
-<!--                            -->
-<!--                            <input type="password" class="login-input" minlength="5" maxlength="20" placeholder="New_Password" required>-->
-<!--                        </div>-->
+                        <div class="input-group">
+                            
+                            <input type="password" class="login-input" minlength="5" maxlength="20" placeholder="New_Password" required>
+                        </div>
 
-<!--                        &lt;!&ndash; <a href="./PaginaGeneralaClient.html" class="login__button">Save</a> &ndash;&gt;-->
-<!--                        <button type="submit" class="login__button" name="login_button" value="Save">Save</button>-->
+                        <!-- <a href="./PaginaGeneralaClient.html" class="login__button">Save</a> -->
+                        <button type="submit" class="login__button" name="login_button" value="Save">Save</button>
 
-<!--                        <div>-->
-<!--                            <span class="login__account">You want to give up ?</span>-->
-<!--                            <span class="login__pass" id="sign-in1">Sign In</span>-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                -->
+                        <div>
+                            <span class="login__account">You want to give up ?</span>
+                            <span class="login__pass" id="sign-in1">Sign In</span>
+                        </div>
+                    </form>
+                
                 </div>
 
                 

@@ -2,9 +2,15 @@
 	class Comenzi extends Controller
 	{   
 
-        public function index($userName = "")
+        public function index()
 		{
             
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             $info['username'] =  $userName;
             // $info['oraSelectata'] =  "2022-05-18T09:00";
 
@@ -139,8 +145,14 @@
             }   
         }
         
-        public function primit( $userName = "" , $idComanda = "")
+        public function primit( $idComanda = "")
 		{
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+            
             //Json pentru raspuns la request-ul AJAX de procesare a comenzii
             $raspuns =  array("insert" => 0 , "error" => "");
             

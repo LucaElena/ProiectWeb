@@ -2,9 +2,15 @@
 	class Home extends Controller
 	{   
 
-        public function index($userName = "")
+        public function index()
 		{
             
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             $info['username'] =  $userName;
             $user = $this->model('userModel');
             // echo("User : " . $userName . " !");

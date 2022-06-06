@@ -2,27 +2,14 @@
 	class Programare extends Controller
 	{   
 
-        public function index($userName = "", $dataStart = "" )
+        public function index($dataStart = "" )
 		{
-            // print_r("user = " . $userName ." data = " . $dataStart);
-            //bug : temporar inversam userName cu dataStart daca e cazul . Ar trebui sa luam userul din sesiune ca sa nu il mai trimitem ca parametru
-            if (DateTime::createFromFormat('Y-m-d', $userName) !== false)
+            $userName = "";
+            if(!empty($_SESSION['userName']))
             {
-                if($dataStart == "")
-                {
-                    // $temp = $userName;
-                    // $userName = $dataStart;
-                    // $dataStart = $temp;
-                    $dataStart = $userName;
-                    $userName = "";
-                }
-                else
-                {
-                    $temp = $userName;
-                    $userName = $dataStart;
-                    $dataStart = $temp;
-                }
+                $userName = $_SESSION['userName'];
             }
+
             $user = $this->model('UserModel');
             $programare = $this->model('ProgramareModel');
 
@@ -213,8 +200,15 @@
         }
 
 
-        public function updatestatus($userName = "")
+        public function updatestatus()
 		{
+           
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+            
             //Json pentru raspuns la request-ul AJAX de trimitere status programari
             $raspuns =  array("status" => 0 , "data" => array() , "error" => "");
             $user = $this->model('UserModel');

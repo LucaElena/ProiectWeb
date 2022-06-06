@@ -1,8 +1,14 @@
 <?php
 	class ExportImport extends Controller
 	{  
-        public function index($userName = "")
+        public function index()
 		{
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             //0) Variabile globale:
             $info['username'] =  $userName;
             $user_exist = 0;
@@ -58,8 +64,15 @@
             }
                      
         }
-        public function exporta($userName = "")
+        public function exporta()
 		{
+            
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             //Array ( [admin-date__export__categorie] => Programari [admin-date__export__format] => JSON [actiune] => Exporta )
             $modelUser = $this->model('userModel');
             $modelProgramare = $this->model('programareModel');
@@ -83,6 +96,7 @@
                     $numeFisier = strtolower($categorie . '.' . $format);
                     $fisierExport = fopen($numeFisier, "w");
                     //Am descarcat in folderul public libraria open source de procesare PDF de aici http://www.fpdf.org/ 
+                    //mic tutorial : http://www.fpdf.org/en/tutorial/tuto2.htm
                     require('./fpdf184/fpdf.php');
                     $pdf = new FPDF();
                     $pdf->AddPage();
@@ -292,8 +306,14 @@
 
             
         }
-        public function importa($userName = "")
+        public function importa()
 		{
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+            
             print_r($_POST);
             // print_r($_FILES);
             // Array ( 

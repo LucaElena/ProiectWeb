@@ -2,8 +2,13 @@
 	class Istoric extends Controller
 	{   
 
-        public function index($userName = "")
+        public function index()
 		{
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
             
             //Status formular : Editare(0)->Astepare raspuns admin(1)->->Astepare accept client(2)->Programat(3) Refuzat(4) -> Terminat(5)
             $info['username'] =  $userName;

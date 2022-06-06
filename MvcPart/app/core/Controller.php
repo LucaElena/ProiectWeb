@@ -26,6 +26,12 @@
                 exit('Sql connection error : ' . $this->error);
             }
             // print_r("Salut din constructor Controller");
+            
+            //am pus start-ul la sesiune in constructor sa inceapa la inceput-ul aplicatiei
+            if(!isset($_SESSION)) 
+            {
+                session_start();
+            }
         }
         
         //Deschidem conexiunea sql

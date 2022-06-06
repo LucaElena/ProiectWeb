@@ -4,9 +4,14 @@
 
         //I) Functia principala in care avem doar logica de printare view in diferite feluri
         //Actiunile le rezolvam in functii individuale pentru a nu complica si mai tare functia principala
-        public function index($userName = "")
+        public function index()
 		{
-            
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             // Status formular : Editare(0)->Astepare raspuns admin(1)->->Astepare accept client(2)->Programat(3) Refuzat(4) -> Terminat(5)
             
             //0) Variabile globale:
@@ -473,36 +478,65 @@
 
 
         //II) Actiuni primite de pe butoanele din calendarul de programari: raspuns terminat book cancel
-        public function raspuns($userName = "", )
+        public function raspuns()
 		{
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             // niste modificari si redirect la formular
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        public function terminat($userName = "", )
+        public function terminat()
 		{
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             // niste modificari si redirect la formular
             print_r($_POST);
 
             // header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        public function book($userName = "" )
+        public function book()
 		{
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             // niste modificari si redirect la formular
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        public function cancel($userName = "")
+        public function cancel()
 		{
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
             // niste modificari si redirect la formular
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
 
         //III) Actiuni primite de pe butoanele din formular: trimite adauga accepta respinge terminat sterge
-        public function trimite($userName = "")
+        public function trimite()
         {
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             // niste modificari si redirect la formular
             // phpinfo(); // printeaza toate datele de configurare
             print_r($_POST);
@@ -574,8 +608,14 @@
             //sau sa printam un view de multumire
 
         }
-        public function adaugapiesa($userName = "" )
+        public function adaugapiesa()
         {
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             // niste modificari si redirect la formular
             // print_r($_POST);
             // Array ( [id_formular_ascuns] => 102 [ora_programare] => 2022-05-18T09:00 [mesaj_nou_client] => zfsdgsdg [mesaj_nou_admin] => sdgdfgdshgdh [formular_programare__brand] => Honda [cantitate] => 2 [formular_programare__actiune] => Add )
@@ -663,8 +703,13 @@
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        public function stergepiesa($userName = "" )
+        public function stergepiesa()
         {
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
             // niste modificari si redirect la formular
             // print_r($_POST);
             // Array ( [id_formular_ascuns] => 102 [ora_programare] => 2022-05-18T09:00 [mesaj_nou_client] => zfsdgsdg [mesaj_nou_admin] => test test dssdsfas [formular_programare__brand] => [formular_programare__categorie] => [formular_programare__piesa] => [cantitate] => 1 [formular_programare__actiune] => 114;Remove )
@@ -744,8 +789,14 @@
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        public function acceptaformular($userName = "")
+        public function acceptaformular()
         {
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+            
             // niste modificari si redirect la formular
             print_r($_POST);
             $modelFormular = $this->model('formularModel');
@@ -800,8 +851,14 @@
 
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
-        public function respingeformular($userName = "" )
+        public function respingeformular()
         {
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             // niste modificari si redirect la formular
             // print_r($_POST);
 
@@ -846,8 +903,14 @@
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        public function terminareformular($userName = "" )
+        public function terminareformular()
         {
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             // niste modificari si redirect la formular
             // print_r($_POST);
             $modelFisier = $this->model('fisierModel');
@@ -916,8 +979,14 @@
             }
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
-        public function stergeformular($userName = "")
+        public function stergeformular()
         {
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             // niste modificari si redirect la formular
             // niste modificari si redirect la formular
             // print_r($_POST);
@@ -969,11 +1038,18 @@
             header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }
 
-        public function editareformular($userName = "")
+        public function editareformular()
         {
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+
             $modelFisier = $this->model('fisierModel');
             $modelFormular = $this->model('formularModel');
             $modelStoc = $this->model('stocModel');
+            
             if(isset(($_POST)))
             {
                 if(isset($_POST['id_formular_ascuns']))

@@ -1,44 +1,67 @@
 <?php
+	class Login extends Controller
+	{   
 
-session_start();
+        public function index()
+		{
 
-include("db.php");
-include("functions.php");
+            $userName = "";
+            $user_exist = 0;
+            $user_type = 0;
+            $pass_correct = 0;
+            $user_id = "";
 
+            $info['generalbar'] = str_replace("CLIENT_NELOGAT" , $userName , BARA_CLIENT_NELOGAT);
+            $info['mesajEroare'] = "";
+            print_r($_SESSION);
 
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
-    $user_name = $_POST['name'];
-    $password = $_POST['password'];
+            $modelUser = $this->model('userModel');
 
-    if(!empty($user_name) && !empty($password))
-    {
-
-        //read from database
-        $query = "select * from users where user_name = '$user_name' limit 1";
-        $result = mysqli_query($conn, $query);
-
-        if($result)
-        {
-
-            if($result && mysqli_num_rows($result) > 0)
+            if (isset($_POST))
             {
-                $user_data = mysqli_fetch_assoc($result);
 
-                if($user_data['password'] === $password)
+                if(!empty($_POST['user_name']) && !empty($_POST['password']) && !empty($_POST['login_button']))
                 {
+                    $userName = $_POST['user_name'];
+                    $password = $_POST['password'];
+                    $login_button = $_POST['login_button'];
 
-                    $_SESSION['id_user'] = $user_data['id_user'];
-                    header("Location: /../WebPart/PaginaGeneralaClient.php");
-                    die;
-                }
-                else {
-                    header("Location: /../WebPart/PaginaLoginClient.php?error=Username or password is incorrect");
-                    exit();
+                    if($login_button == "Sign In")
+                    {
+                        if ($userName != "")
+                        {
+                            $user_exist = $modelUser->isDefined($userName);
+                            if ($user_exist)
+                            {   
+                                $user_id = $modelUser->getUserId($userName);
+                                $pass_correct = $modelUser->checkPassword($userName, $password);
+                                if($pass_correct)
+                                {
+                                    $user_id = $modelUser->getUserId($userName);
+                                    $user_type = $modelUser->getUserType($userName);
+                                    $info['mesajEroare'] = "Correct password";
+                                    //Salvam userName-ul  in sesiune si facem redirect la pagina de home
+                                    $_SESSION['userName'] = $userName;
+                                    // $_SESSION['userID'] = $user_id;
+                                    header('Location: ' . URL . 'home'); 
+                                    
+                                }
+                                else
+                                {
+                                    $info['mesajEroare'] = "Wrong password";
+                                }
+                            }
+                            else
+                            {
+                                $info['mesajEroare'] = "User incorect";
+                            }
+                        }
+
+                    }
                 }
             }
+
+            //default view
+            $this->view('login/index', $info);
         }
     }
-}
-
-?>
