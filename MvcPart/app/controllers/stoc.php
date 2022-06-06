@@ -59,6 +59,7 @@
                             $nume_categorie = $id_si_nume_categorie[1];
                             $info['categoriiOptions'] = $info['categoriiOptions'] .  ' <option value="'  . $id_categorie . ';' . ucwords(strtolower($nume_categorie)) . '">' . ucwords(strtolower($nume_categorie)) . '</option>';
                         }
+                        
                         foreach ($piese_unice as $piesa)
                         {
                             #transmitem in plus si id-ul categoriei pentru a putea sa legam optiunile din categorie de cele din piese in js

@@ -1,0 +1,221 @@
+1,"Claxon 12V Negru",1,10,30,1,GENERAL,"Accesorii si piese",15,3
+2,"Protectie schimbator viteze",1,10,25,2,GENERAL,"Accesorii si piese",5,2
+3,"Cablu antifurt",1,10,85,3,GENERAL,"Accesorii si piese",14,1
+4,"Claxon 12V Negru",1,1,45,4,APRILIA,"Accesorii si piese",10,0
+5,"Anvelopa Spate",2,1,810,5,APRILIA,"Anvelope si Roti",18,1
+6,"Anvelopa Spate",2,2,820,6,BETA,"Anvelope si Roti",19,4
+7,"Anvelopa Spate",2,3,830,7,BMW,"Anvelope si Roti",16,2
+8,"Anvelopa Spate",2,4,840,8,HONDA,"Anvelope si Roti",25,2
+9,"Anvelopa Spate",2,5,850,9,HUSABERG,"Anvelope si Roti",17,4
+10,"Anvelopa Spate",2,6,750,10,HUSQVARNA,"Anvelope si Roti",19,1
+11,"Anvelopa Spate",2,7,760,11,KAWASAKI,"Anvelope si Roti",9,3
+12,"Anvelopa Spate",2,8,770,12,SUZUKI,"Anvelope si Roti",20,3
+13,"Anvelopa Spate",2,9,780,13,YAMAHA,"Anvelope si Roti",0,0
+14,"Anvelopa Fata",2,1,610,14,APRILIA,"Anvelope si Roti",28,0
+15,"Anvelopa Fata",2,2,620,15,BETA,"Anvelope si Roti",13,3
+16,"Anvelopa Fata",2,3,630,16,BMW,"Anvelope si Roti",25,3
+17,"Anvelopa Fata",2,4,640,17,HONDA,"Anvelope si Roti",2,1
+18,"Anvelopa Fata",2,5,650,18,HUSABERG,"Anvelope si Roti",14,0
+19,"Anvelopa Fata",2,6,660,19,HUSQVARNA,"Anvelope si Roti",6,0
+20,"Anvelopa Fata",2,7,670,20,KAWASAKI,"Anvelope si Roti",9,3
+21,"Anvelopa Fata",2,8,680,21,SUZUKI,"Anvelope si Roti",6,4
+22,"Anvelopa Fata",2,9,690,22,YAMAHA,"Anvelope si Roti",15,3
+23,"Kit piston",3,1,110,23,APRILIA,"Componente Motor",13,3
+24,"kit piston",3,2,120,24,BETA,"Componente Motor",22,2
+25,"kit piston",3,3,130,25,BMW,"Componente Motor",2,12
+26,"kit piston",3,4,140,26,HONDA,"Componente Motor",9,3
+27,"kit piston",3,5,150,27,HUSABERG,"Componente Motor",9,0
+28,"kit piston",3,6,150,28,HUSQVARNA,"Componente Motor",19,3
+29,"kit piston",3,7,160,29,KAWASAKI,"Componente Motor",1,0
+30,"kit piston",3,8,170,30,SUZUKI,"Componente Motor",21,4
+31,"kit piston",3,9,180,31,YAMAHA,"Componente Motor",14,1
+32,garnitura,3,1,10,32,APRILIA,"Componente Motor",27,4
+33,garnitura,3,2,20,33,BETA,"Componente Motor",27,1
+34,garnitura,3,3,30,34,BMW,"Componente Motor",32,0
+35,garnitura,3,4,40,35,HONDA,"Componente Motor",20,0
+36,garnitura,3,5,50,36,HUSABERG,"Componente Motor",19,1
+37,garnitura,3,6,60,37,HUSQVARNA,"Componente Motor",20,2
+38,garnitura,3,7,70,38,KAWASAKI,"Componente Motor",22,0
+39,garnitura,3,8,80,39,SUZUKI,"Componente Motor",3,0
+40,garnitura,3,9,90,40,YAMAHA,"Componente Motor",14,1
+41,supapa,3,1,10,41,APRILIA,"Componente Motor",8,3
+42,supapa,3,2,20,42,BETA,"Componente Motor",29,4
+43,supapa,3,3,30,43,BMW,"Componente Motor",13,3
+44,supapa,3,4,40,44,HONDA,"Componente Motor",26,1
+45,supapa,3,5,50,45,HUSABERG,"Componente Motor",19,3
+46,supapa,3,6,60,46,HUSQVARNA,"Componente Motor",15,0
+47,supapa,3,7,70,47,KAWASAKI,"Componente Motor",24,1
+48,supapa,3,8,80,48,SUZUKI,"Componente Motor",29,2
+49,supapa,3,9,90,49,YAMAHA,"Componente Motor",11,4
+50,"Kit Reparatie Bascula",4,1,110,50,APRILIA,"Componente Sasiu",24,0
+51,"Kit Reparatie Bascula",4,2,120,51,BETA,"Componente Sasiu",25,0
+52,"Kit Reparatie Bascula",4,3,130,52,BMW,"Componente Sasiu",4,0
+53,"Kit Reparatie Bascula",4,4,140,53,HONDA,"Componente Sasiu",11,2
+54,"Kit Reparatie Bascula",4,5,150,54,HUSABERG,"Componente Sasiu",11,0
+55,"Kit Reparatie Bascula",4,6,150,55,HUSQVARNA,"Componente Sasiu",8,1
+56,"Kit Reparatie Bascula",4,7,160,56,KAWASAKI,"Componente Sasiu",14,1
+57,"Kit Reparatie Bascula",4,8,170,57,SUZUKI,"Componente Sasiu",17,1
+58,"Kit Reparatie Bascula",4,9,180,58,YAMAHA,"Componente Sasiu",24,1
+59,"Rulmenti de Jug",4,1,10,59,APRILIA,"Componente Sasiu",2,1
+60,"Rulmenti de Jug",4,2,20,60,BETA,"Componente Sasiu",27,2
+61,"Rulmenti de Jug",4,3,30,61,BMW,"Componente Sasiu",29,0
+62,"Rulmenti de Jug",4,4,40,62,HONDA,"Componente Sasiu",10,1
+63,"Rulmenti de Jug",4,5,50,63,HUSABERG,"Componente Sasiu",10,0
+64,"Rulmenti de Jug",4,6,60,64,HUSQVARNA,"Componente Sasiu",13,3
+65,"Rulmenti de Jug",4,7,70,65,KAWASAKI,"Componente Sasiu",6,1
+66,"Rulmenti de Jug",4,8,80,66,SUZUKI,"Componente Sasiu",8,1
+67,"Rulmenti de Jug",4,9,90,67,YAMAHA,"Componente Sasiu",4,1
+68,"Kit Reparatie Bucsa",4,1,10,68,APRILIA,"Componente Sasiu",1,0
+69,"Kit Reparatie Bucsa",4,2,20,69,BETA,"Componente Sasiu",11,0
+70,"Kit Reparatie Bucsa",4,3,30,70,BMW,"Componente Sasiu",26,3
+71,"Kit Reparatie Bucsa",4,4,40,71,HONDA,"Componente Sasiu",20,4
+72,"Kit Reparatie Bucsa",4,5,50,72,HUSABERG,"Componente Sasiu",19,3
+73,"Kit Reparatie Bucsa",4,6,60,73,HUSQVARNA,"Componente Sasiu",7,0
+74,"Kit Reparatie Bucsa",4,7,70,74,KAWASAKI,"Componente Sasiu",5,2
+75,"Kit Reparatie Bucsa",4,8,80,75,SUZUKI,"Componente Sasiu",22,0
+76,"Kit Reparatie Bucsa",4,9,90,76,YAMAHA,"Componente Sasiu",22,2
+77,Acumulator,5,1,110,77,APRILIA,Electrice,22,4
+78,Acumulator,5,2,120,78,BETA,Electrice,15,2
+79,Acumulator,5,3,130,79,BMW,Electrice,18,4
+80,Acumulator,5,4,140,80,HONDA,Electrice,1,0
+81,Acumulator,5,5,150,81,HUSABERG,Electrice,15,4
+82,Acumulator,5,6,150,82,HUSQVARNA,Electrice,13,3
+83,Acumulator,5,7,160,83,KAWASAKI,Electrice,3,0
+84,Acumulator,5,8,170,84,SUZUKI,Electrice,20,2
+85,Acumulator,5,9,180,85,YAMAHA,Electrice,21,3
+86,Becuri,5,1,10,86,APRILIA,Electrice,27,2
+87,Becuri,5,2,20,87,BETA,Electrice,9,0
+88,Becuri,5,3,30,88,BMW,Electrice,37,2
+89,Becuri,5,4,40,89,HONDA,Electrice,25,4
+90,Becuri,5,5,50,90,HUSABERG,Electrice,10,4
+91,Becuri,5,6,60,91,HUSQVARNA,Electrice,15,3
+92,Becuri,5,7,70,92,KAWASAKI,Electrice,6,4
+93,Becuri,5,8,80,93,SUZUKI,Electrice,8,2
+94,Becuri,5,9,90,94,YAMAHA,Electrice,9,4
+95,Bujii,5,1,10,95,APRILIA,Electrice,15,5
+96,Bujii,5,2,20,96,BETA,Electrice,10,4
+97,Bujii,5,3,30,97,BMW,Electrice,20,2
+98,Bujii,5,4,40,98,HONDA,Electrice,24,3
+99,Bujii,5,5,50,99,HUSABERG,Electrice,14,2
+100,Bujii,5,6,60,100,HUSQVARNA,Electrice,26,4
+101,Bujii,5,7,70,101,KAWASAKI,Electrice,18,3
+102,Bujii,5,8,80,102,SUZUKI,Electrice,26,3
+103,Bujii,5,9,90,103,YAMAHA,Electrice,15,0
+104,"Evacuare moto",6,1,110,104,APRILIA,Evacuari,2,0
+105,"Evacuare moto",6,2,120,105,BETA,Evacuari,7,2
+106,"Evacuare moto",6,3,130,106,BMW,Evacuari,7,0
+107,"Evacuare moto",6,4,140,107,HONDA,Evacuari,25,1
+108,"Evacuare moto",6,5,150,108,HUSABERG,Evacuari,6,3
+109,"Evacuare moto",6,6,150,109,HUSQVARNA,Evacuari,3,1
+110,"Evacuare moto",6,7,160,110,KAWASAKI,Evacuari,17,3
+111,"Evacuare moto",6,8,170,111,SUZUKI,Evacuari,29,2
+112,"Evacuare moto",6,9,180,112,YAMAHA,Evacuari,5,2
+113,"Filtru Benzina",7,1,110,113,APRILIA,Filtre,25,1
+114,"Filtru Benzina",7,2,120,114,BETA,Filtre,14,4
+115,"Filtru Benzina",7,3,130,115,BMW,Filtre,10,0
+116,"Filtru Benzina",7,4,140,116,HONDA,Filtre,9,2
+117,"Filtru Benzina",7,5,150,117,HUSABERG,Filtre,20,2
+118,"Filtru Benzina",7,6,150,118,HUSQVARNA,Filtre,2,0
+119,"Filtru Benzina",7,7,160,119,KAWASAKI,Filtre,13,1
+120,"Filtru Benzina",7,8,170,120,SUZUKI,Filtre,10,2
+121,"Filtru Benzina",7,9,180,121,YAMAHA,Filtre,10,0
+122,"Filtru de aer",7,1,110,122,APRILIA,Filtre,11,0
+123,"Filtru de aer",7,2,120,123,BETA,Filtre,25,1
+124,"Filtru de aer",7,3,130,124,BMW,Filtre,21,3
+125,"Filtru de aer",7,4,140,125,HONDA,Filtre,14,0
+126,"Filtru de aer",7,5,150,126,HUSABERG,Filtre,27,0
+127,"Filtru de aer",7,6,160,127,HUSQVARNA,Filtre,30,3
+128,"Filtru de aer",7,7,170,128,KAWASAKI,Filtre,9,3
+129,"Filtru de aer",7,8,180,129,SUZUKI,Filtre,10,0
+130,"Filtru de aer",7,9,190,130,YAMAHA,Filtre,20,1
+131,"Filtru ulei",7,1,210,131,APRILIA,Filtre,15,1
+132,"Filtru ulei",7,2,220,132,BETA,Filtre,17,-3
+133,"Filtru ulei",7,3,230,133,BMW,Filtre,6,1
+134,"Filtru ulei",7,4,240,134,HONDA,Filtre,20,1
+135,"Filtru ulei",7,5,250,135,HUSABERG,Filtre,6,0
+136,"Filtru ulei",7,6,260,136,HUSQVARNA,Filtre,9,1
+137,"Filtru ulei",7,7,270,137,KAWASAKI,Filtre,5,0
+138,"Filtru ulei",7,8,280,138,SUZUKI,Filtre,8,0
+139,"Filtru ulei",7,9,290,139,YAMAHA,Filtre,16,3
+140,"Discuri Frana",8,1,110,140,APRILIA,Frane,7,1
+141,"Discuri Frana",8,2,120,141,BETA,Frane,17,4
+142,"Discuri Frana",8,3,130,142,BMW,Frane,2,0
+143,"Discuri Frana",8,4,140,143,HONDA,Frane,16,3
+144,"Discuri Frana",8,5,150,144,HUSABERG,Frane,19,4
+145,"Discuri Frana",8,6,150,145,HUSQVARNA,Frane,24,3
+146,"Discuri Frana",8,7,160,146,KAWASAKI,Frane,12,2
+147,"Discuri Frana",8,8,170,147,SUZUKI,Frane,1,0
+148,"Discuri Frana",8,9,180,148,YAMAHA,Frane,1,0
+149,"Kit Reparatie Frana",8,1,110,149,APRILIA,Frane,17,1
+150,"Kit Reparatie Frana",8,2,120,150,BETA,Frane,21,0
+151,"Kit Reparatie Frana",8,3,130,151,BMW,Frane,14,2
+152,"Kit Reparatie Frana",8,4,140,152,HONDA,Frane,16,0
+153,"Kit Reparatie Frana",8,5,150,153,HUSABERG,Frane,22,0
+154,"Kit Reparatie Frana",8,6,160,154,HUSQVARNA,Frane,17,1
+155,"Kit Reparatie Frana",8,7,170,155,KAWASAKI,Frane,5,0
+156,"Kit Reparatie Frana",8,8,180,156,SUZUKI,Frane,3,-2
+157,"Kit Reparatie Frana",8,9,190,157,YAMAHA,Frane,29,2
+158,"Kit Upgrade Frana",8,1,210,158,APRILIA,Frane,21,2
+159,"Kit Upgrade Frana",8,2,220,159,BETA,Frane,19,3
+160,"Kit Upgrade Frana",8,3,230,160,BMW,Frane,11,4
+161,"Kit Upgrade Frana",8,4,240,161,HONDA,Frane,22,1
+162,"Kit Upgrade Frana",8,5,250,162,HUSABERG,Frane,6,0
+163,"Kit Upgrade Frana",8,6,260,163,HUSQVARNA,Frane,18,4
+164,"Kit Upgrade Frana",8,7,270,164,KAWASAKI,Frane,11,4
+165,"Kit Upgrade Frana",8,8,280,165,SUZUKI,Frane,22,2
+166,"Kit Upgrade Frana",8,9,290,166,YAMAHA,Frane,10,0
+167,Husa,9,1,110,167,APRILIA,"Huse Moto",25,0
+168,Husa,9,2,120,168,BETA,"Huse Moto",21,2
+169,Husa,9,3,130,169,BMW,"Huse Moto",14,4
+170,Husa,9,4,140,170,HONDA,"Huse Moto",30,2
+171,Husa,9,5,150,171,HUSABERG,"Huse Moto",20,1
+172,Husa,9,6,150,172,HUSQVARNA,"Huse Moto",6,1
+173,Husa,9,7,160,173,KAWASAKI,"Huse Moto",29,4
+174,Husa,9,8,170,174,SUZUKI,"Huse Moto",13,4
+175,Husa,9,9,180,175,YAMAHA,"Huse Moto",30,2
+176,"Kit Lant Moto",10,1,110,176,APRILIA,Transmisie,28,2
+177,"Kit Lant Moto",10,2,120,177,BETA,Transmisie,14,4
+178,"Kit Lant Moto",10,3,130,178,BMW,Transmisie,23,3
+179,"Kit Lant Moto",10,4,140,179,HONDA,Transmisie,27,0
+180,"Kit Lant Moto",10,5,150,180,HUSABERG,Transmisie,10,2
+181,"Kit Lant Moto",10,6,150,181,HUSQVARNA,Transmisie,16,2
+182,"Kit Lant Moto",10,7,160,182,KAWASAKI,Transmisie,29,2
+183,"Kit Lant Moto",10,8,170,183,SUZUKI,Transmisie,20,4
+184,"Kit Lant Moto",10,9,180,184,YAMAHA,Transmisie,3,0
+185,"KTM Sistem Racire",11,1,110,185,APRILIA,"KTM Power Parts",13,4
+186,"KTM Sistem Racire",11,2,120,186,BETA,"KTM Power Parts",12,0
+187,"KTM Sistem Racire",11,3,130,187,BMW,"KTM Power Parts",16,3
+188,"KTM Sistem Racire",11,4,140,188,HONDA,"KTM Power Parts",8,3
+189,"KTM Sistem Racire",11,5,150,189,HUSABERG,"KTM Power Parts",22,2
+190,"KTM Sistem Racire",11,6,150,190,HUSQVARNA,"KTM Power Parts",8,0
+191,"KTM Sistem Racire",11,7,160,191,KAWASAKI,"KTM Power Parts",9,1
+192,"KTM Sistem Racire",11,8,170,192,SUZUKI,"KTM Power Parts",14,3
+193,"KTM Sistem Racire",11,9,180,193,YAMAHA,"KTM Power Parts",24,4
+194,Ghidoan,12,1,110,194,APRILIA,"Manete si Comenzi",2,0
+195,Ghidoan,12,2,120,195,BETA,"Manete si Comenzi",8,2
+196,Ghidoan,12,3,130,196,BMW,"Manete si Comenzi",6,0
+197,Ghidoan,12,4,140,197,HONDA,"Manete si Comenzi",8,1
+198,Ghidoan,12,5,150,198,HUSABERG,"Manete si Comenzi",15,4
+199,Ghidoan,12,6,150,199,HUSQVARNA,"Manete si Comenzi",4,0
+200,Ghidoan,12,7,160,200,KAWASAKI,"Manete si Comenzi",26,3
+201,Ghidoan,12,8,170,201,SUZUKI,"Manete si Comenzi",27,2
+202,Ghidoan,12,9,180,202,YAMAHA,"Manete si Comenzi",25,4
+203,"Maneta Ambreiaj",12,1,110,203,APRILIA,"Manete si Comenzi",26,1
+204,"Maneta Ambreiaj",12,2,120,204,BETA,"Manete si Comenzi",12,0
+205,"Maneta Ambreiaj",12,3,130,205,BMW,"Manete si Comenzi",15,0
+206,"Maneta Ambreiaj",12,4,140,206,HONDA,"Manete si Comenzi",7,3
+207,"Maneta Ambreiaj",12,5,150,207,HUSABERG,"Manete si Comenzi",25,2
+208,"Maneta Ambreiaj",12,6,160,208,HUSQVARNA,"Manete si Comenzi",17,2
+209,"Maneta Ambreiaj",12,7,170,209,KAWASAKI,"Manete si Comenzi",7,3
+210,"Maneta Ambreiaj",12,8,180,210,SUZUKI,"Manete si Comenzi",32,2
+211,"Maneta Ambreiaj",12,9,190,211,YAMAHA,"Manete si Comenzi",10,0
+212,"Maneta Frana ",12,1,210,212,APRILIA,"Manete si Comenzi",15,0
+213,"Maneta Frana ",12,2,220,213,BETA,"Manete si Comenzi",14,4
+214,"Maneta Frana ",12,3,230,214,BMW,"Manete si Comenzi",3,0
+215,"Maneta Frana ",12,4,240,215,HONDA,"Manete si Comenzi",6,2
+216,"Maneta Frana ",12,5,250,216,HUSABERG,"Manete si Comenzi",16,3
+217,"Maneta Frana ",12,6,260,217,HUSQVARNA,"Manete si Comenzi",19,1
+218,"Maneta Frana ",12,7,270,218,KAWASAKI,"Manete si Comenzi",10,4
+219,"Maneta Frana ",12,8,280,219,SUZUKI,"Manete si Comenzi",2,0
+220,"Maneta Frana ",12,9,290,220,YAMAHA,"Manete si Comenzi",4,1
+221,Suspensie,17,1,450,221,APRILIA,"Suspensii Moto",3,0

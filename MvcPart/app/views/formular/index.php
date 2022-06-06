@@ -22,9 +22,9 @@
 
     <main>
 
-        <form action="/formular/<?=$data['username']?>l" method="post" class="formular_programare">
+        <form action="/formular/<?=$data['username']?>" method="post" class="formular_programare" enctype="multipart/form-data">
           
-
+            <input type="hidden" id="id_formular_ascuns" name="id_formular_ascuns" value="<?=$data['idFormularAscuns']?>">
             <div class="formular_programare__status">
                 <!-- Editare problema->In astepare raspuns->Programata*/ -->
                 <p class="formular_programare__status__text">Status formular: </p>
@@ -41,8 +41,8 @@
                
             </div>
 
+            <?=$data['dateClientNou']?>
             
-
             <div class="formular_programare__mesaj_client">
                 
                 <?=$data['mesajClient']?>
@@ -61,8 +61,17 @@
             <div class="formular_programare__actiune">
                 <!-- <button type="button" class="formular_programare__actiune__accepta_button">Accepta</button>
                 <button type="button" class="formular_programare__actiune__respinge_button">Respinge</button> -->
-                <button type="submit" class="formular_programare__actiune__trimite_button" name="formular_programare__actiune" value="Trmite" > Trimite</button>
-           </div>  
+                <!-- <button type="submit" class="formular_programare__actiune__trimite_button" name="formular_programare__actiune" value="Trmite" > Trimite</button> -->
+                <?=$data['butoaneFormular']?>
+               
+            </div> 
+    
+            <div class="formular_programare__piese_necesare">
+                <?=$data['selectPieseOptionAdmin']?>
+            </div>   
+            <div class="formular_programare__piese_selectate">
+                <?=$data['tabelPieseSelectateAdmin']?>
+            </div> 
         </form>
     </main>
 

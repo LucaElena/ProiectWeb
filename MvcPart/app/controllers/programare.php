@@ -122,20 +122,22 @@
                     
                     $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
                     $oraCurentaFormataTabel = strtoupper(date_format($oraCurentaTabel, 'H:i')); 
+                    $ziuaCurentaFormataTabel = date_format($oraCurentaTabel, 'Y-m-d H:i'); 
                     $status = "open";
                     $hover = "";
                     foreach($programariSaptamnaCurenta as $programare)
                     {
+                        //o am deja in baza de date? compar la nivel de zi si ora prin diferenta
                         $difenta = $oraCurentaTabel->diff(new DateTime($programare['date']));
                         if ($difenta->d == 0 && $difenta->h == 0)
                         {
-                            $status = "busy";
+                            $status = "busy";//gri
                             // $status == "busy"//clasa cu gri cu mai putine informatii 
                             // $status = "bussy"//clasa cu rosu si mai multe informatii in hover
                             //admin  ori //utilizator normal si programare ce ii apartine
                             if (($user_exist && $user_type) || ($user_exist && $user_type == 0 && $programare["id_user"] == $user_id))
                             {
-                                $status = "bussy";
+                                $status = "bussy";//rosu
                                 $dateUserProgramare = $user->getUserData($programare["id_user"]);
                                 $hover = '<span class="hover-value">'. $dateUserProgramare['user_name'] . ' ' . $dateUserProgramare['phone'] . ' '. $dateUserProgramare['email'] .'</span>';
                                 // print_r($dateUserProgramare);
@@ -150,10 +152,17 @@
                         $status = "busy";
                         // print_r("</br>" . $j . ":" . $i . " ". $status .":" . date_format($oraCurentaTabel , 'Y-m-d H') . " " . date_format(new DateTime("now") , 'Y-m-d H'));
                     }
+                    // $info['tabelProgram'] = $info['tabelProgram']. 
+                    // '
+                    //     <div class="programari__calendar__inside__hours_btn">
+                    //         <button type="button" class="programari__calendar__inside__hours_btn__' . $status . '" name="button_progrmare_ora" value="' . $ziuaCurentaFormataTabel . '" id="calendar_row' . $i . '_col' . $j . '"> ' . $oraCurentaFormataTabel .  $hover . '</button>
+                    //         <input type="hidden" id="calendar_ascuns_row' . $i . '_col' . $j . '" name="calendar_ascuns_row' . $i . '_col' . $j . '" value="' . $ziuaCurentaFormataTabel . '">
+                    //     </div>
+                    // ';
                     $info['tabelProgram'] = $info['tabelProgram']. 
                     '
                         <div class="programari__calendar__inside__hours_btn">
-                            <button type="button" class="programari__calendar__inside__hours_btn__' . $status . '" name="button_progrmare_ora" value="08:00" id="calendar_row' . $i . '_col' . $j . '"> ' . $oraCurentaFormataTabel .  $hover . '</button>
+                            <button type="button" class="programari__calendar__inside__hours_btn__' . $status . '" name="button_progrmare_ora" value="' . $ziuaCurentaFormataTabel . '" id="calendar_row' . $i . '_col' . $j . '"> ' . $oraCurentaFormataTabel .  $hover . '</button>
                         </div>
                     ';
                     
@@ -166,7 +175,7 @@
             {
                 $info['generalbar'] = str_replace("CLIENT_NELOGAT" , $userName , BARA_CLIENT_NELOGAT);
                 $info['butoane'] = '
-                    <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" value="Book"> Book</button>';
+                    <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" formaction="/formular/book" value="Book"> Book</button>';
                 $this->view('programare/index', $info);
             }
             else
@@ -180,16 +189,16 @@
                     {
                         $info['generalbar'] = str_replace("GENERIC_USERNAME" , $userName , BARA_ADMIN_MOTO);
                         $info['butoane'] = '
-                            <button type="submit" class="programari__btn__btn1" name="calendar_action" value="Raspuns" >Raspuns</button>
-                            <button type="submit" class="programari__btn__btn2" name="calendar_action" value="Terminat" >Terminat</button>';
+                            <button type="submit" class="programari__btn__btn1" name="calendar_action" formaction="/formular/raspuns/' . $userName . '" value="Raspuns" >Raspuns</button>
+                            <button type="submit" class="programari__btn__btn2" name="calendar_action" formaction="/formular/terminat/' . $userName . '"value="Terminat" >Terminat</button>';
                         $this->view('programare/index', $info);
                     }
                     else
                     {
                         $info['generalbar'] = str_replace("GENERIC_USERNAME" , $userName , BARA_CLIENT_MOTO);
                         $info['butoane'] = '
-                            <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" value="Book">Book</button>
-                            <button type="submit" class="programari__btn__btn2" id="programari__btn__cancel" name="calendar_action" value="Cancel">Cancel</button>';
+                            <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" formaction="/formular/book/' . $userName . '" value="Book">Book</button>
+                            <button type="submit" class="programari__btn__btn2" id="programari__btn__cancel" name="calendar_action" formaction="/formular/cancel/' . $userName . '" value="Cancel">Cancel</button>';
                         $this->view('programare/index', $info);
                     }
                 }
@@ -197,7 +206,7 @@
                 {
                     $info['generalbar'] = str_replace("CLIENT_NELOGAT" , $userName , BARA_CLIENT_NELOGAT);
                     $info['butoane'] = '
-                        <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" value="Book"> Book</button>';
+                        <button type="submit" class="programari__btn__btn1" id="programari__btn__book" name="calendar_action" formaction="/formular/book/' . $userName . '" value="Book"> Book</button>';
                     $this->view('programare/index', $info);
                 }
             }   
@@ -213,6 +222,9 @@
             $user_exist = 0;
             $user_type = 0;
             $user_id = "";
+            $weekStart = '';
+            $weekEnd = '';
+            $dataSetataStart = '';
 
             if ($userName != "")
             {
@@ -229,14 +241,20 @@
             $json = file_get_contents('php://input');
             $values = json_decode($json, true);
 
-            if(isset($values["currentDay"]))
+
+            //firstday = 0 -> Incepand cu ziua la care suntem
+            //firstday = 1 -> Incepand cu prima Luni din saptamana la care suntem
+            //firstday = 2 -> Incepand cu prima luni din luna la care suntem
+            
+            if(isset($values["currentDay"]) && isset($values["firstDay"]))
             {
-                
-                
+
                 // $raspuns["error"] = $values["currentDay"];
                 //2022-06-29T21:00:00.000Z
                 if (DateTime::createFromFormat('m/d/Y',  $values["currentDay"]) !== false)
                 {
+                    
+                    
                     //Extragem datele din ziua curenta
                     $dataSetataStart =  DateTime::createFromFormat('m/d/Y H:i', $values["currentDay"] . ' 00:01');
                     $anAcum = $dataSetataStart->format('Y');
@@ -246,9 +264,22 @@
                     $minuteAcum = $dataSetataStart->format('i');
 
                     //Construim un obiect de tip data cu inceputul si sfarsitul
-                    $weekStart = date('Y-m-d 00:00:00', strtotime('monday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
-                    $weekEnd = date('Y-m-d 23:59:59', strtotime('sunday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
-                    
+                    if ($values["firstDay"] == 0)
+                    {
+                        $weekStart = date('Y-m-d 00:00:00', strtotime($dataSetataStart->format('Y-m-d H:i:s')));
+                        $weekEnd = date('Y-m-d 23:59:59', strtotime('+6 days', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                    }
+                    if ($values["firstDay"] == 1)
+                    {
+                        $weekStart = date('Y-m-d 00:00:00', strtotime('monday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                        $weekEnd = date('Y-m-d 23:59:59', strtotime('sunday this week', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                    }
+                    if ($values["firstDay"] == 2)
+                    {
+                        $weekStart = date('Y-m-d 00:00:00', strtotime('first monday this month', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                        $weekEnd = date('Y-m-d 23:59:59', strtotime('+7 days', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                    }
+                   
                     $programariSaptamnaCurenta = $programare->getProgramari( $weekStart , $weekEnd );
                     $raspuns["status"] = 1;
                     
@@ -262,7 +293,7 @@
                         {
                             
                             // $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum + 1)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
-                            $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H:i:s',date('Y-m-d H:i:s', strtotime("+" . (($i-$ziAcum )*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes" , strtotime($dataSetataStart->format('Y-m-d H:i:s')))));
+                            $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H:i:s' , date('Y-m-d H:i:s', strtotime("+" . (($i-$ziAcum )*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes" , strtotime($dataSetataStart->format('Y-m-d H:i:s')))));
                             $oraCurentaFormataTabel = strtoupper(date_format($oraCurentaTabel, 'H:i')); 
                             $status = "open";
                             $hover = "";
@@ -297,16 +328,18 @@
                             array_push( $raspuns["data"], array("i" => $i, "j" => $j , "status" => $status , "hover" => $hover));
                         }
                     }
+                    
 
                 }
                 else
                 {
-                    $raspuns["error"] = $values["currentDay"];
+                    $raspuns["error"] = " currentDay = " . $values["currentDay"] . " firstDay = " . $values["firstDay"];
                 }
                 
                 
             }
 
+            $raspuns["error"] = " currentDay = " . $values["currentDay"] . " firstDay = " . $values["firstDay"] . " weekStart = " . $weekStart . " weekEnd = " . $weekEnd . " dataSetataStart = " . $dataSetataStart->format('Y-m-d H:i:s');
             // Trimitem json-ul cu raspunsul
             header('Content-Type: application/json; charset=utf-8');
             echo json_encode($raspuns);

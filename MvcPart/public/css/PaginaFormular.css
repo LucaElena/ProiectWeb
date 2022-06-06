@@ -186,8 +186,8 @@ footer {
     justify-content: start;
 }
 
-.formular_programare__date_client__f_name,
-.formular_programare__date_client__l_name,
+.formular_programare__date_client__u_name,
+.formular_programare__date_client__phone,
 .formular_programare__date_client__email,
 .formular_programare__date_client__pass
 {
@@ -369,6 +369,7 @@ footer {
     grid-row-start: 9;
 }
 .formular_programare__actiune__accepta_button,
+.formular_programare__actiune__editare_button,
 .formular_programare__actiune__terminat_button,
 .formular_programare__actiune__trimite_button
 {
@@ -381,6 +382,7 @@ footer {
 }
 
 .formular_programare__actiune .formular_programare__actiune__accepta_button,
+.formular_programare__actiune .formular_programare__actiune__editare_button,
 .formular_programare__actiune .formular_programare__actiune__respinge_button,
 .formular_programare__actiune .formular_programare__actiune__terminat_button,
 .formular_programare__actiune .formular_programare__actiune__sterge_button,
@@ -399,6 +401,7 @@ footer {
 
 
 .formular_programare__actiune .formular_programare__actiune__accepta_button:hover,
+.formular_programare__actiune .formular_programare__actiune__editare_button:hover,
 .formular_programare__actiune .formular_programare__actiune__respinge_button:hover,
 .formular_programare__actiune .formular_programare__actiune__terminat_button:hover,
 .formular_programare__actiune .formular_programare__actiune__sterge_button:hover,
@@ -434,8 +437,8 @@ footer {
     .formular_programare__date_client {
         font-size: medium;
     }
-    .formular_programare__date_client__f_name,
-    .formular_programare__date_client__l_name,
+    .formular_programare__date_client__u_name,
+    .formular_programare__date_client__phone,
     .formular_programare__date_client__email,
     .formular_programare__date_client__pass
     {
@@ -523,8 +526,8 @@ footer {
     {
         display: block;
     }
-    .formular_programare__date_client__f_name,
-    .formular_programare__date_client__l_name,
+    .formular_programare__date_client__u_name,
+    .formular_programare__date_client__phone,
     .formular_programare__date_client__email,
     .formular_programare__date_client__pass
     {
@@ -546,6 +549,7 @@ footer {
         padding: 0em;
     } */
     .formular_programare__actiune .formular_programare__actiune__accepta_button,
+    .formular_programare__actiune .formular_programare__actiune__editare_button,
     .formular_programare__actiune .formular_programare__actiune__respinge_button,
     .formular_programare__actiune .formular_programare__actiune__terminat_button,
     .formular_programare__actiune .formular_programare__actiune__sterge_button,

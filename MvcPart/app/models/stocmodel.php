@@ -98,7 +98,7 @@ class StocModel extends Controller
         return $results;
     }
     
-
+    
     public function getPiesaIdByNameBrandCategory($part_name, $brand_name , $category_name)
     {
         $sql = "SELECT id_part FROM parts as p INNER JOIN brands as b ON p.id_brand=b.id_brand INNER join categories as c WHERE p.name=:part_name and b.brand_name=:brand_name and c.category_name=:category_name;";
@@ -178,13 +178,45 @@ class StocModel extends Controller
         return $result['id_brand'];
     }
     
-    public function insertPiesa( $id_brand, $id_categorie_selectata, $nume_piesa_selectata)
+    public function getPret( $id_part)
     {
-        $sql = "INSERT INTO parts (name, id_category, id_brand, price, quantity, shipped_date) VALUES (NULL, :id_part, :data, 0, :quantity, NULL)";
-        $stmt= $this->conn->prepare($sql); 
-        $stmt->execute(array(":id_part" => $id_part , ":data" => $data , ":quantity" => $quantity ));
+        $sql = "SELECT price FROM parts WHERE id_part=:id_part;";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":id_part" => $id_part));
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result['price'];
     }
 
+    public function insertPiesa( $id_brand, $id_categorie_selectata, $nume_piesa_selectata)
+    {
+        // $sql = "INSERT INTO parts (name, id_category, id_brand, price, quantity, shipped_date) VALUES (NULL, :id_part, :data, 0, :quantity, NULL)";
+        // $stmt= $this->conn->prepare($sql); 
+        // $stmt->execute(array(":id_part" => $id_part , ":data" => $data , ":quantity" => $quantity ));
+    }
+
+    public function verifcaCantitateStoc( $id_piesa , $cantitate)
+    {
+        $sql = "SELECT * FROM stoc WHERE id_stoc=:id_piesa;";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":id_piesa" => $id_piesa));
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        if ($result['cantitate_stoc'] >= $cantitate)
+        {
+            return $result['cantitate_stoc'];
+        }
+        return 0;
+    }
+
+    public function exportStoc()
+    {
+        $sql = "SELECT * FROM parts as p INNER JOIN brands as b ON p.id_brand=b.id_brand INNER join categories as c ON p.id_category=c.id_category INNER join stoc as s ON p.id_part=s.id_part";
+        $query = $this->conn->prepare($sql);
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
+
+    
 }
 
 ?>

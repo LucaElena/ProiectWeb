@@ -153,6 +153,56 @@ footer {
     padding: 1em;
     background-color: #F1FAEE;
 }
+.istoric_programari__buttons
+{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+}
+
+
+.istoric_programari__buttons__stanga,
+.istoric_programari__buttons__dreapta
+{
+    border-radius: 5px;
+    transition: .3s ease;
+    font-family: Arial;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.5em;
+    margin-left: 2em;
+}
+
+.istoric_programari__buttons
+{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+.istoric_programari__buttons__stanga,
+.istoric_programari__buttons__dreapta
+{
+    width: 20%;
+}
+
+
+.istoric_programari__buttons__stanga:hover,
+.istoric_programari__buttons__dreapta:hover
+{
+    opacity: 0.8;
+    color: #1D3557;
+    transition: .5s ease;
+    transform: scale(1.02);
+}
+
+
+
+
+
+
 
 .istoric_programari__lista td, th
 { 
@@ -243,6 +293,14 @@ footer {
     {
        transform: none;
     }
+
+    .istoric_programari__buttons__stanga,
+    .istoric_programari__buttons__dreapta
+    {
+        padding: 0;
+        margin-left: 1em;
+    }
+
 
     .istoric_programari__lista,
     .istoric_programari__lista table,

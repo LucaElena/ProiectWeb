@@ -56,6 +56,13 @@ class UserModel extends Controller
         return $result;
     }
 
+    public function newUser($userName, $phone, $email, $password)
+    {
+        $sql = "INSERT INTO `users` (`id_user`, `type`, `user_name`, `email`, `phone`, `password`) VALUES (NULL, '0', :userName, :email, :phone, :password);";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":userName" => $userName , ":phone" => $phone , ":email" => $email , ":password" => $password));
+    }
+
 
 }
 
