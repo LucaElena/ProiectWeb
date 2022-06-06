@@ -34,7 +34,22 @@ header {
   background-color: #457b9d;
 }
 
+.error {
+  background: #F2DEDE;
+  color: #A94442;
+  width: 100%;
+  border-radius: 5px;
+  margin: 20px auto;
+}
 
+.success {
+  background: #D4EDDA;
+  color: #40754C;
+  padding: 5px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 5px auto;
+}
 /* scoatem partea de albastru de la butoane */
 
 a {
@@ -133,13 +148,13 @@ body{
 }
 
 .login{
-  display: grid;
+  /*display: grid;*/
   grid-template-columns: 100%;
-  height: 100vh;
+  /*height: 100vh;*/
   padding: 10px;
   margin-left: 1rem;
   margin-right: 1rem;
-  margin-top: 5rem;
+  /*margin-top: 5rem;*/
 }
 
 .login__content{
@@ -156,9 +171,9 @@ body{
 }
 
 .login__registre, .login__create, .login__change__pass{
-  position: absolute;
-  bottom: 1rem;
-  width: 100%;
+  /*position: absolute;*/
+  /*bottom: 0.25rem;*/
+  /*width: 100%;*/
   background-color: #fff;
   padding: 1rem 1rem;
   border-radius: 1rem;

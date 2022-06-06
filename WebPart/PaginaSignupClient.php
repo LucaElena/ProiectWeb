@@ -82,27 +82,27 @@
 
         <div class="login">
             <div class="login__content">
-                
+
 
                 <div class="login__forms">
-                    <form action="./PaginaGeneralaClient.html" class="login__registre none" method="post" id="login-in">
+                    <form action="../MvcPart/app/controllers/login.php" class="login__registre none" method="post" id="login-in">
                         <h1 class="title">Sign In</h1>
-    
+
                         <div class="input-group">
-                            <input type="text" placeholder="Username"  minlength="5" maxlength="20" class="login-input" required>
-                        </div>
-    
-                        <div class="input-group">
-                            <input type="password" placeholder="Password" minlength="5" maxlength="20" class="login-input" required>
+                            <input type="text" name="name" placeholder="Username"  minlength="5" maxlength="20" class="login-input" required>
                         </div>
 
-                        <!-- <div>
+                        <div class="input-group">
+                            <input type="password" name="password" placeholder="Password" minlength="5" maxlength="20" class="login-input" required>
+                        </div>
+
+                        <div>
                             <span class="login__account">Forgot password?</span>
                             <span class="login__signin" id="change-pass">Change Password</span>
-                        </div> -->
+                        </div>
 
-                        <!-- <a href="#" class="login__button">Sign In</a> -->
-                        <button type="submit" class="login__button" name="login_button" value="Sign In">Sign In</button>
+<!--                         <a href="./PaginaGeneralaClient.html" class="login__button">Sign In</a>-->
+                        <button type="submit" class="login__button" name="login_button">Sign In</button>
 
                         <div>
                             <span class="login__account">Don't have an Account ?</span>
@@ -110,22 +110,29 @@
                         </div>
                     </form>
 
-                    <form action="./PaginaGeneralaClient.html" class="login__create" method="post" id="login-up">
+                    <form action="../MvcPart/app/controllers/signup.php" class="login__create" method="post" id="login-up">
                         <h1 class="title">Create Account</h1>
-    
+                        <?php if (isset($_GET['error'])) { ?>
+                        <p class="error"><?php echo $_GET['error']; ?></p>
+                        <?php } ?>
+
+                        <?php if (isset($_GET['success'])) { ?>
+                        <p class="success"><?php echo $_GET['success']; ?></p>
+                        <?php } ?>
                         <div class="input-group">
-                            
-                            <input type="text" class="login-input" minlength="5" maxlength="20" placeholder="Username" required>
-                        </div>
-    
-                        <div class="input-group">
-                            
-                            <input type="email" class="login-input" minlength="10" maxlength="30" placeholder="Email" required>
+                            <input type="text" name="name" class="login-input" minlength="5" maxlength="20" placeholder="Username" required>
                         </div>
 
                         <div class="input-group">
-                            
-                            <input type="password" class="login-input" minlength="5" maxlength="20" placeholder="Password" required>
+                            <input type="text"   name="phone" class="login-input" minlength="10" maxlength="30" placeholder="Phone" required>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email"  name="email" class="login-input" minlength="10" maxlength="30" placeholder="Email" required>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="password" name="password" class="login-input" minlength="5" maxlength="20" placeholder="Password" required>
                         </div>
 
                         <!-- <a href="#" class="login__button">Sign Up</a> -->
@@ -139,22 +146,20 @@
                         
                     </form>
                     
-                    <form action="./PaginaGeneralaClient.html" class="login__change__pass none" method="post" id="login-forgot">
+                    <form action="../MvcPart/app/controllers/ChangePassword.php" class="login__change__pass none" method="post" id="login-forgot">
                         <h1 class="title">Change Password</h1>
-    
-                        <div class="input-group">
-                            
-                            <input type="email" class="login-input" minlength="10" maxlength="30" placeholder="Email" >
-                        </div>
-    
 
                         <div class="input-group">
-                            
-                            <input type="password" class="login-input" minlength="5" maxlength="20" placeholder="New_Password" >
+                            <input type="email" name="email" class="login-input" minlength="10" maxlength="30" placeholder="Email" >
+                        </div>
+
+
+                        <div class="input-group">
+                            <input type="password" name="new_password" class="login-input" minlength="5" maxlength="20" placeholder="New_Password" >
                         </div>
 
                         <!-- <a href="#" class="login__button">Save</a> -->
-                        <button type="submit" class="login__button" name="login_button" value="Save">Save</button>
+                        <button type="submit" class="login__button" name="login_button">Save</button>
 
                         <div>
                             <span class="login__account">You want to give up ?</span>
