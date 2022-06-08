@@ -22,7 +22,7 @@
 
     <main>
         <div class="admin-date">
-            <form action="/exportimport/<?=$data['username']?>" method="post" class="admin-date__import" enctype="multipart/form-data">
+            <form action="/exportimport/" method="post" class="admin-date__import" enctype="multipart/form-data">
                 <div class="admin-date__import__txt">
                     <h1>Importa date</h1>
                 </div>
@@ -47,12 +47,12 @@
                     <input type="file" accept=".csv, .json" id="admin-date__import__file" name="fisier_import" required>
                 </div>
                 <div class="admin-date__import__button">
-                    <button type="submit" id="admin-date__import__button" name="actiune" formaction=/exportimport/importa/<?=$data['username']?> value="Importa">Importa</button>
+                    <button type="submit" id="admin-date__import__button" name="actiune" formaction=/exportimport/importa/ value="Importa">Importa</button>
                 </div>
 
             </form>
 
-            <form action="/exportimport/<?=$data['username']?>" method="post" class="admin-date__export">
+            <form action="/exportimport/" method="post" class="admin-date__export">
                 <div class="admin-date__export__txt">
                     <h1>Exporta date </h1>
                 </div>
@@ -76,7 +76,7 @@
                     </select>
                 </div>
                 <div class="admin-date__export__button">
-                    <button type="submit" id="admin-date__export__button" name="actiune" formaction=/exportimport/exporta/<?=$data['username']?> value="Exporta">Exporta</button>
+                    <button type="submit" id="admin-date__export__button" name="actiune" formaction=/exportimport/exporta/ value="Exporta">Exporta</button>
                 </div>
             </form>
 

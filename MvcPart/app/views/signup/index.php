@@ -24,6 +24,8 @@
 
                 <div class="login__forms">
 
+                    
+
                     <form action="/login" class="login__registre none" method="post" id="login-in">
 
                         <h1 class="title">Sign In : <?=$data['mesajEroare']?></h1>

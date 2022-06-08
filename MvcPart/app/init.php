@@ -24,8 +24,6 @@
 	define('SITENAME', 'Cycling Maintenance Web Tool');
 
     //Templates:   
-    //TO DO: fill all the hrefs and needed Templates names 
-
 	define('BARA_CLIENT_NELOGAT' , '
 			<li>
                 <a class="logo" href="/home/CLIENT_NELOGAT">
@@ -89,7 +87,7 @@
 	');
     define('BARA_CLIENT_MOTO' , '
 							<li>
-								<a class="logo" href="/home/GENERIC_USERNAME">
+								<a class="logo" href="/home/">
 
 									<!-- <span class="header_icon_logo"> <i class="fas fa-clinic-medical"></i> </span> -->
 									<span class="header_icon_logo"> &#128757; </span>
@@ -101,7 +99,7 @@
 
 
 							<li>
-								<a class="header_button" href="/programare/GENERIC_USERNAME">
+								<a class="header_button" href="/programare/">
 									<!-- <span class="header_icon"> <i class="fas fa-calendar-plus"></i> </span> -->
 									<span class="header_icon"> &#128197; </span>
 									<span class="header_text">Program</span>
@@ -109,7 +107,7 @@
 							</li>
 
 							<li>
-								<a class="header_button" href="/formular/GENERIC_USERNAME">
+								<a class="header_button" href="/formular/">
 									<!-- <span class="header_icon"> <i class="fa fa-check-square"></i> </span>	 -->
 									<span class="header_icon"> &#128193; </span>
 									<span class="header_text">Formular</span>
@@ -117,7 +115,7 @@
 							</li>
 
 							<li>
-								<a class="header_button" href="/istoric/GENERIC_USERNAME">
+								<a class="header_button" href="/istoric/">
 									<span class="header_icon"> <i class="fas fa-comments"></i> </span>
 									<span class="header_text">Istoric</span>
 								</a>
@@ -131,14 +129,14 @@
 								</a>
 								<ul class="header_button__login">
 									<li>
-										<a class="header_button" href="/resetpass/GENERIC_USERNAME">
+										<a class="header_button" href="/changepass/">
 											<!-- <span class="header_icon"> <i class="fas fa-key"></i> </span> -->
 											<span class="header_icon"> &#9919; </span>
 											<span class="header_text">Reset password</span>
 										</a>
 									</li>
 									<li>
-										<a class="header_button" href="/signout/GENERIC_USERNAME">
+										<a class="header_button" href="/signout/">
 											<!-- <span class="header_icon"> <i class="fas fa-sign-out-alt"></i> </span>	 -->
 											<span class="header_icon"> &#9094; </span>
 											<span class="header_text">Log out</span>
@@ -227,13 +225,13 @@
 								</a>
 								<ul class="header_button__login">
 										<li>
-												<a class="header_button" href="/resetpass/admin">
+												<a class="header_button" href="/changepass/admin">
 														<span class="header_icon"> <i class="fas fa-key"></i> </span>
 														<span class="header_text">Reset password</span>
 												</a>
 										</li>
 										<li>
-												<a class="header_button" href="/logout/admin">
+												<a class="header_button" href="/signout/admin">
 														<span class="header_icon"> <i class="fas fa-sign-out-alt"></i>
 														</span>
 														<span class="header_text">Log out</span>

@@ -21,7 +21,7 @@
 
 
     <main>
-        <form action="/formular/<?=$data['username']?>" method="post" class="programari">
+        <form action="/formular/" method="post" class="programari">
             <div class="programari__calendar">
                 <?=$data['tabelLunaProgram']?>
                 <!-- <button type="button" class="programari__calendar__left_month_btn" id="month_leftBtn">&#9668;</button>

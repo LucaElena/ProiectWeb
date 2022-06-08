@@ -14,7 +14,6 @@ class UserModel extends Controller
         
         if ($results['COUNT(user_name)'] > 0)
         {
-            // $this->user_name = $userName;
             return true;
         }
         else
@@ -22,6 +21,14 @@ class UserModel extends Controller
             return false;
         }
     }
+    public function changePassword($userName, $newPassword)
+    {
+        $sql = "UPDATE `users` SET `password` = :newPass WHERE user_name = :userName";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":userName" => $userName , ":newPass" => $newPassword));
+    }
+
+
 
     // check if user exist in db
     public function isDefined($user_name)

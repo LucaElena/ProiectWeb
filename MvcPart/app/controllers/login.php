@@ -37,9 +37,9 @@
                                 $pass_correct = $modelUser->checkPassword($userName, $password);
                                 if($pass_correct)
                                 {
-                                    $user_id = $modelUser->getUserId($userName);
+                                    
                                     $user_type = $modelUser->getUserType($userName);
-                                    $info['mesajEroare'] = "Correct password";
+                                    // $info['mesajEroare'] = "Correct password";
                                     //Salvam userName-ul  in sesiune si facem redirect la pagina de home
                                     $_SESSION['userName'] = $userName;
                                     // $_SESSION['userID'] = $user_id;

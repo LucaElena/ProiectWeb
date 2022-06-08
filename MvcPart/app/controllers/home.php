@@ -12,7 +12,7 @@
             if(!empty($_SESSION['userName']))
             {
                 $userName = $_SESSION['userName'];
-                $info['mesajPrimire'] =  '<p>Client ' . ucfirst($userName) . ' puteti sa faceti o programare <a href="/programare/">aici</a> Sau sa va vedeti istoricul <a href="/istoric/">aici</a></p>';
+                $info['mesajPrimire'] =  '<p>' . ucfirst($userName) . ' poti sa faci o programare <a href="/programare/">aici</a> sau sa iti vezi istoricul <a href="/istoric/">aici</a></p>';
             }
 
             $info['username'] =  $userName;

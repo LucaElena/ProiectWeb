@@ -59,7 +59,7 @@
                     id="admin-stoc__filtrare__reset__button">Reset filtru</button>
                 <!-- </div> -->
             </div>
-            <form action="/stoc/<?=$data['username']?>" class="admin-stoc__tabel" method="post">
+            <form action="/stoc/" class="admin-stoc__tabel" method="post">
                 <div class="admin-stoc__tabel">
                     
                         <table id="admin-stoc__tabel">

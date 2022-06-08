@@ -21,19 +21,19 @@
         <div class="login">
             <div class="login__content">
                 
-               
+
                 <div class="login__forms">
-                    
-                    <form action="/login" class="login__registre" id="login-in" method="post">
-                        
-                        <h1 class="title">Sign In : <?=$data['mesajEroare']?> </h1>
+
+                    <form action="/login" class="login__registre none" method="post" id="login-in">
+
+                        <h1 class="title">Sign In : <?=$data['mesajEroare']?></h1>
     
                         <div class="input-group">
                             <input type="text" placeholder="Username" name="user_name" minlength="5" maxlength="20" class="login-input" required>
                         </div>
     
                         <div class="input-group">
-                            <input type="password" placeholder="Password" name="password" minlength="5" maxlength="20" class="login-input" required>
+                            <input type="password" placeholder="Password" name="password"  minlength="5" maxlength="20" class="login-input" required>
                         </div>
 
                         <!-- <div>
@@ -41,7 +41,7 @@
                             <span class="login__signin" id="change-pass">Change Password</span>
                         </div> -->
 
-                        <!-- <a href="./PaginaGeneralaClient.html" class="login__button">Sign In</a> -->
+                        <!-- <a href="#" class="login__button">Sign In</a> -->
                         <button type="submit" class="login__button" name="login_button" value="Sign In">Sign In</button>
 
                         <div>
@@ -83,28 +83,22 @@
                         
                     </form>
                     
-                    <form action="/changepass" class="login__change__pass none" id="login-forgot" method="post">
-                        <h1 class="title">Change Password : <?=$data['mesajEroare']?> </h1>
+                    <form action="/changepass" class="login__change__pass" method="post" id="login-forgot">
+                        <h1 class="title">Change Password : <?=$data['mesajEroare']?></h1>
     
                         <div class="input-group">
                             
-                            <input type="email" class="login-input" minlength="10" maxlength="30" placeholder="Email" name="email" required>
+                        <input type="password" class="login-input" minlength="5" maxlength="20" placeholder="Old_Password" name="old_password" required>
                         </div>
     
-                        <div class="input-group">
-                            <input type="phone" pattern="0[0-9]{9}" placeholder="Phone" class="login-input" name="phone" required>
-                        </div>
 
                         <div class="input-group">
                             
                             <input type="password" class="login-input" minlength="5" maxlength="20" placeholder="New_Password" name="new_password" required>
                         </div>
+
                         <button type="submit" class="login__button" name="login_button" value="Save">Save</button>
 
-                        <div>
-                            <span class="login__account">You want to give up ?</span>
-                            <span class="login__pass" id="sign-in1">Sign In</span>
-                        </div>
                     </form>
                 
                 </div>

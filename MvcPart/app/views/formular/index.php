@@ -22,7 +22,7 @@
 
     <main>
 
-        <form action="/formular/<?=$data['username']?>" method="post" class="formular_programare" enctype="multipart/form-data">
+        <form action="/formular/" method="post" class="formular_programare" enctype="multipart/form-data">
           
             <input type="hidden" id="id_formular_ascuns" name="id_formular_ascuns" value="<?=$data['idFormularAscuns']?>">
             <div class="formular_programare__status">
