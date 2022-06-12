@@ -78,7 +78,7 @@
             }
             $lunaTabel = $dataSetataStart->format('M Y');
             $info['tabelLunaProgram'] = '<div class="programari__calendar__month" id="selected_month">' . strtoupper($lunaTabel) . '</div>';
-            print_r("zi start = " . $ziStart);
+            // print_r("zi start = " . $ziStart);
             
             print_r("Inceput saptamna = " . $weekStart . " sfarsit = " . $weekEnd);
             // Inceput saptamna = 2022-05-15 00:00:00 sfarsit = 2022-05-21 23:59:59
@@ -101,27 +101,28 @@
             }
 
             $dataSetataStart =  DateTime::createFromFormat('Y-m-d H:i:s', $weekStart);
-            print_r("zi acum:" . $ziAcum . " ora acum:" . $oraAcum . " minute acum:" . $minuteAcum);
+            // print_r("zi acum:" . $ziAcum . " ora acum:" . $oraAcum . " minute acum:" . $minuteAcum);
             //pentru fiecare ora din program
             for ($j = 1; $j <= 12; $j++) //ora
             {
+                $weekStartDate = DateTime::createFromFormat('Y-m-d H:i:s', $weekStart);//de la ziua de start
                 //Incepem de la 8 la 20
                 $oraCurentaInt = $j + 7;
+                $weekStartDate->modify( '+ ' . $oraCurentaInt . ' hours');//adaugam ora
                 //pentru fiecare zi adaugam celule cu continutul tabelului de programare
                 for ($i = 1; $i <= 7; $i++) //zi
                 {
                     
                     // $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
-                    $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
-                    $oraCurentaFormataTabel = strtoupper(date_format($oraCurentaTabel, 'H:i')); 
-                    $ziuaCurentaFormataTabel = date_format($oraCurentaTabel, 'Y-m-d H:i'); 
-                    print_r(" j=" . $j . " i=" . $i . " data=" . $ziuaCurentaFormataTabel);
+                    $oraCurentaFormataTabel = strtoupper($weekStartDate->format('H:i')); 
+                    $ziuaCurentaFormataTabel = $weekStartDate->format('Y-m-d H:i'); 
+                    // print_r(" j=" . $j . " i=" . $i . " data=" . $ziuaCurentaFormataTabel);
                     $status = "open";
                     $hover = "";
                     foreach($programariSaptamnaCurenta as $programare)
                     {
                         //o am deja in baza de date? compar la nivel de zi si ora prin diferenta
-                        $difenta = $oraCurentaTabel->diff(new DateTime($programare['date']));
+                        $difenta = $weekStartDate->diff(new DateTime($programare['date']));
                         if ($difenta->d == 0 && $difenta->h == 0)
                         {
                             $status = "busy";//gri
@@ -144,7 +145,7 @@
 
                     }
                     //daca ora curenta e mai veche decat timpul actual totul este ocupat(NU putem programa in trecut)
-                    if( new DateTime("now") > $oraCurentaTabel && $status !="bussy")
+                    if( new DateTime("now") > $weekStartDate && $status !="bussy")
                     {
                         $status = "busy";
                         // print_r("</br>" . $j . ":" . $i . " ". $status .":" . date_format($oraCurentaTabel , 'Y-m-d H') . " " . date_format(new DateTime("now") , 'Y-m-d H'));
@@ -162,7 +163,7 @@
                             <button type="button" class="programari__calendar__inside__hours_btn__' . $status . '" name="button_progrmare_ora" value="' . $ziuaCurentaFormataTabel . '" id="calendar_row' . $i . '_col' . $j . '"> ' . $oraCurentaFormataTabel .  $hover . '</button>
                         </div>
                     ';
-                    
+                    $weekStartDate->modify( '+ 1 day');
                 }
             }
 
@@ -221,8 +222,8 @@
             
             //Json pentru raspuns la request-ul AJAX de trimitere status programari
             $raspuns =  array("status" => 0 , "data" => array() , "error" => "");
-            $user = $this->model('UserModel');
-            $programare = $this->model('ProgramareModel');
+            $modelUser = $this->model('UserModel');
+            $modelProgramare = $this->model('ProgramareModel');
             $user_exist = 0;
             $user_type = 0;
             $user_id = "";
@@ -246,9 +247,9 @@
             $values = json_decode($json, true);
 
 
-            //firstday = 0 -> Incepand cu ziua la care suntem
-            //firstday = 1 -> Incepand cu prima Luni din saptamana la care suntem
-            //firstday = 2 -> Incepand cu prima luni din luna la care suntem
+            //firstDay = 0 -> Incepand cu ziua la care suntem
+            //firstDay = 1 -> Incepand cu prima Luni din saptamana la care suntem
+            //firstay = 2 -> Incepand cu prima luni din luna la care suntem
             
             if(isset($values["currentDay"]) && isset($values["firstDay"]))
             {
@@ -280,8 +281,9 @@
                     }
                     if ($values["firstDay"] == 2)
                     {
+                        
+                        $weekEnd = date('Y-m-d 23:59:59', strtotime('first sunday this month', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
                         $weekStart = date('Y-m-d 00:00:00', strtotime('first monday this month', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
-                        $weekEnd = date('Y-m-d 23:59:59', strtotime('+7 days', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
                     }
                    
                     $programariSaptamnaCurenta = $modelProgramare->getProgramari( $weekStart , $weekEnd );
