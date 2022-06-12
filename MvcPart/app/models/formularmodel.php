@@ -28,6 +28,8 @@ class FormularModel extends Controller
         return $results;
     }
 
+    
+
     public function updateMesajClient($formID, $mesajClient )
     {   //UPDATE `forms` SET `request_message` = 'test' WHERE `forms`.`id_form` = 107;
         $sql = 'UPDATE `forms` SET `request_message` = :mesajClient WHERE `forms`.`id_form` = :formID';

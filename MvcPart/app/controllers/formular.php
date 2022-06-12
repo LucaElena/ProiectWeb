@@ -555,6 +555,7 @@
                     $programareResultat = $modelProgramare->checkProgramareByData($oraSelectataFormatDate->format('Y-m-d H:00:00'));
                     if($programareResultat != -1)
                     {
+                        $currentFormId = $programareResultat['id_form'];
                         //trebuie sa anulam progrmare-> schimbam status refuzat
                         $modelFormular->schimbaStatus($currentFormId, "4");
                     }
@@ -562,7 +563,7 @@
                 }
             }
             // niste modificari si redirect la formular
-            header('Location: ' . URL . 'programare/'); // redirect la formular index(unde avem logica de printare view)
+            // header('Location: ' . URL . 'programare/'); // redirect la formular index(unde avem logica de printare view)
         }
 
 

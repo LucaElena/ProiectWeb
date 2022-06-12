@@ -115,6 +115,15 @@ class ProgramareModel extends Controller
         return $results;
     }
 
+    public function getProgramare($formID)
+    {
+        $sql = "SELECT * FROM appointments WHERE id_form >=:formID";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":formID" => $formID));
+        $results = $query->fetch(PDO::FETCH_ASSOC);
+        return $results;
+    }
+
     
     
 

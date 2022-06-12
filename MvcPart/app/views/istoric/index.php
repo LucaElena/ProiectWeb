@@ -36,7 +36,7 @@
                 <option value="Lipsa formular">Lipsa formular</option>
             </select>
 
-            <div class="istoric_programari__lista">
+            <form method="POST" action="/istoric/editare/" name="istoric_programari__lista" class="istoric_programari__lista">
                 <table id="istoric_programari__tabel">
                     <thead>
                         <tr>
@@ -69,8 +69,7 @@
                         <?=$data['tabelIstoric']?>
                     </tbody>
                 </table>
-
-            </div>
+            </form>
             <div class="istoric_programari__buttons">
                 <button type="button" class="istoric_programari__buttons__stanga" id="istoric_programari__buttons__stanga">
                     &#10094; </button>

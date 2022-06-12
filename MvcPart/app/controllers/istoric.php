@@ -62,37 +62,37 @@
                                     $status = "Editare";
                                     $actiune = '<button type="submit" class="istoric_programari__lista__actiune" 
                                     id="istoric_programari__lista__actiune" name="istoric_programari__lista__actiune" 
-                                     value=' . $programare['id_form'] . '>Editare</button>';
+                                    formaction="/istoric/editare/" value=' . $programare['id_form'] . '>Editare</button>';
                                     break;
                                 case 1://formular in asteptare raspuns accept admin
                                     $status = "Astepare admin";
                                     $actiune = '<button type="submit" class="istoric_programari__lista__actiune" 
                                     id="istoric_programari__lista__actiune" name="istoric_programari__lista__actiune" 
-                                    value=' . $programare['id_form'] . '>Editare</button>';
+                                    formaction="/istoric/editare/" value=' . $programare['id_form'] . '>Editare</button>';
                                     break;
                                 case 2://formular in asteptare raspuns accept client
                                     $status = "Astepare client";
                                     $actiune = '<button type="submit" class="istoric_programari__lista__actiune" 
                                     id="istoric_programari__lista__actiune" name="istoric_programari__lista__actiune" 
-                                    value=' . $programare['id_form'] . '>Editare</button>';
+                                    formaction="/istoric/editare/" value=' . $programare['id_form'] . '>Editare</button>';
                                     break;
                                 case 3://formular programat
                                     $status = "Programat";
                                     $actiune = '<button type="submit" class="istoric_programari__lista__actiune" 
                                     id="istoric_programari__lista__actiune" name="istoric_programari__lista__actiune" 
-                                    value=' . $programare['id_form'] . '>Editare</button>';
+                                    formaction="/istoric/editare/"  value=' . $programare['id_form'] . '>Editare</button>';
                                     break;
                                 case 4://formular refuzat si procesat-> piesele rezervate daca e cazul sunt sterse
                                     $status = "Refuzat";
+                                    $actiune = '';
                                     break;
                                 case 5://formular terminat si procesat-> piesele utilizate sunt consumate din stoc 
                                     $status = "Terminat";
+                                    $actiune = '';
                                     break;
                                 case -1://formular lipsa: nu am completat baza de date cu istoric complet 
                                     $status = "Lipsa formular";
-                                    $actiune = '<button type="submit" class="istoric_programari__lista__actiune" 
-                                    id="istoric_programari__lista__actiune" name="istoric_programari__lista__actiune" 
-                                    value=' . $programare['id_form'] . '>Editare</button>';
+                                    $actiune = '';
                                     break;
                             }
 
@@ -151,37 +151,36 @@
                                     $status = "Editare";
                                     $actiune = '<button type="submit" class="istoric_programari__lista__actiune" 
                                     id="istoric_programari__lista__actiune" name="istoric_programari__lista__actiune" 
-                                    value=' . $programare['id_form'] . '>Editare</button>';
+                                    formaction="/istoric/editare/" value=' . $programare['id_form'] . '>Editare</button>';
                                     break;
                                 case 1://formular in asteptare raspuns accept admin
                                     $status = "Astepare admin";
                                     $actiune = '<button type="submit" class="istoric_programari__lista__actiune" 
                                     id="istoric_programari__lista__actiune" name="istoric_programari__lista__actiune" 
-                                    value=' . $programare['id_form'] . '>Editare</button>';
+                                    formaction="/istoric/editare/" value=' . $programare['id_form'] . '>Editare</button>';
                                     break;
                                 case 2://formular in asteptare raspuns accept client
                                     $status = "Astepare client";
                                     $actiune = '<button type="submit" class="istoric_programari__lista__actiune" 
                                     id="istoric_programari__lista__actiune" name="istoric_programari__lista__actiune" 
-                                    value=' . $programare['id_form'] . '>Editare</button>';
+                                    formaction="/istoric/editare/" value=' . $programare['id_form'] . '>Editare</button>';
                                     break;
                                 case 3://formular programat
                                     $status = "Programat";
                                     $actiune = '<button type="submit" class="istoric_programari__lista__actiune" 
                                     id="istoric_programari__lista__actiune" name="istoric_programari__lista__actiune" 
-                                    value=' . $programare['id_form'] . '>Editare</button>';
+                                    formaction="/istoric/editare/" value=' . $programare['id_form'] . '>Editare</button>';
                                     break;
                                 case 4://formular refuzat si procesat-> piesele rezervate daca e cazul sunt sterse
                                     $status = "Refuzat";
+                                    $actiune = '';
                                     break;
                                 case 5://formular terminat si procesat-> piesele utilizate sunt consumate din stoc 
                                     $status = "Terminat";
                                     break;
                                 case -1://formular lipsa: nu am completat baza de date cu istoric complet 
                                     $status = "Lipsa formular";
-                                    $actiune = '<button type="submit" class="istoric_programari__lista__actiune" 
-                                    id="istoric_programari__lista__actiune" name="istoric_programari__lista__actiune" 
-                                    value=' . $programare['id_form'] . '>Editare</button>';
+                                    $actiune = '';
                                     break;
                             }
 
@@ -225,6 +224,55 @@
                     $this->view('errors/403.php', $info);
                 }
             }   
+        }
+
+        public function editare()
+		{
+            $userName = "";
+            if(!empty($_SESSION['userName']))
+            {
+                $userName = $_SESSION['userName'];
+            }
+            $user_exist = 0;
+            $user_type = 0;
+            $user_id = "";
+
+            $modelUser = $this->model('userModel');
+            $modelProgramare = $this->model('programareModel');
+            $modelFormular = $this->model('formularModel');
+            $modelStoc = $this->model('stocModel');
+            $modelFisier = $this->model('fisierModel');
+
+            if ($userName != "")
+            {
+                $user_exist = $modelUser->isDefined($userName);
+                if ($user_exist)
+                {
+                    $user_id = $modelUser->getUserId($userName);
+                    $user_type = $modelUser->getUserType($userName);
+                }
+            }
+
+            if(isset($_POST))
+            {
+                //1) Culegem datele din POST:
+                if(isset($_POST['istoric_programari__lista__actiune']))
+                {
+                    $idFormular = $_POST['istoric_programari__lista__actiune'];
+
+                    
+                    $programare = $modelProgramare->getProgramare($idFormular);
+                    $oraSelectata = date("Y-m-d H:i", strtotime($programare['date']));
+                    $_SESSION['oraSelectata'] = $oraSelectata;
+
+                    print_r("id form:" . $idFormular . " ". $_SESSION['oraSelectata']);
+                    $_SESSION['oraSelectata'] = $oraSelectata;
+                    header('Location: ' . URL . '/formular/'); // redirect la formular index(unde avem logica de printare view)
+
+                }
+            }
+
+            // header('Location: ' . URL . 'index/'); 
         }
     }
     
