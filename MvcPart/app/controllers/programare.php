@@ -10,8 +10,8 @@
                 $userName = $_SESSION['userName'];
             }
 
-            $user = $this->model('UserModel');
-            $programare = $this->model('ProgramareModel');
+            $modelUser = $this->model('userModel');
+            $modelProgramare = $this->model('programareModel');
 
             $user_exist = 0;
             $user_type = 0;
@@ -19,11 +19,11 @@
 
             if ($userName != "")
             {
-                $user_exist = $user->isDefined($userName);
+                $user_exist = $modelUser->isDefined($userName);
                 if ($user_exist)
                 {
-                    $user_id = $user->getUserId($userName);
-                    $user_type = $user->getUserType($userName);
+                    $user_id = $modelUser->getUserId($userName);
+                    $user_type = $modelUser->getUserType($userName);
                 }
             }
 
@@ -56,6 +56,7 @@
             // $weekEnd = date('Y-m-d 23:59:59', strtotime('+' . (6-$ziStart) . ' days'));
             $weekStart = date("Y-m-d  00:00:00", strtotime('monday this week', strtotime(date('Y-m-d'))));
             $weekEnd = date("Y-m-d 23:59:59", strtotime('sunday this week', strtotime(date('Y-m-d'))));
+
             
             if($dataStart != "")
             {// data primita ca parametru nu este goala
@@ -77,11 +78,12 @@
             }
             $lunaTabel = $dataSetataStart->format('M Y');
             $info['tabelLunaProgram'] = '<div class="programari__calendar__month" id="selected_month">' . strtoupper($lunaTabel) . '</div>';
-            // print_r("zi start = " . $ziStart);
-            // print_r("Inceput saptamna = " . $weekStart . " sfarsit = " . $weekEnd);
+            print_r("zi start = " . $ziStart);
+            
+            print_r("Inceput saptamna = " . $weekStart . " sfarsit = " . $weekEnd);
             // Inceput saptamna = 2022-05-15 00:00:00 sfarsit = 2022-05-21 23:59:59
 
-            $programariSaptamnaCurenta = $programare->getProgramari( $weekStart , $weekEnd );
+            $programariSaptamnaCurenta = $modelProgramare->getProgramari( $weekStart , $weekEnd );
             // print_r("Lista programari saptamana curenta :" );
             // print_r($programariSaptamnaCurenta);
             // Array ( [0] => Array ( [id_appointment] => 3 [date] => 2022-05-20 09:00:00 [status] => 1 [id_user] => 4 [id_form] => 3 ) [1] => Array ( [id_appointment] => 43 [date] => 2022-05-16 18:00:00 [status] => 1 [id_user] => 3 [id_form] => 43 ) [2] => Array ( [id_appointment] => 62 [date] => 2022-05-21 11:00:00 [status] => 1 [id_user] => 2 [id_form] => 62 ) [3] => Array ( [id_appointment] => 67 [date] => 2022-05-15 15:00:00 [status] => 1 [id_user] => 3 [id_form] => 67 ) )
@@ -98,18 +100,22 @@
                 ';
             }
 
+            $dataSetataStart =  DateTime::createFromFormat('Y-m-d H:i:s', $weekStart);
+            print_r("zi acum:" . $ziAcum . " ora acum:" . $oraAcum . " minute acum:" . $minuteAcum);
             //pentru fiecare ora din program
-            for ($j = 1; $j <= 12; $j++) 
+            for ($j = 1; $j <= 12; $j++) //ora
             {
                 //Incepem de la 8 la 20
                 $oraCurentaInt = $j + 7;
                 //pentru fiecare zi adaugam celule cu continutul tabelului de programare
-                for ($i = 1; $i <= 7; $i++) 
+                for ($i = 1; $i <= 7; $i++) //zi
                 {
                     
+                    // $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
                     $oraCurentaTabel = DateTime::createFromFormat('Y-m-d H', date("Y-m-d H", strtotime("+" . (($i-$ziAcum)*24*60 - $oraAcum*60 + $oraCurentaInt*60 - $minuteAcum)." minutes")));
                     $oraCurentaFormataTabel = strtoupper(date_format($oraCurentaTabel, 'H:i')); 
                     $ziuaCurentaFormataTabel = date_format($oraCurentaTabel, 'Y-m-d H:i'); 
+                    print_r(" j=" . $j . " i=" . $i . " data=" . $ziuaCurentaFormataTabel);
                     $status = "open";
                     $hover = "";
                     foreach($programariSaptamnaCurenta as $programare)
@@ -125,9 +131,13 @@
                             if (($user_exist && $user_type) || ($user_exist && $user_type == 0 && $programare["id_user"] == $user_id))
                             {
                                 $status = "bussy";//rosu
-                                $dateUserProgramare = $user->getUserData($programare["id_user"]);
-                                $hover = '<span class="hover-value">'. $dateUserProgramare['user_name'] . ' ' . $dateUserProgramare['phone'] . ' '. $dateUserProgramare['email'] .'</span>';
-                                // print_r($dateUserProgramare);
+                                if ($programare["id_user"] != 0)
+                                {
+                                    $dateUserProgramare = $modelUser->getUserData($programare["id_user"]);
+                                    $hover = '<span class="hover-value">'. $dateUserProgramare['user_name'] . ' ' . $dateUserProgramare['phone'] . ' '. $dateUserProgramare['email'] .'</span>';
+                                    // print_r($dateUserProgramare);
+                                }
+                                
                             }
                             
                         }
@@ -167,11 +177,11 @@
             }
             else
             {
-                $user_exist = $user->isDefined($userName);
+                $user_exist = $modelUser->isDefined($userName);
 				if ($user_exist)
 				{
                     
-                    $user_type = $user->getUserType($userName);
+                    $user_type = $modelUser->getUserType($userName);
                     if ($user_type) # is admin
                     {
                         $info['generalbar'] = str_replace("GENERIC_USERNAME" , $userName , BARA_ADMIN_MOTO);
@@ -222,11 +232,11 @@
 
             if ($userName != "")
             {
-                $user_exist = $user->isDefined($userName);
+                $user_exist = $modelUser->isDefined($userName);
                 if ($user_exist)
                 {
-                    $user_id = $user->getUserId($userName);
-                    $user_type = $user->getUserType($userName);
+                    $user_id = $modelUser->getUserId($userName);
+                    $user_type = $modelUser->getUserType($userName);
                 }
             }
             
@@ -261,7 +271,7 @@
                     if ($values["firstDay"] == 0)
                     {
                         $weekStart = date('Y-m-d 00:00:00', strtotime($dataSetataStart->format('Y-m-d H:i:s')));
-                        $weekEnd = date('Y-m-d 23:59:59', strtotime('+6 days', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
+                        $weekEnd = date('Y-m-d 23:59:59', strtotime('-6 days', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
                     }
                     if ($values["firstDay"] == 1)
                     {
@@ -274,7 +284,7 @@
                         $weekEnd = date('Y-m-d 23:59:59', strtotime('+7 days', strtotime($dataSetataStart->format('Y-m-d H:i:s'))));
                     }
                    
-                    $programariSaptamnaCurenta = $programare->getProgramari( $weekStart , $weekEnd );
+                    $programariSaptamnaCurenta = $modelProgramare->getProgramari( $weekStart , $weekEnd );
                     $raspuns["status"] = 1;
                     
 
@@ -304,7 +314,7 @@
                                     if (($user_exist && $user_type) || ($user_exist && $user_type == 0 && $programare["id_user"] == $user_id))
                                     {
                                         $status = "bussy";
-                                        $dateUserProgramare = $user->getUserData($programare["id_user"]);
+                                        $dateUserProgramare = $modelUser->getUserData($programare["id_user"]);
                                         $hover = '<span class="hover-value">'. $dateUserProgramare['user_name'] . ' ' . $dateUserProgramare['phone'] . ' '. $dateUserProgramare['email'] .'</span>';
                                         $raspuns["error"] = " user_exist:" . $user_exist ." user_type:". $user_type ." programare user id =".  $programare["id_user"] ." user id current=". $user_id;
                                     }

@@ -4,12 +4,17 @@
 
         //I) Functia principala in care avem doar logica de printare view in diferite feluri
         //Actiunile le rezolvam in functii individuale pentru a nu complica si mai tare functia principala
-        public function index()
+        public function index($oraSelectata = "")
 		{
+            $oraSelectata = "2022-06-14 14:00";
             $userName = "";
             if(!empty($_SESSION['userName']))
             {
                 $userName = $_SESSION['userName'];
+            }
+            if(!empty($_SESSION['oraSelectata']))
+            {
+                $oraSelectata = $_SESSION['oraSelectata'];
             }
 
             // Status formular : Editare(0)->Astepare raspuns admin(1)->->Astepare accept client(2)->Programat(3) Refuzat(4) -> Terminat(5)
@@ -20,7 +25,7 @@
             $info['tabelPieseSelectateAdmin'] = '';
             $info['selectPieseOptionAdmin'] = '';
             $info['idFormularAscuns'] = '';
-            $oraSelectata = "2022-05-18 09:00";
+            
             $actiuneFormular = -1;
             $actiune = "";
             $statusPrimit = 0;
@@ -147,6 +152,15 @@
                 //Avem deja acesta data in programari -> trebuie sa o updatam in functie parametrii primiti
                 $formID = $programareResultat['id_form'];
                 $programareID = $programareResultat['id_appointment'];
+
+                //Daca user-ul e 0 (am fost initial nelogat si am facut si user si formular in acelasi timp)-> trebuie sa updatam user id-ul
+                $checkUserId = $modelFormular->checkUserId($formID);
+                if($checkUserId == 0 && $user_id !=0)
+                {//update user Id-ul in programare deoarece a fost creat initial de un user nelogat iar acum suntem logati
+                    $modelFormular->updateUserId($formID, $user_id);
+                }
+                
+
                 
             }
 
@@ -158,9 +172,6 @@
             $jsonPieseSelectate = $formResultat['reserved_parts_list'];
             $fisiereResultat = $modelFisier->getFisiere($formID);
             // print_r( $fisiereResultat);
-            
-
-            
 
 
             foreach ($fisiereResultat as $fisier)
@@ -179,6 +190,7 @@
                                 </video>';
                 }
             }
+
             if ($user_exist || $statusPrimit = 0)
             {
                 
@@ -299,7 +311,7 @@
                                 <td>' . $pretTotal . '</td>
                                 <td></td>
                             </tr>';
-                }                                     
+                }
                 $tabelPieseSelectateAdmin = $tabelPieseSelectateAdmin . 
                                                          '</tbody>
                                                      </table>';
@@ -443,11 +455,6 @@
             $info['mesajClient'] =  $mesajClient;
             $info['mesajAdmin'] =  $mesajAdmin;
 
-           
-
-
-
-
             if ($userName == "")
             {
                 $info['generalbar'] = str_replace("CLIENT_NELOGAT" , $userName , BARA_CLIENT_NELOGAT);
@@ -485,9 +492,14 @@
             {
                 $userName = $_SESSION['userName'];
             }
+            if(isset($_POST['ascuns_selected_button']))
+            {
+                $oraSelectata = $_POST['ascuns_selected_button'];
+                $_SESSION['oraSelectata'] = $oraSelectata;
+            }
 
             // niste modificari si redirect la formular
-            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            header('Location: ' . URL . 'formular/'); // redirect la formular index(unde avem logica de printare view)
         }
 
         public function terminat()
@@ -511,20 +523,46 @@
             {
                 $userName = $_SESSION['userName'];
             }
+            if(isset($_POST['ascuns_selected_button']))
+            {
+                $oraSelectata = $_POST['ascuns_selected_button'];
+                $_SESSION['oraSelectata'] = $oraSelectata;
+            }
 
             // niste modificari si redirect la formular
-            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            header('Location: ' . URL . 'formular/'); // redirect la formular index(unde avem logica de printare view)
         }
 
         public function cancel()
-		{
+		{//Array ( [ascuns_selected_button] => 2022-06-16 12:00 [calendar_action] => Cancel )
             $userName = "";
             if(!empty($_SESSION['userName']))
             {
                 $userName = $_SESSION['userName'];
             }
+
+            $modelFormular = $this->model('formularModel');
+            $modelProgramare = $this->model('programareModel');
+
+            if(isset($_POST['ascuns_selected_button']))
+            {
+                $oraSelectata = $_POST['ascuns_selected_button'];
+                $actiune = $_POST['calendar_action'];
+                if( $actiune == "Cancel")
+                {
+                    //verificam daca exista programarea respectiva intai
+                    $oraSelectataFormatDate = DateTime::createFromFormat('Y-m-d H:i', $oraSelectata);
+                    $programareResultat = $modelProgramare->checkProgramareByData($oraSelectataFormatDate->format('Y-m-d H:00:00'));
+                    if($programareResultat != -1)
+                    {
+                        //trebuie sa anulam progrmare-> schimbam status refuzat
+                        $modelFormular->schimbaStatus($currentFormId, "4");
+                    }
+
+                }
+            }
             // niste modificari si redirect la formular
-            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            header('Location: ' . URL . 'programare/'); // redirect la formular index(unde avem logica de printare view)
         }
 
 
@@ -539,7 +577,7 @@
 
             // niste modificari si redirect la formular
             // phpinfo(); // printeaza toate datele de configurare
-            print_r($_POST);
+            // print_r($_POST);
             // print_r($_FILES['dovezi']); Arata asa:
             // Array (
             //  [name] => Array ( [0] => moto_stricat1.jpg [1] => moto_stricat2.jpg ) 
@@ -565,6 +603,13 @@
                     $email = $_POST['formular_programare__date_client__email'];
                     $password = $_POST['formular_programare__date_client__pass'];
                     $modelUser->newUser($userName, $phone, $email, $password);
+
+                    $user_exist = $modelUser->isDefined($userName);
+                    if ($user_exist)
+                    {
+                        $_SESSION['userName'] = $userName;
+                    }
+
                 }
 
                 if(isset($_POST['id_formular_ascuns']))
@@ -604,10 +649,11 @@
             }
             
             //redirect la formular index(unde avem logica de printare view)
-            header('Location: ' . URL . 'formular/' . $userName); 
+            header('Location: ' . URL . 'formular/'); 
             //sau sa printam un view de multumire
 
         }
+
         public function adaugapiesa()
         {
             $userName = "";
@@ -700,7 +746,7 @@
                     }
                 }
             }
-            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            header('Location: ' . URL . 'formular/' ); // redirect la formular index(unde avem logica de printare view)
         }
 
         public function stergepiesa()
@@ -786,7 +832,7 @@
                     }
                 }
             }
-            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            header('Location: ' . URL . 'formular/'); // redirect la formular index(unde avem logica de printare view)
         }
 
         public function acceptaformular()
@@ -798,7 +844,7 @@
             }
             
             // niste modificari si redirect la formular
-            print_r($_POST);
+            // print_r($_POST);
             $modelFormular = $this->model('formularModel');
 
             if(isset(($_POST)))
@@ -849,7 +895,7 @@
                 }
             }
 
-            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            header('Location: ' . URL . 'formular/'); // redirect la formular index(unde avem logica de printare view)
         }
         public function respingeformular()
         {
@@ -900,7 +946,7 @@
                 }
             }
             
-            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            header('Location: ' . URL . 'formular/'); // redirect la formular index(unde avem logica de printare view)
         }
 
         public function terminareformular()
@@ -977,7 +1023,7 @@
                     }
                 }
             }
-            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            header('Location: ' . URL . 'formular/'); // redirect la formular index(unde avem logica de printare view)
         }
         public function stergeformular()
         {
@@ -1035,7 +1081,7 @@
                     }
                 }
             }
-            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            header('Location: ' . URL . 'formular/'); // redirect la formular index(unde avem logica de printare view)
         }
 
         public function editareformular()
@@ -1065,7 +1111,7 @@
                     }
                 }
             }
-            header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
+            header('Location: ' . URL . 'formular/'); // redirect la formular index(unde avem logica de printare view)
         }
         
 

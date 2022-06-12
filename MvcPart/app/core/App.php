@@ -7,7 +7,7 @@
 	{
 
 		#protected $controller = 'login';
-		protected $controller = 'home'; # temporar nu punem partea de logare. Facem intai functionalitatile
+		protected $controller = 'home'; 
 		protected $method = 'index';
 		protected $params = [];
 		

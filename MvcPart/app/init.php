@@ -150,7 +150,7 @@
 	//TO DO
     define('BARA_ADMIN_MOTO' , '
 							<li>
-								<a class="logo" href="/home/admin">
+								<a class="logo" href="/home/">
 
 										<span class="header_icon_logo"> &#128757; </span>
 										<img class="logo" src="../images/favicon.png" alt="CyMaT">
@@ -159,7 +159,7 @@
 
 
 							<li>
-								<a class="header_button" href="/programare/admin">
+								<a class="header_button" href="/programare/">
 										<span class="header_icon"> &#128197; </span>
 										<span class="header_text">Program</span>
 								</a>
@@ -172,7 +172,7 @@
 								</a>
 								<ul class="header_button__login">
 										<li>
-												<a class="header_button" href="/adaugacomanda/admin"">
+												<a class="header_button" href="/adaugacomanda/">
 														<span class="header_icon"> <i class="fas fa-dolly"></i> </span>
 														<span class="header_text">Comanda</span>
 												</a>
@@ -189,26 +189,26 @@
 								</a>
 								<ul class="header_button__login">
 										<li>
-												<a class="header_button" href="/istoric/admin"">
+												<a class="header_button" href="/istoric/">
 														<span class="header_icon"> &#8987;</span>
 
 														<span class="header_text">Programari</span>
 												</a>
 										</li>
 										<li>
-												<a class="header_button" href="/stoc/admin">
+												<a class="header_button" href="/stoc/">
 														<span class="header_icon"> <i class="fas fa-cubes"></i> </span>
 														<span class="header_text">Stoc</span>
 												</a>
 										</li>
 										<li>
-												<a class="header_button" href="/comenzi/admin">
+												<a class="header_button" href="/comenzi/">
 														<span class="header_icon"> <i class="fas fa-dolly"></i> </span>
 														<span class="header_text">Comenzi</span>
 												</a>
 										</li>
 										<li>
-												<a class="header_button" href="/exportimport/admin">
+												<a class="header_button" href="/exportimport/">
 														<span class="header_icon"> <i class="fas fa-download"></i>
 														</span>
 														<span class="header_text">Date</span>
@@ -225,13 +225,13 @@
 								</a>
 								<ul class="header_button__login">
 										<li>
-												<a class="header_button" href="/changepass/admin">
+												<a class="header_button" href="/changepass/">
 														<span class="header_icon"> <i class="fas fa-key"></i> </span>
 														<span class="header_text">Reset password</span>
 												</a>
 										</li>
 										<li>
-												<a class="header_button" href="/signout/admin">
+												<a class="header_button" href="/signout/">
 														<span class="header_icon"> <i class="fas fa-sign-out-alt"></i>
 														</span>
 														<span class="header_text">Log out</span>

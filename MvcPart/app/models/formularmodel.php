@@ -74,7 +74,28 @@ class FormularModel extends Controller
         $sql = "DELETE FROM `files` WHERE `files`.`id_form` = :formID";
         $query = $this->conn->prepare($sql);
         $query->execute(array(":formID" => $formID));
+
     }
+
+    public function checkUserId($formID)
+    {
+        $sql = "SELECT `id_user` FROM `appointments` WHERE `id_form`=:formID";
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":formID" => $formID));
+        $results = $query->fetch(PDO::FETCH_ASSOC);
+        return $results['id_user'];
+    }
+    
+    
+    public function updateUserId($formID, $userIdNou )
+    {   //UPDATE `appointments` SET `id_user` = '11' WHERE `appointments`.`id_form` = 106;
+        $sql = 'UPDATE `appointments` SET `id_user` = :userIdNou WHERE `appointments`.`id_form` = :formID';
+        $query = $this->conn->prepare($sql);
+        $query->execute(array(":formID" => $formID , ":userIdNou" => $userIdNou ));
+    }
+
+   
+                
 
 }
 

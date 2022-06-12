@@ -139,7 +139,7 @@ class StocModel extends Controller
     
     public function getComanda( $id_comanda )
     {
-        $sql = "SELECT * FROM orders WHERE id_order=:id_comanda;";
+        $sql = "SELECT * FROM orders WHERE id_order=:id_comanda";
         $query = $this->conn->prepare($sql);
         $query->execute(array(":id_comanda" => $id_comanda));
         $result = $query->fetch(PDO::FETCH_ASSOC);
@@ -148,7 +148,7 @@ class StocModel extends Controller
 
     public function getStocPiesa( $id_piesa )
     {
-        $sql = "SELECT * FROM stoc WHERE id_stoc=:id_piesa;";
+        $sql = "SELECT * FROM stoc WHERE id_stoc=:id_piesa";
         $query = $this->conn->prepare($sql);
         $query->execute(array(":id_piesa" => $id_piesa));
         $result = $query->fetch(PDO::FETCH_ASSOC);

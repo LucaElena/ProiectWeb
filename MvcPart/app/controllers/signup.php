@@ -13,7 +13,7 @@
 
             $info['generalbar'] = str_replace("CLIENT_NELOGAT" , $userName , BARA_CLIENT_NELOGAT);
             $info['mesajEroare'] = "";
-            print_r($_POST);
+            // print_r($_POST);
 
             $modelUser = $this->model('userModel');
 

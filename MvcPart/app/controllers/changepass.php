@@ -72,10 +72,10 @@
                         if ($user_exist)
                         {
                             $pass_correct = $modelUser->checkPassword($userName, $oldPass);
-                            print_r("Parola corecta : " . $pass_correct);
+                            // print_r("Parola corecta : " . $pass_correct);
                             if($pass_correct)
                             {
-                                print_r("Parola veche corecta si schimbam parola " . $newPass);
+                                // print_r("Parola veche corecta si schimbam parola " . $newPass);
                                 $modelUser->changePassword($userName, $newPass);
                                 header('Location: ' . URL . 'home'); 
                             }

@@ -62,7 +62,7 @@
                                     $status = "Editare";
                                     $actiune = '<button type="submit" class="istoric_programari__lista__actiune" 
                                     id="istoric_programari__lista__actiune" name="istoric_programari__lista__actiune" 
-                                    value=' . $programare['id_form'] . '>Editare</button>';
+                                     value=' . $programare['id_form'] . '>Editare</button>';
                                     break;
                                 case 1://formular in asteptare raspuns accept admin
                                     $status = "Astepare admin";
