@@ -1,839 +1,772 @@
 <!DOCTYPE html>
+<html lang="ro">
+
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <!-- <title>Documentatie Scholarly HTML Proiect TW : CyMaT (Cycling Maintenance Web Tool)</title> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title> CyMaT| Documentatie</title>
+
+    <script src="https://kit.fontawesome.com/9f5ebffa29.js" crossorigin="anonymous"></script>
 </head>
 
-<body prefix="schema: http://schema.org">
-  <header>
-    <h1>Documentatie Scholarly HTML Proiect TW : CyMaT (Cycling Maintenance Web Tool)</h1>
-  </header>
 
-  <div role="contentinfo">
-    <ol role="directory">
-      <li><a href="#revision-history"><span>0. </span>Revision History</a></li>
-      <li><a href="#introduction"><span>1. </span>Introduction</a>
-        <ol role="directory">
-          <li><a href="#purpose"><span>1.1 </span>Purpose</a>
-          </li>
-          <li><a href="#document-conventions"><span>1.2 </span>Document Conventions</a></li>
-          <li><a href="#audience"><span>1.3 </span>Intended Audience and Reading Suggestions</a></li>
-          <li><a href="#scope"><span>1.4 </span>Product Scope</a></li>
-          <li><a href="#references"><span>1.5 </span>References</a></li>
-        </ol>
-      </li>
-      <li><a href="#overall-description"><span>2. </span>Overall Description</a>
-        <ol role="directory">
-          <li><a href="#perspective"><span>2.1 </span>Product Perspective</a></li>
-          <li><a href="#functions"><span>2.2 </span>Product Functions</a></li>
-          <li><a href="#characteristics"><span>2.3 </span>User Classes and Characteristics</a></li>
-          <li><a href="#environment"><span>2.4 </span>Operating Environment</a></li>
-          <li><a href="#constraints"><span>2.5 </span>Design and Implementation Constraints</a></li>
-          <li><a href="#user-documentation"><span>2.6 </span>User Documentation</a></li>
-          <li><a href="#assumptions-dependencies"><span>2.7 </span>Assumptions and Dependencies</a></li>
-        </ol>
-      </li>
-      <li><a href="#external-interface-requirements"><span>3. </span>External Interface Requirements</a>
-        <ol role="directory">
-          <li><a href="#user-interfaces"><span>3.1 </span>User Interfaces</a></li>
-          <li><a href="#hardware-interfaces"><span>3.2 </span>Hardware Interfaces</a></li>
-          <li><a href="#software-interfaces"><span>3.3 </span>Software Interfaces</a></li>
-          <li><a href="#communications-interfaces"><span>3.4 </span>Communications Interfaces</a></li>
-        </ol>
-      </li>
-      <li><a href="#system-features"><span>4. </span>System Features/a>
-          <!-- <ol role="directory">
-            <li><a href="#system-features1"><span>4.1 </span>System Feature 1</a></li>
-            <li><a href="#system-features2"><span>4.2 </span>System Feature 2</a></li>
-          </ol> -->
-      </li>
-      <li><a href="#other-nonfunctional-requirements"><span>5. </span>Other Nonfunctional Requirements</a>
-        <ol role="directory">
-          <li><a href="#performance-requirements"><span>5.1 </span>Performance Requirements</a></li>
-          <li><a href="#safety-requirements"><span>5.2 </span>Safety Requirements</a></li>
-          <li><a href="#security-requirements"><span>5.3 </span>Security Requirements</a></li>
-          <li><a href="#quality-attributes"><span>5.4 </span>Software Quality Attributes</a></li>
-          <li><a href="#business-rules"><span>5.5 </span>Business Rules</a></li>
-        </ol>
-      </li>
-      <li><a href="#other-requirements"><span></span>Other Requirements</a></li>
-      <li><a href="#glossary"><span></span>Appendix A: Glossary</a></li>
-      <li><a href="#analysis-models"><span></span>Appendix B: Analysis Models</a></li>
-      <li><a href="#to-be-determined-list"><span></span>Appendix C: To Be Determined List</a></li>
-    </ol>
-    <dl>
-      <dt>Authors</dt>
-      <dd>
-        Adina Copacianu
-        &amp;
-        Elena Calmis
-        &amp;
-        Liliana Gavrilas
-      </dd>
-      <dt>License</dt>
-      <dd>
-        <a href="https://github.com/LucaElena/ProiectWeb/blob/main/LICENSE">GNU GENERAL PUBLIC LICENSE</a>
-      </dd>
-    </dl>
-  </div>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  .column {
+    float: left;
+    width: 45.55%;
+    padding: 10px;
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+</style>
 
-  <section typeof="sa:Revision History" id="revision-history" role="revision-history">
-    <h2><span>0. </span>Revision History</h2>
-    <p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Reason For Changes</th>
-          <th>Version</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Evaluare partea 1:html/css si documentatie</td>
-          <td>12-04-2022</td>
-          <td></td>
-          <td>Versiunea 1</td>
-        </tr>
-      </tbody>
-    </table>
-    </p>
-  </section>
+<body>
+    <header>
+        <h1>Proiect CyMaT</h1>
+    </header>
 
-  <section id="introduction" role="Introduction">
-    <h2><span>1. </span>Introduction</h2>
-  </section>
+    <div role="contentinfo">
 
-  <section id="purpose" role="purpose">
-    <h3><span>1.1 </span>Purpose</h3>
-    <p>
-      Scopul acestui proiect este rezolvarea acestei cerinte la obiectul Tehnologii Web:
-    </p>
-    <i>
+        <ol role="directory">
+            <li><a href="#introducere"><span>1. </span>Introducere</a>
+                <ol role="directory">
+                    <li><a href="#scop"><span>1.1 </span>Scop</a></li>
+                    <li><a href="#public"><span>1.2 </span>Conventiile documentelor</a></li>
+                    <li><a href="#domeniu"><span>1.3 </span>Publicul destinat</a></li>
+                    <li><a href="#aplicare"><span>1.4 </span>Domeniul de aplicare al produsului</a></li>
+                    <li><a href="#references"><span>1.5 </span>References</a></li>
+
+                </ol>
+              </li>
+                <li><a href="#descriere"><span>2. </span>Descriere generala</a>
+                    <ol role="directory">
+                        <li><a href="#perspectiva"><span>2.1 </span>Perspectiva produsului</a></li>
+                        <li><a href="#functiile"><span>2.2 </span>Functiile produsului</a></li>
+                        <li><a href="#clasele-utilizatori"><span>2.3 </span>Clase de utilizator și caracteristici</a>
+                          <ol role="directory">
+                              <li> <a href="#client">Clientul propriu zis al service-ului de motociclete</a></li>
+                              <li><a href="#administrator">Administratorul service-ului de motociclete</a></li>
+                          </ol>
+                        
+                        <li><a href="#mediu-operare"><span>2.4 </span>Mediul de operare</a></li>
+                    </ol>
+                </li>
+                <li><a href="#interfata"><span>3. </span>Cerinte de interfata externa</a>
+                    <ol role="directory">
+                        <li><a href="#interfeteutil"><span>3.1 </span>Interfete utilizator</a>
+                            <ol role="directory">
+                                <li><a href="#home">Home Page</a></li>
+                                <li><a href="#calendar">Pagina Calendar</a></li>
+                                <li><a href="#formular">Pagina Formular</a></li> 
+                                <li><a href="#login"> Pagina Login & Signup</a></li>
+                                <li><a href="#istoric">Pagina Istoric</a></li>
+                                <li><a href="#adaugacomanda">Pagina Adauga Comanda</a></li>
+                                <li><a href="#stoc">Pagina Stoc</a></li>
+                                <li><a href="#comenzi">Pagina Comenzi</a></li>
+                                <li><a href="#importexport">Pagina Import/Export Date</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#interfatasoftware"><span>3.2 </span>Interfata Software</a></li>
+                        <li><a href="#interfetedecomunicatii"><span>3.3 </span>Interfete de comunicatii</a></li>
+                    </ol>
+                </li>
+                <li><a href="#caracteristici"><span>4. </span>Caracteristicile sistemului</a></li>
+                    <ol role="directory">
+                      <li><a href="#arhitectura"><span>4.1 </span> Arhitectura Aplicatiei</a></li>
+                      <li><a href="#tehnologii"><span>4.2 </span> Tehnologii Utilizate</a></li>
+                      <ol role="directory">
+                                <li><a href="#htmlcssjs">HTML/CSS/JavaScript</a></li>
+                                <li><a href="#PHP">PHP</a></li>
+                                <li><a href="#MySql">MySQL</a></li> 
+                                <li><a href="#Ajax">AJAX</a></li>
+                                <li><a href="#FPDF">Libraria FPDF</a></li>         
+                      </ol>
+                    </ol>
+                <li><a href="#cerintenefunctionale"><span>5. </span>Alte cerințe nefuncționale</a>
+                  <ol role="directory">
+                    <li><a href="#cerinteperformanta"><span>5.1 </span>Cerințe de performanță</a></li>
+                    <li><a href="#cerintesiguranta"><span>5.2 </span>Cerințe de siguranță</a></li>
+                    <li><a href="#cerintesecuritate"><span>5.3 </span>Cerințe de securitate</a></li> 
+                    <li><a href="#reguliafacere"><span>5.4 </span>Reguli de afaceric</a></li>
+                  </ol>
+              </li>
+              <li><a href="#altecerinte"><span></span>Alte Cerinte</a></li>
+              <li><a href="#glosar"><span></span>Anexa A: Glosar</a></li>
+              
+
+        </ol>
+        <h3>Autori</h3>
+
+        <h4>Adina Copacianu & Elena Calmis & Liliana Gavrilas</h4>
+
+
+    </div>
+
+    <section id="introducere">
+
+        <h2><span>1. </span>Introducere</h2>
+        <section id="scop">
+            <h3><span>1.1 </span>Scop</h3>
+
+            <p>
+                Scopul acestui proiect este de a indeplini cerintele primite in cadrul laboratorului de Tehnologii Web:
+              </p>
+              <i>
+                <p>
+                  "Creați un sistem online de management al programărilor și stocurilor unui operatii de service de motociclete,
+                  biciclete, trotinete (electrice sau nu). Fiecare client va consulta calendarul service-ului,
+                  iar apoi va completa un formular cu data și ora dorită, plus detalii despre problemă,
+                  putând adăuga inclusiv fișiere multimedia (imagini și filme).
+                </p>
+                <p>
+                  Administratorul afacerii va putea respinge programarea adăugând un mesaj explicativ:
+                  "Ne pare rău, dar nu avem în stoc piesele necesare pentru reparație, reveniți în S săptămâni"
+                  sau o va putea aproba, oferind și un preț estimativ, plus alte detalii de interes.
+                  De asemenea, aplicația îi va permite acestuia să țină evidența stocurilor existente,
+                  cât și a comenzilor date către furnizori. Sistemul va putea importa date în format CSV și JSON.
+                  Pentru exportul datelor, se va recurge la oricare dintre formatele CSV, JSON, PDF.
+                  Bonus: simularea activitatii service-ului pe o perioada de timp: luni/ani."
+                </p>
+              </i>
+              <p>
+                De asemena, pentru realizarea proiectului a trebuit sa tinem cont si de cerintele precizate pe pagina oficiala a disciplinei :
+                <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">Pagina Tehnologie Web</a>
+              </p>
+
+        </section>
+
+        <section id="public">
+            <h3><span>1.2 </span>Conventiile documentelor</h3>
+
+            <p>
+                Am incercat sa folosim urmatoarele conventii in rezolvarea proiectului:
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    utilizarea template-ului <a href="https://w3c.github.io/scholarly-html/">Scholarly HTML</a> conform celor precizate în macheta <a
+                    href="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">IEEE System Requirements
+                    Specification Template</a>, pentru documentatie;
+
+                  </p>
+                </li>
+                
+                </li>
+                <li>
+                  <p>
+                    nume clase HTML/CSS respectand reguli de denumire de la parinte spre copii. Ex: "parinte" ->
+                    "parinte__copil-1" "parinte__copil-2"
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    o <a href="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">tema cromatica</a> similara in toate
+                    paginile
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    paginile au icons de pe <a href="https://fontawesome.com/">fontawesome</a> alternat
+                    cu <a href="https://unicode-table.com/en/ ">tabelul unicode</a>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    paginile HTML similare au in general acelasi fisier CSS.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    mentinerea, in general, a aceluias meniu pentru clientii care navigeaza prin paginile aplicatiei. Similar si pentru admin.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    mentinerea unui aspect aproximativ asemanator al paginilor HTML
+                  </p>
+                </li>
+              </ul>
+            
+        </section>
+        <section id="domeniu">
+            <h3><span>1.3 </span>Publicul destinat</h3>
+
+            <p> Documentul este adresat în principiu cadrelor didactice responsabile de evaluarea proiectului din cadrul disciplinei Tehnologii Web. Extinzând aria, acesta poate fi transformat într-un document adresat potențialilor utilizatori, sau chiar investitori ce și-ar dori utilizarea aplicației pe termen lung. </p>
+
+        </section>
+        <section id="aplicare">
+            <h3><span>1.4 </span>Domeniul de aplicare al produsului</h3>
+
+            
+            <p> Aplicația Web ”CyMaT” descrisă în cadrul acestui document are ca și scop  gestionarea stocurilor si programarilor unui service de motociclete.</p>
+            <p> Aceasta ofera clientilor posibilitatea de a consulta calendarul service-ului si in functie de acesta de a stabili o data convenabila pentru intrevederea si rezolvarea problemelor pe care le confrunta. 
+              In acelasi timp, administratorul service-ului poate avea acces la lista de programari efectuate si, in functie de disponibilitate, poate refuza/ accepta un client. Deasemenea, el poate sa isi gestionieze stocurile de piese si comenzile plasate furnizorilor.</p>
+            
+        </section>
+
+        <section id="references" role="references">
+          <h3><span>1.5 </span>References</h3>
+          <dl>
+            <dt id="ref-TW">Tehnologie Web</dt>
+            <dd property="schema:citation" typeof="schema:WebPage"
+              resource="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">
+              <cite property="schema:name"><a
+                  href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">Pagina obiectului Tehnologie
+                  Web</a></cite>.
+            </dd>
+            <dt id="ref-GithubTW">Github Proiect TW</dt>
+            <dd property="schema:citation" typeof="schema:WebPage" resource="https://github.com/LucaElena/ProiectWeb">
+              <cite property="schema:name"><a href="https://github.com/LucaElena/ProiectWeb">Pagina github a proiectului la
+                  TW</a></cite>.
+            </dd>
+            <dt id="ref-ScholarlyHTML">Scholarly HTML</dt>
+            <dd property="schema:citation" typeof="schema:WebPage" resource="https://w3c.github.io/scholarly-html/">
+              <cite property="schema:name"><a href="https://w3c.github.io/scholarly-html/">Scholarly HTML format</a></cite>.
+            </dd>
+            <dt id="ref-IEEE-SRST">IEEE System Requirements Specification Template</dt>
+            <dd property="schema:citation" typeof="schema:WebPage"
+              resource="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">
+              <cite property="schema:name"><a href="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">IEEE
+                  System Requirements Specification Template</a></cite>.
+            </dd>
+            <dt id="ref-Palette">Coolors palette</dt>
+            <dd property="schema:citation" typeof="schema:WebPage"
+              resource="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">
+              <cite property="schema:name"><a href="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">Coolors
+                  palette used</a></cite>.
+            </dd>
+            <dt id="ref-Font-Awesome">Font Awesome</dt>
+            <dd property="schema:citation" typeof="schema:WebPage" resource="https://fontawesome.com/">
+              <cite property="schema:name"><a href="https://fontawesome.com/">Pagina cu icons folosita: Font
+                  Awesome</a></cite>.
+            </dd>
+            <dt id="ref-Unicode-Table">Unicode table</dt>
+            <dd property="schema:citation" typeof="schema:WebPage" resource="https://unicode-table.com/en/ ">
+              <cite property="schema:name"><a href="https://unicode-table.com/en/ ">Pagina cu tabelul unicode folosit ca
+                  icons</a></cite>.
+            </dd>
+            <dt id="ref-HTML">HTML</dt>
+            <dd property="schema:citation" typeof="schema:WebPage" resource="http://www.w3.org/TR/html5/">
+              <cite property="schema:name"><a href="http://www.w3.org/TR/html5/">One of the HTML Specifications</a></cite>.
+            </dd>
+            <dt id="ref-ValidatorconsortiuWEB">Validator conform specificaţiilor Consorţiului Web</dt>
+            <dd property="schema:citation" typeof="schema:WebPage" resource="https://validator.w3.org/">
+              <cite property="schema:name"><a href="https://validator.w3.org/">Pagina spre validator HTML conform
+                  specificaţiilor Consorţiului Web</a></cite>.
+            </dd>
+            <dt id="ref-ValidatorCSS">Validator CSS</dt>
+            <dd property="schema:citation" typeof="schema:WebPage" resource="https://jigsaw.w3.org/css-validator/">
+              <cite property="schema:name"><a href="https://jigsaw.w3.org/css-validator/">Pagina spre validator
+                  CSS</a></cite>.
+            </dd>
+          </dl>
+        </section>
+      
+
+    </section>
+
+    <section id="descriere">
+        <h2><span>2. </span>Descriere generala</h2>
+        <section id="perspectiva">
+            <h3><span>2.1 </span>Perspectiva produsului</h3>
+
+            <p> Proiectul CyMaT este un produs nou,individual, aparut in contextul evaluarii la disciplina Tehnologii Web. Ideea a fost aleasa in urma consultarii listei de proiecte pusa la dispozitie de catre coordonatorul de laborator, Amariei Ciprian.</p>
+            <p> Practic, proiectul nostru isi propune sa intermedieze relatia dintre clientii si administratorul  service-ului de motociclete, cel din urma putand sa isi managerieze astfel afacerea in functie de programarile realizate in cadrul aplicatii.</p>
+
+        </section>
+
+        <section id="functiile">
+            <h3><span>2.2 </span>Functiile produsului</h3>
+
+            <p>
+                Lista de functii ale aplicatiei web:
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    gestiune programarilor service-ul de motociclete din punctul de vedere al clientilor si administratorului
+                  </p>
+                </li>
+                <ul>
+                  <li>
+                    <p>
+                      calendar pentru alegerea unei date si ore disponibile pentru client
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      formular pentru client de completarea a unei programari cu descrierea problemei prin text si fisiere
+                      video/imagini
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      administratorul poate raspunde unui formular printr-un mesaj text si o propunere de pret cu piese necesare.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      administratorul poate respinge un formular cu un mesaj explicativ
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      apoi clientul poate accepta/respinge oferta de pret a administratorului
+                    </p>
+                  </li>
+                </ul>
+                <li>
+                  <p>
+                    clientul isi poate vedea istoricul programarilor
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    gestiune stocurilor service-ul de motociclete din punctul de vedere al administratorului
+                  </p>
+                </li>
+                <ul>
+                  <li>
+                    <p>
+                      pagina ce permite editare numarului de piese aflate in stoc (totale cat si a celor rezervate pentru
+                      programari)
+                    </p>
+                  </li>
+                </ul>
+                <li>
+                  <p>
+                    gestiune comenzilor service-ul de motociclete din punctul de vedere al administratorului
+                  </p>
+                </li>
+                <ul>
+                  <li>
+                    <p>
+                      pagina ce permite trimiterea unei comenzi de piese catre furnizorii
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      pagina ce permite gestiunea comenzilor date (mutarea din lista de asteptare in stoc)
+                    </p>
+                  </li>
+                </ul>
+                <li>
+                  <p>
+                    gestiune datelor pentru administrator
+                  </p>
+                </li>
+                <ul>
+                  <li>
+                    <p>
+                      export diferite parti din datele aplicatiei in format CSV/JSON/PDF
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      import diferite parti din datele aplicatiei in format CSV/JSON
+                    </p>
+                  </li>
+                </ul>
+              </ul>
+          
+
+              <div class="row">
+                <div class="column">
+                  <img src="./WebPart/images/DiagramaClient.png"  style="width:100%">
+                </div>
+                <div class="column">
+                  <img src="./WebPart/images/DiagramaAdmin.png"  style="width:100%">
+                </div>
+                
+              </div>
+              
+
+        </section>
+        <section id="clase-utilizatori">
+            <h3><span>2.3 </span>Clasele de utilizatori si caracteristici</h3>
+
+            <p>Utilizatorii se impart in 2 clase principale:</p>
+            <ol>
+                <li id="client">Clientii service-ului de motocicle:
+                    <ul>
+                        <li>Acesti utilizatori  folosesc aplicatia pentru a-si putea face o programare in cadrul service-ului atunci cand intampina diferite probleme cu motocicleta;</li>
+                        <li>Ei pot consulta un calendar al service-ului si in functie de acesta pot sa rezerve o data/ora  prin completarea unui formular in care pot introduce si un mesaj insotit de fisiere foto/video pentru o descrie mai detaliata a problemei </li>
+                        <li>De asemenea, ei isi pot crea un cont in aplicatie pentru a putea beneficia de un istoric al programarilor  avute in cadrul aplicatiei</li>
+                    </ul>
+                </li>
+                <li id="administrator"> Administratorul service-ului:
+                    <ul>
+                        <li>Acest tip de utilizator beneficiaza de posibilitatea de a-si putea manageria stocurile de produse, programarile  sau comenzile trimise catre furnizori in functie de rezervarile facute in cadrul aplicatiei;</li>
+                      
+                    </ul>
+                </li>
+            </ol>
+
+        </section>
+        <section id="mediu-operare">
+            <h3><span>2.4 </span>Mediul de operare</h3>
+
+            <p>Aplicatia este in prima faza destinata utilizarii in cadrul browser-ului, pe un sistem de operare de tip Windows, pe orice versiune.</p>
+
+        </section>
+    </section>
+    <section id="interfata">
+        <h2><span>3. </span>Cerinte de interfata externa</h2>
+        <section id="interfeteutil">
+            <h3><span>3.1 </span>Interfete Utilizator</h3>
+            <section id="home">
+                <h3>Home Page</h3>
+                <img src="./WebPart/images/home.png"  style="height: 70%; width: 60%;">
+                <p> Home Page-ul reprezinta prima pagina a aplicatiei si are rolul de a intampina fiecare utilizator si de a face legatura cu paginile de:</p>
+                <ul>
+                    <li>
+                    <p>
+                        login, sign-up , programare, formular , istoric( doar pentru utilizatorii logati) in cazul clientului
+                    </p>
+                    </li>
+                    <li>
+                        <p>
+                            programare, formular, adauga comanda, stoc, comenzi, export-inport date in cazul admin-ului 
+                        </p>
+                    </li>
+                </ul>
+            </section>
+            <section id="calendar">
+                <h3>Pagina Calendar</h3>
+                <img src="./WebPart/images/programare.png"  style="height: 70%; width: 60%;">
+
+                <p>
+                    Aceasta pagina poate fi accesata de orice utilizator, oferind posibilitatea  de a consulta programul 
+                    service-ului de motociclete pentru a putea face o programare
+                  </p>
+                  <ul>
+                      <li>
+                        <p>
+                          butoane de stanga-dreapta &#9664 &#9658 au rolul de a schimba ziua/saptamana/luna de start a calendarului sau de a schimba 
+                          saptamana/luna calculand prima zi de luni din urmatoarele +/-7 sau +/-31 zile
+                        </p>
+                      </li>
+                      
+                      <li>
+                        <p>
+                          butoanele de culoare rosie sunt ocupate de clientul curent si pot fi selectate pentru editare/vizualizare
+                          formularului respectiv
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          butoanele de culoare gri sunt ocupate de de alti clienti si nu pot fi selectate de userul curent
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          butoanele de culoare verde sunt libere si pot fi selectate pentru a incepe un nou formular la acea data si ora
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          butonul de culoare albastru este cel selectat
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          butonul Book conduce utilizatorul spre pagina cu formularul de programare
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          similar si pentru admin doar ca el are acces la toate pentru a raspunde
+                        </p>
+                      </li>
+                  </ul>
+            </section>
+            <section id="formular">
+                <h3>Pagina Formular</h3>
+                <img src="./WebPart/images/formularclient.png"  style="height: 80%; width: 70%;">
+                <img src="./WebPart/images/formularclientacceptat.png"  style="height: 80%; width: 70%;">
+                <p>Aceasta pagina poate fi accesata de catre client direct din meniu, caz in care utilizatorul va avea acces si 
+                  la un input ce ii va permite sa selecteze o ora/data pentru programare, sau va putea accesa pagina chiar din calendar, caz in care inputul cu data si ora programarii va fi deja setat .
+                </p>
+
+                <ul>
+                    
+                    <li>
+                      <p>
+                        initial formularul se afla in starea "Editare" si clientul poate incarca un mesaj text si 1 sau mai multe
+                        fisiere video/imagini
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        apoi clientul poate trimite formularul, caz in care starea acestuia se modifica in "Asteptare"
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        adminul va putea selecta acest tip de formular si va putea raspunde cu un mesaj text de acept/refuz + un
+                        tabel cu piesele de care are nevoie pentru a repara motocicleta (starea formularului ajunge in "Refuzat" sau
+                        "Accept client")
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        clientul vede in istoric ca formularul are o stare schimbata si poate accepta/refuza oferta de pret (starea
+                        formular devine "Programat" sau "Refuzat")
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        piesele se muta din stoc in stoc progrmate in momentul in care adminul raspunde clientului cu un accept
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        piesele se sterg din stoc-ul de rezervate dupa ce adminul muta formularul in starea de "Terminat"(sterg din
+                        stoc) sau "Refuzat"(reintorc in stoc)
+                      </p>
+                    </li>
+                  </ul>
+            </section>
+
+            <section id="login">
+              <h3>Pagina Log In/Sign Up</h3>
+              <img src="./WebPart/images/login.png" alt="" style="height: 70%; width: 60%;">
+              <p>Pagina Log In/Sign Up pote fi acceate din bara de navigare și conține un formular de logare în cazul în care utilizatorul are deja un cont creat,
+                 respecitv un formular de înregistrare în caz contrar</p>
+              <ul>
+                  
+                  <li>Butonul ”Sign In”/"Sign Up" redirecționează utilizatorul către pagina Home</li>
+                  
+              </ul>
+
+          </section>
+
+            <section id="istoric">
+                <h3>Pagina Istoric Programari</h3>
+                <img src="./WebPart/images/istoric.png" alt="" style="height: 70%; width: 60%;">
+                <p>Aceasta pagina poate fi accesata de un utilizator logat. Aici utilizatorul poate: </p>
+
+                <ul>
+                    <li>sa vada data, ora si pretul unei programari plasate</li>
+                    <li>sa vada statusul unei programari</li>
+                    <li>butonul "Editare" conduce utilizatorul la pagina cu mesajul clientului si raspunsul administratorului pentru a putea accepta/refuza oferta de pret primita, in cazul clientului,
+                       sau pentru  a accepta/refuza o programare, in cazul administratorului  </li>
+                </ul>
+                
+            </section>
+            <section id="adaugacomanda">
+                <h3>Pagina Adauga Comanda</h3>
+                <img src="./WebPart/images/adaugacomanda.png" alt="" style="height: 70%; width: 60%;">
+                <p>Aceasta pagina este accesibila doar pentru administratorul service-ului de motociclete si ii permite sa:</p>
+
+                <ul>
+                    <li>selecteze piesa/brandul/categoria si numarul de bucati pe care doreste sa le comande</li>
+                    <li>vizualizeze comenzile plasate anterior, si statusul acestora</li>
+                    
+                </ul>
+                
+            </section>
+            
+            <section id="comenzi">
+                <h3>Pagina Administrare Comenzi</h3>
+                <img src="./WebPart/images/administrareComenzi.png" alt="" style="height: 70%; width: 60%;">
+                <p>Aceasta pagina permite administratorului sa :</p>
+                <ul>
+                    <li>vizualize un tabel cu toate comenzile plasate si date despre acestea</li>
+                    <li>filtrareze comenzile in functie de anumite atribute(brand, categorie, piesa)</li>
+                    <li>marcheze comenzile aflate in asteptare ca primite, caz in care piesele sunt mutate in stoc</li>
+                  
+                </ul>
+
+            </section>
+            <section id="stoc">
+                <h3>Pagina Administrare Stocuri</h3>
+                <img src="./WebPart/images/administrareStoc.png" alt="" style="height: 70%; width: 60%;">
+                <p>In aceasta pagina administratorul service-ului are acces la un tabel cu toate piesele din stoc si poate:</p>
+                
+                <ul>
+                    <li>filtra tabelul in functie de brandul/categoria/tipul piesei</li>
+                    <li>modifica numarul de piese aflate in stoc si stoc rezervate </li>
+                    <li>parcurge tabelul stanga/dreapta cu un numar X de randuri in functie de selectorul de randuri</li>
+                    <li>butonul "Reset" are rolul de a reseta toate filtrele</li>
+                </ul>
+
+            
+            <section id="importexport">
+                <h3>Pagina Import/Export date</h3>
+                <img src="./WebPart/images/importexport.png" alt="" style="height: 70%; width: 60%;">
+                <p>Aceasta pagina permite administrator-ului sa: </p>
+                <ul>
+                    <li>exporte toate/partial datele aplicatiei in format CSV/JSON/PDF</li>
+                    <li>importe toate/partial datele aplicatiei in format CSV/JSON</li>
+                </ul>
+
+            </section>
+            
+
+        </section>
+
+        <section id="interfatasoftware">
+            <h2><span>3.2 </span>Interfata Software</h2>
+
+            <p>Pentru partea de front-end folosim pagini compatibile cu HTML, CSS si JavaScript. Pentru partea de backend utilizam limbajul PHP ce este procesat prin intermediul unui server Apache din cadrul programului XAMMP.
+              Pentru stocarea datelor aplicatiei vom folosi MySql de asemenea procesat in XAMMP.</p>
+
+              <img src="./WebPart/images/overview.png" alt="" style="height: 70%; width: 60%;">
+              
+        </section>
+
+        <section id="interfetedecomunicatii">
+            <h2><span>3.3 </span>Interfate de comunicatii</h2>
+            <p>Pentru comunicarea dintre server si client folosim HTTP.</p>
+        </section>
+
+    </section>
+
+
+    <section id ="caracteristici">
+      <h2><span>4. </span>Caracteristicile sistemului</h2>
+      <section id="arhitectura">
+          <h2><span>4.1 </span>Arhitectura Aplicatiei:</h2>
+          <p>Am optat pentru o arhitectura de tip MVC ce presupune organizarea codului in public si privat, utilizatorului fiindui-i restrictionat accesul direct
+            la fisierele paginilor si controllere din motive de siguranta. Aplicatia sparge URL-ul in mai multe componente si verifica daca prima dintre ele este un controller existent, al doilea argument se presupune ca
+              este o metoda a acelui controller ,deci din nou se verifica daca aceasta exista si daca este publica, iar ce urmeaza dupa eventuala metoda se presupun a fi parametrii metodei. </p>
+            <p>Delimitarea intre aceste elemente in URL se face prin semnul "/". </p>
+            <p>Toate controllerele mostenesc o clasa de baza Controller, care are 2 metode: view si model. Model returneaza un obiect de tipul dat ca paramtru iar view invoca un view cu numele paramtrului primit</p>
+      
+            <img src="./WebPart/images/C4.png" alt="" style="height: 60%; width: 50%;">
+
+          </section>
+        <section id="tehnologii">
+          <h2><span>4.2 </span>Tehnologii utilizate:</h2>
+          
+          <section id="htmlcssjs">
+            <h3>HTML5 / CSS3 / JavaScript</h3>
+            <ul>
+              <li>HTML(Hyper Text Markup Language) pentru a defini structura paginilor Web 
+                front-end.</li>
+              <li>CSS3(Cascading Style Sheets) pentru stilizarea paginilor </li>
+              <li>JavaScript: utilizat in special pentru filtrarea tabelelor si functionalitatea butoanelor </li>
+            </ul>
+
+          </section>
+
+          <section id="PHP">
+            <h3>PHP</h3>
+            <p>PHP este un limbaj de scripting de uz general, pe partea de server, potrivit pentru dezvoltarea web, care poate fi încorporat în HTML.
+              Este folosit în principal pentru gestionarea unei baze de date, pentru a urmări sesiunile și pentru a face verificări care nu ar fi posibile fără scripting 
+              în general. În aplicația noastră este folosit adesea pentru a interoga baza de date pentru a putea imprima pe ecran anumite lucruri, cum ar fi istoricul programarilor, 
+              stocurile de piese, comenzile plasate sau pentru a adauga noi programari, comenzi, piese. De asemenea, este folosit pentru a verifica rolul utilizatorului, sau pentru a genera rapoarte (HTML/CSV/JSON).</p>
+            
+          </section>
+
+          <section id="MySql">
+            <h3>MySQL</h3>
+            <p>Pentru stocarea și gestionarea datelor am folosit sistemul de administrare a bazei de date numit MySQL. Avem 9 tabele în baza noastră de date, utilizate de PHP în interogări. </p>
+            <ul>
+            <li>appointments - retine informatii legate de progarmari, cum ar fi data si ora programarii</li>
+            <li>brands - retine  brand pieselor pentru reparatiile motocicletelor</li>
+            <li>categories - pastreaza categoriile din care fac perte piesele</li>
+            <li>files - pastreaza fisierele video/imagine introduse in forum </li>
+            <li>forms - retine datele introduse in formular(mesajul introdus de client, raspunsul administrator-ului, lista de piese rezervate si statusul formularului</li>
+            <li>orders - contine informatii despre comenzile plasate catre furnizori(data la care s-a facut comanda, data expedierii, cantitatea de piese comandate etc.) </li>
+            <li>parts - contine informatii despre piesele pe care le avem sau le putem introduce in stoc(nume, pret, categorie, categoria din care face parte) </li>
+            <li>tine - evidenta pieselor aflate in stoc</li>
+            <li>user - tine evidenta utilizatorilor care au cont in aplicatie(nume, email, telefon, parola si tipul utilizator)</li>
+            </ul> 
+        </section>
+
+          <section id="Ajax">
+              <h3>Ajax</h3>
+              <p>AJAX( Asynchronous JavaScript and XML) este o tehnică de programare pentru crearea de aplicații web interactive. Intenția este să 
+                facă paginile web să devină mai rapide și deci mai acceptate, prin schimbul în fundal al unor cantități mici de date cu serverul, astfel încât să nu fie nevoie ca 
+                pagina să fie reîncărcată la fiecare acțiune a utilizatorului.Un exemplu reprezentativ pentru utilizarea acestei tehnici in proiectul nostru este atunci cand adaugam o noua comanda, caci tabelul nostru se reactualizeaza fara  ca pagina sa mai fie reincarcata.</p>
+          </section>
+
+          <section id="FPDF">
+              <h3>Libraria FPDF</h3>
+              <p>Am utilizat libraria fpdf pentru crearea de fisiere pdf</p>
+              <p>Pentru crearea de fisiere CSV  am ales sa utilizam functia din php fputcsv </p>
+          </section>
+    
+    </section>
+
+        
+    
+
+    <section id="cerintenefunctionale">
+      <h2><span>5. </span>Alte cerințe nefuncționale</h2>
+      <section id="cerinteperformanta">
+        <h3><span>5.1 </span>Cerinte de performanta</h3>
+        <p>Aplicatia are un design responsive ce permite navigare intre toate paginile aplicatiei  de pe orice dispozitiv </p>
+      </section>
+      <section id="cerintesiguranta">
+        <h3><span>5.2 </span>Cerințe de siguranță </h3>
+        <p> Arhitectura MVC pe care noi am ales sa o abordam presupune izolarea partii logice (business) de considerentele interfete cu utilizatorul, rezultand o aplicatie unde aspectul vizual sau/si nivelele inferioare ale regulilor de business sunt mai usor de modificat, fara a afeca alte nivele.
+          Astfel, reprezentarea informatiilor din interactiunea cu utilizatorul sunt separate de informatiile in sine, , ceea ce ofera o mai mare siguranta aplicatiei.</p>
+        <p>Pentru stocarea şi management-ul online al codului-sursă am ales sa folosim GitHub-ul care ne-a permis o mai mare flexibilitate in indeplinirea sarcinilor </p>
+     </section>
+     <section id="cerintesecuritate">
+      <h3><span>5.3 </span>Cerinte de securitate</h3>
+      <p>SQL Injection este o tehnica de injectare de cod care exploateaza o vulnerabilitate de securitate ce apare in baza de date al unei aplicatii</p>
+      <p>Pentru prevenirea impotriva atacurilor SQL Injection folosim prepared statements</p>
+    </section>
+
+    <section id="reguliafacere">
+      <h3><span>5.4 </span>Reguli de afaceri</h3>
+      <p>Un raport în formatul Scholarly HTML disponibil public pe situl Web al echipei care descrie detaliile care vizează progresul proiectului. Conţinuturile multimedia aferente, dacă există, vor putea fi distribuite pe Web sub formă de prezentare ori film.
+         Minimal, vor fi asociate tag-urile project, infoiasi, web. De asemenea, se va detalia maniera de folosire a sistemului de management al codului-sursă ales.</p>
+    
+      <p>Ghidul de utilizare a aplicaţiei dezvoltate – disponibil ca document HTML5, recurgând la formatul Scholarly HTML. </p>
+     <p> Fiecare echipă va avea alocate maxim 20 de minute pentru susţinerea orală în sala de laborator a soluţiei Web dezvoltate. Toţi membrii echipei trebuie să fie prezenţi.</p>
+        
+    </section>
+
+
+    <section id="altecerinte" >
+      <h2><span>6. </span>Alte cerinte</h2>
       <p>
-        "Creați un sistem online de management al programărilor și stocurilor unui operatii de service de motociclete,
-        biciclete, trotinete (electrice sau nu). Fiecare client va consulta calendarul service-ului,
-        iar apoi va completa un formular cu data și ora dorită, plus detalii despre problemă,
-        putând adăuga inclusiv fișiere multimedia (imagini și filme).
+        Un raport în formatul Scholarly HTML disponibil public pe situl Web al echipei care descrie detaliile care vizează
+        progresul proiectului. Conţinuturile multimedia aferente, dacă există, vor putea fi distribuite pe Web sub formă
+        de prezentare ori film. Minimal, vor fi asociate tag-urile project, infoiasi, web. De asemenea, se va detalia
+        maniera de folosire a sistemului de management al codului-sursă ales.
       </p>
       <p>
-        Administratorul afacerii va putea respinge programarea adăugând un mesaj explicativ:
-        "Ne pare rău, dar nu avem în stoc piesele necesare pentru reparație, reveniți în S săptămâni"
-        sau o va putea aproba, oferind și un preț estimativ, plus alte detalii de interes.
-        De asemenea, aplicația îi va permite acestuia să țină evidența stocurilor existente,
-        cât și a comenzilor date către furnizori. Sistemul va putea importa date în format CSV și JSON.
-        Pentru exportul datelor, se va recurge la oricare dintre formatele CSV, JSON, PDF.
-        Bonus: simularea activitatii service-ului pe o perioada de timp: luni/ani."
+        Ghidul de utilizare a aplicaţiei dezvoltate – disponibil ca document HTML5, recurgând la formatul Scholarly HTML.
       </p>
-    </i>
-    <p>
-      De asemena trebuie sa respectam si cerintele de aici :
-      <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">Pagina Tehnologie Web</a>
-    </p>
-  </section>
+      <p>
+        Fiecare echipă va avea alocate maxim 20 de minute pentru susţinerea orală în sala de laborator a soluţiei Web
+        dezvoltate. Toţi membrii echipei trebuie să fie prezenţi.
+      </p>
+    </section>
+    <section id="glosar" >
+      <h2<span>7. </span>>Anexa: Glosar</h2>
+      <p>API - an application programming interface </p>
+      <p>Apache - a free and open-source cross-platform web server software</p>
+      <p>CSS - Cascading Style Sheets - is a declarative language that controls how webpages look in the browser.</p>
+      <p>CyMaT - Cycling Maintenance Web Tool</p>
+      <p>HTTP - HyperText Transfer Protocol</p>
+      <p>JSON - JavaScript Object Notation (JSON) - is a data-interchange format.</p>
+      <p>MVC - model view controller </p>
+      <p>MySql - is an open-source relational database management system </p>
+      <p>PDF - Portable Document Format </p>
+      <p>PHP - Hypertext Preprocessor - a general-purpose scripting language geared toward web development.</p>
+      <p>TW - technology web </p>
+      <p>XAMPP - a free and open-source cross-platform web server solution stack </p>
+    </section>
 
-  <section id="document-conventions">
-    <h3><span>1.2 </span>Document Conventions</h3>
-    <p>
-      Am incercat sa folosim urmatoarele conventii in rezolvarea proiectului:
-    </p>
-    <ul>
-      <li>
-        <p>
-          pentru documentatie am folosit formatul <a href="https://w3c.github.io/scholarly-html/">Scholarly HTML</a>
-        </p>
-      </li>
-      <li>
-        <p>
-          conform celor precizate în macheta <a
-            href="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">IEEE System Requirements
-            Specification Template</a>
-        </p>
-      </li>
-      <li>
-        <p>
-          nume clase HTML/CSS respectand reguli de denumire de la parinte spre copii. Ex: "parinte" ->
-          "parinte__copil-1" "parinte__copil-2"
-        </p>
-      </li>
-      <li>
-        <p>
-          o <a href="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">tema cromatica</a> similara in toate
-          paginile
-        </p>
-      </li>
-      <li>
-        <p>
-          paginile au icons de pe <a href="https://fontawesome.com/">fontawesome</a> alternat
-          cu <a href="https://unicode-table.com/en/ ">tabelul unicode</a>
-        </p>
-      </li>
-      <li>
-        <p>
-          paginile HTML similare au in general acelasi fisier CSS.
-        </p>
-      </li>
-      <li>
-        <p>
-          paginile HTML au in general acelasi meniu pentru clienti in diferite pagini. Similar si pentru admin.
-        </p>
-      </li>
-      <li>
-        <p>
-          paginile HTML au in general aspect asemanator.
-        </p>
-      </li>
-    </ul>
-  </section>
+  
 
-  <section id="audience" role="audience">
-    <h3><span>1.3 </span>Intended Audience and Reading Suggestions</h3>
-    <p>
-      Audienta acestui proiect este profesorul evaluator.
-      Si recomandam citirea documentatiei incepand cu sectiunea generala de introducere.
-    </p>
-  </section>
-
-  <section id="scope" role="scope">
-    <h3><span>1.4 </span>Product Scope</h3>
-    <p>
-      Audienta acestui proiect este profesorul evaluator.
-      Si recomandam citirea documentatiei incepand cu sectiunea generala de introducere.
-    </p>
-  </section>
-
-  <section id="references" role="references">
-    <h3><span>1.5 </span>References</h3>
-    <dl>
-      <dt id="ref-TW">Tehnologie Web</dt>
-      <dd property="schema:citation" typeof="schema:WebPage"
-        resource="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">
-        <cite property="schema:name"><a
-            href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">Pagina obiectului Tehnologie
-            Web</a></cite>.
-      </dd>
-      <dt id="ref-GithubTW">Github Proiect TW</dt>
-      <dd property="schema:citation" typeof="schema:WebPage" resource="https://github.com/LucaElena/ProiectWeb">
-        <cite property="schema:name"><a href="https://github.com/LucaElena/ProiectWeb">Pagina github a proiectului la
-            TW</a></cite>.
-      </dd>
-      <dt id="ref-ScholarlyHTML">Scholarly HTML</dt>
-      <dd property="schema:citation" typeof="schema:WebPage" resource="https://w3c.github.io/scholarly-html/">
-        <cite property="schema:name"><a href="https://w3c.github.io/scholarly-html/">Scholarly HTML format</a></cite>.
-      </dd>
-      <dt id="ref-IEEE-SRST">IEEE System Requirements Specification Template</dt>
-      <dd property="schema:citation" typeof="schema:WebPage"
-        resource="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">
-        <cite property="schema:name"><a href="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">IEEE
-            System Requirements Specification Template</a></cite>.
-      </dd>
-      <dt id="ref-Palette">Coolors palette</dt>
-      <dd property="schema:citation" typeof="schema:WebPage"
-        resource="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">
-        <cite property="schema:name"><a href="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">Coolors
-            palette used</a></cite>.
-      </dd>
-      <dt id="ref-Font-Awesome">Font Awesome</dt>
-      <dd property="schema:citation" typeof="schema:WebPage" resource="https://fontawesome.com/">
-        <cite property="schema:name"><a href="https://fontawesome.com/">Pagina cu icons folosita: Font
-            Awesome</a></cite>.
-      </dd>
-      <dt id="ref-Unicode-Table">Unicode table</dt>
-      <dd property="schema:citation" typeof="schema:WebPage" resource="https://unicode-table.com/en/ ">
-        <cite property="schema:name"><a href="https://unicode-table.com/en/ ">Pagina cu tabelul unicode folosit ca
-            icons</a></cite>.
-      </dd>
-      <dt id="ref-HTML">HTML</dt>
-      <dd property="schema:citation" typeof="schema:WebPage" resource="http://www.w3.org/TR/html5/">
-        <cite property="schema:name"><a href="http://www.w3.org/TR/html5/">One of the HTML Specifications</a></cite>.
-      </dd>
-      <dt id="ref-ValidatorconsortiuWEB">Validator conform specificaţiilor Consorţiului Web</dt>
-      <dd property="schema:citation" typeof="schema:WebPage" resource="https://validator.w3.org/">
-        <cite property="schema:name"><a href="https://validator.w3.org/">Pagina spre validator HTML conform
-            specificaţiilor Consorţiului Web</a></cite>.
-      </dd>
-      <dt id="ref-ValidatorCSS">Validator CSS</dt>
-      <dd property="schema:citation" typeof="schema:WebPage" resource="https://jigsaw.w3.org/css-validator/">
-        <cite property="schema:name"><a href="https://jigsaw.w3.org/css-validator/">Pagina spre validator
-            CSS</a></cite>.
-      </dd>
-    </dl>
-  </section>
-
-  <section id="overall-description" role="Overall Description">
-    <h2><span>2. </span>Introduction</h2>
-  </section>
-
-  <section id="perspective" role="perspective">
-    <h3><span>2.1 </span>Product Perspective</h3>
-    <p>
-      Acest sitem este o aplicatie web noua de gestiune al programărilor și stocurilor unui operatii de service de
-      motociclete
-      <img src="./WebPart/images/overview.png">
-    </p>
-  </section>
-
-  <section id="functions" role="functions">
-    <h3><span>2.2 </span>Product Functions</h3>
-    <p>
-      Lista de functii ale aplicatiei web:
-    </p>
-    <ul>
-      <li>
-        <p>
-          gestiune programarilor service-ul de motociclete din punctul de vedere al clientilor si administratorului
-        </p>
-      </li>
-      <ul>
-        <li>
-          <p>
-            calendar pentru alegerea unei date si ore disponibile pentru client
-          </p>
-        </li>
-        <li>
-          <p>
-            formular pentru client de completarea a unei programari cu descrierea problemei prin text si fisiere
-            video/imagini
-          </p>
-        </li>
-        <li>
-          <p>
-            administratorul poate raspunde unui formular printr-un mesaj text si o propunere de pret cu piese necesare.
-          </p>
-        </li>
-        <li>
-          <p>
-            administratorul poate respinge un formular cu un mesaj explicativ
-          </p>
-        </li>
-        <li>
-          <p>
-            apoi clientul poate accepta/respinge oferta de pret a administratorului
-          </p>
-        </li>
-      </ul>
-      <li>
-        <p>
-          clientul isi poate vedea istoricul programarilor
-        </p>
-      </li>
-      <li>
-        <p>
-          gestiune stocurilor service-ul de motociclete din punctul de vedere al administratorului
-        </p>
-      </li>
-      <ul>
-        <li>
-          <p>
-            pagina ce permite editare numarului de piese aflate in stoc (totale cat si a celor rezervate pentru
-            programari)
-          </p>
-        </li>
-      </ul>
-      <li>
-        <p>
-          gestiune comenzilor service-ul de motociclete din punctul de vedere al administratorului
-        </p>
-      </li>
-      <ul>
-        <li>
-          <p>
-            pagina ce permite trimiterea unei comenzi de piese catre furnizorii
-          </p>
-        </li>
-        <li>
-          <p>
-            pagina ce permite gestiunea comenzilor date (mutarea din lista de asteptare in stoc)
-          </p>
-        </li>
-      </ul>
-      <li>
-        <p>
-          gestiune datelor pentru administrator
-        </p>
-      </li>
-      <ul>
-        <li>
-          <p>
-            export diferite parti din datele aplicatiei in format CSV/JSON/PDF
-          </p>
-        </li>
-        <li>
-          <p>
-            import diferite parti din datele aplicatiei in format CSV/JSON
-          </p>
-        </li>
-      </ul>
-    </ul>
-  </section>
-
-  <section id="characteristics" role="characteristics">
-    <h3><span>2.3 </span>User Classes and Characteristics</h3>
-    <p>
-      Ne propunem sa folosim un model MVC si anticipam sa folosim urmatoare clase:
-    </p>
-    <ul>
-      <li>
-        <p>core:</p>
-      </li>
-      <ul>
-        <li>
-          <p>App si Controller</p>
-        </li>
-      </ul>
-      <li>controllers:</li>
-      <ul>
-        <li>
-          <p> Api, Programare, Formular, Piesa, Login , Reset, Signup, Comanda, Stoc ...</p>
-        </li>
-      </ul>
-      <li>
-        <p>models:</p>
-      </li>
-      <ul>
-        <li>
-          <p>User, Formular, Comanda , Piesa, Date ...</p>
-        </li>
-      </ul>
-      <li>
-        <p>views:</p>
-      </li>
-      <ul>
-        <li>
-          <p>PaginaPrincipala, Formular, Calendar, Istoric, Stoc, Comenzi, Api ...</p>
-        </li>
-      </ul>
-  </section>
-
-  <section id="environment" role="environment">
-    <h3><span>2.4 </span>Operating Environment</h3>
-    <p>
-      Folosim pagini web compatibile HTML5 cu CSS si JavaScript pentru interactiuni locale cu utilizatorul.
-      Pentru partea de backend ne propunem sa folosim PHP ce va fi procesat in Xampp intr-un server de Apache.
-      De asemenea pentru stocarea datelor aplicatiei vom folosi MySql de asemenea procesat in Xampp.
-    </p>
-  </section>
-
-  <section id="constraints" role="constraints">
-    <h3><span>2.5 </span>Design and Implementation Constraints</h3>
-    <p>
-      Desing-ul este limitat de timpul scurt de realizare a aplicatie si cunostintele noastre actuale...
-    </p>
-  </section>
-
-  <section id="user-documentation" role="user-documentation">
-    <h3><span>2.6 </span>User Documentation</h3>
-    <ul>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/">MDN</a>
-      </li>
-      <li>
-        <a href="https://www.w3schools.com/">W3SHCOOL</a>
-      </li>
-      <li>
-        <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-projects.html">Pagina obiectului Tehnologie
-          Web</a>
-      </li>
-      <li>
-        <a href="https://github.com/rick4470/IEEE-SRS-Tempate#12-document-conventions">IEEE System Requirements
-          Specification Template </a>
-      </li>
-      <li>
-        <a href="https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557">Coolors palette</a>
-      </li>
-      <li>
-        <a href="https://fontawesome.com">Font Awesome</a>
-      </li>
-      <li><a href="https://unicode-table.com">Unicode table</a></li>
-      <li><a href="https://css-tricks.com/">Css-tricks</a></li>
-      <li><a href="https://validator.w3.org/">HTML validator</a></li>
-      <li><a href="https://jigsaw.w3.org/css-validator/">Css validator</a></li>
-    </ul>
-
-
-  </section>
-  <section id="assumptions-dependencies" role="assumptions-dependencies">
-    <h3><span>2.7 </span>Assumptions and Dependencies</h3>
-    <p>
-      Nu cunoastem dependente.
-    </p>
-  </section>
-
-  <section id="external-interface-requirements" role="External Interface Requirements">
-    <h2><span>3. </span>External Interface Requirement</h2>
-  </section>
-
-  <section id="user-interfaces" role="user-interfaces">
-    <h3><span>3.1 </span>User Interfaces</h3>
-    <p>
-      Logica principalelor interfete pentru utilizatori nostri.
-    </p>
-    <ul>
-      <li>
-        <p>
-          logica interfata programari clienti/admin:
-        </p>
-      </li>
-      <ul>
-        <li>
-          <p>
-            un grid cu dreptunghiuri cu functionalitate de buton de la 08 la 19, de Luni pana Duminica
-          </p>
-        </li>
-        <li>
-          <p>
-            butoane de stanga-dreapta pentrua a schimba ziua/saptamana/luna de start a calendarului
-          </p>
-        </li>
-        <li>
-          <p>
-            butoanele de stanga-dreapta ce schimba saptamana/luna calculeaza prima luni din urmatoarele +/-7 sau +/-31
-            zile
-          </p>
-        </li>
-        <li>
-          <p>
-            butoanele de culoare rosie sunt ocupate de clientul curent si pot fi selectate pentru editare/vizualizare
-            formularului respectiv
-          </p>
-        </li>
-        <li>
-          <p>
-            butoanele de culoare gri sunt ocupate de de alti clienti si nu pot fi selectate de userul curent
-          </p>
-        </li>
-        <li>
-          <p>
-            butoanele de culoare verde sunt libere si pot fi selectate pentru a incepe un nou formular la acea data si
-            ora
-          </p>
-        </li>
-        <li>
-          <p>
-            butonul de culoare albastru este cel selectat
-          </p>
-        </li>
-        <li>
-          <p>
-            similar si pentru admin doar ca el are acces la toate pentru a raspunde
-          </p>
-        </li>
-      </ul>
-      <li>
-        <p>
-          logica interfata formular:
-        </p>
-      </li>
-      <ul>
-        <li>
-          <p>
-            client poate incepe direct pe aceasta pagina din meniu, caz in care va avea acces si la un input de data ora
-            ce ii va permite sa selecteze o ora/data
-            sau va veni din calendar caz in care aceasta va fi deja setat
-          </p>
-        </li>
-        <li>
-          <p>
-            initial formularul se afla in starea "Editare" si clientul poate incarca un mesaj text si 1 sau mai multe
-            fisiere video/imagini
-          </p>
-        </li>
-        <li>
-          <p>
-            apoi clientul poate trimite formularul, caz in care starea acestuia se modifica in "Asteptare"
-          </p>
-        </li>
-        <li>
-          <p>
-            adminul va putea selecta acest tip de formular si va putea raspunde cu un mesaj text de acept/refuz + un
-            tabel cu piesele de care are nevoie pentru a repara motocicleta (starea formularului ajunge in "Refuzat" sau
-            "Accept client")
-          </p>
-        </li>
-        <li>
-          <p>
-            clientul vede in istoric ca formularul are o stare schimbata si poate accepta/refuza oferta de pret (starea
-            formular devine "Programat" sau "Refuzat")
-          </p>
-        </li>
-        <li>
-          <p>
-            piesele se muta din stoc in stoc progrmate in momentul in care adminul raspunde clientului cu un accept
-          </p>
-        </li>
-        <li>
-          <p>
-            piesele se sterg din stoc-ul de rezervate dupa ce adminul muta formularul in starea de "Terminat"(sterg din
-            stoc) sau "Refuzat"(reintorc in stoc)
-          </p>
-        </li>
-      </ul>
-      <li>
-        <p>
-          logica interfata admin stoc:
-        </p>
-      </li>
-      <ul>
-        <li>
-          <p>
-            adminul va avea acces la un tabel de 5/10/15/20 randuri in care sunt toate piesele din stoc pe mai multe
-            pagini
-          </p>
-        </li>
-        <li>
-          <p>
-            adminul are pe aceasta pagina si mai multi selectori de filtrare a tabelului dupa brand/categorie/tip piesa
-            cat si buton de cauta si unul de reset al filtrelor
-          </p>
-        </li>
-        <li>
-          <p>
-            adminul poate modifica numarul de piese aflate in stoc si stoc rezervate
-          </p>
-        </li>
-        <li>
-          <p>
-            adminul poate parcurge tabelul stanga/dreapta cu un numar X de randuri in functie de selectorul de randuri
-          </p>
-        </li>
-      </ul>
-      <li>
-        <p>
-          logica interfata admin comenzi:
-        </p>
-      </li>
-      <ul>
-        <li>
-          <p>
-            un table filtrabil si similar cu cel de la stoc dar in care avem comenzi
-          </p>
-        </li>
-        <li>
-          <p>
-            adminul va putea sa marcheze comanda aflate in asteptare ca primite , caz in care piesele sunt mutate in
-            stoc
-          </p>
-        </li>
-        <li>
-          <p>
-            tot prin acest formular putem sa plasam diferite mesaje la sfarsitul diferitelor actiuni
-          </p>
-        </li>
-      </ul>
-      <li>
-        <p>
-          logica interfata admin plasare comenzi:
-        </p>
-      </li>
-      <ul>
-        <li>
-          <p>
-            selectori de piesa/brand/categori si numar de bucati + buton de plasare comanda(ne imaginam ca acesta este
-            legat la API-ul unor furnizori)
-          </p>
-        </li>
-        <li>
-          <p>
-            un tabel cu comenzile deja aflate in astepare
-          </p>
-        </li>
-      </ul>
-      <li>
-        <p>
-          logica interfata admin date:
-        </p>
-      </li>
-      <ul>
-        <li>
-          <p>
-            admin-ul poate sa selecta sa exporte toate/partial datele aplicatiei in format CSV/JSON/PDF
-          </p>
-        </li>
-        <li>
-          <p>
-            admin-ul poate sa selecta sa importe toate/partial datele aplicatiei in format CSV/JSON
-          </p>
-        </li>
-      </ul>
-    </ul>
-  </section>
-  <section id="hardware-interfaces" role="hardware-interfaces">
-    <h3><span>3.2 </span>Hardware Interfaces</h3>
-    <p>
-      Paginile HTML cu CSS si Javascript sunt generate pentru clienti de catre serverul web Apache prin protocolul HTTP.
-      Datele din PHP sunt luate din baza de date Mysql.
-      Serverul de Apache si Mysql sunt gestionate cu ajutorul aplicatiei Xamp ce ruleaza pe calculatorul personal.
-    </p>
-
-  </section>
-
-  <section id="software-interfaces" role="software-interfaces">
-    <h3><span>3.3 </span>Software Interfaces</h3>
-    <p>
-      Datele din baza de date vor fi transformate in CSV/Json pentru a putea fi livrate prin API-ul aplicatiei
-    </p>
-  </section>
-
-  <section id="communications-interfaces" role="communications-interfaces">
-    <h3><span>3.4 </span>Communications Interfaces</h3>
-    <p>Folosim protocolul HTTP pentru comunicarea dintre client si servers</p>
-  </section>
-
-  <section id="system-features" role="System Features">
-    <h2><span>4. </span>System Features</h2>
-    <!-- <p>
-      This template illustrates organizing the functional requirements for the product by system features, the major
-      services provided by the product. You may prefer to organize this section by use case, mode of operation, user
-      class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for
-      your product.
-    </p>
-  </section>
-  <section id="system-features1" role="system-features1">
-    <h3><span>4.1 </span>System Feature 1</h3>
-    <p>
-      Don’t really say “System Feature 1.” State the feature name in just a few words. 4.1.1 Description and Priority
-      Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could
-      also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a
-      relative scale from a low of 1 to a high of 9). 4.1.2 Stimulus/Response Sequences List the sequences of user
-      actions and system responses that stimulate the behavior defined for this feature. These will correspond to the
-      dialog elements associated with use cases. 4.1.3 Functional Requirements Itemize the detailed functional
-      requirements associated with this feature. These are the software capabilities that must be present in order for
-      the user to carry out the services provided by the feature, or to execute the use case. Include how the product
-      should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete,
-      unambiguous, verifiable, and necessary. Use “TBD” as a placeholder to indicate when necessary information is not
-      yet available.
-
-      Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.
-    </p>
-  </section>
-  <section id="system-features2" role="system-features2">
-    <h3><span>4.2 </span>System Feature 2</h3>
-    <p>
-      so on
-    </p> -->
-  </section>
-
-
-  <section id="other-nonfunctional-requirements" role="Other Nonfunctional Requirements">
-    <h2><span>5. </span>Other Nonfunctional Requirements</h2>
-  </section>
-
-  <section id="performance-requirements" role="performance-requirements">
-    <h3><span>5.1 </span>Performance Requirements</h3>
-    <p>
-      Adoptarea principiilor designului Web responsiv.
-    </p>
-  </section>
-  <section id="safety-requirements" role="safety-requirements">
-    <h3><span>5.2 </span>Safety Requirements</h3>
-    <p>
-      Pentru verificare, se poate recurge la instrumente dedicate precum Stylelint. De asemenea, este obligatorie
-      folosirea suitei de tehnologii Ajax.
-    </p>
-    <p>
-      Codul trebuind să fie valid conform specificaţiilor Consorţiului Web. Se vor utiliza foi de stiluri CSS valide
-    </p>
-    <p>
-      Respectarea cerinţelor de bază ale ingineriei software - e.g., comentarea şi modularizarea codului-sursă,
-      recurgerea la unităţi de testare şi altele - cu redactarea documentaţiilor aferente - precum manualul
-      dezvoltatorului, în
-      cazul dezvoltării unui API ori serviciu Web.
-    </p>
-    <p>
-      În procesul de dezvoltare a proiectelor, se va utiliza obligatoriu un sistem de stocare şi management online al
-      codului-sursă - e.g., utilizarea de soluţii populare precum Bitbucket, GitLab, GitHub etc.
-    </p>
-    <p>
-      Import/export de date folosind formate deschise – minim, CSV.
-    </p>
-  </section>
-  <section id="security-requirements" role="security-requirements">
-    <h3><span>5.3 </span>Security Requirements</h3>
-    <p>
-      Implementarea va recurge la tehnici de prevenire a atacurilor (precum Cross Site Scripting sau SQL injection).
-    </p>
-
-  </section>
-  <section id="quality-attributes" role="quality-attributes">
-    <h3><span>5.4 </span>Software Quality Attributes</h3>
-    <p>
-      Pentru partea de client, interfaţa aplicaţiei/sitului Web va fi marcată obligatoriu în HTML5
-    </p>
-    <p>
-      Se vor folosi pe cât posibil machete (template-uri) de prezentare şi metode de configurare şi administrare a
-      aplicaţiei.
-    </p>
-    <p>
-      Proiectele vor putea fi implementate pe partea de server folosind orice tehnologie, platformă şi limbaj de
-      programare actuale, cu condiţia ca acestea să adopte o licenţă deschisă.
-    </p>
-    <p>
-      Pentru stocarea şi managementul datelor, se vor putea utiliza servere de baze de date relaţionale, interogate via
-      SQL - minimal, a se considera SQLite. Complementar, se poate recurge la servere de baze de date aliniate
-      paradigmei NoSQL.
-    </p>
-  </section>
-  <section id="business-rules" role="business-rules">
-    <h3><span>5.5 </span>Business Rules</h3>
-    <p>
-      Existenţa unui modul propriu de administrare a aplicaţiei Web.
-    </p>
-    <p>
-      Nu se permite utilizarea de framework-uri la nivel de client (front-end) şi/sau server (back-end) Web.
-    </p>
-    <p>
-      Prezentarea arhitecturii de ansamblu (e.g., via diagrame UML sau similare - de studiat Modelul C4), plus etapele
-      intermediare ale dezvoltării proiectului.
-    </p>
-    <p>
-      Soluţia complet funcţională a proiectului ce va fi evaluată conform criteriilor enunţate anterior. Se vor oferi
-      detalii privind structura (modelarea) datelor şi provenienţa lor – de exemplu, recurgerea la anumite servicii Web
-      ori API-uri publice.
-    </p>
-
-  </section>
-
-  <section id="other-requirements" role="Other Nonfunctional Requirements">
-    <h2>Other Requirements</h2>
-    <p>
-      Un raport în formatul Scholarly HTML disponibil public pe situl Web al echipei care descrie detaliile care vizează
-      progresul proiectului. Conţinuturile multimedia aferente, dacă există, vor putea fi distribuite pe Web sub formă
-      de prezentare ori film. Minimal, vor fi asociate tag-urile project, infoiasi, web. De asemenea, se va detalia
-      maniera de folosire a sistemului de management al codului-sursă ales.
-    </p>
-    <p>
-      Ghidul de utilizare a aplicaţiei dezvoltate – disponibil ca document HTML5, recurgând la formatul Scholarly HTML.
-    </p>
-    <p>
-      Fiecare echipă va avea alocate maxim 20 de minute pentru susţinerea orală în sala de laborator a soluţiei Web
-      dezvoltate. Toţi membrii echipei trebuie să fie prezenţi.
-    </p>
-  </section>
-  <section id="glossary" role="Other Nonfunctional Requirements">
-    <h2><span>Appendix A: Glossary</h2>
-    <p>API - an application programming interface </p>
-    <p>Apache - a free and open-source cross-platform web server software</p>
-    <p>CSS - Cascading Style Sheets - is a declarative language that controls how webpages look in the browser.</p>
-    <p>CyMaT - Cycling Maintenance Web Tool</p>
-    <p>HTTP - HyperText Transfer Protocol</p>
-    <p>JSON - JavaScript Object Notation (JSON) - is a data-interchange format.</p>
-    <p>MVC - model view controller </p>
-    <p>MySql - is an open-source relational database management system </p>
-    <p>PDF - Portable Document Format </p>
-    <p>PHP - Hypertext Preprocessor - a general-purpose scripting language geared toward web development.</p>
-    <p>TW - technology web </p>
-    <p>XAMPP - a free and open-source cross-platform web server solution stack </p>
-  </section>
-  <section id="analysis-models" role="Other Nonfunctional Requirements">
-    <h2>Appendix B: Analysis Models</h2>
-    <p>
-      Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition
-      diagrams, or entity-relationship diagrams.
-    </p>
-  </section>
 
 </body>
 

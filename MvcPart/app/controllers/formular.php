@@ -1092,11 +1092,21 @@
             {
                 $userName = $_SESSION['userName'];
             }
+            
+
 
             $modelFisier = $this->model('fisierModel');
             $modelFormular = $this->model('formularModel');
             $modelStoc = $this->model('stocModel');
             
+            if(!empty($_SESSION['currentFormId']))
+            {
+                $currentFormId = $_SESSION['currentFormId'];
+                unset($_SESSION['currentFormId']);
+                $modelFormular->schimbaStatus($currentFormId, "0");
+                
+            }
+
             if(isset(($_POST)))
             {
                 if(isset($_POST['id_formular_ascuns']))
@@ -1112,6 +1122,8 @@
                     }
                 }
             }
+            
+
             header('Location: ' . URL . 'formular/'); // redirect la formular index(unde avem logica de printare view)
         }
         

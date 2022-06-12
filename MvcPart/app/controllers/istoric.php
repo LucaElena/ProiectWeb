@@ -267,7 +267,8 @@
 
                     print_r("id form:" . $idFormular . " ". $_SESSION['oraSelectata']);
                     $_SESSION['oraSelectata'] = $oraSelectata;
-                    header('Location: ' . URL . '/formular/'); // redirect la formular index(unde avem logica de printare view)
+                    
+                    header('Location: ' . URL . '/formular/editareformular/'); // redirect la formular index(unde avem logica de printare view)
 
                 }
             }
