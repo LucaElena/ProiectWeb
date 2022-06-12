@@ -50,9 +50,9 @@
 
 
 
-    <footer>
+    <!-- <footer>
         <p>Cycling Maintenance Web Tool</p>
-    </footer>
+    </footer> -->
 
 
 </body>

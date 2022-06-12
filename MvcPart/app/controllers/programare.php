@@ -80,7 +80,7 @@
             $info['tabelLunaProgram'] = '<div class="programari__calendar__month" id="selected_month">' . strtoupper($lunaTabel) . '</div>';
             // print_r("zi start = " . $ziStart);
             
-            print_r("Inceput saptamna = " . $weekStart . " sfarsit = " . $weekEnd);
+            // print_r("Inceput saptamna = " . $weekStart . " sfarsit = " . $weekEnd);
             // Inceput saptamna = 2022-05-15 00:00:00 sfarsit = 2022-05-21 23:59:59
 
             $programariSaptamnaCurenta = $modelProgramare->getProgramari( $weekStart , $weekEnd );

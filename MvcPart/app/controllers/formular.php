@@ -15,6 +15,7 @@
             if(!empty($_SESSION['oraSelectata']))
             {
                 $oraSelectata = $_SESSION['oraSelectata'];
+                unset($_SESSION['oraSelectata']);
             }
 
             // Status formular : Editare(0)->Astepare raspuns admin(1)->->Astepare accept client(2)->Programat(3) Refuzat(4) -> Terminat(5)
@@ -59,7 +60,7 @@
 
             $oraSelectataFormatDate = DateTime::createFromFormat('Y-m-d H:i', $oraSelectata);
             $info['oraSelectata'] =  $oraSelectataFormatDate->format('Y-m-d')."T".$oraSelectataFormatDate->format('H:00');
-            $info['oraSelectataMin'] =  $oraSelectataFormatDate->format('Y-m-d')."T09:00";
+            $info['oraSelectataMin'] =  $oraSelectataFormatDate->format('Y-m-d')."T08:00";
             $info['oraSelectataMax'] =  $oraSelectataFormatDate->format('Y-m-d')."T19:00";
 
             //mutat in functii individuale:
@@ -143,12 +144,12 @@
                 $programareID = $countProgramari;
                 $modelProgramare->insertProgramare($programareID, $oraSelectataFormatDate->format('Y-m-d H:00:00') , $user_id , $formID );
                 $modelFormular->insertFormular($formID,"","","{}",0);
-                $last_id = $this->conn->lastInsertId();
+                // $last_id = $this->conn->lastInsertId();
             }
             else
             {
-                print_r("Avem deja acesta data in programari:");
-                print_r($programareResultat);
+                // print_r("Avem deja acesta data in programari:");
+                // print_r($programareResultat);
                 //Avem deja acesta data in programari -> trebuie sa o updatam in functie parametrii primiti
                 $formID = $programareResultat['id_form'];
                 $programareID = $programareResultat['id_appointment'];
@@ -166,7 +167,7 @@
 
             //punem in pagina si un form ascuns pentru a transmite la functiile de actiune id-ul formularului
             $info['idFormularAscuns'] = $formID;
-            print_r($info['idFormularAscuns']);
+            // print_r($info['idFormularAscuns']);
             $formResultat = $modelFormular->getFormular($formID);
             $statusPrimit = $formResultat['status'];
             $jsonPieseSelectate = $formResultat['reserved_parts_list'];
@@ -511,7 +512,7 @@
             }
 
             // niste modificari si redirect la formular
-            print_r($_POST);
+            // print_r($_POST);
 
             // header('Location: ' . URL . 'formular/' . $userName); // redirect la formular index(unde avem logica de printare view)
         }

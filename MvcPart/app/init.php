@@ -125,7 +125,7 @@
 								<a class="header_button">
 									<!-- <span class="header_icon"> <i class="fas fa-user"></i> </span> -->
 									<span class="header_icon"> &#128100; </span>
-									<span class="header_text">User</span>
+									<span class="header_text">GENERIC_USERNAME</span>
 								</a>
 								<ul class="header_button__login">
 									<li>
@@ -221,7 +221,7 @@
 							<li>
 								<a class="header_button">
 										<span class="header_icon"> &#128100; </span>
-										<span class="header_text">User</span>
+										<span class="header_text">GENERIC_USERNAME</span>
 								</a>
 								<ul class="header_button__login">
 										<li>
